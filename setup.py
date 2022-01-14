@@ -7,7 +7,7 @@ setup(
     name='three-commas',
     version='0.0.1',
     description='Python api wrapper for 3commas with extended functionality in the api, models, error handling',
-    url='url of the project, e.g. guthub url',
+    url='https://github.com/badass-blockchain/three_commas',
     author='Sergey Gerodes',
     author_email='sgerodes@gmail.com',
     long_description=long_description,

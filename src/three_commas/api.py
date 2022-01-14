@@ -1,9 +1,9 @@
 from py3cw.request import Py3CW
 import os
 import logging
-import three_commas.utils as utils
+import src.three_commas.utils as utils
 from logging_configuration import logged
-from three_commas.model import BotShow, Account, DealMarketOrder, DealShow, PieChartDataElement
+from src.three_commas.model import BotShow, Account, DealMarketOrder, DealShow, PieChartDataElement
 from typing import List
 
 logger = logging.getLogger(__name__)

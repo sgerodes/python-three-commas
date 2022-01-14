@@ -1,4 +1,4 @@
-from three_commas.model import BotShow, BotEvent, DealShow
+from src.three_commas.model import BotShow, BotEvent, DealShow
 import json
 
 

@@ -1,4 +1,4 @@
-from three_commas.api import get_bot
+from src.three_commas.api import get_bot
 from .model import *
 import requests
 import logging

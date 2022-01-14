@@ -1,4 +1,4 @@
-from three_commas.error import ThreeCommasError
+from src.three_commas import ThreeCommasError
 import json
 
 
