@@ -1,0 +1,4 @@
+{
+  "error": true,
+  "msg": "Other error occurred: record_invalid Invalid parameters {'base_order_volume': ['Base order size is too small. Min: 33.35, USDT_YFI']}."
+}

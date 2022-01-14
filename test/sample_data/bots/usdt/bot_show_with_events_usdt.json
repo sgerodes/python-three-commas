@@ -1,0 +1,2158 @@
+{
+    "id": 7675699,
+    "account_id": 27435212,
+    "is_enabled": true,
+    "max_safety_orders": 5,
+    "active_safety_orders_count": 2,
+    "pairs": [
+        "USDT_1INCH",
+        "USDT_AAVE",
+        "USDT_ACM",
+        "USDT_ADA",
+        "USDT_ADADOWN",
+        "USDT_ADAUP",
+        "USDT_ADX",
+        "USDT_AGLD",
+        "USDT_AION",
+        "USDT_AKRO",
+        "USDT_ALCX",
+        "USDT_ALGO",
+        "USDT_ALICE",
+        "USDT_ALPACA",
+        "USDT_ALPHA",
+        "USDT_AMP",
+        "USDT_ANKR",
+        "USDT_ANT",
+        "USDT_ANY",
+        "USDT_AR",
+        "USDT_ARDR",
+        "USDT_ARPA",
+        "USDT_ASR",
+        "USDT_ATA",
+        "USDT_ATM",
+        "USDT_ATOM",
+        "USDT_AUCTION",
+        "USDT_AUD",
+        "USDT_AUDIO",
+        "USDT_AUTO",
+        "USDT_AVA",
+        "USDT_AVAX",
+        "USDT_AXS",
+        "USDT_BADGER",
+        "USDT_BAKE",
+        "USDT_BAL",
+        "USDT_BAND",
+        "USDT_BAR",
+        "USDT_BAT",
+        "USDT_BCH",
+        "USDT_BEAM",
+        "USDT_BEL",
+        "USDT_BETA",
+        "USDT_BICO",
+        "USDT_BLZ",
+        "USDT_BNB",
+        "USDT_BNBDOWN",
+        "USDT_BNBUP",
+        "USDT_BNT",
+        "USDT_BNX",
+        "USDT_BOND",
+        "USDT_BTC",
+        "USDT_BTCDOWN",
+        "USDT_BTCST",
+        "USDT_BTCUP",
+        "USDT_BTG",
+        "USDT_BTS",
+        "USDT_BTT",
+        "USDT_BURGER",
+        "USDT_BUSD",
+        "USDT_C98",
+        "USDT_CAKE",
+        "USDT_CELO",
+        "USDT_CELR",
+        "USDT_CFX",
+        "USDT_CHESS",
+        "USDT_CHR",
+        "USDT_CHZ",
+        "USDT_CITY",
+        "USDT_CKB",
+        "USDT_CLV",
+        "USDT_COCOS",
+        "USDT_COMP",
+        "USDT_COS",
+        "USDT_COTI",
+        "USDT_CRV",
+        "USDT_CTK",
+        "USDT_CTSI",
+        "USDT_CTXC",
+        "USDT_CVC",
+        "USDT_CVP",
+        "USDT_CVX",
+        "USDT_DAR",
+        "USDT_DASH",
+        "USDT_DATA",
+        "USDT_DCR",
+        "USDT_DEGO",
+        "USDT_DENT",
+        "USDT_DEXE",
+        "USDT_DF",
+        "USDT_DGB",
+        "USDT_DIA",
+        "USDT_DNT",
+        "USDT_DOCK",
+        "USDT_DODO",
+        "USDT_DOGE",
+        "USDT_DOT",
+        "USDT_DOTDOWN",
+        "USDT_DOTUP",
+        "USDT_DREP",
+        "USDT_DUSK",
+        "USDT_DYDX",
+        "USDT_EGLD",
+        "USDT_ELF",
+        "USDT_ENJ",
+        "USDT_ENS",
+        "USDT_EOS",
+        "USDT_EPS",
+        "USDT_ERN",
+        "USDT_ETC",
+        "USDT_ETH",
+        "USDT_ETHDOWN",
+        "USDT_ETHUP",
+        "USDT_EUR",
+        "USDT_FARM",
+        "USDT_FET",
+        "USDT_FIDA",
+        "USDT_FIL",
+        "USDT_FIO",
+        "USDT_FIRO",
+        "USDT_FIS",
+        "USDT_FLM",
+        "USDT_FLOW",
+        "USDT_FLUX",
+        "USDT_FOR",
+        "USDT_FORTH",
+        "USDT_FRONT",
+        "USDT_FTM",
+        "USDT_FTT",
+        "USDT_FUN",
+        "USDT_FXS",
+        "USDT_GALA",
+        "USDT_GBP",
+        "USDT_GHST",
+        "USDT_GNO",
+        "USDT_GRT",
+        "USDT_GTC",
+        "USDT_GTO",
+        "USDT_GXS",
+        "USDT_HARD",
+        "USDT_HBAR",
+        "USDT_HIGH",
+        "USDT_HIVE",
+        "USDT_HNT",
+        "USDT_HOT",
+        "USDT_ICP",
+        "USDT_ICX",
+        "USDT_IDEX",
+        "USDT_ILV",
+        "USDT_INJ",
+        "USDT_IOST",
+        "USDT_IOTA",
+        "USDT_IOTX",
+        "USDT_IRIS",
+        "USDT_JASMY",
+        "USDT_JOE",
+        "USDT_JST",
+        "USDT_JUV",
+        "USDT_KAVA",
+        "USDT_KEEP",
+        "USDT_KEY",
+        "USDT_KLAY",
+        "USDT_KMD",
+        "USDT_KNC",
+        "USDT_KP3R",
+        "USDT_KSM",
+        "USDT_LAZIO",
+        "USDT_LINA",
+        "USDT_LINK",
+        "USDT_LINKDOWN",
+        "USDT_LINKUP",
+        "USDT_LIT",
+        "USDT_LPT",
+        "USDT_LRC",
+        "USDT_LSK",
+        "USDT_LTC",
+        "USDT_LTCDOWN",
+        "USDT_LTCUP",
+        "USDT_LTO",
+        "USDT_LUNA",
+        "USDT_MANA",
+        "USDT_MASK",
+        "USDT_MATIC",
+        "USDT_MBL",
+        "USDT_MBOX",
+        "USDT_MC",
+        "USDT_MDT",
+        "USDT_MDX",
+        "USDT_MFT",
+        "USDT_MINA",
+        "USDT_MIR",
+        "USDT_MITH",
+        "USDT_MKR",
+        "USDT_MLN",
+        "USDT_MOVR",
+        "USDT_MTL",
+        "USDT_NANO",
+        "USDT_NBS",
+        "USDT_NEAR",
+        "USDT_NEO",
+        "USDT_NKN",
+        "USDT_NMR",
+        "USDT_NU",
+        "USDT_NULS",
+        "USDT_OCEAN",
+        "USDT_OG",
+        "USDT_OGN",
+        "USDT_OM",
+        "USDT_OMG",
+        "USDT_ONE",
+        "USDT_ONG",
+        "USDT_ONT",
+        "USDT_OOKI",
+        "USDT_ORN",
+        "USDT_OXT",
+        "USDT_PAXG",
+        "USDT_PEOPLE",
+        "USDT_PERL",
+        "USDT_PERP",
+        "USDT_PHA",
+        "USDT_PLA",
+        "USDT_PNT",
+        "USDT_POLS",
+        "USDT_POLY",
+        "USDT_POND",
+        "USDT_PORTO",
+        "USDT_POWR",
+        "USDT_PSG",
+        "USDT_PUNDIX",
+        "USDT_PYR",
+        "USDT_QI",
+        "USDT_QNT",
+        "USDT_QTUM",
+        "USDT_QUICK",
+        "USDT_RAD",
+        "USDT_RAMP",
+        "USDT_RARE",
+        "USDT_RAY",
+        "USDT_REEF",
+        "USDT_REN",
+        "USDT_REP",
+        "USDT_REQ",
+        "USDT_RGT",
+        "USDT_RIF",
+        "USDT_RLC",
+        "USDT_RNDR",
+        "USDT_ROSE",
+        "USDT_RSR",
+        "USDT_RUNE",
+        "USDT_RVN",
+        "USDT_SAND",
+        "USDT_SANTOS",
+        "USDT_SC",
+        "USDT_SFP",
+        "USDT_SHIB",
+        "USDT_SKL",
+        "USDT_SLP",
+        "USDT_SNX",
+        "USDT_SOL",
+        "USDT_SPELL",
+        "USDT_SRM",
+        "USDT_STMX",
+        "USDT_STORJ",
+        "USDT_STPT",
+        "USDT_STRAX",
+        "USDT_STX",
+        "USDT_SUN",
+        "USDT_SUPER",
+        "USDT_SUSD",
+        "USDT_SUSHI",
+        "USDT_SXP",
+        "USDT_SYS",
+        "USDT_TCT",
+        "USDT_TFUEL",
+        "USDT_THETA",
+        "USDT_TKO",
+        "USDT_TLM",
+        "USDT_TOMO",
+        "USDT_TORN",
+        "USDT_TRB",
+        "USDT_TRIBE",
+        "USDT_TROY",
+        "USDT_TRU",
+        "USDT_TRX",
+        "USDT_TRXDOWN",
+        "USDT_TRXUP",
+        "USDT_TUSD",
+        "USDT_TVK",
+        "USDT_TWT",
+        "USDT_UMA",
+        "USDT_UNFI",
+        "USDT_UNI",
+        "USDT_USDC",
+        "USDT_USDP",
+        "USDT_UST",
+        "USDT_UTK",
+        "USDT_VET",
+        "USDT_VGX",
+        "USDT_VIDT",
+        "USDT_VITE",
+        "USDT_VOXEL",
+        "USDT_VTHO",
+        "USDT_WAN",
+        "USDT_WAVES",
+        "USDT_WAXP",
+        "USDT_WIN",
+        "USDT_WING",
+        "USDT_WNXM",
+        "USDT_WRX",
+        "USDT_WTC",
+        "USDT_XEC",
+        "USDT_XEM",
+        "USDT_XLM",
+        "USDT_XMR",
+        "USDT_XRP",
+        "USDT_XRPDOWN",
+        "USDT_XRPUP",
+        "USDT_XTZ",
+        "USDT_XTZDOWN",
+        "USDT_XTZUP",
+        "USDT_XVG",
+        "USDT_XVS",
+        "USDT_YFI",
+        "USDT_YFII",
+        "USDT_YGG",
+        "USDT_ZEC",
+        "USDT_ZEN",
+        "USDT_ZIL",
+        "USDT_ZRX"
+    ],
+    "strategy_list": [
+        {
+            "options": {
+                "type": "original",
+                "percent": "3"
+            },
+            "strategy": "qfl"
+        }
+    ],
+    "max_active_deals": 10,
+    "active_deals_count": 0,
+    "deletable?": true,
+    "created_at": "2022-01-07T20:12:44.363Z",
+    "updated_at": "2022-01-08T22:35:27.361Z",
+    "trailing_enabled": true,
+    "tsl_enabled": false,
+    "deal_start_delay_seconds": 0,
+    "stop_loss_timeout_enabled": false,
+    "stop_loss_timeout_in_seconds": 0,
+    "disable_after_deals_count": null,
+    "deals_counter": null,
+    "allowed_deals_on_same_pair": 1,
+    "easy_form_supported": false,
+    "close_deals_timeout": null,
+    "url_secret": "ceef8f01e2",
+    "name": "Nando QFL 21 APR original  | USDT ALL",
+    "take_profit": "1.85",
+    "base_order_volume": "10.0",
+    "safety_order_volume": "20.0",
+    "safety_order_step_percentage": "2.0",
+    "take_profit_type": "total",
+    "type": "Bot::MultiBot",
+    "martingale_volume_coefficient": "1.8",
+    "martingale_step_coefficient": "1.5",
+    "stop_loss_percentage": "0.0",
+    "cooldown": "300",
+    "btc_price_limit": "0.0",
+    "strategy": "long",
+    "min_volume_btc_24h": "300.0",
+    "profit_currency": "quote_currency",
+    "min_price": null,
+    "max_price": null,
+    "stop_loss_type": "stop_loss",
+    "safety_order_volume_type": "quote_currency",
+    "base_order_volume_type": "quote_currency",
+    "account_name": "Paper Account 332783",
+    "trailing_deviation": "0.5",
+    "finished_deals_profit_usd": "21.75",
+    "finished_deals_count": "31",
+    "leverage_type": "not_specified",
+    "leverage_custom_value": null,
+    "start_order_type": "limit",
+    "active_deals_usd_profit": "0.0",
+    "active_deals": [],
+    "bot_events": [
+        {
+            "message": "Placing base order. Price: 0.3367 USDT Size: 10.101 USDT (30.0 COTI)",
+            "created_at": "2022-01-07T22:43:00.190Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_COTI",
+            "created_at": "2022-01-07T22:42:59.846Z"
+        },
+        {
+            "message": "Updating base order",
+            "created_at": "2022-01-07T22:43:47.428Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.337337 USDT.  Size: 10.12011 USDT (30.0 COTI)",
+            "created_at": "2022-01-07T22:43:48.063Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.344 USDT. Size: 10.32 USDT (30.0 COTI), the price should rise for 2.14% to start trailing",
+            "created_at": "2022-01-07T22:43:48.073Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.337 USDT Size: 10.11 USDT (30.0 COTI)",
+            "created_at": "2022-01-07T22:43:48.014Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.3204 USDT Size: 36.2052 USDT (113.0 COTI)",
+            "created_at": "2022-01-07T22:43:48.313Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.3305 USDT Size: 20.1605 USDT (61.0 COTI)",
+            "created_at": "2022-01-07T22:43:48.205Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_HNT",
+            "created_at": "2022-01-07T22:44:08.440Z"
+        },
+        {
+            "message": "Placing base order. Price: 35.53 USDT Size: 10.3037 USDT (0.29 HNT)",
+            "created_at": "2022-01-07T22:44:08.852Z"
+        },
+        {
+            "message": "Base order executed.  Price: 35.56553 USDT.  Size: 10.3140037 USDT (0.29 HNT)",
+            "created_at": "2022-01-07T22:44:09.051Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 36.26 USDT. Size: 10.5154 USDT (0.29 HNT), the price should rise for 2.08% to start trailing",
+            "created_at": "2022-01-07T22:44:09.116Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 34.85 USDT Size: 20.213 USDT (0.58 HNT)",
+            "created_at": "2022-01-07T22:44:09.594Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 33.78 USDT Size: 36.1446 USDT (1.07 HNT)",
+            "created_at": "2022-01-07T22:44:09.713Z"
+        },
+        {
+            "message": "Base order executed.  Price: 11.72171 USDT.  Size: 10.11583573 USDT (0.863 PYR)",
+            "created_at": "2022-01-07T23:24:47.707Z"
+        },
+        {
+            "message": "Placing base order. Price: 11.71 USDT Size: 10.10573 USDT (0.863 PYR)",
+            "created_at": "2022-01-07T23:24:47.640Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 11.96 USDT. Size: 10.32148 USDT (0.863 PYR), the price should rise for 2.31% to start trailing",
+            "created_at": "2022-01-07T23:24:47.716Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_PYR",
+            "created_at": "2022-01-07T23:24:47.378Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 11.48 USDT Size: 20.00964 USDT (1.743 PYR)",
+            "created_at": "2022-01-07T23:24:47.936Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 11.13 USDT Size: 36.00555 USDT (3.235 PYR)",
+            "created_at": "2022-01-07T23:24:48.066Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 2.02%",
+            "created_at": "2022-01-08T00:03:32.307Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.22655 USDT (0.863 PYR)",
+            "created_at": "2022-01-08T00:05:41.882Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.08324498 USDT (0.08 $) (0.82% from total volume (1.85% before trailing)) 💰💰💰. #profit 41 minutes",
+            "created_at": "2022-01-08T00:06:16.085Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 11.13 USDT. Size: 0.0 USDT (3.235 PYR). Success.",
+            "created_at": "2022-01-08T00:06:15.814Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 11.48 USDT. Size: 0.0 USDT (1.743 PYR). Success.",
+            "created_at": "2022-01-08T00:06:16.019Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-08T01:03:32.376Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.93%",
+            "created_at": "2022-01-08T01:09:49.038Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 33.78 USDT. Size: 0.0 USDT (1.07 HNT). Success.",
+            "created_at": "2022-01-08T01:20:15.522Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.3204 USDT. Size: 0.0 USDT (113.0 COTI). Success.",
+            "created_at": "2022-01-08T01:20:15.345Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.5096 USDT (0.29 HNT)",
+            "created_at": "2022-01-08T01:19:52.625Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.284 USDT (30.0 COTI)",
+            "created_at": "2022-01-08T01:19:52.625Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.3305 USDT. Size: 0.0 USDT (61.0 COTI). Success.",
+            "created_at": "2022-01-08T01:20:15.592Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 34.85 USDT. Size: 0.0 USDT (0.58 HNT). Success.",
+            "created_at": "2022-01-08T01:20:15.790Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.17349830 USDT (0.17 $) (1.68% from total volume (1.85% before trailing)) 💰💰💰. #profit about 3 hours",
+            "created_at": "2022-01-08T01:20:15.847Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.14761200 USDT (0.15 $) (1.46% from total volume (1.85% before trailing)) 💰💰💰. #profit about 3 hours",
+            "created_at": "2022-01-08T01:20:15.654Z"
+        },
+        {
+            "message": "Placing base order. Price: 35.59 USDT Size: 10.3211 USDT (0.29 HNT)",
+            "created_at": "2022-01-08T02:37:01.221Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 34.91 USDT Size: 20.2478 USDT (0.58 HNT)",
+            "created_at": "2022-01-08T02:37:01.438Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_HNT",
+            "created_at": "2022-01-08T02:37:00.913Z"
+        },
+        {
+            "message": "Base order executed.  Price: 35.62559 USDT.  Size: 10.3314211 USDT (0.29 HNT)",
+            "created_at": "2022-01-08T02:37:01.273Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 36.33 USDT. Size: 10.5357 USDT (0.29 HNT), the price should rise for 2.17% to start trailing",
+            "created_at": "2022-01-08T02:37:01.283Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 33.84 USDT Size: 36.2088 USDT (1.07 HNT)",
+            "created_at": "2022-01-08T02:37:01.559Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 2.16%",
+            "created_at": "2022-01-08T08:15:08.442Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.5212 USDT (0.29 HNT)",
+            "created_at": "2022-01-08T08:16:19.716Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 33.84 USDT. Size: 0.0 USDT (1.07 HNT). Success.",
+            "created_at": "2022-01-08T08:17:14.953Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 34.91 USDT. Size: 0.0 USDT (0.58 HNT). Success.",
+            "created_at": "2022-01-08T08:17:15.196Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.17346350 USDT (0.17 $) (1.68% from total volume (1.85% before trailing)) 💰💰💰. #profit about 6 hours",
+            "created_at": "2022-01-08T08:17:15.271Z"
+        },
+        {
+            "message": "Placing base order. Price: 28.78 USDT Size: 10.3608 USDT (0.36 ENS)",
+            "created_at": "2022-01-08T14:26:55.622Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 28.23 USDT Size: 20.0433 USDT (0.71 ENS)",
+            "created_at": "2022-01-08T14:26:55.991Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 29.38 USDT. Size: 10.5768 USDT (0.36 ENS), the price should rise for 2.12% to start trailing",
+            "created_at": "2022-01-08T14:26:55.746Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_ENS",
+            "created_at": "2022-01-08T14:26:55.376Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 27.36 USDT Size: 36.1152 USDT (1.32 ENS)",
+            "created_at": "2022-01-08T14:26:56.111Z"
+        },
+        {
+            "message": "Base order executed.  Price: 28.80878 USDT.  Size: 10.3711608 USDT (0.36 ENS)",
+            "created_at": "2022-01-08T14:26:55.736Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 36.71 USDT Size: 20.1905 USDT (0.55 ATOM)",
+            "created_at": "2022-01-08T14:27:46.149Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 38.2 USDT. Size: 10.314 USDT (0.27 ATOM), the price should rise for 2.08% to start trailing",
+            "created_at": "2022-01-08T14:27:45.881Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_ATOM",
+            "created_at": "2022-01-08T14:27:45.567Z"
+        },
+        {
+            "message": "Placing base order. Price: 37.43 USDT Size: 10.1061 USDT (0.27 ATOM)",
+            "created_at": "2022-01-08T14:27:45.825Z"
+        },
+        {
+            "message": "Base order executed.  Price: 37.46743 USDT.  Size: 10.1162061 USDT (0.27 ATOM)",
+            "created_at": "2022-01-08T14:27:45.872Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 35.59 USDT Size: 36.3018 USDT (1.02 ATOM)",
+            "created_at": "2022-01-08T14:27:46.284Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_NEAR",
+            "created_at": "2022-01-08T15:07:18.357Z"
+        },
+        {
+            "message": "Placing base order. Price: 14.425 USDT Size: 11.54 USDT (0.8 NEAR). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-08T15:07:18.677Z"
+        },
+        {
+            "message": "Base order executed.  Price: 14.505491 USDT.  Size: 10.1538437 USDT (0.7 NEAR)",
+            "created_at": "2022-01-08T15:08:03.895Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 14.789 USDT. Size: 10.3523 USDT (0.7 NEAR), the price should rise for 2.06% to start trailing",
+            "created_at": "2022-01-08T15:08:03.906Z"
+        },
+        {
+            "message": "Placing base order. Price: 14.491 USDT Size: 10.1437 USDT (0.7 NEAR)",
+            "created_at": "2022-01-08T15:08:03.836Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 14.215 USDT Size: 21.3225 USDT (1.5 NEAR)",
+            "created_at": "2022-01-08T15:08:04.218Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 13.78 USDT Size: 37.206 USDT (2.7 NEAR). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-08T15:08:04.253Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 13.78 USDT Size: 37.206 USDT (2.7 NEAR)",
+            "created_at": "2022-01-08T15:08:16.857Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_LINK",
+            "created_at": "2022-01-08T15:08:55.134Z"
+        },
+        {
+            "message": "Placing base order. Price: 25.17 USDT Size: 10.3197 USDT (0.41 LINK)",
+            "created_at": "2022-01-08T15:08:55.476Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 23.93 USDT Size: 36.1343 USDT (1.51 LINK)",
+            "created_at": "2022-01-08T15:08:55.854Z"
+        },
+        {
+            "message": "Base order executed.  Price: 25.19517 USDT.  Size: 10.3300197 USDT (0.41 LINK)",
+            "created_at": "2022-01-08T15:08:55.517Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 25.69 USDT. Size: 10.5329 USDT (0.41 LINK), the price should rise for 2.11% to start trailing",
+            "created_at": "2022-01-08T15:08:55.524Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 24.69 USDT Size: 20.2458 USDT (0.82 LINK)",
+            "created_at": "2022-01-08T15:08:55.720Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.5444 USDT Size: 37.0656 USDT (24.0 LRC)",
+            "created_at": "2022-01-08T15:10:00.624Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 1.6575 USDT. Size: 11.6025 USDT (7.0 LRC), the price should rise for 2.11% to start trailing",
+            "created_at": "2022-01-08T15:09:59.910Z"
+        },
+        {
+            "message": "Base order executed.  Price: 1.6257241 USDT.  Size: 11.3800687 USDT (7.0 LRC)",
+            "created_at": "2022-01-08T15:09:59.893Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_LRC",
+            "created_at": "2022-01-08T15:09:59.456Z"
+        },
+        {
+            "message": "Placing base order. Price: 1.6241 USDT Size: 11.3687 USDT (7.0 LRC)",
+            "created_at": "2022-01-08T15:09:59.783Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.5932 USDT Size: 20.7116 USDT (13.0 LRC)",
+            "created_at": "2022-01-08T15:10:00.286Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.043 USDT Size: 20.215 USDT (5.0 XTZ)",
+            "created_at": "2022-01-08T15:15:47.317Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_XTZ",
+            "created_at": "2022-01-08T15:15:46.685Z"
+        },
+        {
+            "message": "Base order executed.  Price: 4.126122 USDT.  Size: 10.315305 USDT (2.5 XTZ)",
+            "created_at": "2022-01-08T15:15:47.076Z"
+        },
+        {
+            "message": "Placing base order. Price: 4.122 USDT Size: 10.305 USDT (2.5 XTZ)",
+            "created_at": "2022-01-08T15:15:47.021Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 4.207 USDT. Size: 10.5175 USDT (2.5 XTZ), the price should rise for 2.11% to start trailing",
+            "created_at": "2022-01-08T15:15:47.103Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 3.919 USDT Size: 36.0548 USDT (9.2 XTZ)",
+            "created_at": "2022-01-08T15:15:47.445Z"
+        },
+        {
+            "message": "Base order executed.  Price: 2.3086063 USDT.  Size: 11.5430315 USDT (5.0 GXS)",
+            "created_at": "2022-01-08T15:16:52.251Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_GXS",
+            "created_at": "2022-01-08T15:16:51.932Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 2.3537 USDT. Size: 11.7685 USDT (5.0 GXS), the price should rise for 2.10% to start trailing",
+            "created_at": "2022-01-08T15:16:52.261Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 2.2624 USDT Size: 20.3616 USDT (9.0 GXS)",
+            "created_at": "2022-01-08T15:16:52.450Z"
+        },
+        {
+            "message": "Placing base order. Price: 2.3063 USDT Size: 11.5315 USDT (5.0 GXS)",
+            "created_at": "2022-01-08T15:16:52.186Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 2.1931 USDT Size: 37.2827 USDT (17.0 GXS)",
+            "created_at": "2022-01-08T15:16:52.588Z"
+        },
+        {
+            "message": "Error placing base order: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T15:17:53.669Z"
+        },
+        {
+            "message": "Placing base order. Price: 189.0 USDT Size: 10.206 USDT (0.054 XMR). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T15:17:53.618Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_XMR",
+            "created_at": "2022-01-08T15:17:53.529Z"
+        },
+        {
+            "message": "Placing base order. Price: 83.89 USDT Size: 10.9057 USDT (0.13 AVAX)",
+            "created_at": "2022-01-08T15:28:54.034Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_AVAX",
+            "created_at": "2022-01-08T15:28:53.813Z"
+        },
+        {
+            "message": "Updating base order",
+            "created_at": "2022-01-08T15:29:35.702Z"
+        },
+        {
+            "message": "Placing base order. Price: 84.0 USDT Size: 10.92 USDT (0.13 AVAX)",
+            "created_at": "2022-01-08T15:29:35.829Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_XMR",
+            "created_at": "2022-01-08T15:29:39.251Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 179.9 USDT Size: 36.1599 USDT (0.201 XMR)",
+            "created_at": "2022-01-08T15:29:39.890Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 185.6 USDT Size: 20.0448 USDT (0.108 XMR)",
+            "created_at": "2022-01-08T15:29:39.747Z"
+        },
+        {
+            "message": "Base order executed.  Price: 189.3892 USDT.  Size: 10.2270168 USDT (0.054 XMR)",
+            "created_at": "2022-01-08T15:29:39.557Z"
+        },
+        {
+            "message": "Placing base order. Price: 189.2 USDT Size: 10.2168 USDT (0.054 XMR)",
+            "created_at": "2022-01-08T15:29:39.501Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 193.1 USDT. Size: 10.4274 USDT (0.054 XMR), the price should rise for 2.12% to start trailing",
+            "created_at": "2022-01-08T15:29:39.567Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 85.8 USDT. Size: 11.154 USDT (0.13 AVAX), the price should rise for 2.11% to start trailing",
+            "created_at": "2022-01-08T15:30:22.300Z"
+        },
+        {
+            "message": "Updating base order",
+            "created_at": "2022-01-08T15:30:21.971Z"
+        },
+        {
+            "message": "Placing base order. Price: 84.07 USDT Size: 10.9291 USDT (0.13 AVAX)",
+            "created_at": "2022-01-08T15:30:22.199Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 79.94 USDT Size: 36.7724 USDT (0.46 AVAX)",
+            "created_at": "2022-01-08T15:30:22.607Z"
+        },
+        {
+            "message": "Base order executed.  Price: 84.15407 USDT.  Size: 10.9400291 USDT (0.13 AVAX)",
+            "created_at": "2022-01-08T15:30:22.278Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 82.47 USDT Size: 20.6175 USDT (0.25 AVAX)",
+            "created_at": "2022-01-08T15:30:22.472Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 33.9 USDT Size: 65.088 USDT (1.92 ATOM)",
+            "created_at": "2022-01-08T15:34:35.186Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 36.71 USDT. Size: 20.2106905 USDT (0.55 ATOM)",
+            "created_at": "2022-01-08T15:34:34.999Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0141 USDT Size: 20.0079 USDT (1419.0 REEF)",
+            "created_at": "2022-01-08T15:35:58.406Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.01438 USDT Size: 10.10914 USDT (703.0 REEF)",
+            "created_at": "2022-01-08T15:35:58.171Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.01439438 USDT.  Size: 10.11924914 USDT (703.0 REEF)",
+            "created_at": "2022-01-08T15:35:58.251Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.01468 USDT. Size: 10.32004 USDT (703.0 REEF), the price should rise for 2.16% to start trailing",
+            "created_at": "2022-01-08T15:35:58.261Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.01367 USDT Size: 36.00678 USDT (2634.0 REEF)",
+            "created_at": "2022-01-08T15:35:58.547Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_REEF",
+            "created_at": "2022-01-08T15:35:57.963Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 28.23 USDT. Size: 20.0633433 USDT (0.71 ENS)",
+            "created_at": "2022-01-08T15:54:00.132Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 26.07 USDT Size: 64.9143 USDT (2.49 ENS)",
+            "created_at": "2022-01-08T15:54:00.361Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 2.2624 USDT. Size: 20.3819616 USDT (9.0 GXS)",
+            "created_at": "2022-01-08T16:10:34.304Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 2.0892 USDT Size: 66.8544 USDT (32.0 GXS)",
+            "created_at": "2022-01-08T16:10:34.761Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 13.127 USDT Size: 65.635 USDT (5.0 NEAR)",
+            "created_at": "2022-01-08T16:27:13.536Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 14.215 USDT. Size: 21.3438225 USDT (1.5 NEAR)",
+            "created_at": "2022-01-08T16:27:13.028Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.4712 USDT Size: 66.204 USDT (45.0 LRC)",
+            "created_at": "2022-01-08T16:31:26.840Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 1.5932 USDT. Size: 20.7323116 USDT (13.0 LRC)",
+            "created_at": "2022-01-08T16:31:26.560Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 24.69 USDT. Size: 20.2660458 USDT (0.82 LINK)",
+            "created_at": "2022-01-08T16:32:28.351Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 22.8 USDT Size: 64.98 USDT (2.85 LINK)",
+            "created_at": "2022-01-08T16:32:28.564Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 76.15 USDT Size: 65.489 USDT (0.86 AVAX). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-08T16:34:26.203Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 82.47 USDT. Size: 20.6381175 USDT (0.25 AVAX)",
+            "created_at": "2022-01-08T16:34:25.542Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 2.1931 USDT. Size: 37.3199827 USDT (17.0 GXS)",
+            "created_at": "2022-01-08T16:34:45.519Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.9334 USDT Size: 117.9374 USDT (61.0 GXS)",
+            "created_at": "2022-01-08T16:34:45.732Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 76.15 USDT Size: 65.489 USDT (0.86 AVAX)",
+            "created_at": "2022-01-08T16:45:48.564Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 1.5444 USDT. Size: 37.1026656 USDT (24.0 LRC)",
+            "created_at": "2022-01-08T17:02:49.765Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.3615 USDT Size: 117.089 USDT (86.0 LRC)",
+            "created_at": "2022-01-08T17:02:49.994Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 4.043 USDT. Size: 20.235215 USDT (5.0 XTZ)",
+            "created_at": "2022-01-08T17:04:31.424Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 3.734 USDT Size: 64.9716 USDT (17.4 XTZ)",
+            "created_at": "2022-01-08T17:04:31.650Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 24.12 USDT Size: 116.7408 USDT (4.84 ENS)",
+            "created_at": "2022-01-08T17:15:56.168Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 27.36 USDT. Size: 36.1513152 USDT (1.32 ENS)",
+            "created_at": "2022-01-08T17:15:55.912Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 0.0141 USDT. Size: 20.0279079 USDT (1419.0 REEF)",
+            "created_at": "2022-01-08T17:37:25.046Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.01302 USDT Size: 64.80054 USDT (4977.0 REEF)",
+            "created_at": "2022-01-08T17:37:25.305Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 13.78 USDT. Size: 37.243206 USDT (2.7 NEAR)",
+            "created_at": "2022-01-08T17:40:39.835Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 12.148 USDT Size: 117.8356 USDT (9.7 NEAR)",
+            "created_at": "2022-01-08T17:40:40.364Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 171.3 USDT Size: 64.9227 USDT (0.379 XMR)",
+            "created_at": "2022-01-08T17:47:02.620Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 185.6 USDT. Size: 20.0648448 USDT (0.108 XMR)",
+            "created_at": "2022-01-08T17:47:02.383Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 35.59 USDT. Size: 36.3381018 USDT (1.02 ATOM)",
+            "created_at": "2022-01-08T17:55:45.721Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 31.37 USDT Size: 116.6964 USDT (3.72 ATOM)",
+            "created_at": "2022-01-08T17:55:45.978Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 3.455 USDT Size: 116.779 USDT (33.8 XTZ)",
+            "created_at": "2022-01-08T18:15:25.499Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 3.919 USDT. Size: 36.0908548 USDT (9.2 XTZ)",
+            "created_at": "2022-01-08T18:15:25.085Z"
+        },
+        {
+            "message": "Safety trade (3 out of 5) executed. Price: 1.4712 USDT. Size: 66.270204 USDT (45.0 LRC)",
+            "created_at": "2022-01-08T18:17:32.966Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.1969 USDT Size: 210.6544 USDT (176.0 LRC)",
+            "created_at": "2022-01-08T18:17:33.200Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 79.94 USDT. Size: 36.8091724 USDT (0.46 AVAX)",
+            "created_at": "2022-01-08T18:19:33.094Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 70.47 USDT Size: 116.9802 USDT (1.66 AVAX)",
+            "created_at": "2022-01-08T18:19:33.345Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 23.93 USDT. Size: 36.1704343 USDT (1.51 LINK)",
+            "created_at": "2022-01-08T18:24:22.991Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 21.1 USDT Size: 116.683 USDT (5.53 LINK)",
+            "created_at": "2022-01-08T18:24:23.201Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 0.01367 USDT. Size: 36.04278678 USDT (2634.0 REEF)",
+            "created_at": "2022-01-08T18:31:15.611Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.01205 USDT Size: 116.644 USDT (9680.0 REEF)",
+            "created_at": "2022-01-08T18:31:15.815Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 179.9 USDT. Size: 36.1960599 USDT (0.201 XMR)",
+            "created_at": "2022-01-08T19:23:43.347Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 158.6 USDT Size: 116.7296 USDT (0.736 XMR)",
+            "created_at": "2022-01-08T19:23:43.717Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.92%",
+            "created_at": "2022-01-08T21:31:58.382Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-08T21:35:33.673Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈69.4848 USDT (0.84 AVAX)",
+            "created_at": "2022-01-08T21:37:27.611Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 70.47 USDT. Size: 0.0 USDT (1.66 AVAX). Success.",
+            "created_at": "2022-01-08T21:38:07.423Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.96925500 USDT (0.97 $) (1.42% from total volume (1.85% before trailing)) 💰💰💰. #profit about 6 hours",
+            "created_at": "2022-01-08T21:38:08.195Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 76.15 USDT. Size: 0.0 USDT (0.86 AVAX). Success.",
+            "created_at": "2022-01-08T21:38:08.023Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_MATIC",
+            "created_at": "2022-01-08T21:38:09.032Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.876 USDT Size: 36.0192 USDT (19.2 MATIC)",
+            "created_at": "2022-01-08T21:38:10.601Z"
+        },
+        {
+            "message": "Placing base order. Price: 1.973 USDT Size: 10.2596 USDT (5.2 MATIC)",
+            "created_at": "2022-01-08T21:38:09.828Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 2.014 USDT. Size: 10.4728 USDT (5.2 MATIC), the price should rise for 2.13% to start trailing",
+            "created_at": "2022-01-08T21:38:10.012Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.935 USDT Size: 20.124 USDT (10.4 MATIC)",
+            "created_at": "2022-01-08T21:38:10.383Z"
+        },
+        {
+            "message": "Base order executed.  Price: 1.974973 USDT.  Size: 10.2698596 USDT (5.2 MATIC)",
+            "created_at": "2022-01-08T21:38:09.976Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-08T21:46:11.807Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈68.8836 USDT (2.74 LINK)",
+            "created_at": "2022-01-08T21:47:02.723Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 22.8 USDT. Size: 0.0 USDT (2.85 LINK). Success.",
+            "created_at": "2022-01-08T21:47:03.362Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 21.1 USDT. Size: 0.0 USDT (5.53 LINK). Success.",
+            "created_at": "2022-01-08T21:47:03.155Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_CRV",
+            "created_at": "2022-01-08T21:47:03.521Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +2.10296180 USDT (2.1 $) (3.15% from total volume (1.85% before trailing)) 💰💰💰. #profit about 7 hours",
+            "created_at": "2022-01-08T21:47:03.451Z"
+        },
+        {
+            "message": "Placing base order. Price: 4.657 USDT Size: 10.2454 USDT (2.2 CRV)",
+            "created_at": "2022-01-08T21:47:03.700Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈137.4427 USDT (89.0 LRC)",
+            "created_at": "2022-01-08T21:47:04.085Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 4.753 USDT. Size: 10.4566 USDT (2.2 CRV), the price should rise for 1.89% to start trailing",
+            "created_at": "2022-01-08T21:47:25.723Z"
+        },
+        {
+            "message": "Base order executed.  Price: 4.661657 USDT.  Size: 10.2556454 USDT (2.2 CRV)",
+            "created_at": "2022-01-08T21:47:25.619Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.568 USDT Size: 20.0992 USDT (4.4 CRV). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T21:47:25.974Z"
+        },
+        {
+            "message": "Error placing safety trade: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T21:47:26.013Z"
+        },
+        {
+            "message": "Error placing safety trade: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T21:47:32.543Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 1.3615 USDT. Size: 0.0 USDT (86.0 LRC). Success.",
+            "created_at": "2022-01-08T21:47:33.352Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 1.1969 USDT. Size: 0.0 USDT (176.0 LRC). Success.",
+            "created_at": "2022-01-08T21:47:32.863Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.568 USDT Size: 20.0992 USDT (4.4 CRV). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T21:47:32.426Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.76666080 USDT (1.77 $) (1.3% from total volume (1.85% before trailing)) 💰💰💰. #profit about 7 hours",
+            "created_at": "2022-01-08T21:47:33.437Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_ANT",
+            "created_at": "2022-01-08T21:47:34.204Z"
+        },
+        {
+            "message": "Placing base order. Price: 8.144 USDT Size: 10.5872 USDT (1.3 ANT). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T21:47:34.733Z"
+        },
+        {
+            "message": "Error placing base order: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T21:47:34.933Z"
+        },
+        {
+            "message": "Error placing safety trade: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T21:47:38.519Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.568 USDT Size: 20.0992 USDT (4.4 CRV). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T21:47:38.490Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.568 USDT Size: 20.0992 USDT (4.4 CRV)",
+            "created_at": "2022-01-08T21:48:26.163Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.428 USDT Size: 36.3096 USDT (8.2 CRV)",
+            "created_at": "2022-01-08T21:48:26.462Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 1.0438 USDT. Size: 10.438 USDT (10.0 BAT), the price should rise for 2.12% to start trailing",
+            "created_at": "2022-01-08T21:57:43.221Z"
+        },
+        {
+            "message": "Base order executed.  Price: 1.0237227 USDT.  Size: 10.237227 USDT (10.0 BAT)",
+            "created_at": "2022-01-08T21:57:43.205Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_BAT",
+            "created_at": "2022-01-08T21:57:42.928Z"
+        },
+        {
+            "message": "Placing base order. Price: 1.0227 USDT Size: 10.227 USDT (10.0 BAT)",
+            "created_at": "2022-01-08T21:57:43.151Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.0032 USDT Size: 20.064 USDT (20.0 BAT)",
+            "created_at": "2022-01-08T21:57:43.385Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.9725 USDT Size: 36.955 USDT (38.0 BAT)",
+            "created_at": "2022-01-08T21:57:43.507Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.92%",
+            "created_at": "2022-01-08T22:11:24.188Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-08T22:17:31.096Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-08T22:21:47.606Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-08T22:22:10.874Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.87%",
+            "created_at": "2022-01-08T22:22:40.689Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.9%",
+            "created_at": "2022-01-08T22:30:27.907Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈68.448 USDT (1.84 ATOM)",
+            "created_at": "2022-01-08T22:31:04.320Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 31.37 USDT. Size: 0.0 USDT (3.72 ATOM). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-08T22:31:32.447Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.67779040 USDT (1.68 $) (2.52% from total volume (1.85% before trailing)) 💰💰💰. #profit about 8 hours",
+            "created_at": "2022-01-08T22:32:18.357Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 15.5 USDT. Size: 10.385 USDT (0.67 UNI), the price should rise for 2.18% to start trailing",
+            "created_at": "2022-01-08T22:32:18.845Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.94%",
+            "created_at": "2022-01-08T22:31:57.455Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_UNI",
+            "created_at": "2022-01-08T22:32:18.432Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 31.37 USDT. Size: 0.0 USDT (3.72 ATOM). Success.",
+            "created_at": "2022-01-08T22:32:18.145Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 33.9 USDT. Size: 0.0 USDT (1.92 ATOM). Success.",
+            "created_at": "2022-01-08T22:32:18.330Z"
+        },
+        {
+            "message": "Base order executed.  Price: 15.19518 USDT.  Size: 10.1807706 USDT (0.67 UNI)",
+            "created_at": "2022-01-08T22:32:18.826Z"
+        },
+        {
+            "message": "Placing base order. Price: 15.18 USDT Size: 10.1706 USDT (0.67 UNI)",
+            "created_at": "2022-01-08T22:32:18.767Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 14.43 USDT Size: 36.075 USDT (2.5 UNI)",
+            "created_at": "2022-01-08T22:32:19.147Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 14.89 USDT Size: 20.1015 USDT (1.35 UNI)",
+            "created_at": "2022-01-08T22:32:18.986Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈67.8521 USDT (16.7 XTZ)",
+            "created_at": "2022-01-08T22:34:34.102Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈69.8544 USDT (4.9 NEAR)",
+            "created_at": "2022-01-08T22:34:04.345Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.5456 USDT (5.2 MATIC)",
+            "created_at": "2022-01-08T22:34:33.941Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 1.876 USDT. Size: 0.0 USDT (19.2 MATIC). Success.",
+            "created_at": "2022-01-08T22:34:34.582Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_LRC",
+            "created_at": "2022-01-08T22:34:34.819Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.26000000 USDT (0.26 $) (2.53% from total volume (1.85% before trailing)) 💰💰💰. #profit about 1 hour",
+            "created_at": "2022-01-08T22:34:34.764Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_SAND",
+            "created_at": "2022-01-08T22:34:35.006Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 1.935 USDT. Size: 0.0 USDT (10.4 MATIC). Success.",
+            "created_at": "2022-01-08T22:34:34.744Z"
+        },
+        {
+            "message": "Placing base order. Price: 1.556 USDT Size: 10.892 USDT (7.0 LRC)",
+            "created_at": "2022-01-08T22:34:35.204Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.09282320 USDT (1.09 $) (1.64% from total volume (1.85% before trailing)) 💰💰💰. #profit about 7 hours",
+            "created_at": "2022-01-08T22:34:34.951Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 3.734 USDT. Size: 0.0 USDT (17.4 XTZ). Success.",
+            "created_at": "2022-01-08T22:34:34.928Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.4411 USDT Size: 39.9699 USDT (9.0 SAND)",
+            "created_at": "2022-01-08T22:34:35.707Z"
+        },
+        {
+            "message": "Base order executed.  Price: 1.557556 USDT.  Size: 10.902892 USDT (7.0 LRC)",
+            "created_at": "2022-01-08T22:34:35.249Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈67.58276 USDT (4756.0 REEF)",
+            "created_at": "2022-01-08T22:34:36.251Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 1.588 USDT. Size: 11.116 USDT (7.0 LRC), the price should rise for 2.10% to start trailing",
+            "created_at": "2022-01-08T22:34:35.257Z"
+        },
+        {
+            "message": "Base order executed.  Price: 4.6748702 USDT.  Size: 14.0246106 USDT (3.0 SAND)",
+            "created_at": "2022-01-08T22:34:35.366Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.5813 USDT Size: 22.9065 USDT (5.0 SAND)",
+            "created_at": "2022-01-08T22:34:35.564Z"
+        },
+        {
+            "message": "Placing base order. Price: 4.6702 USDT Size: 14.0106 USDT (3.0 SAND)",
+            "created_at": "2022-01-08T22:34:35.321Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 4.7662 USDT. Size: 14.2986 USDT (3.0 SAND), the price should rise for 2.06% to start trailing",
+            "created_at": "2022-01-08T22:34:35.376Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.4796 USDT Size: 36.99 USDT (25.0 LRC)",
+            "created_at": "2022-01-08T22:34:35.962Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.5264 USDT Size: 21.3696 USDT (14.0 LRC)",
+            "created_at": "2022-01-08T22:34:35.819Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 3.455 USDT. Size: 0.0 USDT (33.8 XTZ). Success.",
+            "created_at": "2022-01-08T22:34:34.674Z"
+        },
+        {
+            "message": "Error placing Take Profit trade: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T22:34:50.416Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈67.881 USDT (0.363 XMR). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T22:34:50.366Z"
+        },
+        {
+            "message": "Error placing Take Profit trade: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T22:34:52.708Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈67.7326 USDT (2.39 ENS). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T22:34:52.689Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 12.148 USDT. Size: 0.0 USDT (9.7 NEAR). Success.",
+            "created_at": "2022-01-08T22:35:26.911Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.01205 USDT. Size: 0.0 USDT (9680.0 REEF). Success.",
+            "created_at": "2022-01-08T22:35:26.671Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.32 USDT Size: 10.24 USDT (32.0 GALA). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T22:35:27.206Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.00002801 USDT Size: 10.10001386 USDT (360586.0 SHIB). Error occured during request: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T22:35:27.344Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_SHIB",
+            "created_at": "2022-01-08T22:35:27.258Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.27772098 USDT (1.28 $) (1.93% from total volume (1.85% before trailing)) 💰💰💰. #profit about 7 hours",
+            "created_at": "2022-01-08T22:35:27.019Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.01302 USDT. Size: 0.0 USDT (4977.0 REEF). Success.",
+            "created_at": "2022-01-08T22:35:26.940Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.02898810 USDT (1.03 $) (1.5% from total volume (1.85% before trailing)) 💰💰💰. #profit about 7 hours",
+            "created_at": "2022-01-08T22:35:27.185Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 13.127 USDT. Size: 0.0 USDT (5.0 NEAR). Success.",
+            "created_at": "2022-01-08T22:35:27.124Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_GALA",
+            "created_at": "2022-01-08T22:35:27.118Z"
+        },
+        {
+            "message": "Error placing base order: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T22:35:27.264Z"
+        },
+        {
+            "message": "Error placing base order: Rate limit exceeded. Market::KecoinMarket::KecoinCustomErrors (429).",
+            "created_at": "2022-01-08T22:35:27.405Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 6.076 USDT Size: 20.0508 USDT (3.3 RUNE)",
+            "created_at": "2022-01-08T22:45:53.390Z"
+        },
+        {
+            "message": "Placing base order. Price: 6.194 USDT Size: 10.5298 USDT (1.7 RUNE)",
+            "created_at": "2022-01-08T22:45:53.125Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 6.322 USDT. Size: 10.7474 USDT (1.7 RUNE), the price should rise for 2.10% to start trailing",
+            "created_at": "2022-01-08T22:45:53.192Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_RUNE",
+            "created_at": "2022-01-08T22:45:52.853Z"
+        },
+        {
+            "message": "Base order executed.  Price: 6.200194 USDT.  Size: 10.5403298 USDT (1.7 RUNE)",
+            "created_at": "2022-01-08T22:45:53.183Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 5.89 USDT Size: 36.518 USDT (6.2 RUNE)",
+            "created_at": "2022-01-08T22:45:53.539Z"
+        },
+        {
+            "message": "Placing base order. Price: 36.89 USDT Size: 10.3292 USDT (0.28 ATOM)",
+            "created_at": "2022-01-08T22:46:46.490Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 36.18 USDT Size: 20.2608 USDT (0.56 ATOM)",
+            "created_at": "2022-01-08T22:46:46.759Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 35.08 USDT Size: 36.1324 USDT (1.03 ATOM)",
+            "created_at": "2022-01-08T22:46:46.877Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_ATOM",
+            "created_at": "2022-01-08T22:46:46.267Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 37.65 USDT. Size: 10.542 USDT (0.28 ATOM), the price should rise for 2.17% to start trailing",
+            "created_at": "2022-01-08T22:46:46.591Z"
+        },
+        {
+            "message": "Base order executed.  Price: 36.92689 USDT.  Size: 10.3395292 USDT (0.28 ATOM)",
+            "created_at": "2022-01-08T22:46:46.581Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-08T22:48:29.750Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.13775080 USDT (0.14 $) (1.34% from total volume (1.85% before trailing)) 💰💰💰. #profit about 1 hour",
+            "created_at": "2022-01-08T22:50:25.672Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 4.428 USDT. Size: 0.0 USDT (8.2 CRV). Success.",
+            "created_at": "2022-01-08T22:50:25.317Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.4126 USDT (2.2 CRV)",
+            "created_at": "2022-01-08T22:50:21.653Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_GALA",
+            "created_at": "2022-01-08T22:50:25.765Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 4.568 USDT. Size: 0.0 USDT (4.4 CRV). Success.",
+            "created_at": "2022-01-08T22:50:25.574Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.32146 USDT Size: 10.28672 USDT (32.0 GALA)",
+            "created_at": "2022-01-08T22:50:26.052Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.32178146 USDT.  Size: 10.29700672 USDT (32.0 GALA)",
+            "created_at": "2022-01-08T22:50:26.191Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.31534 USDT Size: 20.18176 USDT (64.0 GALA)",
+            "created_at": "2022-01-08T22:50:26.489Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.32807 USDT. Size: 10.49824 USDT (32.0 GALA), the price should rise for 2.13% to start trailing",
+            "created_at": "2022-01-08T22:50:26.309Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.30569 USDT Size: 36.07142 USDT (118.0 GALA)",
+            "created_at": "2022-01-08T22:50:26.708Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈67.9899 USDT (0.363 XMR). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-08T22:55:23.526Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈67.2068 USDT (2.39 ENS)",
+            "created_at": "2022-01-08T22:55:24.146Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 26.07 USDT. Size: 0.0 USDT (2.49 ENS). Success.",
+            "created_at": "2022-01-08T22:56:15.303Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈67.9899 USDT (0.363 XMR)",
+            "created_at": "2022-01-08T22:56:14.818Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 24.12 USDT. Size: 0.0 USDT (4.84 ENS). Success.",
+            "created_at": "2022-01-08T22:56:15.142Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.48214560 USDT (0.48 $) (0.72% from total volume (1.85% before trailing)) 💰💰💰. #profit about 8 hours",
+            "created_at": "2022-01-08T22:56:15.382Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.03595 USDT Size: 10.1001525 USDT (280.95 LINA)",
+            "created_at": "2022-01-08T22:56:15.834Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_LINA",
+            "created_at": "2022-01-08T22:56:15.587Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.03531 USDT Size: 20.0002902 USDT (566.42 LINA)",
+            "created_at": "2022-01-08T22:56:56.843Z"
+        },
+        {
+            "message": "Updating base order",
+            "created_at": "2022-01-08T22:56:56.380Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.036 USDT Size: 10.10016 USDT (280.56 LINA)",
+            "created_at": "2022-01-08T22:56:56.587Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.036036 USDT.  Size: 10.11026016 USDT (280.56 LINA)",
+            "created_at": "2022-01-08T22:56:56.654Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.03423 USDT Size: 36.0000333 USDT (1051.71 LINA)",
+            "created_at": "2022-01-08T22:56:57.001Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.03674 USDT. Size: 10.3077744 USDT (280.56 LINA), the price should rise for 2.14% to start trailing",
+            "created_at": "2022-01-08T22:56:56.667Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 158.6 USDT. Size: 0.0 USDT (0.736 XMR). Success.",
+            "created_at": "2022-01-08T22:58:27.118Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 171.3 USDT. Size: 0.0 USDT (0.379 XMR). Success.",
+            "created_at": "2022-01-08T22:58:27.294Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.39772490 USDT (1.4 $) (2.1% from total volume (1.85% before trailing)) 💰💰💰. #profit about 7 hours",
+            "created_at": "2022-01-08T22:58:27.355Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_SHIB",
+            "created_at": "2022-01-08T22:58:27.441Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.00002784 USDT Size: 10.10001792 USDT (362788.0 SHIB)",
+            "created_at": "2022-01-08T22:58:27.790Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00002787 USDT.  Size: 10.11011794 USDT (362788.0 SHIB)",
+            "created_at": "2022-01-08T22:58:27.845Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.00002842 USDT. Size: 10.31043496 USDT (362788.0 SHIB), the price should rise for 2.12% to start trailing",
+            "created_at": "2022-01-08T22:58:27.855Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00002731 USDT Size: 20.00001423 USDT (732333.0 SHIB)",
+            "created_at": "2022-01-08T22:58:28.001Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00002647 USDT Size: 36.00002057 USDT (1360031.0 SHIB)",
+            "created_at": "2022-01-08T22:58:28.129Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 36.18 USDT. Size: 20.2810608 USDT (0.56 ATOM)",
+            "created_at": "2022-01-08T23:26:48.704Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 33.41 USDT Size: 64.8154 USDT (1.94 ATOM)",
+            "created_at": "2022-01-08T23:26:48.902Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 1.5264 USDT. Size: 21.3909696 USDT (14.0 LRC)",
+            "created_at": "2022-01-08T23:28:41.282Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 1.4095 USDT Size: 64.837 USDT (46.0 LRC)",
+            "created_at": "2022-01-08T23:28:41.521Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 0.31534 USDT. Size: 20.20194176 USDT (64.0 GALA)",
+            "created_at": "2022-01-08T23:33:24.000Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.29121 USDT Size: 64.93983 USDT (223.0 GALA)",
+            "created_at": "2022-01-08T23:33:24.436Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 5.611 USDT Size: 65.0876 USDT (11.6 RUNE)",
+            "created_at": "2022-01-08T23:58:35.519Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 6.076 USDT. Size: 20.0708508 USDT (3.3 RUNE)",
+            "created_at": "2022-01-08T23:58:35.324Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 13.75 USDT Size: 64.9 USDT (4.72 UNI)",
+            "created_at": "2022-01-09T00:03:11.179Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 14.89 USDT. Size: 20.1216015 USDT (1.35 UNI)",
+            "created_at": "2022-01-09T00:03:10.956Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 4.5813 USDT. Size: 22.9294065 USDT (5.0 SAND)",
+            "created_at": "2022-01-09T00:05:13.593Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 4.2307 USDT Size: 67.6912 USDT (16.0 SAND)",
+            "created_at": "2022-01-09T00:05:13.757Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 0.03531 USDT. Size: 20.02029049 USDT (566.42 LINA)",
+            "created_at": "2022-01-09T00:07:42.694Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.03261 USDT Size: 64.8003093 USDT (1987.13 LINA)",
+            "created_at": "2022-01-09T00:07:42.961Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.99%",
+            "created_at": "2022-01-09T00:46:24.368Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈70.6304 USDT (31.0 GXS)",
+            "created_at": "2022-01-09T00:54:27.085Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 1.9334 USDT. Size: 0.0 USDT (61.0 GXS). Success.",
+            "created_at": "2022-01-09T00:55:18.181Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 2.0892 USDT. Size: 0.0 USDT (32.0 GXS). Success.",
+            "created_at": "2022-01-09T00:55:18.405Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.20330540 USDT (1.2 $) (1.74% from total volume (1.85% before trailing)) 💰💰💰. #profit about 10 hours",
+            "created_at": "2022-01-09T00:55:18.427Z"
+        },
+        {
+            "message": "Placing base order. Price: 187.1 USDT Size: 10.1034 USDT (0.054 XMR)",
+            "created_at": "2022-01-09T00:55:19.158Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_XMR",
+            "created_at": "2022-01-09T00:55:18.509Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 183.5 USDT Size: 20.0015 USDT (0.109 XMR)",
+            "created_at": "2022-01-09T00:55:19.375Z"
+        },
+        {
+            "message": "Base order executed.  Price: 187.2871 USDT.  Size: 10.1135034 USDT (0.054 XMR)",
+            "created_at": "2022-01-09T00:55:19.210Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 191.0 USDT. Size: 10.314 USDT (0.054 XMR), the price should rise for 2.14% to start trailing",
+            "created_at": "2022-01-09T00:55:19.221Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 177.9 USDT Size: 36.1137 USDT (0.203 XMR)",
+            "created_at": "2022-01-09T00:55:19.496Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.89%",
+            "created_at": "2022-01-09T02:03:01.489Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈31.2396 USDT (0.84 ATOM)",
+            "created_at": "2022-01-09T02:10:00.089Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 35.08 USDT. Size: 0.0 USDT (1.03 ATOM). Success.",
+            "created_at": "2022-01-09T02:10:13.520Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 33.41 USDT. Size: 0.0 USDT (1.94 ATOM). Success.",
+            "created_at": "2022-01-09T02:10:13.281Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.57937880 USDT (0.58 $) (1.89% from total volume (1.85% before trailing)) 💰💰💰. #profit about 3 hours",
+            "created_at": "2022-01-09T02:10:13.584Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_ANT",
+            "created_at": "2022-01-09T02:10:13.656Z"
+        },
+        {
+            "message": "Base order executed.  Price: 8.2082 USDT.  Size: 10.67066 USDT (1.3 ANT)",
+            "created_at": "2022-01-09T02:10:13.945Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 7.797 USDT Size: 36.6459 USDT (4.7 ANT)",
+            "created_at": "2022-01-09T02:10:14.205Z"
+        },
+        {
+            "message": "Placing base order. Price: 8.2 USDT Size: 10.66 USDT (1.3 ANT)",
+            "created_at": "2022-01-09T02:10:13.892Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 8.369 USDT. Size: 10.8797 USDT (1.3 ANT), the price should rise for 2.15% to start trailing",
+            "created_at": "2022-01-09T02:10:13.965Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 8.044 USDT Size: 20.11 USDT (2.5 ANT)",
+            "created_at": "2022-01-09T02:10:14.098Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-09T02:31:43.878Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈30.6098572 USDT (846.98 LINA)",
+            "created_at": "2022-01-09T02:34:52.757Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.03261 USDT. Size: 0.0 USDT (1987.13 LINA). Success.",
+            "created_at": "2022-01-09T02:35:22.154Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.44023536 USDT (0.44 $) (1.46% from total volume (1.85% before trailing)) 💰💰💰. #profit about 4 hours",
+            "created_at": "2022-01-09T02:35:22.404Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_XTZ",
+            "created_at": "2022-01-09T02:35:22.475Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.03423 USDT. Size: 0.0 USDT (1051.71 LINA). Success.",
+            "created_at": "2022-01-09T02:35:22.356Z"
+        },
+        {
+            "message": "Placing base order. Price: 4.064 USDT Size: 10.16 USDT (2.5 XTZ)",
+            "created_at": "2022-01-09T02:35:22.734Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 3.986 USDT Size: 20.3286 USDT (5.1 XTZ)",
+            "created_at": "2022-01-09T02:35:22.953Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 3.864 USDT Size: 36.3216 USDT (9.4 XTZ)",
+            "created_at": "2022-01-09T02:35:23.077Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 4.148 USDT. Size: 10.37 USDT (2.5 XTZ), the price should rise for 2.12% to start trailing",
+            "created_at": "2022-01-09T02:35:22.801Z"
+        },
+        {
+            "message": "Base order executed.  Price: 4.068064 USDT.  Size: 10.17016 USDT (2.5 XTZ)",
+            "created_at": "2022-01-09T02:35:22.791Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-09T02:51:37.399Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.98%",
+            "created_at": "2022-01-09T02:52:07.120Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.345 USDT (2.5 XTZ)",
+            "created_at": "2022-01-09T02:53:02.038Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 3.864 USDT. Size: 0.0 USDT (9.4 XTZ). Success.",
+            "created_at": "2022-01-09T02:53:13.183Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.15700250 USDT (0.16 $) (1.54% from total volume (1.85% before trailing)) 💰💰💰. #profit 18 minutes",
+            "created_at": "2022-01-09T02:53:13.559Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_THETA",
+            "created_at": "2022-01-09T02:53:13.683Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 3.986 USDT. Size: 0.0 USDT (5.1 XTZ). Success.",
+            "created_at": "2022-01-09T02:53:13.527Z"
+        },
+        {
+            "message": "Base order executed.  Price: 4.027023 USDT.  Size: 10.4702598 USDT (2.6 THETA)",
+            "created_at": "2022-01-09T02:53:14.166Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 3.946 USDT Size: 20.1246 USDT (5.1 THETA)",
+            "created_at": "2022-01-09T02:53:14.339Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 4.106 USDT. Size: 10.6756 USDT (2.6 THETA), the price should rise for 2.09% to start trailing",
+            "created_at": "2022-01-09T02:53:14.190Z"
+        },
+        {
+            "message": "Placing base order. Price: 4.023 USDT Size: 10.4598 USDT (2.6 THETA)",
+            "created_at": "2022-01-09T02:53:14.041Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 3.825 USDT Size: 36.3375 USDT (9.5 THETA)",
+            "created_at": "2022-01-09T02:53:14.554Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.8849 USDT (1.3 ANT)",
+            "created_at": "2022-01-09T03:00:44.920Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 7.797 USDT. Size: 0.0 USDT (4.7 ANT). Success.",
+            "created_at": "2022-01-09T03:01:15.064Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.34082 USDT Size: 10.122354 USDT (29.7 ROSE)",
+            "created_at": "2022-01-09T03:01:15.825Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_ROSE",
+            "created_at": "2022-01-09T03:01:15.470Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.21114730 USDT (0.21 $) (1.98% from total volume (1.85% before trailing)) 💰💰💰. #profit about 1 hour",
+            "created_at": "2022-01-09T03:01:15.342Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 8.044 USDT. Size: 0.0 USDT (2.5 ANT). Success.",
+            "created_at": "2022-01-09T03:01:15.313Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.34783 USDT. Size: 10.330551 USDT (29.7 ROSE), the price should rise for 2.17% to start trailing",
+            "created_at": "2022-01-09T03:01:15.931Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.34116082 USDT.  Size: 10.13247635 USDT (29.7 ROSE)",
+            "created_at": "2022-01-09T03:01:15.922Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.33433 USDT Size: 20.026367 USDT (59.9 ROSE)",
+            "created_at": "2022-01-09T03:01:16.089Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.3241 USDT Size: 36.00751 USDT (111.1 ROSE)",
+            "created_at": "2022-01-09T03:01:16.521Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-09T04:32:59.933Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.89%",
+            "created_at": "2022-01-09T04:37:13.460Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈30.9464 USDT (2.02 UNI)",
+            "created_at": "2022-01-09T05:19:18.137Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.3031792 USDT (362788.0 SHIB)",
+            "created_at": "2022-01-09T05:20:11.536Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00002647 USDT. Size: 0.0 USDT (1360031.0 SHIB). Success.",
+            "created_at": "2022-01-09T05:20:12.891Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.17550958 USDT (0.18 $) (1.74% from total volume (1.85% before trailing)) 💰💰💰. #profit about 6 hours",
+            "created_at": "2022-01-09T05:20:13.240Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00002731 USDT. Size: 0.0 USDT (732333.0 SHIB). Success.",
+            "created_at": "2022-01-09T05:20:13.144Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 14.43 USDT. Size: 0.0 USDT (2.5 UNI). Success.",
+            "created_at": "2022-01-09T05:20:21.834Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 13.75 USDT. Size: 0.0 USDT (4.72 UNI). Success.",
+            "created_at": "2022-01-09T05:20:21.603Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.59290170 USDT (0.59 $) (1.96% from total volume (1.85% before trailing)) 💰💰💰. #profit about 7 hours",
+            "created_at": "2022-01-09T05:20:21.911Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.92%",
+            "created_at": "2022-01-09T05:44:29.434Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.401 USDT (10.0 BAT)",
+            "created_at": "2022-01-09T05:52:20.075Z"
+        },
+        {
+            "message": "Safety trade (1 out of 5) executed. Price: 0.33433 USDT. Size: 20.04639337 USDT (59.9 ROSE)",
+            "created_at": "2022-01-09T05:52:55.018Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.30875 USDT Size: 64.806625 USDT (209.9 ROSE)",
+            "created_at": "2022-01-09T05:52:55.192Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.9725 USDT. Size: 0.0 USDT (38.0 BAT). Success.",
+            "created_at": "2022-01-09T05:53:12.355Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.14238300 USDT (0.14 $) (1.39% from total volume (1.85% before trailing)) 💰💰💰. #profit about 8 hours",
+            "created_at": "2022-01-09T05:53:12.933Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 1.0032 USDT. Size: 0.0 USDT (20.0 BAT). Success.",
+            "created_at": "2022-01-09T05:53:12.905Z"
+        },
+        {
+            "message": "Safety trade (2 out of 5) executed. Price: 0.3241 USDT. Size: 36.04351751 USDT (111.1 ROSE)",
+            "created_at": "2022-01-09T08:29:59.627Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.28572 USDT Size: 116.659476 USDT (408.3 ROSE)",
+            "created_at": "2022-01-09T08:29:59.851Z"
+        },
+        {
+            "message": "Start command received",
+            "created_at": "2022-01-07T20:12:45.654Z"
+        },
+        {
+            "message": "Bot is turned on",
+            "created_at": "2022-01-07T20:12:45.709Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-09T09:37:35.996Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 4.4411 USDT. Size: 0.0 USDT (9.0 SAND). Success.",
+            "created_at": "2022-01-09T09:41:38.101Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈38.1832 USDT (8.0 SAND)",
+            "created_at": "2022-01-09T09:40:41.171Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.19979090 USDT (1.2 $) (3.25% from total volume (1.85% before trailing)) 💰💰💰. #profit about 11 hours",
+            "created_at": "2022-01-09T09:41:04.454Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 4.2307 USDT. Size: 0.0 USDT (16.0 SAND). Success.",
+            "created_at": "2022-01-09T09:41:37.977Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.93%",
+            "created_at": "2022-01-09T10:44:51.723Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.3734 USDT (0.054 XMR)",
+            "created_at": "2022-01-09T11:21:34.180Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 177.9 USDT. Size: 0.0 USDT (0.203 XMR). Success.",
+            "created_at": "2022-01-09T11:22:13.560Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 183.5 USDT. Size: 0.0 USDT (0.109 XMR). Success.",
+            "created_at": "2022-01-09T11:22:13.775Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.24412860 USDT (0.24 $) (2.41% from total volume (1.85% before trailing)) 💰💰💰. #profit about 10 hours",
+            "created_at": "2022-01-09T11:22:13.817Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.96%",
+            "created_at": "2022-01-09T12:45:18.447Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈30.96768 USDT (96.0 GALA)",
+            "created_at": "2022-01-09T12:51:45.504Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.30569 USDT. Size: 0.0 USDT (118.0 GALA). Success.",
+            "created_at": "2022-01-09T12:52:12.683Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.43488672 USDT (0.43 $) (1.43% from total volume (1.85% before trailing)) 💰💰💰. #profit about 14 hours",
+            "created_at": "2022-01-09T12:52:12.731Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.29121 USDT. Size: 0.0 USDT (223.0 GALA). Success.",
+            "created_at": "2022-01-09T12:52:12.433Z"
+        },
+        {
+            "message": "Bot 7675699 Starting new deal. Pair: USDT_IRIS",
+            "created_at": "2022-01-09T15:31:01.083Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.08756 USDT Size: 10.104424 USDT (115.4 IRIS)",
+            "created_at": "2022-01-09T15:31:01.249Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.08762 USDT Size: 10.102586 USDT (115.3 IRIS)",
+            "created_at": "2022-01-09T15:31:50.468Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.08332 USDT Size: 36.002572 USDT (432.1 IRIS)",
+            "created_at": "2022-01-09T15:31:50.819Z"
+        },
+        {
+            "message": "Updating base order",
+            "created_at": "2022-01-09T15:31:50.241Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.08770762 USDT.  Size: 10.11268859 USDT (115.3 IRIS)",
+            "created_at": "2022-01-09T15:31:50.511Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.08942 USDT. Size: 10.310126 USDT (115.3 IRIS), the price should rise for 2.08% to start trailing",
+            "created_at": "2022-01-09T15:31:50.521Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.08595 USDT Size: 20.000565 USDT (232.7 IRIS)",
+            "created_at": "2022-01-09T15:31:50.689Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.91%",
+            "created_at": "2022-01-09T16:49:08.082Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 2.06%",
+            "created_at": "2022-01-09T16:57:18.153Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.91%",
+            "created_at": "2022-01-09T16:57:23.477Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.85%",
+            "created_at": "2022-01-09T17:01:43.731Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 2.01%",
+            "created_at": "2022-01-09T17:02:33.479Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈31.185 USDT (5.0 RUNE)",
+            "created_at": "2022-01-09T17:09:47.777Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.6938 USDT (2.6 THETA)",
+            "created_at": "2022-01-09T17:10:08.133Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 5.611 USDT. Size: 0.0 USDT (11.6 RUNE). Success.",
+            "created_at": "2022-01-09T17:10:53.541Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 3.825 USDT. Size: 0.0 USDT (9.5 THETA). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-09T17:10:53.106Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.28572 USDT. Size: 0.0 USDT (408.3 ROSE). Success.",
+            "created_at": "2022-01-09T17:11:23.798Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 5.89 USDT. Size: 0.0 USDT (6.2 RUNE). Success.",
+            "created_at": "2022-01-09T17:10:53.824Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.51266440 USDT (0.51 $) (1.67% from total volume (1.85% before trailing)) 💰💰💰. #profit about 18 hours",
+            "created_at": "2022-01-09T17:10:53.911Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 3.825 USDT. Size: 0.0 USDT (9.5 THETA). Success.",
+            "created_at": "2022-01-09T17:11:24.043Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈67.710159 USDT (200.7 ROSE)",
+            "created_at": "2022-01-09T17:11:08.322Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.31981196 USDT (1.32 $) (1.99% from total volume (1.85% before trailing)) 💰💰💰. #profit about 14 hours",
+            "created_at": "2022-01-09T17:11:24.081Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.30875 USDT. Size: 0.0 USDT (209.9 ROSE). Success.",
+            "created_at": "2022-01-09T17:11:24.046Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.21024900 USDT (0.21 $) (2.01% from total volume (1.85% before trailing)) 💰💰💰. #profit about 14 hours",
+            "created_at": "2022-01-09T17:11:24.222Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 3.946 USDT. Size: 0.0 USDT (5.1 THETA). Success.",
+            "created_at": "2022-01-09T17:11:24.199Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈33.5349 USDT (21.0 LRC)",
+            "created_at": "2022-01-09T17:26:27.966Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 1.4796 USDT. Size: 0.0 USDT (25.0 LRC). Success.",
+            "created_at": "2022-01-09T17:26:29.091Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +1.19281820 USDT (1.19 $) (3.69% from total volume (1.85% before trailing)) 💰💰💰. #profit about 19 hours",
+            "created_at": "2022-01-09T17:26:29.114Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 1.4095 USDT. Size: 0.0 USDT (46.0 LRC). Success.",
+            "created_at": "2022-01-09T17:26:28.954Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.08595 USDT. Size: 0.0 USDT (232.7 IRIS). Success.",
+            "created_at": "2022-01-09T17:32:13.626Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.08332 USDT. Size: 0.0 USDT (432.1 IRIS). Success.",
+            "created_at": "2022-01-09T17:32:13.471Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈10.501524 USDT (115.3 IRIS)",
+            "created_at": "2022-01-09T17:32:02.994Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.36681542 USDT (0.37 $) (3.63% from total volume (1.85% before trailing)) 💰💰💰. #profit about 2 hours",
+            "created_at": "2022-01-09T17:32:13.644Z"
+        }
+    ]
+}

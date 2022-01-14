@@ -1,0 +1,1598 @@
+{
+    "id": 7675928,
+    "account_id": 27435212,
+    "is_enabled": true,
+    "max_safety_orders": 4,
+    "active_safety_orders_count": 4,
+    "pairs": [
+        "BTC_1INCH",
+        "BTC_AAVE",
+        "BTC_ACM",
+        "BTC_ADA",
+        "BTC_ADX",
+        "BTC_AERGO",
+        "BTC_AGIX",
+        "BTC_AGLD",
+        "BTC_AION",
+        "BTC_AKRO",
+        "BTC_ALCX",
+        "BTC_ALGO",
+        "BTC_ALICE",
+        "BTC_ALPACA",
+        "BTC_ALPHA",
+        "BTC_AMB",
+        "BTC_AMP",
+        "BTC_ANKR",
+        "BTC_ANT",
+        "BTC_ANY",
+        "BTC_AR",
+        "BTC_ARDR",
+        "BTC_ARK",
+        "BTC_ARPA",
+        "BTC_ASR",
+        "BTC_AST",
+        "BTC_ATA",
+        "BTC_ATM",
+        "BTC_ATOM",
+        "BTC_AUCTION",
+        "BTC_AUDIO",
+        "BTC_AUTO",
+        "BTC_AVA",
+        "BTC_AVAX",
+        "BTC_AXS",
+        "BTC_BADGER",
+        "BTC_BAKE",
+        "BTC_BAL",
+        "BTC_BAND",
+        "BTC_BAR",
+        "BTC_BAT",
+        "BTC_BCD",
+        "BTC_BCH",
+        "BTC_BEAM",
+        "BTC_BEL",
+        "BTC_BETA",
+        "BTC_BICO",
+        "BTC_BLZ",
+        "BTC_BNB",
+        "BTC_BNT",
+        "BTC_BNX",
+        "BTC_BOND",
+        "BTC_BRD",
+        "BTC_BTCST",
+        "BTC_BTG",
+        "BTC_BTS",
+        "BTC_C98",
+        "BTC_CAKE",
+        "BTC_CELO",
+        "BTC_CELR",
+        "BTC_CFX",
+        "BTC_CHESS",
+        "BTC_CHR",
+        "BTC_CHZ",
+        "BTC_CITY",
+        "BTC_CKB",
+        "BTC_CLV",
+        "BTC_CND",
+        "BTC_COMP",
+        "BTC_COS",
+        "BTC_COTI",
+        "BTC_CRV",
+        "BTC_CTK",
+        "BTC_CTSI",
+        "BTC_CTXC",
+        "BTC_CVC",
+        "BTC_CVX",
+        "BTC_DAR",
+        "BTC_DASH",
+        "BTC_DATA",
+        "BTC_DCR",
+        "BTC_DEGO",
+        "BTC_DGB",
+        "BTC_DIA",
+        "BTC_DNT",
+        "BTC_DOCK",
+        "BTC_DODO",
+        "BTC_DOGE",
+        "BTC_DOT",
+        "BTC_DREP",
+        "BTC_DUSK",
+        "BTC_DYDX",
+        "BTC_EGLD",
+        "BTC_ELF",
+        "BTC_ENJ",
+        "BTC_ENS",
+        "BTC_EOS",
+        "BTC_EPS",
+        "BTC_ETC",
+        "BTC_ETH",
+        "BTC_EZ",
+        "BTC_FARM",
+        "BTC_FET",
+        "BTC_FIDA",
+        "BTC_FIL",
+        "BTC_FIO",
+        "BTC_FIRO",
+        "BTC_FIS",
+        "BTC_FLM",
+        "BTC_FLOW",
+        "BTC_FLUX",
+        "BTC_FOR",
+        "BTC_FORTH",
+        "BTC_FRONT",
+        "BTC_FTM",
+        "BTC_FTT",
+        "BTC_FXS",
+        "BTC_GALA",
+        "BTC_GAS",
+        "BTC_GLM",
+        "BTC_GNO",
+        "BTC_GO",
+        "BTC_GRS",
+        "BTC_GRT",
+        "BTC_GTC",
+        "BTC_GTO",
+        "BTC_GXS",
+        "BTC_HARD",
+        "BTC_HBAR",
+        "BTC_HIGH",
+        "BTC_HIVE",
+        "BTC_HNT",
+        "BTC_ICP",
+        "BTC_ICX",
+        "BTC_IDEX",
+        "BTC_ILV",
+        "BTC_INJ",
+        "BTC_IOST",
+        "BTC_IOTA",
+        "BTC_IOTX",
+        "BTC_IRIS",
+        "BTC_JASMY",
+        "BTC_JOE",
+        "BTC_JST",
+        "BTC_JUV",
+        "BTC_KAVA",
+        "BTC_KEEP",
+        "BTC_KLAY",
+        "BTC_KMD",
+        "BTC_KNC",
+        "BTC_KSM",
+        "BTC_LAZIO",
+        "BTC_LINA",
+        "BTC_LINK",
+        "BTC_LIT",
+        "BTC_LOOM",
+        "BTC_LPT",
+        "BTC_LRC",
+        "BTC_LSK",
+        "BTC_LTC",
+        "BTC_LTO",
+        "BTC_LUNA",
+        "BTC_MANA",
+        "BTC_MATIC",
+        "BTC_MBOX",
+        "BTC_MC",
+        "BTC_MDA",
+        "BTC_MDT",
+        "BTC_MDX",
+        "BTC_MINA",
+        "BTC_MIR",
+        "BTC_MITH",
+        "BTC_MKR",
+        "BTC_MLN",
+        "BTC_MOVR",
+        "BTC_MTH",
+        "BTC_MTL",
+        "BTC_NANO",
+        "BTC_NAS",
+        "BTC_NAV",
+        "BTC_NEAR",
+        "BTC_NEBL",
+        "BTC_NEO",
+        "BTC_NKN",
+        "BTC_NMR",
+        "BTC_NU",
+        "BTC_NULS",
+        "BTC_NXS",
+        "BTC_OAX",
+        "BTC_OCEAN",
+        "BTC_OG",
+        "BTC_OGN",
+        "BTC_OM",
+        "BTC_OMG",
+        "BTC_ONE",
+        "BTC_ONG",
+        "BTC_ONT",
+        "BTC_ORN",
+        "BTC_OXT",
+        "BTC_PAXG",
+        "BTC_PEOPLE",
+        "BTC_PERL",
+        "BTC_PERP",
+        "BTC_PHA",
+        "BTC_PHB",
+        "BTC_PIVX",
+        "BTC_PLA",
+        "BTC_PNT",
+        "BTC_POLS",
+        "BTC_POLY",
+        "BTC_POND",
+        "BTC_PORTO",
+        "BTC_POWR",
+        "BTC_PROM",
+        "BTC_PSG",
+        "BTC_PYR",
+        "BTC_QI",
+        "BTC_QKC",
+        "BTC_QLC",
+        "BTC_QNT",
+        "BTC_QSP",
+        "BTC_QTUM",
+        "BTC_QUICK",
+        "BTC_RAD",
+        "BTC_RAMP",
+        "BTC_RARE",
+        "BTC_REEF",
+        "BTC_REN",
+        "BTC_RENBTC",
+        "BTC_REP",
+        "BTC_REQ",
+        "BTC_RGT",
+        "BTC_RIF",
+        "BTC_RLC",
+        "BTC_RNDR",
+        "BTC_ROSE",
+        "BTC_RSR",
+        "BTC_RUNE",
+        "BTC_RVN",
+        "BTC_SAND",
+        "BTC_SANTOS",
+        "BTC_SC",
+        "BTC_SCRT",
+        "BTC_SFP",
+        "BTC_SKL",
+        "BTC_SNM",
+        "BTC_SNT",
+        "BTC_SNX",
+        "BTC_SOL",
+        "BTC_SPELL",
+        "BTC_SRM",
+        "BTC_SSV",
+        "BTC_STEEM",
+        "BTC_STMX",
+        "BTC_STORJ",
+        "BTC_STPT",
+        "BTC_STRAX",
+        "BTC_STX",
+        "BTC_SUPER",
+        "BTC_SUSHI",
+        "BTC_SXP",
+        "BTC_SYS",
+        "BTC_TCT",
+        "BTC_TFUEL",
+        "BTC_THETA",
+        "BTC_TKO",
+        "BTC_TLM",
+        "BTC_TOMO",
+        "BTC_TORN",
+        "BTC_TRB",
+        "BTC_TRIBE",
+        "BTC_TRU",
+        "BTC_TRX",
+        "BTC_TVK",
+        "BTC_TWT",
+        "BTC_UMA",
+        "BTC_UNFI",
+        "BTC_UNI",
+        "BTC_UST",
+        "BTC_UTK",
+        "BTC_VET",
+        "BTC_VGX",
+        "BTC_VIB",
+        "BTC_VIDT",
+        "BTC_VITE",
+        "BTC_VOXEL",
+        "BTC_WABI",
+        "BTC_WAN",
+        "BTC_WAVES",
+        "BTC_WAXP",
+        "BTC_WBTC",
+        "BTC_WING",
+        "BTC_WNXM",
+        "BTC_WRX",
+        "BTC_WTC",
+        "BTC_XEM",
+        "BTC_XLM",
+        "BTC_XMR",
+        "BTC_XRP",
+        "BTC_XTZ",
+        "BTC_XVG",
+        "BTC_XVS",
+        "BTC_YFI",
+        "BTC_YFII",
+        "BTC_YGG",
+        "BTC_YOYO",
+        "BTC_ZEC",
+        "BTC_ZEN",
+        "BTC_ZIL",
+        "BTC_ZRX"
+    ],
+    "strategy_list": [
+        {
+            "options": {
+                "type": "original",
+                "percent": "3"
+            },
+            "strategy": "qfl"
+        }
+    ],
+    "max_active_deals": 10,
+    "active_deals_count": 3,
+    "deletable?": false,
+    "created_at": "2022-01-07T20:33:13.808Z",
+    "updated_at": "2022-01-07T20:33:15.363Z",
+    "trailing_enabled": true,
+    "tsl_enabled": false,
+    "deal_start_delay_seconds": 0,
+    "stop_loss_timeout_enabled": false,
+    "stop_loss_timeout_in_seconds": 0,
+    "disable_after_deals_count": null,
+    "deals_counter": null,
+    "allowed_deals_on_same_pair": 2,
+    "easy_form_supported": false,
+    "close_deals_timeout": 259200,
+    "url_secret": "ac5fd83632",
+    "name": "Serge QFL-O v1| BTC ALL ",
+    "take_profit": "1.85",
+    "base_order_volume": "0.0001",
+    "safety_order_volume": "0.0002",
+    "safety_order_step_percentage": "2.0",
+    "take_profit_type": "total",
+    "type": "Bot::MultiBot",
+    "martingale_volume_coefficient": "2.0",
+    "martingale_step_coefficient": "1.5",
+    "stop_loss_percentage": "0.0",
+    "cooldown": "300",
+    "btc_price_limit": "0.0",
+    "strategy": "long",
+    "min_volume_btc_24h": "300.0",
+    "profit_currency": "quote_currency",
+    "min_price": null,
+    "max_price": null,
+    "stop_loss_type": "stop_loss",
+    "safety_order_volume_type": "quote_currency",
+    "base_order_volume_type": "quote_currency",
+    "account_name": "Paper Account 332783",
+    "trailing_deviation": "0.5",
+    "finished_deals_profit_usd": "2.8",
+    "finished_deals_count": "14",
+    "leverage_type": "not_specified",
+    "leverage_custom_value": null,
+    "start_order_type": "limit",
+    "active_deals_usd_profit": "-0.4310616004695",
+    "active_deals": [
+        {
+            "id": 1200687789,
+            "type": "Deal",
+            "bot_id": 7675928,
+            "max_safety_orders": 4,
+            "deal_has_error": false,
+            "from_currency_id": 0,
+            "to_currency_id": 0,
+            "account_id": 27435212,
+            "active_safety_orders_count": 4,
+            "created_at": "2022-01-08T23:03:36.600Z",
+            "updated_at": "2022-01-09T17:29:17.112Z",
+            "closed_at": null,
+            "finished?": false,
+            "current_active_safety_orders_count": 4,
+            "current_active_safety_orders": 4,
+            "completed_safety_orders_count": 0,
+            "completed_manual_safety_orders_count": 0,
+            "cancellable?": true,
+            "panic_sellable?": true,
+            "trailing_enabled": true,
+            "tsl_enabled": false,
+            "stop_loss_timeout_enabled": false,
+            "stop_loss_timeout_in_seconds": 0,
+            "active_manual_safety_orders": 0,
+            "pair": "BTC_MATIC",
+            "status": "ttp_activated",
+            "localized_status": "TTP activated",
+            "take_profit": "1.85",
+            "base_order_volume": "0.0001",
+            "safety_order_volume": "0.0002",
+            "safety_order_step_percentage": "2.0",
+            "leverage_type": "not_specified",
+            "leverage_custom_value": null,
+            "bought_amount": "2.2",
+            "bought_volume": "0.000105551446",
+            "bought_average_price": "0.00004797793",
+            "base_order_average_price": "0.00004797793",
+            "sold_amount": "0.0",
+            "sold_volume": "0.0",
+            "sold_average_price": "0",
+            "take_profit_type": "total",
+            "final_profit": "-0.00000023",
+            "martingale_coefficient": "1.0",
+            "martingale_volume_coefficient": "2.0",
+            "martingale_step_coefficient": "1.5",
+            "stop_loss_percentage": "0.0",
+            "error_message": null,
+            "profit_currency": "quote_currency",
+            "stop_loss_type": "stop_loss",
+            "safety_order_volume_type": "quote_currency",
+            "base_order_volume_type": "quote_currency",
+            "from_currency": "BTC",
+            "to_currency": "MATIC",
+            "current_price": "4.954e-05",
+            "take_profit_price": "0.00004892",
+            "stop_loss_price": null,
+            "final_profit_percentage": "0",
+            "actual_profit_percentage": "3.26",
+            "bot_name": "Serge QFL-O v1| BTC ALL ",
+            "account_name": "",
+            "usd_final_profit": "-0.01",
+            "actual_profit": "0.000003327566",
+            "actual_usd_profit": "0.1398206629974",
+            "failed_message": null,
+            "reserved_base_coin": "0.000105551446",
+            "reserved_second_coin": "2.2",
+            "trailing_deviation": "0.5",
+            "trailing_max_price": "0.00004961",
+            "tsl_max_price": null,
+            "strategy": "long",
+            "reserved_quote_funds": "0.003009611",
+            "reserved_base_funds": 0
+        },
+        {
+            "id": 1199550674,
+            "type": "Deal",
+            "bot_id": 7675928,
+            "max_safety_orders": 4,
+            "deal_has_error": false,
+            "from_currency_id": 0,
+            "to_currency_id": 0,
+            "account_id": 27435212,
+            "active_safety_orders_count": 4,
+            "created_at": "2022-01-08T14:30:15.109Z",
+            "updated_at": "2022-01-09T10:15:12.338Z",
+            "closed_at": null,
+            "finished?": false,
+            "current_active_safety_orders_count": 1,
+            "current_active_safety_orders": 1,
+            "completed_safety_orders_count": 3,
+            "completed_manual_safety_orders_count": 0,
+            "cancellable?": true,
+            "panic_sellable?": true,
+            "trailing_enabled": true,
+            "tsl_enabled": false,
+            "stop_loss_timeout_enabled": false,
+            "stop_loss_timeout_in_seconds": 0,
+            "active_manual_safety_orders": 0,
+            "pair": "BTC_NEAR",
+            "status": "bought",
+            "localized_status": "Bought",
+            "take_profit": "1.85",
+            "base_order_volume": "0.0001",
+            "safety_order_volume": "0.0002",
+            "safety_order_step_percentage": "2.0",
+            "leverage_type": "not_specified",
+            "leverage_custom_value": null,
+            "bought_amount": "4.8",
+            "bought_volume": "0.001567222657",
+            "bought_average_price": "0.000326504720208333333333333333333333",
+            "base_order_average_price": "0.00034981947",
+            "sold_amount": "0.0",
+            "sold_volume": "0.0",
+            "sold_average_price": "0",
+            "take_profit_type": "total",
+            "final_profit": "-0.00004945",
+            "martingale_coefficient": "1.0",
+            "martingale_volume_coefficient": "2.0",
+            "martingale_step_coefficient": "1.5",
+            "stop_loss_percentage": "0.0",
+            "error_message": null,
+            "profit_currency": "quote_currency",
+            "stop_loss_type": "stop_loss",
+            "safety_order_volume_type": "quote_currency",
+            "base_order_volume_type": "quote_currency",
+            "from_currency": "BTC",
+            "to_currency": "NEAR",
+            "current_price": "0.00032831",
+            "take_profit_price": "0.00033288",
+            "stop_loss_price": null,
+            "final_profit_percentage": "0",
+            "actual_profit_percentage": "0.55",
+            "bot_name": "Serge QFL-O v1| BTC ALL ",
+            "account_name": "",
+            "usd_final_profit": "-2.08",
+            "actual_profit": "0.000007089455",
+            "actual_usd_profit": "0.2978911006995",
+            "failed_message": null,
+            "reserved_base_coin": "0.001567222657",
+            "reserved_second_coin": "4.8",
+            "trailing_deviation": "0.5",
+            "trailing_max_price": null,
+            "tsl_max_price": null,
+            "strategy": "long",
+            "reserved_quote_funds": "0.001611335",
+            "reserved_base_funds": 0
+        },
+        {
+            "id": 1199559494,
+            "type": "Deal",
+            "bot_id": 7675928,
+            "max_safety_orders": 4,
+            "deal_has_error": false,
+            "from_currency_id": 0,
+            "to_currency_id": 0,
+            "account_id": 27435212,
+            "active_safety_orders_count": 4,
+            "created_at": "2022-01-08T14:36:28.242Z",
+            "updated_at": "2022-01-08T18:19:28.804Z",
+            "closed_at": null,
+            "finished?": false,
+            "current_active_safety_orders_count": 2,
+            "current_active_safety_orders": 2,
+            "completed_safety_orders_count": 2,
+            "completed_manual_safety_orders_count": 0,
+            "cancellable?": true,
+            "panic_sellable?": true,
+            "trailing_enabled": true,
+            "tsl_enabled": false,
+            "stop_loss_timeout_enabled": false,
+            "stop_loss_timeout_in_seconds": 0,
+            "active_manual_safety_orders": 0,
+            "pair": "BTC_NEAR",
+            "status": "bought",
+            "localized_status": "Bought",
+            "take_profit": "1.85",
+            "base_order_volume": "0.0001",
+            "safety_order_volume": "0.0002",
+            "safety_order_step_percentage": "2.0",
+            "leverage_type": "not_specified",
+            "leverage_custom_value": null,
+            "bought_amount": "2.2",
+            "bought_volume": "0.000742235494",
+            "bought_average_price": "0.00033737977",
+            "base_order_average_price": "0.00034931897",
+            "sold_amount": "0.0",
+            "sold_volume": "0.0",
+            "sold_average_price": "0",
+            "take_profit_type": "total",
+            "final_profit": "-0.00001514",
+            "martingale_coefficient": "1.0",
+            "martingale_volume_coefficient": "2.0",
+            "martingale_step_coefficient": "1.5",
+            "stop_loss_percentage": "0.0",
+            "error_message": null,
+            "profit_currency": "quote_currency",
+            "stop_loss_type": "stop_loss",
+            "safety_order_volume_type": "quote_currency",
+            "base_order_volume_type": "quote_currency",
+            "from_currency": "BTC",
+            "to_currency": "NEAR",
+            "current_price": "0.00032831",
+            "take_profit_price": "0.00034397",
+            "stop_loss_price": null,
+            "final_profit_percentage": "0",
+            "actual_profit_percentage": "-2.69",
+            "bot_name": "Serge QFL-O v1| BTC ALL ",
+            "account_name": "",
+            "usd_final_profit": "-0.64",
+            "actual_profit": "-0.000020675776",
+            "actual_usd_profit": "-0.8687733641664",
+            "failed_message": null,
+            "reserved_base_coin": "0.000742235494",
+            "reserved_second_coin": "2.2",
+            "trailing_deviation": "0.5",
+            "trailing_max_price": null,
+            "tsl_max_price": null,
+            "strategy": "long",
+            "reserved_quote_funds": "0.002430963",
+            "reserved_base_funds": 0
+        }
+    ],
+    "bot_events": [
+        {
+            "message": "Placing safety trade. Price: 0.00029297 BTC Size: 0.00161134 BTC (5.5 NEAR). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-08T14:30:18.183Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_NEAR",
+            "created_at": "2022-01-08T14:30:15.095Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.00034947 BTC Size: 0.00010484 BTC (0.3 NEAR)",
+            "created_at": "2022-01-08T14:30:15.760Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.00035665 BTC. Size: 0.000107 BTC (0.3 NEAR), the price should rise for 2.13% to start trailing",
+            "created_at": "2022-01-08T14:30:17.043Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00034982 BTC.  Size: 0.00010495 BTC (0.3 NEAR)",
+            "created_at": "2022-01-08T14:30:16.832Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00034282 BTC Size: 0.00020569 BTC (0.6 NEAR)",
+            "created_at": "2022-01-08T14:30:17.619Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00031658 BTC Size: 0.00082311 BTC (2.6 NEAR)",
+            "created_at": "2022-01-08T14:30:18.054Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00033232 BTC Size: 0.00043202 BTC (1.3 NEAR)",
+            "created_at": "2022-01-08T14:30:17.840Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00034233 BTC Size: 0.0002054 BTC (0.6 NEAR)",
+            "created_at": "2022-01-08T14:36:28.796Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.00035614 BTC. Size: 0.00010684 BTC (0.3 NEAR), the price should rise for 2.10% to start trailing",
+            "created_at": "2022-01-08T14:36:28.602Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_NEAR",
+            "created_at": "2022-01-08T14:36:28.218Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.00034897 BTC Size: 0.00010469 BTC (0.3 NEAR)",
+            "created_at": "2022-01-08T14:36:28.533Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00034932 BTC.  Size: 0.0001048 BTC (0.3 NEAR)",
+            "created_at": "2022-01-08T14:36:28.592Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00033185 BTC Size: 0.00043141 BTC (1.3 NEAR)",
+            "created_at": "2022-01-08T14:36:28.899Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00031613 BTC Size: 0.00082194 BTC (2.6 NEAR)",
+            "created_at": "2022-01-08T14:36:29.015Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00029255 BTC Size: 0.00160903 BTC (5.5 NEAR)",
+            "created_at": "2022-01-08T14:36:29.141Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00029297 BTC Size: 0.00161134 BTC (5.5 NEAR)",
+            "created_at": "2022-01-08T14:45:43.261Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_ATOM",
+            "created_at": "2022-01-08T14:54:14.913Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.000807 BTC Size: 0.000807 BTC (1.0 ATOM)",
+            "created_at": "2022-01-08T14:54:15.649Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0008909 BTC Size: 0.00010691 BTC (0.12 ATOM)",
+            "created_at": "2022-01-08T14:54:15.131Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0009092 BTC. Size: 0.0001091 BTC (0.12 ATOM), the price should rise for 2.11% to start trailing",
+            "created_at": "2022-01-08T14:54:15.210Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00089179 BTC.  Size: 0.00010701 BTC (0.12 ATOM)",
+            "created_at": "2022-01-08T14:54:15.199Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008739 BTC Size: 0.000201 BTC (0.23 ATOM)",
+            "created_at": "2022-01-08T14:54:15.375Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008472 BTC Size: 0.00040666 BTC (0.48 ATOM)",
+            "created_at": "2022-01-08T14:54:15.514Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007468 BTC Size: 0.00160562 BTC (2.15 ATOM)",
+            "created_at": "2022-01-08T14:54:15.783Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007431 BTC Size: 0.0016051 BTC (2.16 ATOM)",
+            "created_at": "2022-01-08T15:07:00.568Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_ATOM",
+            "created_at": "2022-01-08T15:06:58.590Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0008865 BTC Size: 0.00010638 BTC (0.12 ATOM)",
+            "created_at": "2022-01-08T15:06:59.219Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00088739 BTC.  Size: 0.00010649 BTC (0.12 ATOM)",
+            "created_at": "2022-01-08T15:06:59.300Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008696 BTC Size: 0.00020001 BTC (0.23 ATOM)",
+            "created_at": "2022-01-08T15:06:59.534Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0009048 BTC. Size: 0.00010858 BTC (0.12 ATOM), the price should rise for 2.17% to start trailing",
+            "created_at": "2022-01-08T15:06:59.308Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.000803 BTC Size: 0.000803 BTC (1.0 ATOM)",
+            "created_at": "2022-01-08T15:07:00.342Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.000843 BTC Size: 0.00040464 BTC (0.48 ATOM)",
+            "created_at": "2022-01-08T15:06:59.826Z"
+        },
+        {
+            "message": "Safety trade (1 out of 4) executed. Price: 0.0008739 BTC. Size: 0.0002012 BTC (0.23 ATOM)",
+            "created_at": "2022-01-08T16:13:17.268Z"
+        },
+        {
+            "message": "Safety trade (1 out of 4) executed. Price: 0.00034282 BTC. Size: 0.0002059 BTC (0.6 NEAR)",
+            "created_at": "2022-01-08T16:27:05.952Z"
+        },
+        {
+            "message": "Safety trade (1 out of 4) executed. Price: 0.00034233 BTC. Size: 0.0002056 BTC (0.6 NEAR)",
+            "created_at": "2022-01-08T16:27:08.651Z"
+        },
+        {
+            "message": "Safety trade (1 out of 4) executed. Price: 0.0008696 BTC. Size: 0.00020021 BTC (0.23 ATOM)",
+            "created_at": "2022-01-08T16:30:26.239Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0019466 BTC Size: 0.00021413 BTC (0.11 AVAX)",
+            "created_at": "2022-01-08T16:35:53.315Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00198638 BTC.  Size: 0.00011918 BTC (0.06 AVAX)",
+            "created_at": "2022-01-08T16:35:53.098Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0020252 BTC. Size: 0.00012151 BTC (0.06 AVAX), the price should rise for 2.09% to start trailing",
+            "created_at": "2022-01-08T16:35:53.123Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0017976 BTC Size: 0.00080892 BTC (0.45 AVAX)",
+            "created_at": "2022-01-08T16:35:53.561Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_AVAX",
+            "created_at": "2022-01-08T16:35:52.629Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0019844 BTC Size: 0.00011906 BTC (0.06 AVAX)",
+            "created_at": "2022-01-08T16:35:52.990Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.001887 BTC Size: 0.00041514 BTC (0.22 AVAX)",
+            "created_at": "2022-01-08T16:35:53.434Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0016635 BTC Size: 0.0016136 BTC (0.97 AVAX)",
+            "created_at": "2022-01-08T16:35:53.689Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0016649 BTC Size: 0.00161495 BTC (0.97 AVAX)",
+            "created_at": "2022-01-08T16:41:31.394Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_AVAX",
+            "created_at": "2022-01-08T16:41:28.225Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.001986 BTC Size: 0.00011916 BTC (0.06 AVAX)",
+            "created_at": "2022-01-08T16:41:28.397Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0019482 BTC Size: 0.0002143 BTC (0.11 AVAX)",
+            "created_at": "2022-01-08T16:41:30.939Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00198799 BTC.  Size: 0.00011928 BTC (0.06 AVAX)",
+            "created_at": "2022-01-08T16:41:30.685Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0017991 BTC Size: 0.0008096 BTC (0.45 AVAX)",
+            "created_at": "2022-01-08T16:41:31.231Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0018885 BTC Size: 0.00041547 BTC (0.22 AVAX)",
+            "created_at": "2022-01-08T16:41:31.094Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0020268 BTC. Size: 0.00012161 BTC (0.06 AVAX), the price should rise for 2.10% to start trailing",
+            "created_at": "2022-01-08T16:41:30.739Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_MATIC",
+            "created_at": "2022-01-08T17:32:41.297Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004547 BTC Size: 0.00040014 BTC (8.8 MATIC)",
+            "created_at": "2022-01-08T17:32:41.967Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00004787 BTC.  Size: 0.00010531 BTC (2.2 MATIC)",
+            "created_at": "2022-01-08T17:32:41.656Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004691 BTC Size: 0.00020171 BTC (4.3 MATIC)",
+            "created_at": "2022-01-08T17:32:41.849Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.00004782 BTC Size: 0.0001052 BTC (2.2 MATIC)",
+            "created_at": "2022-01-08T17:32:41.535Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004332 BTC Size: 0.00080142 BTC (18.5 MATIC)",
+            "created_at": "2022-01-08T17:32:42.101Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.00004881 BTC. Size: 0.00010738 BTC (2.2 MATIC), the price should rise for 2.11% to start trailing",
+            "created_at": "2022-01-08T17:32:41.668Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004008 BTC Size: 0.0016032 BTC (40.0 MATIC)",
+            "created_at": "2022-01-08T17:32:42.219Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_MATIC",
+            "created_at": "2022-01-08T17:37:54.948Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.00004753 BTC Size: 0.00010457 BTC (2.2 MATIC)",
+            "created_at": "2022-01-08T17:37:55.102Z"
+        },
+        {
+            "message": "Updating base order",
+            "created_at": "2022-01-08T17:38:26.472Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004524 BTC Size: 0.00040264 BTC (8.9 MATIC)",
+            "created_at": "2022-01-08T17:38:28.052Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.00004758 BTC Size: 0.00010468 BTC (2.2 MATIC)",
+            "created_at": "2022-01-08T17:38:27.224Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00004763 BTC.  Size: 0.00010478 BTC (2.2 MATIC)",
+            "created_at": "2022-01-08T17:38:27.405Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004667 BTC Size: 0.00020068 BTC (4.3 MATIC)",
+            "created_at": "2022-01-08T17:38:27.910Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.00004856 BTC. Size: 0.00010683 BTC (2.2 MATIC), the price should rise for 2.10% to start trailing",
+            "created_at": "2022-01-08T17:38:27.598Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00003988 BTC Size: 0.00160318 BTC (40.2 MATIC)",
+            "created_at": "2022-01-08T17:38:28.443Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004310 BTC Size: 0.00080166 BTC (18.6 MATIC)",
+            "created_at": "2022-01-08T17:38:28.261Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_DOT",
+            "created_at": "2022-01-08T17:59:46.431Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0005781 BTC Size: 0.00010406 BTC (0.18 DOT)",
+            "created_at": "2022-01-08T17:59:47.557Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0005671 BTC Size: 0.00020416 BTC (0.36 DOT). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-08T17:59:47.837Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.00059 BTC. Size: 0.0001062 BTC (0.18 DOT), the price should rise for 2.09% to start trailing",
+            "created_at": "2022-01-08T17:59:47.697Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00057868 BTC.  Size: 0.00010416 BTC (0.18 DOT)",
+            "created_at": "2022-01-08T17:59:47.678Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_DOT",
+            "created_at": "2022-01-08T18:04:59.001Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.000566 BTC Size: 0.00020376 BTC (0.36 DOT)",
+            "created_at": "2022-01-08T18:04:59.543Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00057758 BTC.  Size: 0.00010396 BTC (0.18 DOT)",
+            "created_at": "2022-01-08T18:04:59.353Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.000577 BTC Size: 0.00010386 BTC (0.18 DOT)",
+            "created_at": "2022-01-08T18:04:59.296Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0005889 BTC. Size: 0.000106 BTC (0.18 DOT), the price should rise for 2.08% to start trailing",
+            "created_at": "2022-01-08T18:04:59.363Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0005227 BTC Size: 0.00080496 BTC (1.54 DOT)",
+            "created_at": "2022-01-08T18:04:59.801Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0005486 BTC Size: 0.00040048 BTC (0.73 DOT)",
+            "created_at": "2022-01-08T18:04:59.671Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0004837 BTC Size: 0.00160105 BTC (3.31 DOT)",
+            "created_at": "2022-01-08T18:04:59.940Z"
+        },
+        {
+            "message": "Safety trade (2 out of 4) executed. Price: 0.00033185 BTC. Size: 0.00043184 BTC (1.3 NEAR)",
+            "created_at": "2022-01-08T18:19:28.726Z"
+        },
+        {
+            "message": "Safety trade (2 out of 4) executed. Price: 0.00033232 BTC. Size: 0.00043245 BTC (1.3 NEAR)",
+            "created_at": "2022-01-08T18:19:30.536Z"
+        },
+        {
+            "message": "Safety trade (2 out of 4) executed. Price: 0.0008472 BTC. Size: 0.00040706 BTC (0.48 ATOM)",
+            "created_at": "2022-01-08T18:23:32.641Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0004846 BTC Size: 0.00160403 BTC (3.31 DOT)",
+            "created_at": "2022-01-08T18:31:14.575Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0005671 BTC Size: 0.00020416 BTC (0.36 DOT)",
+            "created_at": "2022-01-08T18:31:14.147Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0005497 BTC Size: 0.00040128 BTC (0.73 DOT)",
+            "created_at": "2022-01-08T18:31:14.291Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0005237 BTC Size: 0.00080126 BTC (1.53 DOT)",
+            "created_at": "2022-01-08T18:31:14.419Z"
+        },
+        {
+            "message": "Safety trade (2 out of 4) executed. Price: 0.000843 BTC. Size: 0.00040504 BTC (0.48 ATOM)",
+            "created_at": "2022-01-08T18:32:14.340Z"
+        },
+        {
+            "message": "Safety trade (1 out of 4) executed. Price: 0.00004691 BTC. Size: 0.00020191 BTC (4.3 MATIC)",
+            "created_at": "2022-01-08T18:58:35.695Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-08T22:11:52.278Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-08T22:13:33.277Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-08T22:22:09.958Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00073148 BTC (0.83 ATOM)",
+            "created_at": "2022-01-08T22:30:34.302Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00073148 BTC (0.83 ATOM)",
+            "created_at": "2022-01-08T22:30:34.396Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007468 BTC. Size: 0.0 BTC (2.15 ATOM). Success.",
+            "created_at": "2022-01-08T22:30:41.574Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00001539 BTC (0.65 $) (2.15% from total volume (1.85% before trailing)) 💰💰💰. #profit about 8 hours",
+            "created_at": "2022-01-08T22:30:41.755Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.000807 BTC. Size: 0.0 BTC (1.0 ATOM). Success.",
+            "created_at": "2022-01-08T22:30:41.715Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00001893 BTC (0.8 $) (2.66% from total volume (1.85% before trailing)) 💰💰💰. #profit about 7 hours",
+            "created_at": "2022-01-08T22:30:41.911Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007431 BTC. Size: 0.0 BTC (2.16 ATOM). Success.",
+            "created_at": "2022-01-08T22:30:41.694Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.000803 BTC. Size: 0.0 BTC (1.0 ATOM). Success.",
+            "created_at": "2022-01-08T22:30:41.877Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00004332 BTC. Size: 0.0 BTC (18.5 MATIC). Success.",
+            "created_at": "2022-01-08T22:36:10.382Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_ATOM",
+            "created_at": "2022-01-08T22:36:10.967Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00004008 BTC. Size: 0.0 BTC (40.0 MATIC). Success.",
+            "created_at": "2022-01-08T22:36:10.109Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00004547 BTC. Size: 0.0 BTC (8.8 MATIC). Success.",
+            "created_at": "2022-01-08T22:36:10.556Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00031233 BTC (6.5 MATIC)",
+            "created_at": "2022-01-08T22:36:09.443Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000466 BTC (0.2 $) (1.52% from total volume (1.85% before trailing)) 💰💰💰. #profit about 5 hours",
+            "created_at": "2022-01-08T22:36:10.663Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007928 BTC Size: 0.00080073 BTC (1.01 ATOM)",
+            "created_at": "2022-01-08T22:36:12.411Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0008932 BTC. Size: 0.00010718 BTC (0.12 ATOM), the price should rise for 2.07% to start trailing",
+            "created_at": "2022-01-08T22:36:11.827Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0008752 BTC Size: 0.00010502 BTC (0.12 ATOM)",
+            "created_at": "2022-01-08T22:36:11.698Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00087608 BTC.  Size: 0.00010513 BTC (0.12 ATOM)",
+            "created_at": "2022-01-08T22:36:11.806Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008322 BTC Size: 0.00040778 BTC (0.49 ATOM)",
+            "created_at": "2022-01-08T22:36:12.276Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008585 BTC Size: 0.00020604 BTC (0.24 ATOM)",
+            "created_at": "2022-01-08T22:36:12.123Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007337 BTC Size: 0.0016068 BTC (2.19 ATOM)",
+            "created_at": "2022-01-08T22:36:13.008Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008591 BTC Size: 0.00020618 BTC (0.24 ATOM)",
+            "created_at": "2022-01-08T22:41:33.466Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0008758 BTC Size: 0.0001051 BTC (0.12 ATOM)",
+            "created_at": "2022-01-08T22:41:33.190Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_ATOM",
+            "created_at": "2022-01-08T22:41:32.874Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00087668 BTC.  Size: 0.0001052 BTC (0.12 ATOM)",
+            "created_at": "2022-01-08T22:41:33.297Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0008938 BTC. Size: 0.00010726 BTC (0.12 ATOM), the price should rise for 2.14% to start trailing",
+            "created_at": "2022-01-08T22:41:33.307Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008328 BTC Size: 0.00040807 BTC (0.49 ATOM)",
+            "created_at": "2022-01-08T22:41:33.587Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007933 BTC Size: 0.00080123 BTC (1.01 ATOM)",
+            "created_at": "2022-01-08T22:41:33.733Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007342 BTC Size: 0.00160056 BTC (2.18 ATOM)",
+            "created_at": "2022-01-08T22:41:33.872Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.85%",
+            "created_at": "2022-01-08T22:45:26.030Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.85%",
+            "created_at": "2022-01-08T22:45:56.605Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00012106 BTC (0.06 AVAX)",
+            "created_at": "2022-01-08T22:48:13.551Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00012106 BTC (0.06 AVAX)",
+            "created_at": "2022-01-08T22:48:13.503Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0016649 BTC. Size: 0.0 BTC (0.97 AVAX). Success.",
+            "created_at": "2022-01-08T22:48:16.509Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0019482 BTC. Size: 0.0 BTC (0.11 AVAX). Success.",
+            "created_at": "2022-01-08T22:48:17.323Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0019466 BTC. Size: 0.0 BTC (0.11 AVAX). Success.",
+            "created_at": "2022-01-08T22:48:17.522Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0017991 BTC. Size: 0.0 BTC (0.45 AVAX). Success.",
+            "created_at": "2022-01-08T22:48:16.880Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0016635 BTC. Size: 0.0 BTC (0.97 AVAX). Success.",
+            "created_at": "2022-01-08T22:48:16.725Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000160 BTC (0.07 $) (1.34% from total volume (1.85% before trailing)) 💰💰💰. #profit about 6 hours",
+            "created_at": "2022-01-08T22:48:17.365Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0018885 BTC. Size: 0.0 BTC (0.22 AVAX). Success.",
+            "created_at": "2022-01-08T22:48:17.085Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0017976 BTC. Size: 0.0 BTC (0.45 AVAX). Success.",
+            "created_at": "2022-01-08T22:48:17.166Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.001887 BTC. Size: 0.0 BTC (0.22 AVAX). Success.",
+            "created_at": "2022-01-08T22:48:17.372Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000170 BTC (0.07 $) (1.43% from total volume (1.85% before trailing)) 💰💰💰. #profit about 6 hours",
+            "created_at": "2022-01-08T22:48:17.564Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_AVAX",
+            "created_at": "2022-01-08T22:53:25.904Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0019899 BTC Size: 0.00021889 BTC (0.11 AVAX)",
+            "created_at": "2022-01-08T22:53:26.335Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00203053 BTC.  Size: 0.00010153 BTC (0.05 AVAX)",
+            "created_at": "2022-01-08T22:53:26.176Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0020285 BTC Size: 0.00010143 BTC (0.05 AVAX)",
+            "created_at": "2022-01-08T22:53:26.133Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0020702 BTC. Size: 0.00010351 BTC (0.05 AVAX), the price should rise for 2.12% to start trailing",
+            "created_at": "2022-01-08T22:53:26.185Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.001929 BTC Size: 0.00040509 BTC (0.21 AVAX)",
+            "created_at": "2022-01-08T22:53:26.466Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0018376 BTC Size: 0.00080854 BTC (0.44 AVAX)",
+            "created_at": "2022-01-08T22:53:26.583Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0017005 BTC Size: 0.00161548 BTC (0.95 AVAX)",
+            "created_at": "2022-01-08T22:53:26.729Z"
+        },
+        {
+            "message": "Updating base order",
+            "created_at": "2022-01-08T23:00:14.554Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_AVAX",
+            "created_at": "2022-01-08T22:59:20.231Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0020216 BTC Size: 0.00010108 BTC (0.05 AVAX)",
+            "created_at": "2022-01-08T22:59:20.418Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0016948 BTC Size: 0.00161006 BTC (0.95 AVAX)",
+            "created_at": "2022-01-08T23:00:16.278Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00202372 BTC.  Size: 0.00010119 BTC (0.05 AVAX)",
+            "created_at": "2022-01-08T23:00:15.244Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0020633 BTC. Size: 0.00010317 BTC (0.05 AVAX), the price should rise for 2.10% to start trailing",
+            "created_at": "2022-01-08T23:00:15.295Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0020217 BTC Size: 0.00010109 BTC (0.05 AVAX)",
+            "created_at": "2022-01-08T23:00:15.119Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0019832 BTC Size: 0.00021815 BTC (0.11 AVAX)",
+            "created_at": "2022-01-08T23:00:15.733Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0018314 BTC Size: 0.00080582 BTC (0.44 AVAX)",
+            "created_at": "2022-01-08T23:00:16.068Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0019225 BTC Size: 0.00040373 BTC (0.21 AVAX)",
+            "created_at": "2022-01-08T23:00:15.900Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004018 BTC Size: 0.00160318 BTC (39.9 MATIC)",
+            "created_at": "2022-01-08T23:03:37.397Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.00004793 BTC Size: 0.00010545 BTC (2.2 MATIC)",
+            "created_at": "2022-01-08T23:03:36.826Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00004798 BTC.  Size: 0.00010555 BTC (2.2 MATIC)",
+            "created_at": "2022-01-08T23:03:36.864Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004701 BTC Size: 0.00020214 BTC (4.3 MATIC)",
+            "created_at": "2022-01-08T23:03:37.026Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004557 BTC Size: 0.00040102 BTC (8.8 MATIC)",
+            "created_at": "2022-01-08T23:03:37.144Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_MATIC",
+            "created_at": "2022-01-08T23:03:36.583Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.00004342 BTC Size: 0.00080327 BTC (18.5 MATIC)",
+            "created_at": "2022-01-08T23:03:37.248Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.00004892 BTC. Size: 0.00010762 BTC (2.2 MATIC), the price should rise for 2.09% to start trailing",
+            "created_at": "2022-01-08T23:03:36.871Z"
+        },
+        {
+            "message": "Safety trade (1 out of 4) executed. Price: 0.0008591 BTC. Size: 0.00020639 BTC (0.24 ATOM)",
+            "created_at": "2022-01-08T23:30:38.360Z"
+        },
+        {
+            "message": "Safety trade (1 out of 4) executed. Price: 0.0008585 BTC. Size: 0.00020625 BTC (0.24 ATOM)",
+            "created_at": "2022-01-08T23:30:45.346Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.92%",
+            "created_at": "2022-01-09T00:50:44.583Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.87%",
+            "created_at": "2022-01-09T00:50:51.711Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00031622 BTC (0.36 ATOM). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-09T00:53:13.575Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00031622 BTC (0.36 ATOM)",
+            "created_at": "2022-01-09T00:53:13.799Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0008322 BTC. Size: 0.0 BTC (0.49 ATOM). Success.",
+            "created_at": "2022-01-09T00:53:15.422Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000417 BTC (0.17 $) (1.34% from total volume (1.85% before trailing)) 💰💰💰. #profit about 2 hours",
+            "created_at": "2022-01-09T00:53:14.721Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00031622 BTC (0.36 ATOM)",
+            "created_at": "2022-01-09T00:53:14.891Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007928 BTC. Size: 0.0 BTC (1.01 ATOM). Success.",
+            "created_at": "2022-01-09T00:53:15.308Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000439 BTC (0.18 $) (1.41% from total volume (1.85% before trailing)) 💰💰💰. #profit about 2 hours",
+            "created_at": "2022-01-09T00:53:15.461Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007337 BTC. Size: 0.0 BTC (2.19 ATOM). Success.",
+            "created_at": "2022-01-09T00:53:15.169Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007342 BTC. Size: 0.0 BTC (2.18 ATOM). Success.",
+            "created_at": "2022-01-09T00:53:37.848Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007933 BTC. Size: 0.0 BTC (1.01 ATOM). Success.",
+            "created_at": "2022-01-09T00:53:37.983Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0008328 BTC. Size: 0.0 BTC (0.49 ATOM). Success.",
+            "created_at": "2022-01-09T00:53:38.114Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_ATOM",
+            "created_at": "2022-01-09T00:58:18.384Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00088338 BTC.  Size: 0.00010601 BTC (0.12 ATOM)",
+            "created_at": "2022-01-09T00:58:18.664Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0009007 BTC. Size: 0.00010808 BTC (0.12 ATOM), the price should rise for 2.13% to start trailing",
+            "created_at": "2022-01-09T00:58:18.676Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007398 BTC Size: 0.00160537 BTC (2.17 ATOM)",
+            "created_at": "2022-01-09T00:58:19.415Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0008825 BTC Size: 0.0001059 BTC (0.12 ATOM)",
+            "created_at": "2022-01-09T00:58:18.599Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007994 BTC Size: 0.00080739 BTC (1.01 ATOM)",
+            "created_at": "2022-01-09T00:58:19.301Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008657 BTC Size: 0.00020777 BTC (0.24 ATOM)",
+            "created_at": "2022-01-09T00:58:19.047Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008392 BTC Size: 0.00040282 BTC (0.48 ATOM)",
+            "created_at": "2022-01-09T00:58:19.182Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008379 BTC Size: 0.00040219 BTC (0.48 ATOM)",
+            "created_at": "2022-01-09T01:04:31.457Z"
+        },
+        {
+            "message": "Base order executed.  Price: 0.00088208 BTC.  Size: 0.00010585 BTC (0.12 ATOM)",
+            "created_at": "2022-01-09T01:04:31.181Z"
+        },
+        {
+            "message": "Trailing TakeProfit order will be placed when price reaches 0.0008993 BTC. Size: 0.00010792 BTC (0.12 ATOM), the price should rise for 2.11% to start trailing",
+            "created_at": "2022-01-09T01:04:31.190Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007982 BTC Size: 0.00080618 BTC (1.01 ATOM)",
+            "created_at": "2022-01-09T01:04:31.592Z"
+        },
+        {
+            "message": "Bot 7675928 Starting new deal. Pair: BTC_ATOM",
+            "created_at": "2022-01-09T01:04:30.890Z"
+        },
+        {
+            "message": "Placing base order. Price: 0.0008812 BTC Size: 0.00010574 BTC (0.12 ATOM)",
+            "created_at": "2022-01-09T01:04:31.133Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0007387 BTC Size: 0.00160298 BTC (2.17 ATOM)",
+            "created_at": "2022-01-09T01:04:31.708Z"
+        },
+        {
+            "message": "Placing safety trade. Price: 0.0008644 BTC Size: 0.00020746 BTC (0.24 ATOM)",
+            "created_at": "2022-01-09T01:04:31.349Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-09T02:18:09.320Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00010744 BTC (0.12 ATOM)",
+            "created_at": "2022-01-09T02:20:46.140Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007387 BTC. Size: 0.0 BTC (2.17 ATOM). Success.",
+            "created_at": "2022-01-09T02:21:25.230Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0008379 BTC. Size: 0.0 BTC (0.48 ATOM). Success.",
+            "created_at": "2022-01-09T02:21:25.652Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0008644 BTC. Size: 0.0 BTC (0.24 ATOM). Success.",
+            "created_at": "2022-01-09T02:21:25.798Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000143 BTC (0.06 $) (1.35% from total volume (1.85% before trailing)) 💰💰💰. #profit about 1 hour",
+            "created_at": "2022-01-09T02:21:25.827Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007982 BTC. Size: 0.0 BTC (1.01 ATOM). Success.",
+            "created_at": "2022-01-09T02:21:25.532Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-09T02:26:29.502Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.0001077 BTC (0.12 ATOM)",
+            "created_at": "2022-01-09T02:28:38.020Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0008392 BTC. Size: 0.0 BTC (0.48 ATOM). Success.",
+            "created_at": "2022-01-09T02:30:34.899Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000159 BTC (0.07 $) (1.5% from total volume (1.85% before trailing)) 💰💰💰. #profit about 2 hours",
+            "created_at": "2022-01-09T02:30:35.070Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0008657 BTC. Size: 0.0 BTC (0.24 ATOM). Success.",
+            "created_at": "2022-01-09T02:30:35.044Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007398 BTC. Size: 0.0 BTC (2.17 ATOM). Success.",
+            "created_at": "2022-01-09T02:30:13.747Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0008392 BTC. Size: 0.0 BTC (0.48 ATOM). Network error occurred. HTTP code: 502. Request will be retried.",
+            "created_at": "2022-01-09T02:30:14.000Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0007994 BTC. Size: 0.0 BTC (1.01 ATOM). Success.",
+            "created_at": "2022-01-09T02:30:13.967Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.9%",
+            "created_at": "2022-01-09T05:06:15.622Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00003988 BTC. Size: 0.0 BTC (40.2 MATIC). Success.",
+            "created_at": "2022-01-09T05:55:11.709Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00004667 BTC. Size: 0.0 BTC (4.3 MATIC). Success.",
+            "created_at": "2022-01-09T05:55:12.218Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.0001067 BTC (2.2 MATIC)",
+            "created_at": "2022-01-09T05:54:29.958Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00004310 BTC. Size: 0.0 BTC (18.6 MATIC). Success.",
+            "created_at": "2022-01-09T05:55:11.936Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.00004524 BTC. Size: 0.0 BTC (8.9 MATIC). Success.",
+            "created_at": "2022-01-09T05:55:12.090Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000177 BTC (0.07 $) (1.69% from total volume (1.85% before trailing)) 💰💰💰. #profit about 12 hours",
+            "created_at": "2022-01-09T05:55:12.266Z"
+        },
+        {
+            "message": "Start command received",
+            "created_at": "2022-01-07T20:33:15.351Z"
+        },
+        {
+            "message": "Bot is turned on",
+            "created_at": "2022-01-07T20:33:15.412Z"
+        },
+        {
+            "message": "Safety trade (3 out of 4) executed. Price: 0.00031658 BTC. Size: 0.00082393 BTC (2.6 NEAR)",
+            "created_at": "2022-01-09T10:15:12.186Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.88%",
+            "created_at": "2022-01-09T11:04:56.563Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.87%",
+            "created_at": "2022-01-09T11:06:14.212Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0005237 BTC. Size: 0.0 BTC (1.53 DOT). Success.",
+            "created_at": "2022-01-09T11:19:12.995Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00010611 BTC (0.18 DOT)",
+            "created_at": "2022-01-09T11:18:56.691Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00010611 BTC (0.18 DOT)",
+            "created_at": "2022-01-09T11:18:56.589Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0005227 BTC. Size: 0.0 BTC (1.54 DOT). Success.",
+            "created_at": "2022-01-09T11:19:13.113Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0004846 BTC. Size: 0.0 BTC (3.31 DOT). Success.",
+            "created_at": "2022-01-09T11:19:12.775Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0004837 BTC. Size: 0.0 BTC (3.31 DOT). Success.",
+            "created_at": "2022-01-09T11:19:12.883Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0005497 BTC. Size: 0.0 BTC (0.73 DOT). Success.",
+            "created_at": "2022-01-09T11:19:13.160Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0005486 BTC. Size: 0.0 BTC (0.73 DOT). Success.",
+            "created_at": "2022-01-09T11:19:13.286Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0005671 BTC. Size: 0.0 BTC (0.36 DOT). Success.",
+            "created_at": "2022-01-09T11:19:13.353Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000206 BTC (0.09 $) (1.98% from total volume (1.85% before trailing)) 💰💰💰. #profit about 17 hours",
+            "created_at": "2022-01-09T11:19:13.445Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000186 BTC (0.08 $) (1.79% from total volume (1.85% before trailing)) 💰💰💰. #profit about 17 hours",
+            "created_at": "2022-01-09T11:19:13.383Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.000566 BTC. Size: 0.0 BTC (0.36 DOT). Success.",
+            "created_at": "2022-01-09T11:19:13.412Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.87%",
+            "created_at": "2022-01-09T15:55:31.495Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.85%",
+            "created_at": "2022-01-09T15:57:19.759Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00010507 BTC (0.05 AVAX)",
+            "created_at": "2022-01-09T16:11:27.478Z"
+        },
+        {
+            "message": "Placing TakeProfit trade. Price: market Size: ≈0.00010507 BTC (0.05 AVAX)",
+            "created_at": "2022-01-09T16:11:27.676Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0018376 BTC. Size: 0.0 BTC (0.44 AVAX). Success.",
+            "created_at": "2022-01-09T16:12:11.780Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.001929 BTC. Size: 0.0 BTC (0.21 AVAX). Success.",
+            "created_at": "2022-01-09T16:12:11.890Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0016948 BTC. Size: 0.0 BTC (0.95 AVAX). Success.",
+            "created_at": "2022-01-09T16:12:11.564Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0018314 BTC. Size: 0.0 BTC (0.44 AVAX). Success.",
+            "created_at": "2022-01-09T16:12:11.784Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0017005 BTC. Size: 0.0 BTC (0.95 AVAX). Success.",
+            "created_at": "2022-01-09T16:12:11.577Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000371 BTC (0.15 $) (3.67% from total volume (1.85% before trailing)) 💰💰💰. #profit about 17 hours",
+            "created_at": "2022-01-09T16:12:12.518Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0019899 BTC. Size: 0.0 BTC (0.11 AVAX). Success.",
+            "created_at": "2022-01-09T16:12:12.052Z"
+        },
+        {
+            "message": "Deal completed. Profit:  +0.00000337 BTC (0.14 $) (3.32% from total volume (1.85% before trailing)) 💰💰💰. #profit about 17 hours",
+            "created_at": "2022-01-09T16:12:12.154Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0019225 BTC. Size: 0.0 BTC (0.21 AVAX). Success.",
+            "created_at": "2022-01-09T16:12:12.016Z"
+        },
+        {
+            "message": "Cancelling buy order. Price: 0.0019832 BTC. Size: 0.0 BTC (0.11 AVAX). Success.",
+            "created_at": "2022-01-09T16:12:12.301Z"
+        },
+        {
+            "message": "Trailing Take Profit Activated, current profit is 1.86%",
+            "created_at": "2022-01-09T17:03:27.729Z"
+        }
+    ]
+}
