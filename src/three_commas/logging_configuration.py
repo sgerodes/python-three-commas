@@ -2,7 +2,7 @@ import logging
 import logging.config
 import logging.handlers
 import functools
-from sys_utils import get_parent_module_name
+from .sys_utils import get_parent_module_name
 
 logger = logging.getLogger(__name__)
 

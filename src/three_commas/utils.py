@@ -1,9 +1,9 @@
 import logging
 
-from src.three_commas.error import ThreeCommasError
-from src.three_commas.model import BotShow
+from .error import ThreeCommasError
+from .model import BotShow
 from typing import List
-from sys_utils import get_parent_function_name
+from .sys_utils import get_parent_function_name
 
 logger = logging.getLogger(__name__)
 

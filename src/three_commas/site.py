@@ -1,8 +1,8 @@
-from src.three_commas.api import get_bot
+from .api import get_bot
 from .model import *
 import requests
 import logging
-from logging_configuration import logged
+from .logging_configuration import logged
 import json
 
 

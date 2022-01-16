@@ -5,7 +5,8 @@ with open('README.md', 'r') as fh:
 
 setup(
     name='three-commas',
-    version='0.0.1',
+    packages=['three_commas'],
+    version='0.0.8',
     description='Python api wrapper for 3commas with extended functionality in the api, models, error handling',
     url='https://github.com/badass-blockchain/three_commas',
     author='Sergey Gerodes',
@@ -24,6 +25,7 @@ setup(
         "Operating System :: Microsoft :: Windows",
     ],
     install_requires=[
-        'py3cw ~= 0.0.31',
+        'py3cw',
+        'cachetools',
     ]
 )
