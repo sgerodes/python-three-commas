@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Union
+from typing import List, Union, Callable
 import datetime
 import re
 
@@ -8,7 +8,7 @@ class ThreeCommasParser:
     DATETIME_PATTERN = '%Y-%m-%dT%H:%M:%S.%fZ'
 
     @staticmethod
-    def parsed_timestamp(function):
+    def parsed_timestamp(function: Callable) -> Callable:
         def wrapper(*args, parsed: bool = False, **kwargs) -> Union[None, str, datetime.datetime]:
             timestamp = function(*args, **kwargs)
             if timestamp is None:
@@ -18,7 +18,7 @@ class ThreeCommasParser:
 
     @staticmethod
     def parsed(t: type):
-        def decorator(function):
+        def decorator(function: Callable) -> Callable:
             def wrapper(*args, parsed: bool = True, **kwargs) -> Union[t, str, None]:
                 result = function(*args, **kwargs)
                 if result is None:

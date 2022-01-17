@@ -8,7 +8,7 @@ logging.getLogger('urllib3.connectionpool').setLevel(level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
 try:
-    # logger.info(tc_api_ver1.bots.get_bot(bot_id=7745745))
-    logger.info(tc_api_ver1.get_accounts())
+    #logger.info(tc_api_ver1.bots.get_bot(bot_id=7745745))
+    logger.info(tc_api_ver1.get_accounts(forced_mode='paper'))
 except Exception as e:
     logger.exception('Exception occured')

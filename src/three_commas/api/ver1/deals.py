@@ -1,6 +1,6 @@
 from typing import List
 import logging
-from ...sys_utils import logged, get_p3cw, get_paper_headers, get_real_headers
+from ...sys_utils import logged, with_py3cw
 from ... import utils
 from ...model import DealShow, DealMarketOrder
 
@@ -9,12 +9,13 @@ logger = logging.getLogger(__name__)
 
 
 @logged
-def get_deals(bot_id: int = None,
+@with_py3cw
+def get_deals(py3cw,
+              bot_id: int = None,
               account_id: int = None,
               limit: int = None,
               scope: str = None,
-              offset: int = None,
-              forced_mode: str = None) -> List[DealShow]:
+              offset: int = None) -> List[DealShow]:
     """
     :param bot_id: defaults to all if not specified
     :param account_id: defaults to all if not specified
@@ -35,21 +36,10 @@ def get_deals(bot_id: int = None,
         payload['scope'] = scope
     if offset is not None:
         payload['offset'] = offset
-
-    additional_headers = {}
-    if forced_mode is not None:
-        if forced_mode.lower() == 'real':
-            additional_headers = get_real_headers()
-        elif forced_mode.lower() == 'paper':
-            additional_headers = get_paper_headers()
-        else:
-            logger.warning(f'{forced_mode=} is not known')
-
-    error, data = get_p3cw().request(
+    error, data = py3cw.request(
         entity='deals',
         action='',
-        payload=payload,
-        additional_headers=additional_headers
+        payload=payload
     )
     utils.verify_no_error(error=error, data=data)
     return DealShow.of_list(data)
@@ -71,8 +61,9 @@ def get_all_deals(*args, **kwargs) -> List[DealShow]:
 
 
 @logged
-def get_deal_market_orders(deal_id: int):
-    error, data = get_p3cw().request(
+@with_py3cw
+def get_deal_market_orders(py3cw, deal_id: int):
+    error, data = py3cw.request(
         entity='deals',
         action='market_orders',
         action_id=str(deal_id)

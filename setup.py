@@ -16,9 +16,9 @@ setup(
     py_modules=['some_module'],
     package_dir={'': 'src'},
     keywords=['python', '3commas', 'api', 'crypto', 'cryptocurrency', 'three commas', 'bitcoin', 'trading', 'btc', 'eth'],
+    python_requires='>=3.8',
     classifiers=[
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",

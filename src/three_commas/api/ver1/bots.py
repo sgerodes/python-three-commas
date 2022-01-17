@@ -1,6 +1,6 @@
 from typing import List
 import logging
-from ...sys_utils import logged, get_p3cw
+from ...sys_utils import logged, with_py3cw
 from ... import utils
 from ...model import BotShow
 
@@ -9,8 +9,9 @@ logger = logging.getLogger(__name__)
 
 
 @logged
-def get_pairs_black_list() -> List[str]:
-    error, data = get_p3cw().request(
+@with_py3cw
+def get_pairs_black_list(py3cw) -> List[str]:
+    error, data = py3cw.request(
         entity='bots',
         action='pairs_black_list'
     )
@@ -19,8 +20,9 @@ def get_pairs_black_list() -> List[str]:
 
 
 @logged
-def disable_bot(bot_id: int):
-    error, data = get_p3cw().request(
+@with_py3cw
+def disable_bot(py3cw, bot_id: int):
+    error, data = py3cw.request(
         entity='bots',
         action='disable',
         action_id=str(bot_id)
@@ -30,11 +32,12 @@ def disable_bot(bot_id: int):
 
 
 @logged(log_return=True)
-def copy_and_create(bot_id: int, new_bot_name: str,  old_bot_url_secret: str):
+@with_py3cw
+def copy_and_create(py3cw, bot_id: int, new_bot_name: str,  old_bot_url_secret: str):
     """
     POST /ver1/bots/{bot_id}/copy_and_create
     """
-    error, data = get_p3cw().request(
+    error, data = py3cw.request(
         entity='bots',
         action='copy_and_create',
         action_id=str(bot_id),
@@ -48,8 +51,9 @@ def copy_and_create(bot_id: int, new_bot_name: str,  old_bot_url_secret: str):
 
 
 @logged(reduce_long_arguments=True)
-def update_bot(bot_id: int, new_bot_show: dict) -> BotShow:
-    error, data = get_p3cw().request(
+@with_py3cw
+def update_bot(py3cw, bot_id: int, new_bot_show: dict) -> BotShow:
+    error, data = py3cw.request(
         entity='bots',
         action='update',
         action_id=str(bot_id),
@@ -60,13 +64,14 @@ def update_bot(bot_id: int, new_bot_show: dict) -> BotShow:
 
 
 @logged
-def get_bots(enabled: bool = None, limit: int = None) -> List[BotShow]:
+@with_py3cw
+def get_bots(py3cw, enabled: bool = None, limit: int = None) -> List[BotShow]:
     payload = {}
     if enabled is not None:
         payload['scope'] = 'enabled' if enabled else 'disabled'
     if limit is not None:
         payload['limit'] = limit
-    error, data = get_p3cw().request(
+    error, data = py3cw.request(
         entity='bots',
         action='',
         payload=payload
@@ -76,14 +81,15 @@ def get_bots(enabled: bool = None, limit: int = None) -> List[BotShow]:
 
 
 @logged
-def get_bot(bot_id: int, include_events: bool = None) -> BotShow:
+@with_py3cw
+def get_bot(py3cw, bot_id: int, include_events: bool = None) -> BotShow:
     """
     /ver1/bots/:bot_id/show
     """
     payload = {}
     if include_events is not None:
         payload['include_events'] = 'true' if include_events else 'false'
-    error, data = get_p3cw().request(
+    error, data = py3cw.request(
         entity='bots',
         action='show',
         action_id=str(bot_id),
@@ -94,8 +100,9 @@ def get_bot(bot_id: int, include_events: bool = None) -> BotShow:
 
 
 @logged
-def enable_bot(bot_id: int):
-    error, data = get_p3cw().request(
+@with_py3cw
+def enable_bot(py3cw, bot_id: int):
+    error, data = py3cw.request(
         entity='bots',
         action='enable',
         action_id=str(bot_id)
@@ -105,8 +112,9 @@ def enable_bot(bot_id: int):
 
 
 @logged
-def create_bot(bot_model: BotShow) -> BotShow:
-    error, data = get_p3cw().request(
+@with_py3cw
+def create_bot(py3cw, bot_model: BotShow) -> BotShow:
+    error, data = py3cw.request(
         entity='bots',
         action='create_bot',
         payload=bot_model

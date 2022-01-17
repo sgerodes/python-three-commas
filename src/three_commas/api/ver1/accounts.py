@@ -1,6 +1,6 @@
 from typing import List
 import logging
-from ...sys_utils import logged, get_p3cw
+from ...sys_utils import logged, with_py3cw
 from ... import utils
 from ...model import Account, PieChartDataElement
 
@@ -9,8 +9,9 @@ logger = logging.getLogger(__name__)
 
 
 @logged
-def get_pie_chart_data(account_id: int) -> List[PieChartDataElement]:
-    error, data = get_p3cw().request(
+@with_py3cw
+def get_pie_chart_data(py3cw, account_id: int) -> List[PieChartDataElement]:
+    error, data = py3cw.request(
         entity='accounts',
         action='pie_chart_data',
         action_id=str(account_id)
@@ -20,7 +21,8 @@ def get_pie_chart_data(account_id: int) -> List[PieChartDataElement]:
 
 
 @logged
-def get_account_balance_chart_data(account_id: int, date_from: str, date_to: str = None):
+@with_py3cw
+def get_account_balance_chart_data(py3cw, account_id: int, date_from: str, date_to: str = None):
     """
     :param account_id:
     :param date_from: format YYYY-MM-DD
@@ -33,7 +35,7 @@ def get_account_balance_chart_data(account_id: int, date_from: str, date_to: str
     if date_to is not None:
         payload['date_to'] = date_to
 
-    error, data = get_p3cw().request(
+    error, data = py3cw.request(
         entity='accounts',
         action='balance_chart_data',
         action_id=str(account_id),
@@ -44,8 +46,9 @@ def get_account_balance_chart_data(account_id: int, date_from: str, date_to: str
 
 
 @logged
-def get_market_pairs(market_code: str) -> List[str]:
-    error, data = get_p3cw().request(
+@with_py3cw
+def get_market_pairs(py3cw, market_code: str) -> List[str]:
+    error, data = py3cw.request(
         entity='accounts',
         action='market_pairs',
         payload={'market_code': market_code}
@@ -55,12 +58,13 @@ def get_market_pairs(market_code: str) -> List[str]:
 
 
 @logged
-def get_accounts() -> List[Account]:
+@with_py3cw
+def get_accounts(py3cw) -> List[Account]:
     """
     /ver1/accounts
     :return:
     """
-    error, data = get_p3cw().request(
+    error, data = py3cw.request(
         entity='accounts',
         action=''
     )
@@ -69,13 +73,14 @@ def get_accounts() -> List[Account]:
 
 
 @logged
-def get_account(account_id: int) -> Account:
+@with_py3cw
+def get_account(py3cw, account_id: int) -> Account:
     """
     /ver1/accounts/:account_id
     :param account_id:
     :return:
     """
-    error, data = get_p3cw().request(
+    error, data = py3cw.request(
         entity='accounts',
         action='account_info',
         action_id=str(account_id)
