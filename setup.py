@@ -6,7 +6,7 @@ with open('README.md', 'r') as fh:
 setup(
     name='three-commas',
     packages=['three_commas', 'three_commas.api', 'three_commas.api.ver1', 'three_commas.api.v2'],
-    version='0.0.12',
+    version='0.0.14',
     description='Python api wrapper for 3commas with extended functionality in the api, models, error handling',
     url='https://github.com/badass-blockchain/python-three-commas',
     author='Sergey Gerodes',
