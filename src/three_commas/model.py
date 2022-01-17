@@ -42,10 +42,18 @@ class OfDictClass(dict):
     def of_list(cls, list_of_d: List[dict]) -> Union[None, List[cls]]:
         if list_of_d is None:
             return None
-        return [cls(d) for d in list_of_d]
+        return [cls.of(d) for d in list_of_d]
 
 
 class DealShow(OfDictClass):
+    @classmethod
+    def of(cls, d: dict) -> Union[None, DealShow]:
+        return super().of(d)
+
+    @classmethod
+    def of_list(cls, list_of_d: List[dict]) -> Union[None, List[DealShow]]:
+        return super().of_list(list_of_d)
+
     def get_id(self) -> int:
         return self.get('id')
 
@@ -73,6 +81,13 @@ class DealShow(OfDictClass):
 
 
 class DealMarketOrder(OfDictClass):
+    @classmethod
+    def of(cls, d: dict) -> Union[None, DealMarketOrder]:
+        return super().of(d)
+
+    @classmethod
+    def of_list(cls, list_of_d: List[dict]) -> Union[None, List[DealMarketOrder]]:
+        return super().of_list(list_of_d)
 
     # Getters
 
@@ -158,6 +173,14 @@ class DealMarketOrder(OfDictClass):
 
 
 class BotShow(OfDictClass):
+    @classmethod
+    def of(cls, d: dict) -> Union[None, BotShow]:
+        return super().of(d)
+
+    @classmethod
+    def of_list(cls, list_of_d: List[dict]) -> Union[None, List[BotShow]]:
+        return super().of_list(list_of_d)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -250,6 +273,14 @@ class BotShow(OfDictClass):
 
 
 class PieChartDataElement(OfDictClass):
+    @classmethod
+    def of(cls, d: dict) -> Union[None, PieChartDataElement]:
+        return super().of(d)
+
+    @classmethod
+    def of_list(cls, list_of_d: List[dict]) -> Union[None, List[PieChartDataElement]]:
+        return super().of_list(list_of_d)
+
     def get_code(self) -> str:
         return self.get('code')
 
@@ -281,6 +312,13 @@ class PieChartDataElement(OfDictClass):
 
 
 class Account(OfDictClass):
+    @classmethod
+    def of(cls, d: dict) -> Union[None, Account]:
+        return super().of(d)
+
+    @classmethod
+    def of_list(cls, list_of_d: List[dict]) -> Union[None, List[Account]]:
+        return super().of_list(list_of_d)
 
     def is_futures(self) -> bool:
         return "futures" in self.get('supported_market_types')
@@ -296,6 +334,13 @@ class Account(OfDictClass):
 
 
 class BotEvent(OfDictClass):
+    @classmethod
+    def of(cls, d: dict) -> Union[None, BotEvent]:
+        return super().of(d)
+
+    @classmethod
+    def of_list(cls, list_of_d: List[dict]) -> Union[None, List[BotEvent]]:
+        return super().of_list(list_of_d)
 
     PRICE_PATTERN = re.compile(r"Price: ([\d.]+)\b", re.IGNORECASE)
     SIZE_PATTERN = re.compile(r"Size: ([\d.]+)\b", re.IGNORECASE)
