@@ -1,8 +1,8 @@
-from .api import get_bot
+from .api.ver1.bots import get_bot
 from .model import *
 import requests
 import logging
-from .logging_configuration import logged
+from .sys_utils import logged
 import json
 
 

@@ -151,8 +151,8 @@ class DealMarketOrder(OfDictClass):
 
 
 class BotShow(OfDictClass):
-    def __init__(self, d: dict):
-        super().__init__(d)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
         bot_events = self.get_bot_events()
         bot_events_parsed = None if bot_events is None else BotEvent.of_list(bot_events)

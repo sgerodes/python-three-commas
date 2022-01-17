@@ -150,5 +150,6 @@ dmypy.json
 cython_debug/
 
 .idea/
-bkp/
 # End of https://www.toptal.com/developers/gitignore/api/python
+bkp/
+playground.py
