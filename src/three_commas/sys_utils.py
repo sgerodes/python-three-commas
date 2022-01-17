@@ -3,7 +3,7 @@ import inspect
 import logging
 import functools
 from py3cw.request import Py3CW
-from typing import Callable, Union
+from typing import Callable, Union, Tuple
 import os
 from enum import Enum
 
@@ -61,9 +61,10 @@ def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, r
                 logging_kwargs = kwargs
             use_logger.debug(f"Called '{function_to_wrap.__name__}' with args={logging_args}, kwargs={logging_kwargs}")
             ret = function_to_wrap(*args, **kwargs)
-            use_logger.debug(f"Function '{function_to_wrap.__name__}' was executed")
             if log_return:
-                use_logger.debug(f"Function '{function_to_wrap.__name__}' returned: {ret}")
+                use_logger.debug(f"Function '{function_to_wrap.__name__}' was executed and returned: {ret}")
+            else:
+                use_logger.debug(f"Function '{function_to_wrap.__name__}' was executed")
             return ret
         return wrapper
 
@@ -72,22 +73,14 @@ def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, r
     return inner
 
 
-def get_paper_headers():
-    return {'Forced-Mode': 'paper'}
-
-
-def get_real_headers():
-    return {'Forced-Mode': 'real'}
-
-
-class Py3cwBuffer:
+class Py3cwClosure:
     def __init__(self,
                  py3cw: Py3CW,
                  additional_headers: dict = None):
         self.py3cw = py3cw
         self.additional_headers = additional_headers
 
-    def request(self, *args, **kwargs):
+    def request(self, *args, **kwargs) -> Tuple[dict, dict]:
         return self.py3cw.request(*args, **kwargs, additional_headers=self.additional_headers)
 
 
@@ -103,26 +96,52 @@ def with_py3cw(func: Callable) -> Callable:
 
         # request options
         request_options = request_options or dict()
+        if request_options:
+            logger.debug(f"Setting {request_options=}")
 
         # forced mode
         additional_headers = additional_headers or dict()
-        if forced_mode is not None:
-            if str(forced_mode).lower() == 'real':
-                additional_headers.update(get_real_headers())
-            elif str(forced_mode).lower() == 'paper':
-                additional_headers.update(get_paper_headers())
-            else:
-                logger.warning(f'{forced_mode=} is not known')
+        additional_headers.update(get_forced_mode_headers(req_forced_mode=forced_mode))
 
         # py3cw
-        api_key = api_key or os.getenv("THREE_COMMAS_API_KEY")
-        api_secret = api_secret or os.getenv("THREE_COMMAS_API_SECRET")
-        if api_key is None or api_secret is None:
-            raise RuntimeError("Please configure 'THREE_COMMAS_API_KEY' and 'THREE_COMMAS_API_SECRET'")
-        py3cw = Py3CW(key=api_key, secret=api_secret, request_options=request_options)
+        py3cw = get_py3cw(req_api_key=api_key, req_api_secret=api_secret, request_options=request_options)
 
         # create buffer
-        py3cw_buffer = Py3cwBuffer(additional_headers=additional_headers, py3cw=py3cw)
+        py3cw_closure = Py3cwClosure(additional_headers=additional_headers, py3cw=py3cw)
 
-        return func(*args, py3cw=py3cw_buffer, **kwargs)
+        return func(*args, py3cw=py3cw_closure, **kwargs)
     return wrapper
+
+
+def get_forced_mode_headers(req_forced_mode: Union[str, ForcedMode] = None) -> dict:
+    # request forced mode has precedence over global forced mode
+    forced_mode = req_forced_mode or os.getenv('THREE_COMMAS_FORCED_MODE')
+    if forced_mode is None:
+        return dict()
+
+    if str(forced_mode).lower() == 'real':
+        logger.debug(f"Forced mode is set to 'real'")
+        return get_real_headers()
+    elif str(forced_mode).lower() == 'paper':
+        logger.debug(f"Forced mode is set to 'paper'")
+        return get_paper_headers()
+    else:
+        logger.warning(f'{forced_mode=} is not known. Will not set.')
+        return dict()
+
+
+def get_py3cw(req_api_key: str = None, req_api_secret: str = None, request_options: dict = None) -> Py3CW:
+    # request api keys has precedence over global api keys
+    api_key = req_api_key or os.getenv("THREE_COMMAS_API_KEY")
+    api_secret = req_api_secret or os.getenv("THREE_COMMAS_API_SECRET")
+    if api_key is None or api_secret is None:
+        raise RuntimeError("Please configure 'THREE_COMMAS_API_KEY' and 'THREE_COMMAS_API_SECRET'")
+    return Py3CW(key=api_key, secret=api_secret, request_options=request_options)
+
+
+def get_paper_headers():
+    return {'Forced-Mode': 'paper'}
+
+
+def get_real_headers():
+    return {'Forced-Mode': 'real'}

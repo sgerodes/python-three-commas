@@ -2,15 +2,17 @@ from __future__ import annotations
 from typing import List, Union, Callable
 import datetime
 import re
+import functools
 
 
 class ThreeCommasParser:
     DATETIME_PATTERN = '%Y-%m-%dT%H:%M:%S.%fZ'
 
     @staticmethod
-    def parsed_timestamp(function: Callable) -> Callable:
+    def parsed_timestamp(func: Callable) -> Callable:
+        @functools.wraps(func)
         def wrapper(*args, parsed: bool = False, **kwargs) -> Union[None, str, datetime.datetime]:
-            timestamp = function(*args, **kwargs)
+            timestamp = func(*args, **kwargs)
             if timestamp is None:
                 return None
             return datetime.datetime.strptime(timestamp, ThreeCommasParser.DATETIME_PATTERN) if parsed else timestamp
@@ -18,9 +20,10 @@ class ThreeCommasParser:
 
     @staticmethod
     def parsed(t: type):
-        def decorator(function: Callable) -> Callable:
+        def decorator(func: Callable) -> Callable:
+            @functools.wraps(func)
             def wrapper(*args, parsed: bool = True, **kwargs) -> Union[t, str, None]:
-                result = function(*args, **kwargs)
+                result = func(*args, **kwargs)
                 if result is None:
                     return None
                 return t(result) if parsed else result
@@ -30,11 +33,15 @@ class ThreeCommasParser:
 
 class OfDictClass(dict):
     @classmethod
-    def of(cls, d: dict) -> cls:
+    def of(cls, d: dict) -> Union[None, cls]:
+        if d is None:
+            return None
         return cls(d)
 
     @classmethod
-    def of_list(cls, list_of_d: List[dict]) -> List[cls]:
+    def of_list(cls, list_of_d: List[dict]) -> Union[None, List[cls]]:
+        if list_of_d is None:
+            return None
         return [cls(d) for d in list_of_d]
 
 
@@ -43,15 +50,15 @@ class DealShow(OfDictClass):
         return self.get('id')
 
     @ThreeCommasParser.parsed_timestamp
-    def get_created_at(self) -> str:
+    def get_created_at(self) -> Union[None, str, datetime.datetime]:
         return self.get('created_at')
 
     @ThreeCommasParser.parsed_timestamp
-    def get_updated_at(self) -> str:
+    def get_updated_at(self) -> Union[None, str, datetime.datetime]:
         return self.get('updated_at')
 
     @ThreeCommasParser.parsed_timestamp
-    def get_closed_at(self) -> str:
+    def get_closed_at(self) -> Union[None, str, datetime.datetime]:
         return self.get('closed_at')
 
     def is_finished(self) -> bool:
@@ -61,7 +68,7 @@ class DealShow(OfDictClass):
         return self.get('pair')
 
     @ThreeCommasParser.parsed(float)
-    def get_bought_volume(self) -> str:
+    def get_bought_volume(self) -> Union[None, str, float]:
         return self.get('bought_volume')
 
 
@@ -70,7 +77,7 @@ class DealMarketOrder(OfDictClass):
     # Getters
 
     @ThreeCommasParser.parsed(int)
-    def get_order_id(self) -> str:
+    def get_order_id(self) -> Union[None, str, int]:
         return self.get('order_id')
 
     def get_order_type(self) -> str:
@@ -86,31 +93,31 @@ class DealMarketOrder(OfDictClass):
         return self.get('status_string')
 
     @ThreeCommasParser.parsed_timestamp
-    def get_created_at(self) -> str:
+    def get_created_at(self) -> Union[None, str, datetime.datetime]:
         return self.get('created_at')
 
     @ThreeCommasParser.parsed_timestamp
-    def get_updated_at(self) -> str:
+    def get_updated_at(self) -> Union[None, str, datetime.datetime]:
         return self.get('updated_at')
 
     @ThreeCommasParser.parsed(float)
-    def get_quantity(self) -> str:
+    def get_quantity(self) -> Union[None, str, float]:
         return self.get('quantity')
 
     @ThreeCommasParser.parsed(float)
-    def get_quantity_remaining(self) -> str:
+    def get_quantity_remaining(self) -> Union[None, str, float]:
         return self.get('quantity_remaining')
 
     @ThreeCommasParser.parsed(float)
-    def get_total(self) -> str:
+    def get_total(self) -> Union[None, str, float]:
         return self.get('total')
 
     @ThreeCommasParser.parsed(float)
-    def get_rate(self) -> str:
+    def get_rate(self) -> Union[None, str, float]:
         return self.get('rate')
 
     @ThreeCommasParser.parsed(float)
-    def get_average_price(self) -> str:
+    def get_average_price(self) -> Union[None, str, float]:
         return self.get('average_price')
 
     # Setter
@@ -208,18 +215,18 @@ class BotShow(OfDictClass):
         return pair in self.get_pairs()
 
     @ThreeCommasParser.parsed(float)
-    def get_base_order_volume(self) -> str:
+    def get_base_order_volume(self) -> Union[None, str, float]:
         return self.get('base_order_volume')
 
     def set_base_order_volume(self, value: Union[float, str]):
         self['base_order_volume'] = value
 
     @ThreeCommasParser.parsed(float)
-    def get_safety_order_volume(self) -> str:
+    def get_safety_order_volume(self) -> Union[None, str, float]:
         return self.get('safety_order_volume')
 
     @ThreeCommasParser.parsed(float)
-    def get_martingale_volume_coefficient(self) -> str:
+    def get_martingale_volume_coefficient(self) -> Union[None, str, float]:
         return self.get('martingale_volume_coefficient')
 
     def get_max_safety_orders(self) -> int:
@@ -238,7 +245,7 @@ class BotShow(OfDictClass):
         return quote.upper() == self.get_bot_quote()
 
     @ThreeCommasParser.parsed_timestamp
-    def get_created_at(self) -> str:  # Union[str, datetime.datetime]:
+    def get_created_at(self) -> Union[None, str, datetime.datetime]:
         return self.get('created_at')
 
 
@@ -298,7 +305,7 @@ class BotEvent(OfDictClass):
     SAFETY_TRADE_NR_PATTERN = re.compile(r"Safety trade \((\d+) out of \d+\) executed", re.IGNORECASE)
 
     @ThreeCommasParser.parsed_timestamp
-    def get_created_at(self) -> str:
+    def get_created_at(self) -> Union[None, str, datetime.datetime]:
         return self.get('created_at')
 
     def get_message(self) -> str:
