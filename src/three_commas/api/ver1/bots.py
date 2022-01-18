@@ -1,58 +1,17 @@
-from typing import List
+from typing import List, Dict
 import logging
-from ...sys_utils import logged, with_py3cw
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 from ... import utils
 from ...model import BotShow
 
 
 logger = logging.getLogger(__name__)
-
-
-@logged
-@with_py3cw
-def get_pairs_black_list(py3cw) -> List[str]:
-    error, data = py3cw.request(
-        entity='bots',
-        action='pairs_black_list'
-    )
-    utils.verify_no_error(error=error, data=data)
-    return data
-
-
-@logged
-@with_py3cw
-def disable_bot(py3cw, bot_id: int):
-    error, data = py3cw.request(
-        entity='bots',
-        action='disable',
-        action_id=str(bot_id)
-    )
-    utils.verify_no_error(error=error, data=data)
-    return data
-
-
-@logged(log_return=True)
-@with_py3cw
-def copy_and_create(py3cw, bot_id: int, new_bot_name: str,  old_bot_url_secret: str):
-    """
-    POST /ver1/bots/{bot_id}/copy_and_create
-    """
-    error, data = py3cw.request(
-        entity='bots',
-        action='copy_and_create',
-        action_id=str(bot_id),
-        payload={
-            'name': new_bot_name,
-            'secret': old_bot_url_secret
-        }
-    )
-    utils.verify_no_error(error=error, data=data)
-    return data
+py3cw: Py3cwClosure = None
 
 
 @logged(reduce_long_arguments=True)
 @with_py3cw
-def update_bot(py3cw, bot_id: int, new_bot_show: dict) -> BotShow:
+def update(bot_id: int, new_bot_show: dict) -> BotShow:
     error, data = py3cw.request(
         entity='bots',
         action='update',
@@ -65,24 +24,47 @@ def update_bot(py3cw, bot_id: int, new_bot_show: dict) -> BotShow:
 
 @logged
 @with_py3cw
-def get_bots(py3cw, enabled: bool = None, limit: int = None) -> List[BotShow]:
-    payload = {}
-    if enabled is not None:
-        payload['scope'] = 'enabled' if enabled else 'disabled'
-    if limit is not None:
-        payload['limit'] = limit
+def disable(bot_id: int) -> BotShow:
     error, data = py3cw.request(
         entity='bots',
-        action='',
-        payload=payload
+        action='disable',
+        action_id=str(bot_id)
     )
     utils.verify_no_error(error=error, data=data)
-    return BotShow.of_list(data)
+    return BotShow.of(data)
 
 
 @logged
 @with_py3cw
-def get_bot(py3cw, bot_id: int, include_events: bool = None) -> BotShow:
+def enable(bot_id: int):
+    error, data = py3cw.request(
+        entity='bots',
+        action='enable',
+        action_id=str(bot_id)
+    )
+    utils.verify_no_error(error=error, data=data)
+    return data
+
+
+def start_new_deal():
+    pass
+
+
+def delete():
+    pass
+
+
+def panic_sell_all_deals():
+    pass
+
+
+def cancel_all_deals():
+    pass
+
+
+@logged
+@with_py3cw
+def get_bot_show(bot_id: int, include_events: bool = None) -> BotShow:
     """
     /ver1/bots/:bot_id/show
     """
@@ -99,13 +81,24 @@ def get_bot(py3cw, bot_id: int, include_events: bool = None) -> BotShow:
     return BotShow.of(data)
 
 
-@logged
+@logged(log_return=True)
 @with_py3cw
-def enable_bot(py3cw, bot_id: int):
+def copy_and_create(bot_id: int, name: str,  secret: str) -> dict:
+    """
+    POST /ver1/bots/{bot_id}/copy_and_create
+    :param bot_id: bot to copy
+    :param name: new bot name
+    :param secret: bot secret that is copied
+    :return: e.g. {'bot_id': 7812487, 'bot_required_amount': '0.018'}
+    """
     error, data = py3cw.request(
         entity='bots',
-        action='enable',
-        action_id=str(bot_id)
+        action='copy_and_create',
+        action_id=str(bot_id),
+        payload={
+            'name': name,
+            'secret': secret
+        }
     )
     utils.verify_no_error(error=error, data=data)
     return data
@@ -113,7 +106,49 @@ def enable_bot(py3cw, bot_id: int):
 
 @logged
 @with_py3cw
-def create_bot(py3cw, bot_model: BotShow) -> BotShow:
+def get_bots(scope: str, limit: int = None) -> List[BotShow]:
+    """
+    GET /ver1/bots
+    :param scope: enabled, disabled
+    :param limit: Limit records
+    :return: return specified list of bots
+    """
+    payload = {}
+    if scope:
+        payload['scope'] = scope
+    if limit:
+        payload['limit'] = limit
+    error, data = py3cw.request(
+        entity='bots',
+        action='',
+        payload=payload
+    )
+    utils.verify_no_error(error=error, data=data)
+    return BotShow.of_list(data)
+
+
+def get_strategy_list() -> dict:
+    pass
+
+
+@logged
+@with_py3cw
+def get_pairs_black_list() -> Dict[List[str]]:
+    error, data = py3cw.request(
+        entity='bots',
+        action='pairs_black_list'
+    )
+    utils.verify_no_error(error=error, data=data)
+    return data
+
+
+def update_pairs_black_list():
+    pass
+
+
+@logged
+@with_py3cw
+def create_bot(bot_model: BotShow) -> BotShow:
     error, data = py3cw.request(
         entity='bots',
         action='create_bot',
@@ -121,3 +156,8 @@ def create_bot(py3cw, bot_model: BotShow) -> BotShow:
     )
     utils.verify_no_error(error=error, data=data)
     return BotShow.of(data)
+
+
+def get_stats():
+    # TODO create BotStats model
+    pass

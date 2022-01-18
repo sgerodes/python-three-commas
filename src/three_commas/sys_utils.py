@@ -80,7 +80,7 @@ class Py3cwClosure:
         self.py3cw = py3cw
         self.additional_headers = additional_headers
 
-    def request(self, *args, **kwargs) -> Tuple[dict, dict]:
+    def request(self, *args, **kwargs) -> Tuple[dict, Union[dict, list]]:
         return self.py3cw.request(*args, **kwargs, additional_headers=self.additional_headers)
 
 
@@ -109,8 +109,14 @@ def with_py3cw(func: Callable) -> Callable:
         # create buffer
         py3cw_closure = Py3cwClosure(additional_headers=additional_headers, py3cw=py3cw)
 
-        return func(*args, py3cw=py3cw_closure, **kwargs)
+        inject_py3cw_into_function(func=func, py3cw=py3cw_closure)
+
+        return func(*args, **kwargs)
     return wrapper
+
+
+def inject_py3cw_into_function(func: Callable, py3cw: Union[Py3CW, Py3cwClosure]):
+    func.__globals__['py3cw'] = py3cw
 
 
 def get_forced_mode_headers(req_forced_mode: Union[str, ForcedMode] = None) -> dict:
