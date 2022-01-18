@@ -5,29 +5,24 @@ import functools
 from py3cw.request import Py3CW
 from typing import Callable, Union, Tuple
 import os
-from enum import Enum
+from .model.enums import ForcedMode
 
 logger = logging.getLogger(__name__)
 
 
-class ForcedMode(Enum):
-    PAPER = 'paper'
-    REAL = 'real'
-
-    def __str__(self):
-        return self.value
-
-
 def get_parent_function_name() -> str:
+    """
+    :return: The name of the function one level up the call stack where this function was called
+    """
     try:
         return sys._getframe(2).f_code.co_name
     except ValueError as e:
-        logger.error('Error occurred while fetching the name of the parent.', e)
+        logger.exception('Error occurred while fetching the name of the parent')
 
 
 def get_parent_module_name() -> str:
     """
-    give you the name of the parent module. Not the current
+    :return: The name of the module one level up the call stack
     """
     stack_frame = inspect.currentframe()
     while stack_frame:
@@ -37,6 +32,14 @@ def get_parent_module_name() -> str:
 
 
 def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, reduce_long_arguments: bool = False):
+    """
+    :param args:
+    :param use_logger: Uses the passed logger to log.
+    By default it will use the logger of the module where the annotation was called
+    :param log_return: If True, will log the return after the execution of the function
+    :param reduce_long_arguments: If True and the wrapping function is called with long arguments, the the log will be trimmed
+    :return:
+    """
     REDUCED_LOGGING_LIMIT = 100
 
     def reduced_arg(arg):
@@ -60,7 +63,13 @@ def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, r
                 logging_args = args
                 logging_kwargs = kwargs
             use_logger.debug(f"Called '{function_to_wrap.__name__}' with args={logging_args}, kwargs={logging_kwargs}")
-            ret = function_to_wrap(*args, **kwargs)
+
+            try:
+                ret = function_to_wrap(*args, **kwargs)
+            except Exception as e:
+                logger.debug(f"Function '{function_to_wrap.__name__}' raised an exception {repr(e)}")
+                raise e
+
             if log_return:
                 use_logger.debug(f"Function '{function_to_wrap.__name__}' was executed and returned: {ret}")
             else:

@@ -65,4 +65,6 @@ class ThreeCommasError(RuntimeError):
         return self.error_parsed
 
     def __repr__(self):
-        return f'{self.__class__}({self.error.get("msg")})'
+        return f'{self.__class__}({self.error})'
+
+

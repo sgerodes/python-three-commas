@@ -133,7 +133,7 @@ def get_strategy_list() -> dict:
 
 @logged
 @with_py3cw
-def get_pairs_black_list() -> Dict[List[str]]:
+def get_pairs_black_list() -> Dict[str, List[str]]:
     error, data = py3cw.request(
         entity='bots',
         action='pairs_black_list'
