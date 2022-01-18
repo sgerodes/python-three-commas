@@ -1,16 +1,16 @@
 from typing import List
 import logging
-from ...sys_utils import logged, with_py3cw
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 from ... import utils
 from ...model import Account, PieChartDataElement
 
 
 logger = logging.getLogger(__name__)
-
+py3cw: Py3cwClosure = None
 
 @logged
 @with_py3cw
-def get_pie_chart_data(py3cw, account_id: int) -> List[PieChartDataElement]:
+def get_pie_chart_data(account_id: int) -> List[PieChartDataElement]:
     error, data = py3cw.request(
         entity='accounts',
         action='pie_chart_data',
@@ -22,7 +22,7 @@ def get_pie_chart_data(py3cw, account_id: int) -> List[PieChartDataElement]:
 
 @logged
 @with_py3cw
-def get_account_balance_chart_data(py3cw, account_id: int, date_from: str, date_to: str = None):
+def get_account_balance_chart_data(account_id: int, date_from: str, date_to: str = None):
     """
     :param account_id:
     :param date_from: format YYYY-MM-DD
@@ -47,7 +47,7 @@ def get_account_balance_chart_data(py3cw, account_id: int, date_from: str, date_
 
 @logged
 @with_py3cw
-def get_market_pairs(py3cw, market_code: str) -> List[str]:
+def get_market_pairs(market_code: str) -> List[str]:
     error, data = py3cw.request(
         entity='accounts',
         action='market_pairs',
@@ -59,7 +59,7 @@ def get_market_pairs(py3cw, market_code: str) -> List[str]:
 
 @logged
 @with_py3cw
-def get_accounts(py3cw) -> List[Account]:
+def get_accounts() -> List[Account]:
     """
     /ver1/accounts
     :return:
@@ -74,7 +74,7 @@ def get_accounts(py3cw) -> List[Account]:
 
 @logged
 @with_py3cw
-def get_account(py3cw, account_id: int) -> Account:
+def get_account(account_id: int) -> Account:
     """
     /ver1/accounts/:account_id
     :param account_id:
