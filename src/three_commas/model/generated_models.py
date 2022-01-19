@@ -1,8 +1,419 @@
 from typing import List, Union
 import datetime
-from .model import OfDictClass, ThreeCommasParser
+from .written import OfDictClass, ThreeCommasParser
 from .enums import DealStatus, MarketCode
-from . import model
+from . import written
+
+
+class Deal(OfDictClass):
+
+	def get_id(self) -> int:
+		return self.get('id')
+
+	def set_id(self, id: int):
+		self['id'] = id
+
+	def get_type(self) -> str:
+		return self.get('type')
+
+	def set_type(self, type: str):
+		self['type'] = type
+
+	def get_bot_id(self) -> int:
+		return self.get('bot_id')
+
+	def set_bot_id(self, bot_id: int):
+		self['bot_id'] = bot_id
+
+	def get_max_safety_orders(self) -> int:
+		return self.get('max_safety_orders')
+
+	def set_max_safety_orders(self, max_safety_orders: int):
+		self['max_safety_orders'] = max_safety_orders
+
+	def is_deal_has_error(self) -> bool:
+		return self.get('deal_has_error')
+
+	def set_deal_has_error(self, deal_has_error: bool):
+		self['deal_has_error'] = deal_has_error
+
+	def get_account_id(self) -> int:
+		return self.get('account_id')
+
+	def set_account_id(self, account_id: int):
+		self['account_id'] = account_id
+
+	def get_active_safety_orders_count(self) -> int:
+		return self.get('active_safety_orders_count')
+
+	def set_active_safety_orders_count(self, active_safety_orders_count: int):
+		self['active_safety_orders_count'] = active_safety_orders_count
+
+	@ThreeCommasParser.parsed_timestamp
+	def get_created_at(self) -> Union[str, datetime.datetime]:
+		return self.get('created_at')
+
+	def set_created_at(self, created_at: str):
+		self['created_at'] = created_at
+
+	@ThreeCommasParser.parsed_timestamp
+	def get_updated_at(self) -> Union[str, datetime.datetime]:
+		return self.get('updated_at')
+
+	def set_updated_at(self, updated_at: str):
+		self['updated_at'] = updated_at
+
+	@ThreeCommasParser.parsed_timestamp
+	def get_closed_at(self) -> Union[str, datetime.datetime]:
+		return self.get('closed_at')
+
+	def set_closed_at(self, closed_at: str):
+		self['closed_at'] = closed_at
+
+	def is_finished(self) -> bool:
+		return self.get('finished?')
+
+	def set_finished(self, finished: bool):
+		self['finished?'] = finished
+
+	def get_current_active_safety_orders_count(self) -> int:
+		return self.get('current_active_safety_orders_count')
+
+	def set_current_active_safety_orders_count(self, current_active_safety_orders_count: int):
+		self['current_active_safety_orders_count'] = current_active_safety_orders_count
+
+	def get_current_active_safety_orders(self) -> int:
+		return self.get('current_active_safety_orders')
+
+	def set_current_active_safety_orders(self, current_active_safety_orders: int):
+		self['current_active_safety_orders'] = current_active_safety_orders
+
+	def get_completed_safety_orders_count(self) -> int:
+		return self.get('completed_safety_orders_count')
+
+	def set_completed_safety_orders_count(self, completed_safety_orders_count: int):
+		self['completed_safety_orders_count'] = completed_safety_orders_count
+
+	def get_completed_manual_safety_orders_count(self) -> int:
+		return self.get('completed_manual_safety_orders_count')
+
+	def set_completed_manual_safety_orders_count(self, completed_manual_safety_orders_count: int):
+		self['completed_manual_safety_orders_count'] = completed_manual_safety_orders_count
+
+	def is_cancellable(self) -> bool:
+		return self.get('cancellable?')
+
+	def set_cancellable(self, cancellable: bool):
+		self['cancellable?'] = cancellable
+
+	def is_panic_sellable(self) -> bool:
+		return self.get('panic_sellable?')
+
+	def set_panic_sellable(self, panic_sellable: bool):
+		self['panic_sellable?'] = panic_sellable
+
+	def is_trailing_enabled(self) -> bool:
+		return self.get('trailing_enabled')
+
+	def set_trailing_enabled(self, trailing_enabled: bool):
+		self['trailing_enabled'] = trailing_enabled
+
+	def is_tsl_enabled(self) -> bool:
+		return self.get('tsl_enabled')
+
+	def set_tsl_enabled(self, tsl_enabled: bool):
+		self['tsl_enabled'] = tsl_enabled
+
+	def is_stop_loss_timeout_enabled(self) -> bool:
+		return self.get('stop_loss_timeout_enabled')
+
+	def set_stop_loss_timeout_enabled(self, stop_loss_timeout_enabled: bool):
+		self['stop_loss_timeout_enabled'] = stop_loss_timeout_enabled
+
+	def get_stop_loss_timeout_in_seconds(self) -> int:
+		return self.get('stop_loss_timeout_in_seconds')
+
+	def set_stop_loss_timeout_in_seconds(self, stop_loss_timeout_in_seconds: int):
+		self['stop_loss_timeout_in_seconds'] = stop_loss_timeout_in_seconds
+
+	def get_active_manual_safety_orders(self) -> int:
+		return self.get('active_manual_safety_orders')
+
+	def set_active_manual_safety_orders(self, active_manual_safety_orders: int):
+		self['active_manual_safety_orders'] = active_manual_safety_orders
+
+	def get_pair(self) -> str:
+		return self.get('pair')
+
+	def set_pair(self, pair: str):
+		self['pair'] = pair
+
+	@ThreeCommasParser.parsed(DealStatus)
+	def get_status(self) -> Union[str, DealStatus]:
+		return self.get('status')
+
+	def set_status(self, status: str):
+		self['status'] = status
+
+	def get_localized_status(self) -> str:
+		return self.get('localized_status')
+
+	def set_localized_status(self, localized_status: str):
+		self['localized_status'] = localized_status
+
+	@ThreeCommasParser.parsed(float)
+	def get_take_profit(self) -> Union[str, float]:
+		return self.get('take_profit')
+
+	def set_take_profit(self, take_profit: str):
+		self['take_profit'] = take_profit
+
+	@ThreeCommasParser.parsed(float)
+	def get_base_order_volume(self) -> Union[str, float]:
+		return self.get('base_order_volume')
+
+	def set_base_order_volume(self, base_order_volume: str):
+		self['base_order_volume'] = base_order_volume
+
+	@ThreeCommasParser.parsed(float)
+	def get_safety_order_volume(self) -> Union[str, float]:
+		return self.get('safety_order_volume')
+
+	def set_safety_order_volume(self, safety_order_volume: str):
+		self['safety_order_volume'] = safety_order_volume
+
+	@ThreeCommasParser.parsed(float)
+	def get_safety_order_step_percentage(self) -> Union[str, float]:
+		return self.get('safety_order_step_percentage')
+
+	def set_safety_order_step_percentage(self, safety_order_step_percentage: str):
+		self['safety_order_step_percentage'] = safety_order_step_percentage
+
+	def get_leverage_type(self) -> str:
+		return self.get('leverage_type')
+
+	def set_leverage_type(self, leverage_type: str):
+		self['leverage_type'] = leverage_type
+
+	@ThreeCommasParser.parsed(float)
+	def get_bought_amount(self) -> Union[str, float]:
+		return self.get('bought_amount')
+
+	def set_bought_amount(self, bought_amount: str):
+		self['bought_amount'] = bought_amount
+
+	@ThreeCommasParser.parsed(float)
+	def get_bought_volume(self) -> Union[str, float]:
+		return self.get('bought_volume')
+
+	def set_bought_volume(self, bought_volume: str):
+		self['bought_volume'] = bought_volume
+
+	@ThreeCommasParser.parsed(float)
+	def get_bought_average_price(self) -> Union[str, float]:
+		return self.get('bought_average_price')
+
+	def set_bought_average_price(self, bought_average_price: str):
+		self['bought_average_price'] = bought_average_price
+
+	@ThreeCommasParser.parsed(float)
+	def get_base_order_average_price(self) -> Union[str, float]:
+		return self.get('base_order_average_price')
+
+	def set_base_order_average_price(self, base_order_average_price: str):
+		self['base_order_average_price'] = base_order_average_price
+
+	@ThreeCommasParser.parsed(float)
+	def get_sold_amount(self) -> Union[str, float]:
+		return self.get('sold_amount')
+
+	def set_sold_amount(self, sold_amount: str):
+		self['sold_amount'] = sold_amount
+
+	@ThreeCommasParser.parsed(float)
+	def get_sold_volume(self) -> Union[str, float]:
+		return self.get('sold_volume')
+
+	def set_sold_volume(self, sold_volume: str):
+		self['sold_volume'] = sold_volume
+
+	@ThreeCommasParser.parsed(float)
+	def get_sold_average_price(self) -> Union[str, float]:
+		return self.get('sold_average_price')
+
+	def set_sold_average_price(self, sold_average_price: str):
+		self['sold_average_price'] = sold_average_price
+
+	def get_take_profit_type(self) -> str:
+		return self.get('take_profit_type')
+
+	def set_take_profit_type(self, take_profit_type: str):
+		self['take_profit_type'] = take_profit_type
+
+	@ThreeCommasParser.parsed(float)
+	def get_final_profit(self) -> Union[str, float]:
+		return self.get('final_profit')
+
+	def set_final_profit(self, final_profit: str):
+		self['final_profit'] = final_profit
+
+	@ThreeCommasParser.parsed(float)
+	def get_martingale_coefficient(self) -> Union[str, float]:
+		return self.get('martingale_coefficient')
+
+	def set_martingale_coefficient(self, martingale_coefficient: str):
+		self['martingale_coefficient'] = martingale_coefficient
+
+	@ThreeCommasParser.parsed(float)
+	def get_martingale_volume_coefficient(self) -> Union[str, float]:
+		return self.get('martingale_volume_coefficient')
+
+	def set_martingale_volume_coefficient(self, martingale_volume_coefficient: str):
+		self['martingale_volume_coefficient'] = martingale_volume_coefficient
+
+	@ThreeCommasParser.parsed(float)
+	def get_martingale_step_coefficient(self) -> Union[str, float]:
+		return self.get('martingale_step_coefficient')
+
+	def set_martingale_step_coefficient(self, martingale_step_coefficient: str):
+		self['martingale_step_coefficient'] = martingale_step_coefficient
+
+	@ThreeCommasParser.parsed(float)
+	def get_stop_loss_percentage(self) -> Union[str, float]:
+		return self.get('stop_loss_percentage')
+
+	def set_stop_loss_percentage(self, stop_loss_percentage: str):
+		self['stop_loss_percentage'] = stop_loss_percentage
+
+	def get_profit_currency(self) -> str:
+		return self.get('profit_currency')
+
+	def set_profit_currency(self, profit_currency: str):
+		self['profit_currency'] = profit_currency
+
+	def get_stop_loss_type(self) -> str:
+		return self.get('stop_loss_type')
+
+	def set_stop_loss_type(self, stop_loss_type: str):
+		self['stop_loss_type'] = stop_loss_type
+
+	def get_safety_order_volume_type(self) -> str:
+		return self.get('safety_order_volume_type')
+
+	def set_safety_order_volume_type(self, safety_order_volume_type: str):
+		self['safety_order_volume_type'] = safety_order_volume_type
+
+	def get_base_order_volume_type(self) -> str:
+		return self.get('base_order_volume_type')
+
+	def set_base_order_volume_type(self, base_order_volume_type: str):
+		self['base_order_volume_type'] = base_order_volume_type
+
+	def get_from_currency(self) -> str:
+		return self.get('from_currency')
+
+	def set_from_currency(self, from_currency: str):
+		self['from_currency'] = from_currency
+
+	def get_to_currency(self) -> str:
+		return self.get('to_currency')
+
+	def set_to_currency(self, to_currency: str):
+		self['to_currency'] = to_currency
+
+	@ThreeCommasParser.parsed(float)
+	def get_current_price(self) -> Union[str, float]:
+		return self.get('current_price')
+
+	def set_current_price(self, current_price: str):
+		self['current_price'] = current_price
+
+	@ThreeCommasParser.parsed(float)
+	def get_final_profit_percentage(self) -> Union[str, float]:
+		return self.get('final_profit_percentage')
+
+	def set_final_profit_percentage(self, final_profit_percentage: str):
+		self['final_profit_percentage'] = final_profit_percentage
+
+	def get_bot_name(self) -> str:
+		return self.get('bot_name')
+
+	def set_bot_name(self, bot_name: str):
+		self['bot_name'] = bot_name
+
+	def get_account_name(self) -> str:
+		return self.get('account_name')
+
+	def set_account_name(self, account_name: str):
+		self['account_name'] = account_name
+
+	@ThreeCommasParser.parsed(float)
+	def get_usd_final_profit(self) -> Union[str, float]:
+		return self.get('usd_final_profit')
+
+	def set_usd_final_profit(self, usd_final_profit: str):
+		self['usd_final_profit'] = usd_final_profit
+
+	@ThreeCommasParser.parsed(float)
+	def get_actual_profit(self) -> Union[str, float]:
+		return self.get('actual_profit')
+
+	def set_actual_profit(self, actual_profit: str):
+		self['actual_profit'] = actual_profit
+
+	@ThreeCommasParser.parsed(float)
+	def get_actual_usd_profit(self) -> Union[str, float]:
+		return self.get('actual_usd_profit')
+
+	def set_actual_usd_profit(self, actual_usd_profit: str):
+		self['actual_usd_profit'] = actual_usd_profit
+
+	@ThreeCommasParser.parsed(float)
+	def get_reserved_base_coin(self) -> Union[str, float]:
+		return self.get('reserved_base_coin')
+
+	def set_reserved_base_coin(self, reserved_base_coin: str):
+		self['reserved_base_coin'] = reserved_base_coin
+
+	@ThreeCommasParser.parsed(float)
+	def get_reserved_second_coin(self) -> Union[str, float]:
+		return self.get('reserved_second_coin')
+
+	def set_reserved_second_coin(self, reserved_second_coin: str):
+		self['reserved_second_coin'] = reserved_second_coin
+
+	@ThreeCommasParser.parsed(float)
+	def get_trailing_deviation(self) -> Union[str, float]:
+		return self.get('trailing_deviation')
+
+	def set_trailing_deviation(self, trailing_deviation: str):
+		self['trailing_deviation'] = trailing_deviation
+
+	@ThreeCommasParser.parsed(float)
+	def get_trailing_max_price(self) -> Union[str, float]:
+		return self.get('trailing_max_price')
+
+	def set_trailing_max_price(self, trailing_max_price: str):
+		self['trailing_max_price'] = trailing_max_price
+
+	def get_strategy(self) -> str:
+		return self.get('strategy')
+
+	def set_strategy(self, strategy: str):
+		self['strategy'] = strategy
+
+	def get_reserved_quote_funds(self) -> int:
+		return self.get('reserved_quote_funds')
+
+	def set_reserved_quote_funds(self, reserved_quote_funds: int):
+		self['reserved_quote_funds'] = reserved_quote_funds
+
+	@ThreeCommasParser.lazy_parsed(List[written.BotEvent])
+	def get_bot_events(self) -> Union[List[dict], List[written.BotEvent]]:
+		return self.get('bot_events')
+
+	def set_bot_events(self, bot_events: List[dict]):
+		self['bot_events'] = bot_events
 
 
 class Bot(OfDictClass):
@@ -286,15 +697,15 @@ class Bot(OfDictClass):
 	def set_active_deals_usd_profit(self, active_deals_usd_profit: str):
 		self['active_deals_usd_profit'] = active_deals_usd_profit
 
-	@ThreeCommasParser.lazy_parsed(List[model.DealShow])
-	def get_active_deals(self) -> Union[List[dict], List[model.DealShow]]:
+	@ThreeCommasParser.lazy_parsed(List[Deal])
+	def get_active_deals(self) -> Union[List[dict], List[Deal]]:
 		return self.get('active_deals')
 
 	def set_active_deals(self, active_deals: List[dict]):
 		self['active_deals'] = active_deals
 
-	@ThreeCommasParser.lazy_parsed(List[model.BotEvent])
-	def get_bot_events(self) -> Union[List[dict], List[model.BotEvent]]:
+	@ThreeCommasParser.lazy_parsed(List[written.BotEvent])
+	def get_bot_events(self) -> Union[List[dict], List[written.BotEvent]]:
 		return self.get('bot_events')
 
 	def set_bot_events(self, bot_events: List[dict]):
@@ -443,430 +854,6 @@ class PieChartDataElement(OfDictClass):
 	def set_account_id(self, account_id: int):
 		self['account_id'] = account_id
 
-
-class Deal(OfDictClass):
-
-	def get_id(self) -> int:
-		return self.get('id')
-
-	def set_id(self, id: int):
-		self['id'] = id
-
-	def get_type(self) -> str:
-		return self.get('type')
-
-	def set_type(self, type: str):
-		self['type'] = type
-
-	def get_bot_id(self) -> int:
-		return self.get('bot_id')
-
-	def set_bot_id(self, bot_id: int):
-		self['bot_id'] = bot_id
-
-	def get_max_safety_orders(self) -> int:
-		return self.get('max_safety_orders')
-
-	def set_max_safety_orders(self, max_safety_orders: int):
-		self['max_safety_orders'] = max_safety_orders
-
-	def is_deal_has_error(self) -> bool:
-		return self.get('deal_has_error')
-
-	def set_deal_has_error(self, deal_has_error: bool):
-		self['deal_has_error'] = deal_has_error
-
-	def get_account_id(self) -> int:
-		return self.get('account_id')
-
-	def set_account_id(self, account_id: int):
-		self['account_id'] = account_id
-
-	def get_active_safety_orders_count(self) -> int:
-		return self.get('active_safety_orders_count')
-
-	def set_active_safety_orders_count(self, active_safety_orders_count: int):
-		self['active_safety_orders_count'] = active_safety_orders_count
-
-	@ThreeCommasParser.parsed_timestamp
-	def get_created_at(self) -> Union[str, datetime.datetime]:
-		return self.get('created_at')
-
-	def set_created_at(self, created_at: str):
-		self['created_at'] = created_at
-
-	@ThreeCommasParser.parsed_timestamp
-	def get_updated_at(self) -> Union[str, datetime.datetime]:
-		return self.get('updated_at')
-
-	def set_updated_at(self, updated_at: str):
-		self['updated_at'] = updated_at
-
-	@ThreeCommasParser.parsed_timestamp
-	def get_closed_at(self) -> Union[str, datetime.datetime]:
-		return self.get('closed_at')
-
-	def set_closed_at(self, closed_at: str):
-		self['closed_at'] = closed_at
-
-	def is_finished(self) -> bool:
-		return self.get('finished?')
-
-	def set_finished(self, finished: bool):
-		self['finished?'] = finished
-
-	def get_current_active_safety_orders_count(self) -> int:
-		return self.get('current_active_safety_orders_count')
-
-	def set_current_active_safety_orders_count(self, current_active_safety_orders_count: int):
-		self['current_active_safety_orders_count'] = current_active_safety_orders_count
-
-	def get_current_active_safety_orders(self) -> int:
-		return self.get('current_active_safety_orders')
-
-	def set_current_active_safety_orders(self, current_active_safety_orders: int):
-		self['current_active_safety_orders'] = current_active_safety_orders
-
-	def get_completed_safety_orders_count(self) -> int:
-		return self.get('completed_safety_orders_count')
-
-	def set_completed_safety_orders_count(self, completed_safety_orders_count: int):
-		self['completed_safety_orders_count'] = completed_safety_orders_count
-
-	def get_completed_manual_safety_orders_count(self) -> int:
-		return self.get('completed_manual_safety_orders_count')
-
-	def set_completed_manual_safety_orders_count(self, completed_manual_safety_orders_count: int):
-		self['completed_manual_safety_orders_count'] = completed_manual_safety_orders_count
-
-	def is_cancellable(self) -> bool:
-		return self.get('cancellable?')
-
-	def set_cancellable(self, cancellable: bool):
-		self['cancellable?'] = cancellable
-
-	def is_panic_sellable(self) -> bool:
-		return self.get('panic_sellable?')
-
-	def set_panic_sellable(self, panic_sellable: bool):
-		self['panic_sellable?'] = panic_sellable
-
-	def is_trailing_enabled(self) -> bool:
-		return self.get('trailing_enabled')
-
-	def set_trailing_enabled(self, trailing_enabled: bool):
-		self['trailing_enabled'] = trailing_enabled
-
-	def is_tsl_enabled(self) -> bool:
-		return self.get('tsl_enabled')
-
-	def set_tsl_enabled(self, tsl_enabled: bool):
-		self['tsl_enabled'] = tsl_enabled
-
-	def is_stop_loss_timeout_enabled(self) -> bool:
-		return self.get('stop_loss_timeout_enabled')
-
-	def set_stop_loss_timeout_enabled(self, stop_loss_timeout_enabled: bool):
-		self['stop_loss_timeout_enabled'] = stop_loss_timeout_enabled
-
-	def get_stop_loss_timeout_in_seconds(self) -> int:
-		return self.get('stop_loss_timeout_in_seconds')
-
-	def set_stop_loss_timeout_in_seconds(self, stop_loss_timeout_in_seconds: int):
-		self['stop_loss_timeout_in_seconds'] = stop_loss_timeout_in_seconds
-
-	def get_active_manual_safety_orders(self) -> int:
-		return self.get('active_manual_safety_orders')
-
-	def set_active_manual_safety_orders(self, active_manual_safety_orders: int):
-		self['active_manual_safety_orders'] = active_manual_safety_orders
-
-	def get_pair(self) -> str:
-		return self.get('pair')
-
-	def set_pair(self, pair: str):
-		self['pair'] = pair
-
-	def get_status(self) -> str:
-		return self.get('status')
-
-	def set_status(self, status: Union[str, DealStatus]):
-		self['status'] = status
-
-	def is_status_active(self) -> bool:
-		return self.get('status') == 'active'
-
-	def is_status_finished(self) -> bool:
-		return self.get('status') == 'finished'
-
-	def is_status_completed(self) -> bool:
-		return self.get('status') == 'completed'
-
-	def is_status_cancelled(self) -> bool:
-		return self.get('status') == 'cancelled'
-
-	def is_status_failed(self) -> bool:
-		return self.get('status') == 'failed'
-
-	def get_localized_status(self) -> str:
-		return self.get('localized_status')
-
-	def set_localized_status(self, localized_status: str):
-		self['localized_status'] = localized_status
-
-	@ThreeCommasParser.parsed(float)
-	def get_take_profit(self) -> Union[str, float]:
-		return self.get('take_profit')
-
-	def set_take_profit(self, take_profit: str):
-		self['take_profit'] = take_profit
-
-	@ThreeCommasParser.parsed(float)
-	def get_base_order_volume(self) -> Union[str, float]:
-		return self.get('base_order_volume')
-
-	def set_base_order_volume(self, base_order_volume: str):
-		self['base_order_volume'] = base_order_volume
-
-	@ThreeCommasParser.parsed(float)
-	def get_safety_order_volume(self) -> Union[str, float]:
-		return self.get('safety_order_volume')
-
-	def set_safety_order_volume(self, safety_order_volume: str):
-		self['safety_order_volume'] = safety_order_volume
-
-	@ThreeCommasParser.parsed(float)
-	def get_safety_order_step_percentage(self) -> Union[str, float]:
-		return self.get('safety_order_step_percentage')
-
-	def set_safety_order_step_percentage(self, safety_order_step_percentage: str):
-		self['safety_order_step_percentage'] = safety_order_step_percentage
-
-	def get_leverage_type(self) -> str:
-		return self.get('leverage_type')
-
-	def set_leverage_type(self, leverage_type: str):
-		self['leverage_type'] = leverage_type
-
-	@ThreeCommasParser.parsed(float)
-	def get_bought_amount(self) -> Union[str, float]:
-		return self.get('bought_amount')
-
-	def set_bought_amount(self, bought_amount: str):
-		self['bought_amount'] = bought_amount
-
-	@ThreeCommasParser.parsed(float)
-	def get_bought_volume(self) -> Union[str, float]:
-		return self.get('bought_volume')
-
-	def set_bought_volume(self, bought_volume: str):
-		self['bought_volume'] = bought_volume
-
-	@ThreeCommasParser.parsed(float)
-	def get_bought_average_price(self) -> Union[str, float]:
-		return self.get('bought_average_price')
-
-	def set_bought_average_price(self, bought_average_price: str):
-		self['bought_average_price'] = bought_average_price
-
-	@ThreeCommasParser.parsed(float)
-	def get_base_order_average_price(self) -> Union[str, float]:
-		return self.get('base_order_average_price')
-
-	def set_base_order_average_price(self, base_order_average_price: str):
-		self['base_order_average_price'] = base_order_average_price
-
-	@ThreeCommasParser.parsed(float)
-	def get_sold_amount(self) -> Union[str, float]:
-		return self.get('sold_amount')
-
-	def set_sold_amount(self, sold_amount: str):
-		self['sold_amount'] = sold_amount
-
-	@ThreeCommasParser.parsed(float)
-	def get_sold_volume(self) -> Union[str, float]:
-		return self.get('sold_volume')
-
-	def set_sold_volume(self, sold_volume: str):
-		self['sold_volume'] = sold_volume
-
-	@ThreeCommasParser.parsed(float)
-	def get_sold_average_price(self) -> Union[str, float]:
-		return self.get('sold_average_price')
-
-	def set_sold_average_price(self, sold_average_price: str):
-		self['sold_average_price'] = sold_average_price
-
-	def get_take_profit_type(self) -> str:
-		return self.get('take_profit_type')
-
-	def set_take_profit_type(self, take_profit_type: str):
-		self['take_profit_type'] = take_profit_type
-
-	@ThreeCommasParser.parsed(float)
-	def get_final_profit(self) -> Union[str, float]:
-		return self.get('final_profit')
-
-	def set_final_profit(self, final_profit: str):
-		self['final_profit'] = final_profit
-
-	@ThreeCommasParser.parsed(float)
-	def get_martingale_coefficient(self) -> Union[str, float]:
-		return self.get('martingale_coefficient')
-
-	def set_martingale_coefficient(self, martingale_coefficient: str):
-		self['martingale_coefficient'] = martingale_coefficient
-
-	@ThreeCommasParser.parsed(float)
-	def get_martingale_volume_coefficient(self) -> Union[str, float]:
-		return self.get('martingale_volume_coefficient')
-
-	def set_martingale_volume_coefficient(self, martingale_volume_coefficient: str):
-		self['martingale_volume_coefficient'] = martingale_volume_coefficient
-
-	@ThreeCommasParser.parsed(float)
-	def get_martingale_step_coefficient(self) -> Union[str, float]:
-		return self.get('martingale_step_coefficient')
-
-	def set_martingale_step_coefficient(self, martingale_step_coefficient: str):
-		self['martingale_step_coefficient'] = martingale_step_coefficient
-
-	@ThreeCommasParser.parsed(float)
-	def get_stop_loss_percentage(self) -> Union[str, float]:
-		return self.get('stop_loss_percentage')
-
-	def set_stop_loss_percentage(self, stop_loss_percentage: str):
-		self['stop_loss_percentage'] = stop_loss_percentage
-
-	def get_profit_currency(self) -> str:
-		return self.get('profit_currency')
-
-	def set_profit_currency(self, profit_currency: str):
-		self['profit_currency'] = profit_currency
-
-	def get_stop_loss_type(self) -> str:
-		return self.get('stop_loss_type')
-
-	def set_stop_loss_type(self, stop_loss_type: str):
-		self['stop_loss_type'] = stop_loss_type
-
-	def get_safety_order_volume_type(self) -> str:
-		return self.get('safety_order_volume_type')
-
-	def set_safety_order_volume_type(self, safety_order_volume_type: str):
-		self['safety_order_volume_type'] = safety_order_volume_type
-
-	def get_base_order_volume_type(self) -> str:
-		return self.get('base_order_volume_type')
-
-	def set_base_order_volume_type(self, base_order_volume_type: str):
-		self['base_order_volume_type'] = base_order_volume_type
-
-	def get_from_currency(self) -> str:
-		return self.get('from_currency')
-
-	def set_from_currency(self, from_currency: str):
-		self['from_currency'] = from_currency
-
-	def get_to_currency(self) -> str:
-		return self.get('to_currency')
-
-	def set_to_currency(self, to_currency: str):
-		self['to_currency'] = to_currency
-
-	@ThreeCommasParser.parsed(float)
-	def get_current_price(self) -> Union[str, float]:
-		return self.get('current_price')
-
-	def set_current_price(self, current_price: str):
-		self['current_price'] = current_price
-
-	@ThreeCommasParser.parsed(float)
-	def get_final_profit_percentage(self) -> Union[str, float]:
-		return self.get('final_profit_percentage')
-
-	def set_final_profit_percentage(self, final_profit_percentage: str):
-		self['final_profit_percentage'] = final_profit_percentage
-
-	def get_bot_name(self) -> str:
-		return self.get('bot_name')
-
-	def set_bot_name(self, bot_name: str):
-		self['bot_name'] = bot_name
-
-	def get_account_name(self) -> str:
-		return self.get('account_name')
-
-	def set_account_name(self, account_name: str):
-		self['account_name'] = account_name
-
-	@ThreeCommasParser.parsed(float)
-	def get_usd_final_profit(self) -> Union[str, float]:
-		return self.get('usd_final_profit')
-
-	def set_usd_final_profit(self, usd_final_profit: str):
-		self['usd_final_profit'] = usd_final_profit
-
-	@ThreeCommasParser.parsed(float)
-	def get_actual_profit(self) -> Union[str, float]:
-		return self.get('actual_profit')
-
-	def set_actual_profit(self, actual_profit: str):
-		self['actual_profit'] = actual_profit
-
-	@ThreeCommasParser.parsed(float)
-	def get_actual_usd_profit(self) -> Union[str, float]:
-		return self.get('actual_usd_profit')
-
-	def set_actual_usd_profit(self, actual_usd_profit: str):
-		self['actual_usd_profit'] = actual_usd_profit
-
-	@ThreeCommasParser.parsed(float)
-	def get_reserved_base_coin(self) -> Union[str, float]:
-		return self.get('reserved_base_coin')
-
-	def set_reserved_base_coin(self, reserved_base_coin: str):
-		self['reserved_base_coin'] = reserved_base_coin
-
-	@ThreeCommasParser.parsed(float)
-	def get_reserved_second_coin(self) -> Union[str, float]:
-		return self.get('reserved_second_coin')
-
-	def set_reserved_second_coin(self, reserved_second_coin: str):
-		self['reserved_second_coin'] = reserved_second_coin
-
-	@ThreeCommasParser.parsed(float)
-	def get_trailing_deviation(self) -> Union[str, float]:
-		return self.get('trailing_deviation')
-
-	def set_trailing_deviation(self, trailing_deviation: str):
-		self['trailing_deviation'] = trailing_deviation
-
-	@ThreeCommasParser.parsed(float)
-	def get_trailing_max_price(self) -> Union[str, float]:
-		return self.get('trailing_max_price')
-
-	def set_trailing_max_price(self, trailing_max_price: str):
-		self['trailing_max_price'] = trailing_max_price
-
-	def get_strategy(self) -> str:
-		return self.get('strategy')
-
-	def set_strategy(self, strategy: str):
-		self['strategy'] = strategy
-
-	def get_reserved_quote_funds(self) -> int:
-		return self.get('reserved_quote_funds')
-
-	def set_reserved_quote_funds(self, reserved_quote_funds: int):
-		self['reserved_quote_funds'] = reserved_quote_funds
-
-	@ThreeCommasParser.lazy_parsed(List[model.BotEvent])
-	def get_bot_events(self) -> Union[List[dict], List[model.BotEvent]]:
-		return self.get('bot_events')
-
-	def set_bot_events(self, bot_events: List[dict]):
-		self['bot_events'] = bot_events
 
 
 class Account(OfDictClass):
@@ -1143,92 +1130,8 @@ class Account(OfDictClass):
 	def set_exchange_name(self, exchange_name: str):
 		self['exchange_name'] = exchange_name
 
-	def get_market_code(self) -> str:
+	def get_market_code(self) -> MarketCode:
 		return self.get('market_code')
 
-	def set_market_code(self, market_code: Union[str, MarketCode]):
+	def set_market_code(self, market_code: Union[MarketCode, MarketCode]):
 		self['market_code'] = market_code
-
-	def is_market_code_paper_trading(self) -> bool:
-		return self.get('market_code') == 'paper_trading'
-
-	def is_market_code_binance(self) -> bool:
-		return self.get('market_code') == 'binance'
-
-	def is_market_code_bitfinex(self) -> bool:
-		return self.get('market_code') == 'bitfinex'
-
-	def is_market_code_bitstamp(self) -> bool:
-		return self.get('market_code') == 'bitstamp'
-
-	def is_market_code_bittrex(self) -> bool:
-		return self.get('market_code') == 'bittrex'
-
-	def is_market_code_gdax(self) -> bool:
-		return self.get('market_code') == 'gdax'
-
-	def is_market_code_gemini(self) -> bool:
-		return self.get('market_code') == 'gemini'
-
-	def is_market_code_huobi(self) -> bool:
-		return self.get('market_code') == 'huobi'
-
-	def is_market_code_kucoin(self) -> bool:
-		return self.get('market_code') == 'kucoin'
-
-	def is_market_code_okex(self) -> bool:
-		return self.get('market_code') == 'okex'
-
-	def is_market_code_poloniex(self) -> bool:
-		return self.get('market_code') == 'poloniex'
-
-	def is_market_code_bitmex(self) -> bool:
-		return self.get('market_code') == 'bitmex'
-
-	def is_market_code_kraken(self) -> bool:
-		return self.get('market_code') == 'kraken'
-
-	def is_market_code_gate_io(self) -> bool:
-		return self.get('market_code') == 'gate_io'
-
-	def is_market_code_binance_margin(self) -> bool:
-		return self.get('market_code') == 'binance_margin'
-
-	def is_market_code_bybit(self) -> bool:
-		return self.get('market_code') == 'bybit'
-
-	def is_market_code_binance_us(self) -> bool:
-		return self.get('market_code') == 'binance_us'
-
-	def is_market_code_binance_futures(self) -> bool:
-		return self.get('market_code') == 'binance_futures'
-
-	def is_market_code_deribit(self) -> bool:
-		return self.get('market_code') == 'deribit'
-
-	def is_market_code_ftx(self) -> bool:
-		return self.get('market_code') == 'ftx'
-
-	def is_market_code_ftx_us(self) -> bool:
-		return self.get('market_code') == 'ftx_us'
-
-	def is_market_code_bybit_usdt_perpetual(self) -> bool:
-		return self.get('market_code') == 'bybit_usdt_perpetual'
-
-	def is_market_code_binance_futures_coin(self) -> bool:
-		return self.get('market_code') == 'binance_futures_coin'
-
-	def is_market_code_bybit_spot(self) -> bool:
-		return self.get('market_code') == 'bybit_spot'
-
-	def is_market_code_gate_io_usdt_perpetual(self) -> bool:
-		return self.get('market_code') == 'gate_io_usdt_perpetual'
-
-	def is_market_code_gate_io_btc_perpetual(self) -> bool:
-		return self.get('market_code') == 'gate_io_btc_perpetual'
-
-	def is_market_code_ethereumwallet(self) -> bool:
-		return self.get('market_code') == 'ethereumwallet'
-
-	def is_market_code_trx(self) -> bool:
-		return self.get('market_code') == 'trx'
