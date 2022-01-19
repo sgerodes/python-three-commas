@@ -1,6 +1,7 @@
 from typing import List, Union
 import datetime
 from .model import OfDictClass, ThreeCommasParser
+from . import model
 
 
 class BotShow(OfDictClass):
@@ -61,3 +62,10 @@ class BotShow(OfDictClass):
 
 	def set_finished_deals_count(self, finished_deals_count: str):
 		self['finished_deals_count'] = finished_deals_count
+
+	@ThreeCommasParser.lazy_parsed(List[model.BotEvent])
+	def get_bot_events(self) -> Union[List[dict], List[model.BotEvent]]:
+		return self.get('bot_events')
+
+	def set_bot_events(self, bot_events: List[dict]):
+		self['bot_events'] = bot_events

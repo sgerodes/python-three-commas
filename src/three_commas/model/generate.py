@@ -1,5 +1,6 @@
 from typing import List
 import datetime
+from model import BotEvent
 
 INDENT = '\t'
 
@@ -29,6 +30,7 @@ tc_generated_classes = [
                               ThreeCommasJsonProperty('name', str),
                               ThreeCommasJsonProperty('take_profit', str, float),
                               ThreeCommasJsonProperty('finished_deals_count', str, int),
+                              ThreeCommasJsonProperty('bot_events', List[dict], List[BotEvent]),
                           ])
 ]
 
@@ -40,6 +42,7 @@ def generate_models():
         file_buffer.append('from typing import List, Union')
         file_buffer.append('import datetime')
         file_buffer.append('from .model import OfDictClass, ThreeCommasParser')
+        file_buffer.append('from . import model')
 
         for tc_gen_class in tc_generated_classes:
             file_buffer.append('')
@@ -59,16 +62,10 @@ def generate_models():
 def create_getter(prop: ThreeCommasJsonProperty):
     file_buffer = list()
     property_name = prop.name
-    property_variable = property_name.replace('?', '')  # handles 'deletable?'
     initial_type_name_str = get_type_name_string(prop.initial_type)
     parsed_type_name_str = get_type_name_string(prop.parsed_type)
 
-    # function name
-    if prop.initial_type is bool:
-        function_name = property_variable if property_variable.startswith('is_') else f'is_{property_variable}'
-        function_name = function_name.replace('?', '')
-    else:
-        function_name = f'get_{property_variable}'
+    getter_name = create_getter_function_name(prop)
 
     return_type = f'Union[{initial_type_name_str}, {parsed_type_name_str}]' if prop.parsed_type else initial_type_name_str
 
@@ -76,12 +73,29 @@ def create_getter(prop: ThreeCommasJsonProperty):
     if prop.parsed_type is not None:
         if prop.parsed_type is datetime.datetime:
             file_buffer.append(f"{INDENT}@ThreeCommasParser.parsed_timestamp")
-        else:
+        elif prop.parsed_type in (int, float):
             file_buffer.append(f"{INDENT}@ThreeCommasParser.parsed({parsed_type_name_str})")
-    file_buffer.append(f"{INDENT}def {function_name}(self) -> {return_type}:")
+        else:
+            file_buffer.append(f"{INDENT}@ThreeCommasParser.lazy_parsed({parsed_type_name_str})")
+    file_buffer.append(f"{INDENT}def {getter_name}(self) -> {return_type}:")
     file_buffer.append(f"{INDENT * 2}return self.get('{property_name}')")
 
     return file_buffer
+
+
+def create_getter_function_name(prop):
+    property_variable = prop.name.replace('?', '')  # handles properties like 'deletable?'
+    if prop.initial_type is bool:
+        function_name = property_variable if property_variable.startswith('is_') else f'is_{property_variable}'
+        function_name = function_name.replace('?', '')
+    else:
+        function_name = f'get_{property_variable}'
+    return function_name
+
+
+def create_setter_function_name(prop):
+    property_variable = prop.name.replace('?', '')  # handles properties like 'deletable?'
+    return f'set_{property_variable}'
 
 
 def create_setter(prop: ThreeCommasJsonProperty):
@@ -89,10 +103,11 @@ def create_setter(prop: ThreeCommasJsonProperty):
     property_name = prop.name
     property_variable = property_name.replace('?', '')
     initial_type_name_str = get_type_name_string(prop.initial_type)
-    parsed_type_name_str = get_type_name_string(prop.parsed_type)
+
+    setter_name = create_setter_function_name(prop)
 
     file_buffer.append('')
-    file_buffer.append(f'{INDENT}def set_{property_variable}(self, {property_variable}: {initial_type_name_str}):')
+    file_buffer.append(f'{INDENT}def {setter_name}(self, {property_variable}: {initial_type_name_str}):')
     file_buffer.append(f"{INDENT * 2}self['{property_name}'] = {property_variable}")
 
     return file_buffer
