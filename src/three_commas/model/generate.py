@@ -22,14 +22,57 @@ tc_generated_classes = [
     ThreeCommasModelClass(name='BotShow',
                           properties=[
                               ThreeCommasJsonProperty('id', int),
+                              ThreeCommasJsonProperty('account_id', int),
                               ThreeCommasJsonProperty('is_enabled', bool),
-                              ThreeCommasJsonProperty('deletable?', bool),
+                              ThreeCommasJsonProperty('max_safety_orders', int),
+                              ThreeCommasJsonProperty('active_safety_orders_count', int),
                               ThreeCommasJsonProperty('pairs', List[str]),
                               ThreeCommasJsonProperty('strategy_list', List[dict]),
+                              ThreeCommasJsonProperty('max_active_deals', int),
+                              ThreeCommasJsonProperty('active_deals_count', int),
+                              ThreeCommasJsonProperty('deletable?', bool),
                               ThreeCommasJsonProperty('created_at', str, datetime.datetime),
+                              ThreeCommasJsonProperty('updated_at', str, datetime.datetime),
+                              ThreeCommasJsonProperty('trailing_enabled', bool),
+                              ThreeCommasJsonProperty('tsl_enabled', bool),
+                              ThreeCommasJsonProperty('deal_start_delay_seconds', int),
+                              ThreeCommasJsonProperty('stop_loss_timeout_enabled', bool),
+                              ThreeCommasJsonProperty('stop_loss_timeout_in_seconds', int),
+                              # ThreeCommasJsonProperty('disable_after_deals_count', ), TODO probably int
+                              # ThreeCommasJsonProperty('deals_counter', ), TODO probably int
+                              ThreeCommasJsonProperty('allowed_deals_on_same_pair', int),
+                              ThreeCommasJsonProperty('easy_form_supported', bool),
+                              # ThreeCommasJsonProperty('close_deals_timeout', ), TODO probably int
+                              ThreeCommasJsonProperty('url_secret', str),
                               ThreeCommasJsonProperty('name', str),
                               ThreeCommasJsonProperty('take_profit', str, float),
+                              ThreeCommasJsonProperty('base_order_volume', str, float),
+                              ThreeCommasJsonProperty('safety_order_volume', str, float),
+                              ThreeCommasJsonProperty('safety_order_step_percentage', str, float),
+                              ThreeCommasJsonProperty('take_profit_type', str),
+                              ThreeCommasJsonProperty('type', str),
+                              ThreeCommasJsonProperty('martingale_volume_coefficient', str, float),
+                              ThreeCommasJsonProperty('martingale_step_coefficient', str, float),
+                              ThreeCommasJsonProperty('stop_loss_percentage', str, float),
+                              # ThreeCommasJsonProperty('cooldown', str, ), # TODO probably parsed into int, could be float
+                              ThreeCommasJsonProperty('btc_price_limit', str, float),
+                              ThreeCommasJsonProperty('strategy', str),
+                              ThreeCommasJsonProperty('min_volume_btc_24h', str, float),
+                              ThreeCommasJsonProperty('profit_currency', str),
+                              # ThreeCommasJsonProperty('min_price', ), TODO probably float
+                              # ThreeCommasJsonProperty('max_price', ), TODO probably float
+                              ThreeCommasJsonProperty('stop_loss_type', str),
+                              ThreeCommasJsonProperty('safety_order_volume_type', str),
+                              ThreeCommasJsonProperty('base_order_volume_type', str),
+                              ThreeCommasJsonProperty('account_name', str),
+                              ThreeCommasJsonProperty('trailing_deviation', str, float),
+                              ThreeCommasJsonProperty('finished_deals_profit_usd', str, float),
                               ThreeCommasJsonProperty('finished_deals_count', str, int),
+                              ThreeCommasJsonProperty('leverage_type', str),
+                              # ThreeCommasJsonProperty('leverage_custom_value', ),  TODO probably str
+                              ThreeCommasJsonProperty('start_order_type', str),
+                              ThreeCommasJsonProperty('active_deals_usd_profit', str, float),
+                              # ThreeCommasJsonProperty('bot_events', , ), TODO probably complex type
                               ThreeCommasJsonProperty('bot_events', List[dict], List[BotEvent]),
                           ])
 ]
