@@ -2,7 +2,7 @@ from typing import List, Dict
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure
 from ... import utils
-from ...model import BotShow
+from ...model import Bot as BotShow
 
 
 logger = logging.getLogger(__name__)

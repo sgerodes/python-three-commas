@@ -1,6 +1,7 @@
 from typing import List
 import datetime
 from model import BotEvent, DealShow
+import json
 
 INDENT = '\t'
 
@@ -330,5 +331,33 @@ def get_type_name_string(t: type) -> str:
     return t.__name__
 
 
+def generate_json_properties():
+    def is_int(s: str):
+        if s.startswith('-'):
+            s = s[1:]
+        return s.isnumeric()
+
+    def is_float(s: str):
+        if s.startswith('-'):
+            s = s[1:]
+        return '.' in s and s.replace('.', '', 1).isdigit()
+
+    with open('../../../test/sample_data/accounts/paper_account.json') as f:
+        d: dict = json.loads(f.read())
+        for k, v in d.items():
+            t_str = type(v).__name__
+            parsed_t = None
+            if isinstance(v, str) and is_int(v):
+                parsed_t = 'int'
+            if isinstance(v, str) and is_float(v):
+                parsed_t = 'float'
+
+            if parsed_t:
+                print(f"ThreeCommasJsonProperty('{k}', {t_str}, {parsed_t}),")
+            else:
+                print(f"ThreeCommasJsonProperty('{k}', {t_str}),")
+
+
 if __name__ == '__main__':
     generate_models()
+    # generate_json_properties()

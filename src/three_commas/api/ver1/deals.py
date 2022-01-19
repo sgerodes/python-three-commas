@@ -2,7 +2,7 @@ from typing import List
 import logging
 from ...sys_utils import logged, with_py3cw
 from ... import utils
-from ...model import DealShow, DealMarketOrder
+from ...model import Deal as DealShow, DealMarketOrder
 
 
 logger = logging.getLogger(__name__)

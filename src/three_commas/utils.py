@@ -1,7 +1,7 @@
 import logging
 
 from .error import ThreeCommasError
-from .model import BotShow
+from .model import Bot as BotShow
 from typing import List
 from .sys_utils import get_parent_function_name
 

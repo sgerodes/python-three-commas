@@ -1,7 +1,7 @@
 from . import api
 from . import site
 from cachetools import cached, TTLCache
-from .model import BotShow, Account, DealShow, PieChartDataElement
+from .model import Bot as BotShow, Account, Deal as DealShow, PieChartDataElement
 from typing import List
 
 
