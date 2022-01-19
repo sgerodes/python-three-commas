@@ -8,6 +8,10 @@ class AbstractThreeCommasEnum(Enum):
         else:
             return super.__eq__(self, other)
 
+    @classmethod
+    def list(cls):
+        return list(map(lambda c: c.value, cls))
+
     def __str__(self):
         return self.value
 

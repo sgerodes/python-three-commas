@@ -15,4 +15,3 @@ def test_enum_equality():
 
     assert 'enabled' == BotScope.ENABLED
     assert 'disabled' != BotScope.ENABLED
-
