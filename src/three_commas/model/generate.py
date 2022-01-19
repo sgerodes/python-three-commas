@@ -2,7 +2,7 @@ from typing import List
 import datetime
 from model import BotEvent, DealShow
 import json
-from enums import AbstractThreeCommasEnum, DealStatus
+from enums import AbstractThreeCommasEnum, DealStatus, MarketCode
 
 INDENT = '\t'
 
@@ -238,7 +238,7 @@ tc_generated_classes = [
                             ThreeCommasJsonProperty('total_usd_profit', str, float),
                             ThreeCommasJsonProperty('pretty_display_type', str),
                             ThreeCommasJsonProperty('exchange_name', str),
-                            ThreeCommasJsonProperty('market_code', str),
+                            ThreeCommasJsonProperty('market_code', MarketCode),
                           ]),
 
 ]
@@ -251,7 +251,7 @@ def generate_models():
         file_buffer.append('from typing import List, Union')
         file_buffer.append('import datetime')
         file_buffer.append('from .model import OfDictClass, ThreeCommasParser')
-        file_buffer.append('from .enums import DealStatus')
+        file_buffer.append('from .enums import DealStatus, MarketCode')
         file_buffer.append('from . import model')
 
         for tc_gen_class in tc_generated_classes:

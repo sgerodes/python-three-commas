@@ -1,7 +1,7 @@
 from typing import List, Union
 import datetime
 from .model import OfDictClass, ThreeCommasParser
-from .enums import DealStatus
+from .enums import DealStatus, MarketCode
 from . import model
 
 
@@ -1146,5 +1146,89 @@ class Account(OfDictClass):
 	def get_market_code(self) -> str:
 		return self.get('market_code')
 
-	def set_market_code(self, market_code: str):
+	def set_market_code(self, market_code: Union[str, MarketCode]):
 		self['market_code'] = market_code
+
+	def is_market_code_paper_trading(self) -> bool:
+		return self.get('market_code') == 'paper_trading'
+
+	def is_market_code_binance(self) -> bool:
+		return self.get('market_code') == 'binance'
+
+	def is_market_code_bitfinex(self) -> bool:
+		return self.get('market_code') == 'bitfinex'
+
+	def is_market_code_bitstamp(self) -> bool:
+		return self.get('market_code') == 'bitstamp'
+
+	def is_market_code_bittrex(self) -> bool:
+		return self.get('market_code') == 'bittrex'
+
+	def is_market_code_gdax(self) -> bool:
+		return self.get('market_code') == 'gdax'
+
+	def is_market_code_gemini(self) -> bool:
+		return self.get('market_code') == 'gemini'
+
+	def is_market_code_huobi(self) -> bool:
+		return self.get('market_code') == 'huobi'
+
+	def is_market_code_kucoin(self) -> bool:
+		return self.get('market_code') == 'kucoin'
+
+	def is_market_code_okex(self) -> bool:
+		return self.get('market_code') == 'okex'
+
+	def is_market_code_poloniex(self) -> bool:
+		return self.get('market_code') == 'poloniex'
+
+	def is_market_code_bitmex(self) -> bool:
+		return self.get('market_code') == 'bitmex'
+
+	def is_market_code_kraken(self) -> bool:
+		return self.get('market_code') == 'kraken'
+
+	def is_market_code_gate_io(self) -> bool:
+		return self.get('market_code') == 'gate_io'
+
+	def is_market_code_binance_margin(self) -> bool:
+		return self.get('market_code') == 'binance_margin'
+
+	def is_market_code_bybit(self) -> bool:
+		return self.get('market_code') == 'bybit'
+
+	def is_market_code_binance_us(self) -> bool:
+		return self.get('market_code') == 'binance_us'
+
+	def is_market_code_binance_futures(self) -> bool:
+		return self.get('market_code') == 'binance_futures'
+
+	def is_market_code_deribit(self) -> bool:
+		return self.get('market_code') == 'deribit'
+
+	def is_market_code_ftx(self) -> bool:
+		return self.get('market_code') == 'ftx'
+
+	def is_market_code_ftx_us(self) -> bool:
+		return self.get('market_code') == 'ftx_us'
+
+	def is_market_code_bybit_usdt_perpetual(self) -> bool:
+		return self.get('market_code') == 'bybit_usdt_perpetual'
+
+	def is_market_code_binance_futures_coin(self) -> bool:
+		return self.get('market_code') == 'binance_futures_coin'
+
+	def is_market_code_bybit_spot(self) -> bool:
+		return self.get('market_code') == 'bybit_spot'
+
+	def is_market_code_gate_io_usdt_perpetual(self) -> bool:
+		return self.get('market_code') == 'gate_io_usdt_perpetual'
+
+	def is_market_code_gate_io_btc_perpetual(self) -> bool:
+		return self.get('market_code') == 'gate_io_btc_perpetual'
+
+	def is_market_code_ethereumwallet(self) -> bool:
+		return self.get('market_code') == 'ethereumwallet'
+
+	def is_market_code_trx(self) -> bool:
+		return self.get('market_code') == 'trx'
