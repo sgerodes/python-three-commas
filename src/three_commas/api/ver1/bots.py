@@ -64,7 +64,7 @@ def cancel_all_deals():
 
 @logged
 @with_py3cw
-def get_bot_show(bot_id: int, include_events: bool = None) -> BotShow:
+def get_show(bot_id: int, include_events: bool = None) -> BotShow:
     """
     /ver1/bots/:bot_id/show
     """

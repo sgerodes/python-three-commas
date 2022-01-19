@@ -1,3 +1,3 @@
-from .model import DealShow, PieChartDataElement, Account, BotEvent
+from .model import BotEvent
 from . import enums
-from .generated_models import BotShow, DealMarketOrder
+from .generated_models import Bot, DealMarketOrder, Deal, PieChartDataElement, Account
