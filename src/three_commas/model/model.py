@@ -3,6 +3,10 @@ from typing import List, Union, Callable
 import datetime
 import re
 import functools
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class ThreeCommasParser:
@@ -27,6 +31,51 @@ class ThreeCommasParser:
                 if result is None:
                     return None
                 return t(result) if parsed else result
+            return wrapper
+        return decorator
+
+    @staticmethod
+    def lazy_parsed(t: Union[type, List]):
+        # TODO maybe use pass a setter as a argument instead of setting value assuming it is a dict
+        def decorator(func: Callable) -> Callable:
+            was_parsed = False
+
+            @functools.wraps(func)
+            def wrapper(*args, parsed: bool = True, **kwargs):
+                nonlocal was_parsed
+                if was_parsed or not parsed:
+                    return func(*args, **kwargs)
+
+                result = func(*args, **kwargs)
+                was_parsed = True
+                if result is None:
+                    return None
+
+                if str(t).startswith('typing.List['):
+                    elem_type = t.__args__[0]
+                    # TODO probably should not use the __init__ of the type
+                    parsed_result = [elem_type(elem) for elem in result]
+                else:
+                    parsed_result = t(result)
+
+                # setting the result back
+                instance_of_method: dict = func.__self__
+                parameter = None
+                if len(args) == 1:
+                    parameter = args[0]
+                elif len(kwargs) == 1:
+                    parameter = kwargs.popitem()[1]
+
+                if not isinstance(instance_of_method, dict):
+                    logger.warning(f'Enclosing instance is not a dict, cant set the lazy parsed result back')
+                elif not parameter:
+                    logger.warning(f'Could not determine the parameter from {args=}, {kwargs=}')
+                elif parameter not in instance_of_method:
+                    logger.warning(f'{parameter} was not found in the instance {instance_of_method}')
+                else:
+                    instance_of_method[parameter] = parsed_result
+
+                return parsed_result
             return wrapper
         return decorator
 
