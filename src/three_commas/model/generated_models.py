@@ -285,9 +285,99 @@ class BotShow(OfDictClass):
 	def set_active_deals_usd_profit(self, active_deals_usd_profit: str):
 		self['active_deals_usd_profit'] = active_deals_usd_profit
 
+	@ThreeCommasParser.lazy_parsed(List[model.DealShow])
+	def get_active_deals(self) -> Union[List[dict], List[model.DealShow]]:
+		return self.get('active_deals')
+
+	def set_active_deals(self, active_deals: List[dict]):
+		self['active_deals'] = active_deals
+
 	@ThreeCommasParser.lazy_parsed(List[model.BotEvent])
 	def get_bot_events(self) -> Union[List[dict], List[model.BotEvent]]:
 		return self.get('bot_events')
 
 	def set_bot_events(self, bot_events: List[dict]):
 		self['bot_events'] = bot_events
+
+
+class DealMarketOrder(OfDictClass):
+
+	@ThreeCommasParser.parsed(int)
+	def get_order_id(self) -> Union[str, int]:
+		return self.get('order_id')
+
+	def set_order_id(self, order_id: str):
+		self['order_id'] = order_id
+
+	def get_order_type(self) -> str:
+		return self.get('order_type')
+
+	def set_order_type(self, order_type: str):
+		self['order_type'] = order_type
+
+	def get_deal_order_type(self) -> str:
+		return self.get('deal_order_type')
+
+	def set_deal_order_type(self, deal_order_type: str):
+		self['deal_order_type'] = deal_order_type
+
+	def is_cancellable(self) -> bool:
+		return self.get('cancellable')
+
+	def set_cancellable(self, cancellable: bool):
+		self['cancellable'] = cancellable
+
+	def get_status_string(self) -> str:
+		return self.get('status_string')
+
+	def set_status_string(self, status_string: str):
+		self['status_string'] = status_string
+
+	@ThreeCommasParser.parsed_timestamp
+	def get_created_at(self) -> Union[str, datetime.datetime]:
+		return self.get('created_at')
+
+	def set_created_at(self, created_at: str):
+		self['created_at'] = created_at
+
+	@ThreeCommasParser.parsed_timestamp
+	def get_updated_at(self) -> Union[str, datetime.datetime]:
+		return self.get('updated_at')
+
+	def set_updated_at(self, updated_at: str):
+		self['updated_at'] = updated_at
+
+	@ThreeCommasParser.parsed(float)
+	def get_quantity(self) -> Union[str, float]:
+		return self.get('quantity')
+
+	def set_quantity(self, quantity: str):
+		self['quantity'] = quantity
+
+	@ThreeCommasParser.parsed(float)
+	def get_quantity_remaining(self) -> Union[str, float]:
+		return self.get('quantity_remaining')
+
+	def set_quantity_remaining(self, quantity_remaining: str):
+		self['quantity_remaining'] = quantity_remaining
+
+	@ThreeCommasParser.parsed(float)
+	def get_total(self) -> Union[str, float]:
+		return self.get('total')
+
+	def set_total(self, total: str):
+		self['total'] = total
+
+	@ThreeCommasParser.parsed(float)
+	def get_rate(self) -> Union[str, float]:
+		return self.get('rate')
+
+	def set_rate(self, rate: str):
+		self['rate'] = rate
+
+	@ThreeCommasParser.parsed(float)
+	def get_average_price(self) -> Union[str, float]:
+		return self.get('average_price')
+
+	def set_average_price(self, average_price: str):
+		self['average_price'] = average_price

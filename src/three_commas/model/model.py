@@ -41,6 +41,13 @@ class ThreeCommasParser:
         """
         getter_name: str = getter.__name__
         setter_name = 's' + getter_name[1:]
+
+        print()
+        print(getter)
+        print(getter.__globals__)
+        print(dir(getter))
+        print(getter.__dict__)
+
         instance_of_getter: dict = getter.__self__
         setter = dir(instance_of_getter)[setter_name]
         return setter
@@ -61,13 +68,11 @@ class ThreeCommasParser:
         # else:
         #     instance_of_method[parameter] = parsed_result
 
-
-
     @staticmethod
-    def lazy_parsed(t: Union[type, List]):
-        was_parsed = False
-
+    def lazy_parsed_wip(t: Union[type, List]):
         def decorator(getter: Callable) -> Callable:
+            was_parsed = False
+
             @functools.wraps(getter)
             def wrapper(*args, parsed: bool = True, **kwargs):
                 nonlocal was_parsed
@@ -86,10 +91,28 @@ class ThreeCommasParser:
                 else:
                     parsed_result = t(result)
 
-                setter = ThreeCommasParser.get_setter_with_getter(getter=getter)
+                # setter = ThreeCommasParser.get_setter_with_getter(getter=getter)
+                # setter(parsed_result)
 
-                setter(parsed_result)
+                return parsed_result
+            return wrapper
+        return decorator
 
+    @staticmethod
+    def lazy_parsed(t: Union[type, List]):
+        def decorator(getter: Callable) -> Callable:
+            @functools.wraps(getter)
+            def wrapper(*args, parsed: bool = True, **kwargs):
+                result = getter(*args, **kwargs)
+                if result is None:
+                    return None
+                if not parsed:
+                    return result
+                if str(t).startswith('typing.List['):
+                    elem_type = t.__args__[0]
+                    parsed_result = [elem_type(elem) for elem in result]
+                else:
+                    parsed_result = t(result)
                 return parsed_result
             return wrapper
         return decorator

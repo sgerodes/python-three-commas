@@ -1,6 +1,6 @@
 from typing import List
 import datetime
-from model import BotEvent
+from model import BotEvent, DealShow
 
 INDENT = '\t'
 
@@ -72,9 +72,27 @@ tc_generated_classes = [
                               # ThreeCommasJsonProperty('leverage_custom_value', ),  TODO probably str
                               ThreeCommasJsonProperty('start_order_type', str),
                               ThreeCommasJsonProperty('active_deals_usd_profit', str, float),
-                              # ThreeCommasJsonProperty('bot_events', , ), TODO probably complex type
+                              ThreeCommasJsonProperty('active_deals', List[dict], List[DealShow]),
+                              # TODO probably complex type
                               ThreeCommasJsonProperty('bot_events', List[dict], List[BotEvent]),
-                          ])
+                          ]),
+    ThreeCommasModelClass(name='DealMarketOrder',
+                          properties=[
+                              ThreeCommasJsonProperty('order_id', str, int),
+                              ThreeCommasJsonProperty('order_type', str),
+                              ThreeCommasJsonProperty('deal_order_type', str),
+                              ThreeCommasJsonProperty('cancellable', bool),
+                              ThreeCommasJsonProperty('status_string', str),
+                              ThreeCommasJsonProperty('created_at', str, datetime.datetime),
+                              ThreeCommasJsonProperty('updated_at', str, datetime.datetime),
+
+                              ThreeCommasJsonProperty('quantity', str, float),
+                              ThreeCommasJsonProperty('quantity_remaining', str, float),
+                              ThreeCommasJsonProperty('total', str, float),
+                              ThreeCommasJsonProperty('rate', str, float),
+                              ThreeCommasJsonProperty('average_price', str, float),
+                          ]),
+
 ]
 
 
@@ -92,9 +110,9 @@ def generate_models():
             file_buffer.append('')
             file_buffer.append(f'class {tc_gen_class.name}(OfDictClass):')
 
-        for prop in tc_gen_class.properties:
-            file_buffer.extend(create_getter(prop))
-            file_buffer.extend(create_setter(prop))
+            for prop in tc_gen_class.properties:
+                file_buffer.extend(create_getter(prop))
+                file_buffer.extend(create_setter(prop))
 
         file_buffer.append('')
 
