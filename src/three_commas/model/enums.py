@@ -21,7 +21,7 @@ class BotScope(AbstractThreeCommasEnum):
     DISABLED = 'disabled'
 
 
-class DealScope(AbstractThreeCommasEnum):
+class DealStatus(AbstractThreeCommasEnum):
     ACTIVE = 'active'
     FINISHED = 'finished'
     COMPLETED = 'completed'
@@ -33,3 +33,33 @@ class ForcedMode(AbstractThreeCommasEnum):
     PAPER = 'paper'
     REAL = 'real'
 
+
+class MarketCode(AbstractThreeCommasEnum):
+    PAPER_TRADING = 'paper_trading'
+    BINANCE = 'binance'
+    BITFINEX = 'bitfinex'
+    BITSTAMP = 'bitstamp'
+    BITTREX = 'bittrex'
+    GDAX = 'gdax'
+    GEMINI = 'gemini'
+    HUOBI = 'huobi'
+    KUCOIN = 'kucoin'
+    OKEX = 'okex'
+    POLONIEX = 'poloniex'
+    BITMEX = 'bitmex'
+    KRAKEN = 'kraken'
+    GATE_IO = 'gate_io'
+    BINANCE_MARGIN = 'binance_margin'
+    BYBIT = 'bybit'
+    BINANCE_US = 'binance_us'
+    BINANCE_FUTURES = 'binance_futures'
+    DERIBIT = 'deribit'
+    FTX = 'ftx'
+    FTX_US = 'ftx_us'
+    BYBIT_USDT_PERPETUAL = 'bybit_usdt_perpetual'
+    BINANCE_FUTURES_COIN = 'binance_futures_coin'
+    BYBIT_SPOT = 'bybit_spot'
+    GATE_IO_USDT_PERPETUAL = 'gate_io_usdt_perpetual'
+    GATE_IO_BTC_PERPETUAL = 'gate_io_btc_perpetual'
+    ETHEREUMWALLET = 'ethereumwallet'
+    TRX = 'trx'

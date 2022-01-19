@@ -1,6 +1,7 @@
 from typing import List, Union
 import datetime
 from .model import OfDictClass, ThreeCommasParser
+from .enums import DealStatus
 from . import model
 
 
@@ -589,8 +590,23 @@ class Deal(OfDictClass):
 	def get_status(self) -> str:
 		return self.get('status')
 
-	def set_status(self, status: str):
+	def set_status(self, status: Union[str, DealStatus]):
 		self['status'] = status
+
+	def is_status_active(self) -> bool:
+		return self.get('status') == 'active'
+
+	def is_status_finished(self) -> bool:
+		return self.get('status') == 'finished'
+
+	def is_status_completed(self) -> bool:
+		return self.get('status') == 'completed'
+
+	def is_status_cancelled(self) -> bool:
+		return self.get('status') == 'cancelled'
+
+	def is_status_failed(self) -> bool:
+		return self.get('status') == 'failed'
 
 	def get_localized_status(self) -> str:
 		return self.get('localized_status')

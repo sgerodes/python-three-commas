@@ -1,0 +1,614 @@
+[
+    {
+        "market_name": "Binance",
+        "market_url": "https://www.binance.com/en/futures/ref/108190303",
+        "market_icon": "https://3commas.io/img/exchanges/binance.png",
+        "help_link": "https://help.3commas.io/en/articles/3109051",
+        "nomics_id": "binance",
+        "market_code": "binance",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Bitfinex",
+        "market_url": "https://www.bitfinex.com/?refcode=9-q84fgw7",
+        "market_icon": "https://3commas.io/img/exchanges/bitfinex.png",
+        "help_link": "https://help.3commas.io/en/articles/3109050",
+        "nomics_id": "bitfinex",
+        "market_code": "bitfinex",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Bitstamp",
+        "market_url": "https://www.bitstamp.net/",
+        "market_icon": "https://3commas.io/img/exchanges/bitstamp.png",
+        "help_link": "https://help.3commas.io/en/articles/3109052",
+        "nomics_id": "bitstamp",
+        "market_code": "bitstamp",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                },
+                {
+                    "field": "customer_id",
+                    "localized_name": "Customer Id:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Bittrex",
+        "market_url": "https://bittrex.com/Account/Register?referralCode=FYX-C2W-NVJ",
+        "market_icon": "https://3commas.io/img/exchanges/bittrex.png",
+        "help_link": "https://help.3commas.io/en/articles/3108978",
+        "nomics_id": "bittrex",
+        "market_code": "bittrex",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Coinbase Pro (GDAX)",
+        "market_url": "https://coinbase-consumer.sjv.io/3PYWrv",
+        "market_icon": "https://3commas.io/img/exchanges/gdax.png",
+        "help_link": "https://help.3commas.io/en/articles/3822851",
+        "nomics_id": "gdax",
+        "market_code": "gdax",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                },
+                {
+                    "field": "passphrase",
+                    "localized_name": "Passphrase:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Gemini",
+        "market_url": "https://gemini.sjv.io/3Commas",
+        "market_icon": "https://3commas.io/img/exchanges/gemini.png",
+        "help_link": "https://help.3commas.io/en/articles/5539049",
+        "nomics_id": "gemini",
+        "market_code": "gemini",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Huobi",
+        "market_url": "https://www.huobi.com/en-us/register/?invite_code=dnst5",
+        "market_icon": "https://3commas.io/img/exchanges/huobi.png",
+        "help_link": "https://help.3commas.io/en/articles/3109058",
+        "nomics_id": "huobipro",
+        "market_code": "huobi",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "KuCoin",
+        "market_url": "https://www.kucoin.com/ucenter/signup?rcode=r352QTN",
+        "market_icon": "https://3commas.io/img/exchanges/kucoin.png",
+        "help_link": "https://help.3commas.io/en/articles/3109059",
+        "nomics_id": "kucoin",
+        "market_code": "kucoin",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                },
+                {
+                    "field": "passphrase",
+                    "localized_name": "Passphrase:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "OKEx",
+        "market_url": "https://www.okex.com/join/6605659",
+        "market_icon": "https://3commas.io/img/exchanges/okex.png",
+        "help_link": "https://help.3commas.io/en/articles/3109057",
+        "nomics_id": "okex",
+        "market_code": "okex",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                },
+                {
+                    "field": "passphrase",
+                    "localized_name": "Passphrase:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Poloniex",
+        "market_url": "https://poloniex.com/signup?c=3Z36BCM5",
+        "market_icon": "https://3commas.io/img/exchanges/poloniex.png",
+        "help_link": "https://help.3commas.io/en/articles/3109049",
+        "nomics_id": "poloniex",
+        "market_code": "poloniex",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "BitMEX",
+        "market_url": "https://www.bitmex.com/register/okWeZu",
+        "market_icon": "https://3commas.io/img/exchanges/bitmex.png",
+        "help_link": "https://help.3commas.io/en/articles/3108975",
+        "nomics_id": "bitmex",
+        "market_code": "bitmex",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Kraken",
+        "market_url": "https://r.kraken.com/3commas",
+        "market_icon": "https://3commas.io/img/exchanges/kraken.png",
+        "help_link": "https://help.3commas.io/en/articles/3108972",
+        "nomics_id": "kraken",
+        "market_code": "kraken",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Gate.io",
+        "market_url": "https://www.gate.io/ref/8120563",
+        "market_icon": "https://3commas.io/img/exchanges/gateio.png",
+        "help_link": "https://help.3commas.io/en/articles/3108974",
+        "nomics_id": "gateio",
+        "market_code": "gate_io",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Binance Margin",
+        "market_url": "https://www.binance.com/en/futures/ref/108190303",
+        "market_icon": "https://3commas.io/img/exchanges/binance.png",
+        "help_link": "https://help.3commas.io/en/articles/3109051",
+        "nomics_id": "binance-margin",
+        "market_code": "binance_margin",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Bybit",
+        "market_url": "https://www.bybit.com/en-US/invite?ref=VORNX0",
+        "market_icon": "https://3commas.io/img/exchanges/bybit.png",
+        "help_link": null,
+        "nomics_id": "bybit",
+        "market_code": "bybit",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Binance US",
+        "market_url": "https://accounts.binance.us/en/register",
+        "market_icon": "https://3commas.io/img/exchanges/binance.png",
+        "help_link": "https://help.3commas.io/en/articles/5610985",
+        "nomics_id": "binance_us",
+        "market_code": "binance_us",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Binance Futures USDT-M",
+        "market_url": "https://www.binance.com/en/futures/ref/108190303",
+        "market_icon": "https://3commas.io/img/exchanges/binance.png",
+        "help_link": "https://help.3commas.io/en/articles/3568667",
+        "nomics_id": "binance_futures",
+        "market_code": "binance_futures",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Deribit",
+        "market_url": "https://www.deribit.com/reg-10843.3912",
+        "market_icon": "https://3commas.io/img/exchanges/deribit.png",
+        "help_link": "https://help.3commas.io/en/articles/3428316",
+        "nomics_id": "deribit",
+        "market_code": "deribit",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "FTX",
+        "market_url": "https://ftx.com/#a=3commas",
+        "market_icon": "https://3commas.io/img/exchanges/ftx.png",
+        "help_link": "https://help.3commas.io/en/articles/4108028",
+        "nomics_id": "ftx",
+        "market_code": "ftx",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": [
+                {
+                    "field": "subaccount_name",
+                    "localized_name": "Sub-account Name:"
+                }
+            ]
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "FTX US",
+        "market_url": "https://ftx.us/#a=3commas",
+        "market_icon": "https://3commas.io/img/exchanges/ftx_us.png",
+        "help_link": "https://help.3commas.io/en/articles/4306072",
+        "nomics_id": "ftx-us",
+        "market_code": "ftx_us",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": [
+                {
+                    "field": "subaccount_name",
+                    "localized_name": "Sub-account Name:"
+                }
+            ]
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Bybit USDT Perpetual",
+        "market_url": "https://www.bybit.com/en-US/invite?ref=VORNX0",
+        "market_icon": "https://3commas.io/img/exchanges/bybit.png",
+        "help_link": null,
+        "nomics_id": "bybit",
+        "market_code": "bybit_usdt_perpetual",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Binance Futures Coin-M",
+        "market_url": "https://www.binance.com/en/futures/ref/108190303",
+        "market_icon": "https://3commas.io/img/exchanges/binance.png",
+        "help_link": "https://help.3commas.io/en/articles/3568667",
+        "nomics_id": "binance_futures",
+        "market_code": "binance_futures_coin",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Bybit Spot",
+        "market_url": null,
+        "market_icon": "https://3commas.io/img/exchanges/bybit.png",
+        "help_link": null,
+        "nomics_id": null,
+        "market_code": "bybit_spot",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "GateIo USDT Perpetual",
+        "market_url": "https://www.gate.io/ref/8120563",
+        "market_icon": "https://3commas.io/img/exchanges/gateio.png",
+        "help_link": "https://help.3commas.io/en/articles/3108974",
+        "nomics_id": "gateio",
+        "market_code": "gate_io_usdt_perpetual",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "GateIo BTC Perpetual",
+        "market_url": "https://www.gate.io/ref/8120563",
+        "market_icon": "https://3commas.io/img/exchanges/gateio.png",
+        "help_link": "https://help.3commas.io/en/articles/3108974",
+        "nomics_id": "gateio",
+        "market_code": "gate_io_btc_perpetual",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "secret",
+                    "localized_name": "API Secret:"
+                },
+                {
+                    "field": "api_key",
+                    "localized_name": "API Key:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "fields"
+    },
+    {
+        "market_name": "Ethereum Wallet",
+        "market_url": "https://www.myetherwallet.com",
+        "market_icon": "https://3commas.io/img/exchanges/ethereum.png",
+        "help_link": null,
+        "nomics_id": null,
+        "market_code": "ethereumwallet",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "address",
+                    "localized_name": "Address:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "field"
+    },
+    {
+        "market_name": "Tron Wallet",
+        "market_url": "https://tron.network/",
+        "market_icon": "https://3commas.io/img/exchanges/trx.png",
+        "help_link": null,
+        "nomics_id": null,
+        "market_code": "trx",
+        "form_fields": {
+            "required": [
+                {
+                    "field": "address",
+                    "localized_name": "Address:"
+                }
+            ],
+            "optional": []
+        },
+        "connection_type": "field"
+    }
+]

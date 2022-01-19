@@ -2,6 +2,7 @@ from typing import List
 import datetime
 from model import BotEvent, DealShow
 import json
+from enums import AbstractThreeCommasEnum, DealStatus
 
 INDENT = '\t'
 
@@ -132,7 +133,7 @@ tc_generated_classes = [
                             ThreeCommasJsonProperty('stop_loss_timeout_in_seconds', int),
                             ThreeCommasJsonProperty('active_manual_safety_orders', int),
                             ThreeCommasJsonProperty('pair', str),
-                            ThreeCommasJsonProperty('status', str),
+                            ThreeCommasJsonProperty('status', DealStatus),  # could be enum DealStatus
                             ThreeCommasJsonProperty('localized_status', str),
                             ThreeCommasJsonProperty('take_profit', str, float),
                             ThreeCommasJsonProperty('base_order_volume', str, float),
@@ -250,6 +251,7 @@ def generate_models():
         file_buffer.append('from typing import List, Union')
         file_buffer.append('import datetime')
         file_buffer.append('from .model import OfDictClass, ThreeCommasParser')
+        file_buffer.append('from .enums import DealStatus')
         file_buffer.append('from . import model')
 
         for tc_gen_class in tc_generated_classes:
@@ -260,11 +262,26 @@ def generate_models():
             for prop in tc_gen_class.properties:
                 file_buffer.extend(create_getter(prop))
                 file_buffer.extend(create_setter(prop))
+                if is_abstract_three_commas_enum_class(prop.initial_type):
+                    file_buffer.extend(create_enum_boolean_methods(prop))
 
         file_buffer.append('')
 
         generated_code = '\n'.join(file_buffer)
         f.write(generated_code)
+
+
+def create_enum_boolean_methods(prop: ThreeCommasJsonProperty):
+    file_buffer = list()
+    property_name = prop.name
+    enum_type: AbstractThreeCommasEnum = prop.initial_type
+
+    for et in enum_type.list():
+        file_buffer.append('')
+        file_buffer.append(f"{INDENT}def is_{property_name}_{et}(self) -> bool:")
+        file_buffer.append(f"{INDENT * 2}return self.get('{property_name}') == '{et}'")
+
+    return file_buffer
 
 
 def create_getter(prop: ThreeCommasJsonProperty):
@@ -312,23 +329,38 @@ def create_setter(prop: ThreeCommasJsonProperty):
     property_variable = property_name.replace('?', '')
     initial_type_name_str = get_type_name_string(prop.initial_type)
 
+    if not is_typing_module_type(prop.initial_type) and is_abstract_three_commas_enum_class(prop.initial_type):
+        attribute_types = f'Union[{initial_type_name_str}, {prop.initial_type.__name__}]'
+    else:
+        attribute_types = initial_type_name_str
+
     setter_name = create_setter_function_name(prop)
 
     file_buffer.append('')
-    file_buffer.append(f'{INDENT}def {setter_name}(self, {property_variable}: {initial_type_name_str}):')
+    file_buffer.append(f'{INDENT}def {setter_name}(self, {property_variable}: {attribute_types}):')
     file_buffer.append(f"{INDENT * 2}self['{property_name}'] = {property_variable}")
 
     return file_buffer
 
 
-def get_type_name_string(t: type) -> str:
+def get_type_name_string(t) -> str:
     if t is None:
         return None
-    if 'typing' in str(type(t)):
+    if is_typing_module_type(t):
         return str(t).replace('typing.', '')
+    if is_abstract_three_commas_enum_class(t):
+        return 'str'
     if t is datetime.datetime:
         return 'datetime.datetime'
     return t.__name__
+
+
+def is_typing_module_type(t) -> bool:
+    return 'typing' in str(type(t))
+
+
+def is_abstract_three_commas_enum_class(t) -> bool:
+    return not is_typing_module_type(t) and issubclass(t, AbstractThreeCommasEnum)
 
 
 def generate_json_properties():
