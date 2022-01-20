@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Union, Callable
+from typing import List, Union, Callable, TypeVar, Any
 import datetime
 import re
 import functools
@@ -8,12 +8,14 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+T = TypeVar('T')
+
 
 class ThreeCommasParser:
     DATETIME_PATTERN = '%Y-%m-%dT%H:%M:%S.%fZ'
 
     @staticmethod
-    def parsed_timestamp(func: Callable) -> Callable:
+    def parsed_timestamp(func: Callable[[Any], Any]) -> Callable[[Any], Union[None, str, datetime.datetime]]:
         @functools.wraps(func)
         def wrapper(*args, parsed: bool = False, **kwargs) -> Union[None, str, datetime.datetime]:
             timestamp = func(*args, **kwargs)
@@ -23,10 +25,10 @@ class ThreeCommasParser:
         return wrapper
 
     @staticmethod
-    def parsed(t: type):
-        def decorator(func: Callable) -> Callable:
+    def parsed(t: T):
+        def decorator(func: Callable[[Any], Any]) -> Callable[[Any],  Union[T, None]]:
             @functools.wraps(func)
-            def wrapper(*args, parsed: bool = True, **kwargs) -> Union[t, str, None]:
+            def wrapper(*args, parsed: bool = True, **kwargs) -> Union[T, str, None]:
                 result = func(*args, **kwargs)
                 if result is None:
                     return None
