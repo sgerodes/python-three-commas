@@ -2,9 +2,10 @@ from typing import List
 import datetime
 import json
 from enum import Enum
+
 # from src.three_commas.model.models import BotEvent
-#from src.three_commas.model.generated_models import Deal
-#from src.three_commas.model.generated_enums import DealStatus, MarketCode
+# from src.three_commas.model.generated_models import Deal
+# from src.three_commas.model.generated_enums import DealStatus, MarketCode
 # from src.three_commas.model.other_enums import AbstractStringEnum
 
 INDENT = '\t'
@@ -22,16 +23,26 @@ class ThreeCommasModelClass:
         self.name = name
         self.properties = properties
 
+
 class AbstractStringEnum(Enum):
     pass
+
+
 class MarketCode(AbstractStringEnum):
     pass
+
+
 class DealStatus(AbstractStringEnum):
     pass
+
+
 class Deal:
     pass
+
+
 class BotEvent:
     pass
+
 
 tc_generated_classes = [
     ThreeCommasModelClass(name='Deal',
@@ -186,72 +197,72 @@ tc_generated_classes = [
                           ]),
     ThreeCommasModelClass(name='PieChartDataElement',
                           properties=[
-                            ThreeCommasJsonProperty('code', str),
-                            ThreeCommasJsonProperty('coinmarketcapid', str, int),  # probably int
-                            ThreeCommasJsonProperty('name', str),
-                            ThreeCommasJsonProperty('y', float),
-                            ThreeCommasJsonProperty('percentage', float),
-                            ThreeCommasJsonProperty('amount', float),
-                            ThreeCommasJsonProperty('btc_value', str, float),
-                            ThreeCommasJsonProperty('usd_value', str, float),
-                            ThreeCommasJsonProperty('account_id', int),
+                              ThreeCommasJsonProperty('code', str),
+                              ThreeCommasJsonProperty('coinmarketcapid', str, int),  # probably int
+                              ThreeCommasJsonProperty('name', str),
+                              ThreeCommasJsonProperty('y', float),
+                              ThreeCommasJsonProperty('percentage', float),
+                              ThreeCommasJsonProperty('amount', float),
+                              ThreeCommasJsonProperty('btc_value', str, float),
+                              ThreeCommasJsonProperty('usd_value', str, float),
+                              ThreeCommasJsonProperty('account_id', int),
                           ]),
     ThreeCommasModelClass(name='Account',
                           properties=[
-                            ThreeCommasJsonProperty('id', int),
-                            ThreeCommasJsonProperty('auto_balance_period', int),
-                            #ThreeCommasJsonProperty('auto_balance_portfolio_id', NoneType),
-                            #ThreeCommasJsonProperty('auto_balance_portfolio', NoneType),
-                            #ThreeCommasJsonProperty('auto_balance_currency_change_limit', NoneType),
-                            ThreeCommasJsonProperty('autobalance_enabled', bool),
-                            ThreeCommasJsonProperty('hedge_mode_available', bool),
-                            ThreeCommasJsonProperty('hedge_mode_enabled', bool),
-                            ThreeCommasJsonProperty('is_locked', bool),
-                            ThreeCommasJsonProperty('smart_trading_supported', bool),
-                            ThreeCommasJsonProperty('smart_selling_supported', bool),
-                            # ThreeCommasJsonProperty('available_for_trading', dict), # TODO
-                            ThreeCommasJsonProperty('stats_supported', bool),
-                            ThreeCommasJsonProperty('trading_supported', bool),
-                            ThreeCommasJsonProperty('market_buy_supported', bool),
-                            ThreeCommasJsonProperty('market_sell_supported', bool),
-                            ThreeCommasJsonProperty('conditional_buy_supported', bool),
-                            ThreeCommasJsonProperty('bots_allowed', bool),
-                            ThreeCommasJsonProperty('bots_ttp_allowed', bool),
-                            ThreeCommasJsonProperty('bots_tsl_allowed', bool),
-                            ThreeCommasJsonProperty('gordon_bots_available', bool),
-                            ThreeCommasJsonProperty('multi_bots_allowed', bool),
-                            ThreeCommasJsonProperty('created_at', str, datetime.datetime),
-                            ThreeCommasJsonProperty('updated_at', str, datetime.datetime),
-                            #ThreeCommasJsonProperty('last_auto_balance', NoneType),
-                            ThreeCommasJsonProperty('fast_convert_available', bool),
-                            ThreeCommasJsonProperty('grid_bots_allowed', bool),
-                            ThreeCommasJsonProperty('api_key_invalid', bool),
-                            ThreeCommasJsonProperty('nomics_id', str),
-                            ThreeCommasJsonProperty('market_icon', str),
-                            ThreeCommasJsonProperty('deposit_enabled', bool),
-                            ThreeCommasJsonProperty('supported_market_types', List[str]),
-                            ThreeCommasJsonProperty('api_key', str),
-                            ThreeCommasJsonProperty('name', str),
-                            #ThreeCommasJsonProperty('auto_balance_method', NoneType),
-                            #ThreeCommasJsonProperty('auto_balance_error', NoneType),
-                            #ThreeCommasJsonProperty('customer_id', NoneType),
-                            #ThreeCommasJsonProperty('subaccount_name', NoneType),
-                            #ThreeCommasJsonProperty('lock_reason', NoneType),
-                            ThreeCommasJsonProperty('btc_amount', str, float),
-                            ThreeCommasJsonProperty('usd_amount', str, float),
-                            ThreeCommasJsonProperty('day_profit_btc', str, float),
-                            ThreeCommasJsonProperty('day_profit_usd', str, float),
-                            ThreeCommasJsonProperty('day_profit_btc_percentage', str, float),
-                            ThreeCommasJsonProperty('day_profit_usd_percentage', str, float),
-                            ThreeCommasJsonProperty('btc_profit', str, float),
-                            ThreeCommasJsonProperty('usd_profit', str, float),
-                            ThreeCommasJsonProperty('usd_profit_percentage', str, float),
-                            ThreeCommasJsonProperty('btc_profit_percentage', str, float),
-                            ThreeCommasJsonProperty('total_btc_profit', str, float),
-                            ThreeCommasJsonProperty('total_usd_profit', str, float),
-                            ThreeCommasJsonProperty('pretty_display_type', str),
-                            ThreeCommasJsonProperty('exchange_name', str),
-                            ThreeCommasJsonProperty('market_code', str, MarketCode),
+                              ThreeCommasJsonProperty('id', int),
+                              ThreeCommasJsonProperty('auto_balance_period', int),
+                              # ThreeCommasJsonProperty('auto_balance_portfolio_id', NoneType),
+                              # ThreeCommasJsonProperty('auto_balance_portfolio', NoneType),
+                              # ThreeCommasJsonProperty('auto_balance_currency_change_limit', NoneType),
+                              ThreeCommasJsonProperty('autobalance_enabled', bool),
+                              ThreeCommasJsonProperty('hedge_mode_available', bool),
+                              ThreeCommasJsonProperty('hedge_mode_enabled', bool),
+                              ThreeCommasJsonProperty('is_locked', bool),
+                              ThreeCommasJsonProperty('smart_trading_supported', bool),
+                              ThreeCommasJsonProperty('smart_selling_supported', bool),
+                              # ThreeCommasJsonProperty('available_for_trading', dict), # TODO
+                              ThreeCommasJsonProperty('stats_supported', bool),
+                              ThreeCommasJsonProperty('trading_supported', bool),
+                              ThreeCommasJsonProperty('market_buy_supported', bool),
+                              ThreeCommasJsonProperty('market_sell_supported', bool),
+                              ThreeCommasJsonProperty('conditional_buy_supported', bool),
+                              ThreeCommasJsonProperty('bots_allowed', bool),
+                              ThreeCommasJsonProperty('bots_ttp_allowed', bool),
+                              ThreeCommasJsonProperty('bots_tsl_allowed', bool),
+                              ThreeCommasJsonProperty('gordon_bots_available', bool),
+                              ThreeCommasJsonProperty('multi_bots_allowed', bool),
+                              ThreeCommasJsonProperty('created_at', str, datetime.datetime),
+                              ThreeCommasJsonProperty('updated_at', str, datetime.datetime),
+                              # ThreeCommasJsonProperty('last_auto_balance', NoneType),
+                              ThreeCommasJsonProperty('fast_convert_available', bool),
+                              ThreeCommasJsonProperty('grid_bots_allowed', bool),
+                              ThreeCommasJsonProperty('api_key_invalid', bool),
+                              ThreeCommasJsonProperty('nomics_id', str),
+                              ThreeCommasJsonProperty('market_icon', str),
+                              ThreeCommasJsonProperty('deposit_enabled', bool),
+                              ThreeCommasJsonProperty('supported_market_types', List[str]),
+                              ThreeCommasJsonProperty('api_key', str),
+                              ThreeCommasJsonProperty('name', str),
+                              # ThreeCommasJsonProperty('auto_balance_method', NoneType),
+                              # ThreeCommasJsonProperty('auto_balance_error', NoneType),
+                              # ThreeCommasJsonProperty('customer_id', NoneType),
+                              # ThreeCommasJsonProperty('subaccount_name', NoneType),
+                              # ThreeCommasJsonProperty('lock_reason', NoneType),
+                              ThreeCommasJsonProperty('btc_amount', str, float),
+                              ThreeCommasJsonProperty('usd_amount', str, float),
+                              ThreeCommasJsonProperty('day_profit_btc', str, float),
+                              ThreeCommasJsonProperty('day_profit_usd', str, float),
+                              ThreeCommasJsonProperty('day_profit_btc_percentage', str, float),
+                              ThreeCommasJsonProperty('day_profit_usd_percentage', str, float),
+                              ThreeCommasJsonProperty('btc_profit', str, float),
+                              ThreeCommasJsonProperty('usd_profit', str, float),
+                              ThreeCommasJsonProperty('usd_profit_percentage', str, float),
+                              ThreeCommasJsonProperty('btc_profit_percentage', str, float),
+                              ThreeCommasJsonProperty('total_btc_profit', str, float),
+                              ThreeCommasJsonProperty('total_usd_profit', str, float),
+                              ThreeCommasJsonProperty('pretty_display_type', str),
+                              ThreeCommasJsonProperty('exchange_name', str),
+                              ThreeCommasJsonProperty('market_code', str, MarketCode),
                           ]),
 
 ]
@@ -267,7 +278,6 @@ def generate_models():
         file_buffer.append('from .generated_enums import DealStatus, MarketCode')
         file_buffer.append('from . import other_enums')
 
-
         for tc_gen_class in tc_generated_classes:
             file_buffer.append('')
             file_buffer.append('')
@@ -276,7 +286,7 @@ def generate_models():
             for prop in tc_gen_class.properties:
                 file_buffer.extend(create_getter(prop))
                 file_buffer.extend(create_setter(prop))
-                #if is_abstract_three_commas_enum_class(prop.initial_type):
+                # if is_abstract_three_commas_enum_class(prop.initial_type):
                 #    file_buffer.extend(create_enum_boolean_methods(prop))
 
         file_buffer.append('')
@@ -343,8 +353,10 @@ def create_setter(prop: ThreeCommasJsonProperty):
     property_variable = property_name.replace('?', '')
     initial_type_name_str = get_type_name_string(prop.initial_type)
 
-    if not is_typing_module_type(prop.initial_type) and is_abstract_three_commas_enum_class(prop.initial_type):
-        attribute_types = f'Union[{initial_type_name_str}, {prop.initial_type.__name__}]'
+    union_setter_condition = not is_typing_module_type(prop.initial_type) \
+                             and is_abstract_three_commas_enum_class(prop.parsed_type)
+    if union_setter_condition or is_primitive_type(prop.parsed_type):
+        attribute_types = f'Union[{initial_type_name_str}, {prop.parsed_type.__name__}]'
     else:
         attribute_types = initial_type_name_str
 
@@ -361,7 +373,7 @@ def get_type_name_string(t) -> str:
     if t is None:
         return None
 
-    if t in {str, float, int, bool}:
+    if is_primitive_type(t):
         return t.__name__
 
     if t is datetime.datetime:
@@ -371,19 +383,29 @@ def get_type_name_string(t) -> str:
         s = str(t).replace('typing.', '')
         inner_type_pure_name = s.split('[')[1].split(']')[0].split('.')[-1]
         return f'List[{inner_type_pure_name}]'
-        #return str(t).replace('typing.', '')
+        # return str(t).replace('typing.', '')
 
     if is_abstract_three_commas_enum_class(t):
         return t.__name__
 
-    return t.__name__.split('.') # str(t).split('.')[-1].replace('>', '').replace("'", '')
+    return t.__name__.split('.')  # str(t).split('.')[-1].replace('>', '').replace("'", '')
 
 
 def is_typing_module_type(t) -> bool:
+    if t is None:
+        return False
     return 'typing' in str(type(t))
 
 
+def is_primitive_type(t) -> bool:
+    if t is None:
+        return False
+    return t in {int, float, str, bool}
+
+
 def is_abstract_three_commas_enum_class(t) -> bool:
+    if t is None:
+        return False
     return not is_typing_module_type(t) and issubclass(t, AbstractStringEnum)
     # return not is_typing_module_type(t) and issubclass(t, AbstractStringEnum)
 

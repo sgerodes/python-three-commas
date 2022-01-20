@@ -152,7 +152,7 @@ class Deal(OfDictClass):
 	def get_status(self) -> Union[str, DealStatus]:
 		return self.get('status')
 
-	def set_status(self, status: str):
+	def set_status(self, status: Union[str, DealStatus]):
 		self['status'] = status
 
 	def get_localized_status(self) -> str:
@@ -165,28 +165,28 @@ class Deal(OfDictClass):
 	def get_take_profit(self) -> Union[str, float]:
 		return self.get('take_profit')
 
-	def set_take_profit(self, take_profit: str):
+	def set_take_profit(self, take_profit: Union[str, float]):
 		self['take_profit'] = take_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_base_order_volume(self) -> Union[str, float]:
 		return self.get('base_order_volume')
 
-	def set_base_order_volume(self, base_order_volume: str):
+	def set_base_order_volume(self, base_order_volume: Union[str, float]):
 		self['base_order_volume'] = base_order_volume
 
 	@ThreeCommasParser.parsed(float)
 	def get_safety_order_volume(self) -> Union[str, float]:
 		return self.get('safety_order_volume')
 
-	def set_safety_order_volume(self, safety_order_volume: str):
+	def set_safety_order_volume(self, safety_order_volume: Union[str, float]):
 		self['safety_order_volume'] = safety_order_volume
 
 	@ThreeCommasParser.parsed(float)
 	def get_safety_order_step_percentage(self) -> Union[str, float]:
 		return self.get('safety_order_step_percentage')
 
-	def set_safety_order_step_percentage(self, safety_order_step_percentage: str):
+	def set_safety_order_step_percentage(self, safety_order_step_percentage: Union[str, float]):
 		self['safety_order_step_percentage'] = safety_order_step_percentage
 
 	def get_leverage_type(self) -> str:
@@ -199,49 +199,49 @@ class Deal(OfDictClass):
 	def get_bought_amount(self) -> Union[str, float]:
 		return self.get('bought_amount')
 
-	def set_bought_amount(self, bought_amount: str):
+	def set_bought_amount(self, bought_amount: Union[str, float]):
 		self['bought_amount'] = bought_amount
 
 	@ThreeCommasParser.parsed(float)
 	def get_bought_volume(self) -> Union[str, float]:
 		return self.get('bought_volume')
 
-	def set_bought_volume(self, bought_volume: str):
+	def set_bought_volume(self, bought_volume: Union[str, float]):
 		self['bought_volume'] = bought_volume
 
 	@ThreeCommasParser.parsed(float)
 	def get_bought_average_price(self) -> Union[str, float]:
 		return self.get('bought_average_price')
 
-	def set_bought_average_price(self, bought_average_price: str):
+	def set_bought_average_price(self, bought_average_price: Union[str, float]):
 		self['bought_average_price'] = bought_average_price
 
 	@ThreeCommasParser.parsed(float)
 	def get_base_order_average_price(self) -> Union[str, float]:
 		return self.get('base_order_average_price')
 
-	def set_base_order_average_price(self, base_order_average_price: str):
+	def set_base_order_average_price(self, base_order_average_price: Union[str, float]):
 		self['base_order_average_price'] = base_order_average_price
 
 	@ThreeCommasParser.parsed(float)
 	def get_sold_amount(self) -> Union[str, float]:
 		return self.get('sold_amount')
 
-	def set_sold_amount(self, sold_amount: str):
+	def set_sold_amount(self, sold_amount: Union[str, float]):
 		self['sold_amount'] = sold_amount
 
 	@ThreeCommasParser.parsed(float)
 	def get_sold_volume(self) -> Union[str, float]:
 		return self.get('sold_volume')
 
-	def set_sold_volume(self, sold_volume: str):
+	def set_sold_volume(self, sold_volume: Union[str, float]):
 		self['sold_volume'] = sold_volume
 
 	@ThreeCommasParser.parsed(float)
 	def get_sold_average_price(self) -> Union[str, float]:
 		return self.get('sold_average_price')
 
-	def set_sold_average_price(self, sold_average_price: str):
+	def set_sold_average_price(self, sold_average_price: Union[str, float]):
 		self['sold_average_price'] = sold_average_price
 
 	def get_take_profit_type(self) -> str:
@@ -254,35 +254,35 @@ class Deal(OfDictClass):
 	def get_final_profit(self) -> Union[str, float]:
 		return self.get('final_profit')
 
-	def set_final_profit(self, final_profit: str):
+	def set_final_profit(self, final_profit: Union[str, float]):
 		self['final_profit'] = final_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_martingale_coefficient(self) -> Union[str, float]:
 		return self.get('martingale_coefficient')
 
-	def set_martingale_coefficient(self, martingale_coefficient: str):
+	def set_martingale_coefficient(self, martingale_coefficient: Union[str, float]):
 		self['martingale_coefficient'] = martingale_coefficient
 
 	@ThreeCommasParser.parsed(float)
 	def get_martingale_volume_coefficient(self) -> Union[str, float]:
 		return self.get('martingale_volume_coefficient')
 
-	def set_martingale_volume_coefficient(self, martingale_volume_coefficient: str):
+	def set_martingale_volume_coefficient(self, martingale_volume_coefficient: Union[str, float]):
 		self['martingale_volume_coefficient'] = martingale_volume_coefficient
 
 	@ThreeCommasParser.parsed(float)
 	def get_martingale_step_coefficient(self) -> Union[str, float]:
 		return self.get('martingale_step_coefficient')
 
-	def set_martingale_step_coefficient(self, martingale_step_coefficient: str):
+	def set_martingale_step_coefficient(self, martingale_step_coefficient: Union[str, float]):
 		self['martingale_step_coefficient'] = martingale_step_coefficient
 
 	@ThreeCommasParser.parsed(float)
 	def get_stop_loss_percentage(self) -> Union[str, float]:
 		return self.get('stop_loss_percentage')
 
-	def set_stop_loss_percentage(self, stop_loss_percentage: str):
+	def set_stop_loss_percentage(self, stop_loss_percentage: Union[str, float]):
 		self['stop_loss_percentage'] = stop_loss_percentage
 
 	def get_profit_currency(self) -> str:
@@ -325,14 +325,14 @@ class Deal(OfDictClass):
 	def get_current_price(self) -> Union[str, float]:
 		return self.get('current_price')
 
-	def set_current_price(self, current_price: str):
+	def set_current_price(self, current_price: Union[str, float]):
 		self['current_price'] = current_price
 
 	@ThreeCommasParser.parsed(float)
 	def get_final_profit_percentage(self) -> Union[str, float]:
 		return self.get('final_profit_percentage')
 
-	def set_final_profit_percentage(self, final_profit_percentage: str):
+	def set_final_profit_percentage(self, final_profit_percentage: Union[str, float]):
 		self['final_profit_percentage'] = final_profit_percentage
 
 	def get_bot_name(self) -> str:
@@ -351,49 +351,49 @@ class Deal(OfDictClass):
 	def get_usd_final_profit(self) -> Union[str, float]:
 		return self.get('usd_final_profit')
 
-	def set_usd_final_profit(self, usd_final_profit: str):
+	def set_usd_final_profit(self, usd_final_profit: Union[str, float]):
 		self['usd_final_profit'] = usd_final_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_actual_profit(self) -> Union[str, float]:
 		return self.get('actual_profit')
 
-	def set_actual_profit(self, actual_profit: str):
+	def set_actual_profit(self, actual_profit: Union[str, float]):
 		self['actual_profit'] = actual_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_actual_usd_profit(self) -> Union[str, float]:
 		return self.get('actual_usd_profit')
 
-	def set_actual_usd_profit(self, actual_usd_profit: str):
+	def set_actual_usd_profit(self, actual_usd_profit: Union[str, float]):
 		self['actual_usd_profit'] = actual_usd_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_reserved_base_coin(self) -> Union[str, float]:
 		return self.get('reserved_base_coin')
 
-	def set_reserved_base_coin(self, reserved_base_coin: str):
+	def set_reserved_base_coin(self, reserved_base_coin: Union[str, float]):
 		self['reserved_base_coin'] = reserved_base_coin
 
 	@ThreeCommasParser.parsed(float)
 	def get_reserved_second_coin(self) -> Union[str, float]:
 		return self.get('reserved_second_coin')
 
-	def set_reserved_second_coin(self, reserved_second_coin: str):
+	def set_reserved_second_coin(self, reserved_second_coin: Union[str, float]):
 		self['reserved_second_coin'] = reserved_second_coin
 
 	@ThreeCommasParser.parsed(float)
 	def get_trailing_deviation(self) -> Union[str, float]:
 		return self.get('trailing_deviation')
 
-	def set_trailing_deviation(self, trailing_deviation: str):
+	def set_trailing_deviation(self, trailing_deviation: Union[str, float]):
 		self['trailing_deviation'] = trailing_deviation
 
 	@ThreeCommasParser.parsed(float)
 	def get_trailing_max_price(self) -> Union[str, float]:
 		return self.get('trailing_max_price')
 
-	def set_trailing_max_price(self, trailing_max_price: str):
+	def set_trailing_max_price(self, trailing_max_price: Union[str, float]):
 		self['trailing_max_price'] = trailing_max_price
 
 	def get_strategy(self) -> str:
@@ -550,28 +550,28 @@ class Bot(OfDictClass):
 	def get_take_profit(self) -> Union[str, float]:
 		return self.get('take_profit')
 
-	def set_take_profit(self, take_profit: str):
+	def set_take_profit(self, take_profit: Union[str, float]):
 		self['take_profit'] = take_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_base_order_volume(self) -> Union[str, float]:
 		return self.get('base_order_volume')
 
-	def set_base_order_volume(self, base_order_volume: str):
+	def set_base_order_volume(self, base_order_volume: Union[str, float]):
 		self['base_order_volume'] = base_order_volume
 
 	@ThreeCommasParser.parsed(float)
 	def get_safety_order_volume(self) -> Union[str, float]:
 		return self.get('safety_order_volume')
 
-	def set_safety_order_volume(self, safety_order_volume: str):
+	def set_safety_order_volume(self, safety_order_volume: Union[str, float]):
 		self['safety_order_volume'] = safety_order_volume
 
 	@ThreeCommasParser.parsed(float)
 	def get_safety_order_step_percentage(self) -> Union[str, float]:
 		return self.get('safety_order_step_percentage')
 
-	def set_safety_order_step_percentage(self, safety_order_step_percentage: str):
+	def set_safety_order_step_percentage(self, safety_order_step_percentage: Union[str, float]):
 		self['safety_order_step_percentage'] = safety_order_step_percentage
 
 	def get_take_profit_type(self) -> str:
@@ -590,28 +590,28 @@ class Bot(OfDictClass):
 	def get_martingale_volume_coefficient(self) -> Union[str, float]:
 		return self.get('martingale_volume_coefficient')
 
-	def set_martingale_volume_coefficient(self, martingale_volume_coefficient: str):
+	def set_martingale_volume_coefficient(self, martingale_volume_coefficient: Union[str, float]):
 		self['martingale_volume_coefficient'] = martingale_volume_coefficient
 
 	@ThreeCommasParser.parsed(float)
 	def get_martingale_step_coefficient(self) -> Union[str, float]:
 		return self.get('martingale_step_coefficient')
 
-	def set_martingale_step_coefficient(self, martingale_step_coefficient: str):
+	def set_martingale_step_coefficient(self, martingale_step_coefficient: Union[str, float]):
 		self['martingale_step_coefficient'] = martingale_step_coefficient
 
 	@ThreeCommasParser.parsed(float)
 	def get_stop_loss_percentage(self) -> Union[str, float]:
 		return self.get('stop_loss_percentage')
 
-	def set_stop_loss_percentage(self, stop_loss_percentage: str):
+	def set_stop_loss_percentage(self, stop_loss_percentage: Union[str, float]):
 		self['stop_loss_percentage'] = stop_loss_percentage
 
 	@ThreeCommasParser.parsed(float)
 	def get_btc_price_limit(self) -> Union[str, float]:
 		return self.get('btc_price_limit')
 
-	def set_btc_price_limit(self, btc_price_limit: str):
+	def set_btc_price_limit(self, btc_price_limit: Union[str, float]):
 		self['btc_price_limit'] = btc_price_limit
 
 	def get_strategy(self) -> str:
@@ -624,7 +624,7 @@ class Bot(OfDictClass):
 	def get_min_volume_btc_24h(self) -> Union[str, float]:
 		return self.get('min_volume_btc_24h')
 
-	def set_min_volume_btc_24h(self, min_volume_btc_24h: str):
+	def set_min_volume_btc_24h(self, min_volume_btc_24h: Union[str, float]):
 		self['min_volume_btc_24h'] = min_volume_btc_24h
 
 	def get_profit_currency(self) -> str:
@@ -661,21 +661,21 @@ class Bot(OfDictClass):
 	def get_trailing_deviation(self) -> Union[str, float]:
 		return self.get('trailing_deviation')
 
-	def set_trailing_deviation(self, trailing_deviation: str):
+	def set_trailing_deviation(self, trailing_deviation: Union[str, float]):
 		self['trailing_deviation'] = trailing_deviation
 
 	@ThreeCommasParser.parsed(float)
 	def get_finished_deals_profit_usd(self) -> Union[str, float]:
 		return self.get('finished_deals_profit_usd')
 
-	def set_finished_deals_profit_usd(self, finished_deals_profit_usd: str):
+	def set_finished_deals_profit_usd(self, finished_deals_profit_usd: Union[str, float]):
 		self['finished_deals_profit_usd'] = finished_deals_profit_usd
 
 	@ThreeCommasParser.parsed(int)
 	def get_finished_deals_count(self) -> Union[str, int]:
 		return self.get('finished_deals_count')
 
-	def set_finished_deals_count(self, finished_deals_count: str):
+	def set_finished_deals_count(self, finished_deals_count: Union[str, int]):
 		self['finished_deals_count'] = finished_deals_count
 
 	def get_leverage_type(self) -> str:
@@ -694,7 +694,7 @@ class Bot(OfDictClass):
 	def get_active_deals_usd_profit(self) -> Union[str, float]:
 		return self.get('active_deals_usd_profit')
 
-	def set_active_deals_usd_profit(self, active_deals_usd_profit: str):
+	def set_active_deals_usd_profit(self, active_deals_usd_profit: Union[str, float]):
 		self['active_deals_usd_profit'] = active_deals_usd_profit
 
 	@ThreeCommasParser.lazy_parsed(List[Deal])
@@ -718,7 +718,7 @@ class DealMarketOrder(OfDictClass):
 	def get_order_id(self) -> Union[str, int]:
 		return self.get('order_id')
 
-	def set_order_id(self, order_id: str):
+	def set_order_id(self, order_id: Union[str, int]):
 		self['order_id'] = order_id
 
 	def get_order_type(self) -> str:
@@ -763,35 +763,35 @@ class DealMarketOrder(OfDictClass):
 	def get_quantity(self) -> Union[str, float]:
 		return self.get('quantity')
 
-	def set_quantity(self, quantity: str):
+	def set_quantity(self, quantity: Union[str, float]):
 		self['quantity'] = quantity
 
 	@ThreeCommasParser.parsed(float)
 	def get_quantity_remaining(self) -> Union[str, float]:
 		return self.get('quantity_remaining')
 
-	def set_quantity_remaining(self, quantity_remaining: str):
+	def set_quantity_remaining(self, quantity_remaining: Union[str, float]):
 		self['quantity_remaining'] = quantity_remaining
 
 	@ThreeCommasParser.parsed(float)
 	def get_total(self) -> Union[str, float]:
 		return self.get('total')
 
-	def set_total(self, total: str):
+	def set_total(self, total: Union[str, float]):
 		self['total'] = total
 
 	@ThreeCommasParser.parsed(float)
 	def get_rate(self) -> Union[str, float]:
 		return self.get('rate')
 
-	def set_rate(self, rate: str):
+	def set_rate(self, rate: Union[str, float]):
 		self['rate'] = rate
 
 	@ThreeCommasParser.parsed(float)
 	def get_average_price(self) -> Union[str, float]:
 		return self.get('average_price')
 
-	def set_average_price(self, average_price: str):
+	def set_average_price(self, average_price: Union[str, float]):
 		self['average_price'] = average_price
 
 
@@ -807,7 +807,7 @@ class PieChartDataElement(OfDictClass):
 	def get_coinmarketcapid(self) -> Union[str, int]:
 		return self.get('coinmarketcapid')
 
-	def set_coinmarketcapid(self, coinmarketcapid: str):
+	def set_coinmarketcapid(self, coinmarketcapid: Union[str, int]):
 		self['coinmarketcapid'] = coinmarketcapid
 
 	def get_name(self) -> str:
@@ -838,14 +838,14 @@ class PieChartDataElement(OfDictClass):
 	def get_btc_value(self) -> Union[str, float]:
 		return self.get('btc_value')
 
-	def set_btc_value(self, btc_value: str):
+	def set_btc_value(self, btc_value: Union[str, float]):
 		self['btc_value'] = btc_value
 
 	@ThreeCommasParser.parsed(float)
 	def get_usd_value(self) -> Union[str, float]:
 		return self.get('usd_value')
 
-	def set_usd_value(self, usd_value: str):
+	def set_usd_value(self, usd_value: Union[str, float]):
 		self['usd_value'] = usd_value
 
 	def get_account_id(self) -> int:
@@ -1037,84 +1037,84 @@ class Account(OfDictClass):
 	def get_btc_amount(self) -> Union[str, float]:
 		return self.get('btc_amount')
 
-	def set_btc_amount(self, btc_amount: str):
+	def set_btc_amount(self, btc_amount: Union[str, float]):
 		self['btc_amount'] = btc_amount
 
 	@ThreeCommasParser.parsed(float)
 	def get_usd_amount(self) -> Union[str, float]:
 		return self.get('usd_amount')
 
-	def set_usd_amount(self, usd_amount: str):
+	def set_usd_amount(self, usd_amount: Union[str, float]):
 		self['usd_amount'] = usd_amount
 
 	@ThreeCommasParser.parsed(float)
 	def get_day_profit_btc(self) -> Union[str, float]:
 		return self.get('day_profit_btc')
 
-	def set_day_profit_btc(self, day_profit_btc: str):
+	def set_day_profit_btc(self, day_profit_btc: Union[str, float]):
 		self['day_profit_btc'] = day_profit_btc
 
 	@ThreeCommasParser.parsed(float)
 	def get_day_profit_usd(self) -> Union[str, float]:
 		return self.get('day_profit_usd')
 
-	def set_day_profit_usd(self, day_profit_usd: str):
+	def set_day_profit_usd(self, day_profit_usd: Union[str, float]):
 		self['day_profit_usd'] = day_profit_usd
 
 	@ThreeCommasParser.parsed(float)
 	def get_day_profit_btc_percentage(self) -> Union[str, float]:
 		return self.get('day_profit_btc_percentage')
 
-	def set_day_profit_btc_percentage(self, day_profit_btc_percentage: str):
+	def set_day_profit_btc_percentage(self, day_profit_btc_percentage: Union[str, float]):
 		self['day_profit_btc_percentage'] = day_profit_btc_percentage
 
 	@ThreeCommasParser.parsed(float)
 	def get_day_profit_usd_percentage(self) -> Union[str, float]:
 		return self.get('day_profit_usd_percentage')
 
-	def set_day_profit_usd_percentage(self, day_profit_usd_percentage: str):
+	def set_day_profit_usd_percentage(self, day_profit_usd_percentage: Union[str, float]):
 		self['day_profit_usd_percentage'] = day_profit_usd_percentage
 
 	@ThreeCommasParser.parsed(float)
 	def get_btc_profit(self) -> Union[str, float]:
 		return self.get('btc_profit')
 
-	def set_btc_profit(self, btc_profit: str):
+	def set_btc_profit(self, btc_profit: Union[str, float]):
 		self['btc_profit'] = btc_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_usd_profit(self) -> Union[str, float]:
 		return self.get('usd_profit')
 
-	def set_usd_profit(self, usd_profit: str):
+	def set_usd_profit(self, usd_profit: Union[str, float]):
 		self['usd_profit'] = usd_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_usd_profit_percentage(self) -> Union[str, float]:
 		return self.get('usd_profit_percentage')
 
-	def set_usd_profit_percentage(self, usd_profit_percentage: str):
+	def set_usd_profit_percentage(self, usd_profit_percentage: Union[str, float]):
 		self['usd_profit_percentage'] = usd_profit_percentage
 
 	@ThreeCommasParser.parsed(float)
 	def get_btc_profit_percentage(self) -> Union[str, float]:
 		return self.get('btc_profit_percentage')
 
-	def set_btc_profit_percentage(self, btc_profit_percentage: str):
+	def set_btc_profit_percentage(self, btc_profit_percentage: Union[str, float]):
 		self['btc_profit_percentage'] = btc_profit_percentage
 
 	@ThreeCommasParser.parsed(float)
 	def get_total_btc_profit(self) -> Union[str, float]:
 		return self.get('total_btc_profit')
 
-	def set_total_btc_profit(self, total_btc_profit: str):
+	def set_total_btc_profit(self, total_btc_profit: Union[str, float]):
 		self['total_btc_profit'] = total_btc_profit
 
 	@ThreeCommasParser.parsed(float)
 	def get_total_usd_profit(self) -> Union[str, float]:
 		return self.get('total_usd_profit')
 
-	def set_total_usd_profit(self, total_usd_profit: str):
+	def set_total_usd_profit(self, total_usd_profit: Union[str, float]):
 		self['total_usd_profit'] = total_usd_profit
 
 	def get_pretty_display_type(self) -> str:
@@ -1133,5 +1133,5 @@ class Account(OfDictClass):
 	def get_market_code(self) -> Union[str, MarketCode]:
 		return self.get('market_code')
 
-	def set_market_code(self, market_code: str):
+	def set_market_code(self, market_code: Union[str, MarketCode]):
 		self['market_code'] = market_code
