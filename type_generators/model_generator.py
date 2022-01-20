@@ -1,8 +1,11 @@
 from typing import List
 import datetime
-from src.three_commas.model.written import BotEvent
 import json
-from src.three_commas.model import AbstractStringEnum, DealStatus, MarketCode, Deal
+from enum import Enum
+# from src.three_commas.model.models import BotEvent
+#from src.three_commas.model.generated_models import Deal
+#from src.three_commas.model.generated_enums import DealStatus, MarketCode
+# from src.three_commas.model.other_enums import AbstractStringEnum
 
 INDENT = '\t'
 
@@ -19,6 +22,16 @@ class ThreeCommasModelClass:
         self.name = name
         self.properties = properties
 
+class AbstractStringEnum(Enum):
+    pass
+class MarketCode(AbstractStringEnum):
+    pass
+class DealStatus(AbstractStringEnum):
+    pass
+class Deal:
+    pass
+class BotEvent:
+    pass
 
 tc_generated_classes = [
     ThreeCommasModelClass(name='Deal',
@@ -250,9 +263,9 @@ def generate_models():
         # imports
         file_buffer.append('from typing import List, Union')
         file_buffer.append('import datetime')
-        file_buffer.append('from written import OfDictClass, ThreeCommasParser')
-        file_buffer.append('from enums import DealStatus, MarketCode')
-        file_buffer.append('import written')
+        file_buffer.append('from .models import OfDictClass, ThreeCommasParser, BotEvent')
+        file_buffer.append('from .generated_enums import DealStatus, MarketCode')
+        file_buffer.append('from . import other_enums')
 
 
         for tc_gen_class in tc_generated_classes:
@@ -347,13 +360,23 @@ def create_setter(prop: ThreeCommasJsonProperty):
 def get_type_name_string(t) -> str:
     if t is None:
         return None
-    if is_typing_module_type(t):
-        return str(t).replace('typing.', '')
-    # if is_abstract_three_commas_enum_class(t):
-    #    return t.__name__
+
+    if t in {str, float, int, bool}:
+        return t.__name__
+
     if t is datetime.datetime:
         return 'datetime.datetime'
-    return t.__name__
+
+    if is_typing_module_type(t):
+        s = str(t).replace('typing.', '')
+        inner_type_pure_name = s.split('[')[1].split(']')[0].split('.')[-1]
+        return f'List[{inner_type_pure_name}]'
+        #return str(t).replace('typing.', '')
+
+    if is_abstract_three_commas_enum_class(t):
+        return t.__name__
+
+    return t.__name__.split('.') # str(t).split('.')[-1].replace('>', '').replace("'", '')
 
 
 def is_typing_module_type(t) -> bool:
@@ -362,6 +385,7 @@ def is_typing_module_type(t) -> bool:
 
 def is_abstract_three_commas_enum_class(t) -> bool:
     return not is_typing_module_type(t) and issubclass(t, AbstractStringEnum)
+    # return not is_typing_module_type(t) and issubclass(t, AbstractStringEnum)
 
 
 def generate_json_properties():

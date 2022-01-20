@@ -10,7 +10,7 @@ setup(
               'three_commas.api.ver1',
               'three_commas.api.v2',
               'three_commas.model'],
-    version='0.0.16',
+    version='0.0.17',
     description='Python api wrapper for 3commas with extended functionality in the api, models, error handling',
     url='https://github.com/badass-blockchain/python-three-commas',
     author='Sergey Gerodes',

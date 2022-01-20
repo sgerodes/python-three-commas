@@ -1,17 +1,17 @@
 from . import api
 from . import site
 from cachetools import cached, TTLCache
-from .model import Bot as BotShow, Account, Deal as DealShow, PieChartDataElement
+from .model import Bot, Account, Deal, PieChartDataElement
 from typing import List
 
 
 @cached(cache=TTLCache(maxsize=1024, ttl=60))
-def get_deals(*args, **kwargs) -> List[DealShow]:
+def get_deals(*args, **kwargs) -> List[Deal]:
     return api.get_deals(*args, **kwargs)
 
 
 @cached(cache=TTLCache(maxsize=1024, ttl=60))
-def get_all_deals(*args, **kwargs) -> List[DealShow]:
+def get_all_deals(*args, **kwargs) -> List[Deal]:
     return api.get_all_deals(*args, **kwargs)
 
 
@@ -27,13 +27,13 @@ def get_account(*args, **kwargs) -> Account:
 
 @cached(cache=TTLCache(maxsize=1024, ttl=60*15))
 def get_url_secret(bot_id: int) -> str:
-    bot_model: BotShow = api.get_bot(bot_id=bot_id)
+    bot_model: Bot = api.get_bot(bot_id=bot_id)
     return bot_model.get_url_secret()
 
 
 @cached(cache=TTLCache(maxsize=1024, ttl=60*60*24))
 def get_bot_account_id(bot_id: int) -> int:
-    bot_model: BotShow = api.get_bot(bot_id=bot_id)
+    bot_model: Bot = api.get_bot(bot_id=bot_id)
     return bot_model.get_account_id()
 
 

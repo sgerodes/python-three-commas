@@ -5,7 +5,7 @@ import functools
 from py3cw.request import Py3CW
 from typing import Callable, Union, Tuple
 import os
-from .model import Mode
+from .model.generated_enums import Mode
 
 logger = logging.getLogger(__name__)
 

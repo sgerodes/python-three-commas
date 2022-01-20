@@ -1,8 +1,8 @@
 from typing import List, Union
 import datetime
-from .written import OfDictClass, ThreeCommasParser
+from .models import OfDictClass, ThreeCommasParser, BotEvent
 from .generated_enums import DealStatus, MarketCode
-from . import written
+from . import other_enums
 
 
 class Deal(OfDictClass):
@@ -408,8 +408,8 @@ class Deal(OfDictClass):
 	def set_reserved_quote_funds(self, reserved_quote_funds: int):
 		self['reserved_quote_funds'] = reserved_quote_funds
 
-	@ThreeCommasParser.lazy_parsed(List[written.BotEvent])
-	def get_bot_events(self) -> Union[List[dict], List[written.BotEvent]]:
+	@ThreeCommasParser.lazy_parsed(List[BotEvent])
+	def get_bot_events(self) -> Union[List[dict], List[BotEvent]]:
 		return self.get('bot_events')
 
 	def set_bot_events(self, bot_events: List[dict]):
@@ -704,8 +704,8 @@ class Bot(OfDictClass):
 	def set_active_deals(self, active_deals: List[dict]):
 		self['active_deals'] = active_deals
 
-	@ThreeCommasParser.lazy_parsed(List[written.BotEvent])
-	def get_bot_events(self) -> Union[List[dict], List[written.BotEvent]]:
+	@ThreeCommasParser.lazy_parsed(List[BotEvent])
+	def get_bot_events(self) -> Union[List[dict], List[BotEvent]]:
 		return self.get('bot_events')
 
 	def set_bot_events(self, bot_events: List[dict]):
@@ -853,7 +853,6 @@ class PieChartDataElement(OfDictClass):
 
 	def set_account_id(self, account_id: int):
 		self['account_id'] = account_id
-
 
 
 class Account(OfDictClass):

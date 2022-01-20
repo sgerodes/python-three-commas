@@ -1,8 +1,8 @@
-from typing import List
+from typing import List, Union
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure
 from ... import utils
-from ...model import Account, PieChartDataElement
+from ...model import Account, PieChartDataElement, MarketCode
 
 
 logger = logging.getLogger(__name__)
@@ -47,7 +47,7 @@ def get_account_balance_chart_data(account_id: int, date_from: str, date_to: str
 
 @logged
 @with_py3cw
-def get_market_pairs(market_code: str) -> List[str]:
+def get_market_pairs(market_code: Union[str, MarketCode]) -> List[str]:
     error, data = py3cw.request(
         entity='accounts',
         action='market_pairs',

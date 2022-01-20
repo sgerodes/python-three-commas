@@ -1,4 +1,4 @@
-from .enums import AbstractStringEnum
+from .other_enums import AbstractStringEnum
 
 
 class DealStatus(AbstractStringEnum):
