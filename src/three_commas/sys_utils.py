@@ -5,7 +5,7 @@ import functools
 from py3cw.request import Py3CW
 from typing import Callable, Union, Tuple
 import os
-from .model.enums import ForcedMode
+from .model import Mode
 
 logger = logging.getLogger(__name__)
 
@@ -96,7 +96,7 @@ class Py3cwClosure:
 def with_py3cw(func: Callable) -> Callable:
     @functools.wraps(func)
     def wrapper(*args,
-                forced_mode: Union[str, ForcedMode] = None,
+                forced_mode: Union[str, Mode] = None,
                 additional_headers: dict = None,
                 api_key: str = None,
                 api_secret: str = None,
@@ -128,7 +128,7 @@ def inject_py3cw_into_function(func: Callable, py3cw: Union[Py3CW, Py3cwClosure]
     func.__globals__['py3cw'] = py3cw
 
 
-def get_forced_mode_headers(req_forced_mode: Union[str, ForcedMode] = None) -> dict:
+def get_forced_mode_headers(req_forced_mode: Union[str, Mode] = None) -> dict:
     # request forced mode has precedence over global forced mode
     forced_mode = req_forced_mode or os.getenv('THREE_COMMAS_FORCED_MODE')
     if forced_mode is None:

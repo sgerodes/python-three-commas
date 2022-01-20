@@ -1,7 +1,7 @@
 from typing import List, Union
 import datetime
 from .written import OfDictClass, ThreeCommasParser
-from .enums import DealStatus, MarketCode
+from .generated_enums import DealStatus, MarketCode
 from . import written
 
 

@@ -1,9 +1,8 @@
 from typing import List
 import datetime
-from written import BotEvent
-import generated_models
+from src.three_commas.model.written import BotEvent
 import json
-from enums import AbstractStringEnum, DealStatus, MarketCode
+from src.three_commas.model import AbstractStringEnum, DealStatus, MarketCode, Deal
 
 INDENT = '\t'
 
@@ -152,7 +151,7 @@ tc_generated_classes = [
                               # ThreeCommasJsonProperty('leverage_custom_value', ),  TODO probably str
                               ThreeCommasJsonProperty('start_order_type', str),
                               ThreeCommasJsonProperty('active_deals_usd_profit', str, float),
-                              ThreeCommasJsonProperty('active_deals', List[dict], List[generated_models.Deal]),
+                              ThreeCommasJsonProperty('active_deals', List[dict], List[Deal]),
                               # TODO probably complex type
                               ThreeCommasJsonProperty('bot_events', List[dict], List[BotEvent]),
                           ]),
@@ -246,7 +245,7 @@ tc_generated_classes = [
 
 
 def generate_models():
-    with open('./generated_models.py', 'w') as f:
+    with open('../src/three_commas/model/generated_models.py', 'w') as f:
         file_buffer = list()
         # imports
         file_buffer.append('from typing import List, Union')
@@ -278,7 +277,7 @@ def create_enum_boolean_methods(prop: ThreeCommasJsonProperty):
     property_name = prop.name
     enum_type: AbstractStringEnum = prop.initial_type
 
-    for et in enum_type.list_values():
+    for et in enum_type._list_values():
         file_buffer.append('')
         file_buffer.append(f"{INDENT}def is_{property_name}_{et}(self) -> bool:")
         file_buffer.append(f"{INDENT * 2}return self.get('{property_name}') == '{et}'")
@@ -376,7 +375,7 @@ def generate_json_properties():
             s = s[1:]
         return '.' in s and s.replace('.', '', 1).isdigit()
 
-    with open('../../../test/sample_data/accounts/paper_account.json') as f:
+    with open('../test/sample_data/accounts/paper_account.json') as f:
         d: dict = json.loads(f.read())
         for k, v in d.items():
             t_str = type(v).__name__

@@ -12,6 +12,17 @@ class EnumProperties:
 enums_list = [
     EnumProperties('DealStatus',
                    values=['active', 'finished', 'completed', 'cancelled', 'failed']),
+    EnumProperties('BotScope',
+                   values=['enabled', 'disabled']),
+    EnumProperties('Mode',
+                   values=['paper', 'real']),
+    EnumProperties('MarketCode',
+                   values=['paper_trading', 'binance', 'bitfinex', 'bitstamp', 'bittrex', 'gdax', 'gemini',
+                           'huobi', 'kucoin', 'okex', 'poloniex', 'bitmex', 'kraken', 'gate_io', 'binance_margin',
+                           'bybit', 'binance_us', 'binance_futures', 'deribit', 'ftx', 'ftx_us', 'bybit_usdt_perpetual',
+                           'binance_futures_coin', 'bybit_spot', 'gate_io_usdt_perpetual', 'gate_io_btc_perpetual',
+                           'ethereumwallet', 'trx']
+)
 
 ]
 

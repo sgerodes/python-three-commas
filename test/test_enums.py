@@ -1,5 +1,4 @@
-from src.three_commas.model.enums import *
-from src.three_commas.model import Deal
+from src.three_commas.model import *
 import json
 
 
