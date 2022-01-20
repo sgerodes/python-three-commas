@@ -251,7 +251,7 @@ tc_generated_classes = [
                             ThreeCommasJsonProperty('total_usd_profit', str, float),
                             ThreeCommasJsonProperty('pretty_display_type', str),
                             ThreeCommasJsonProperty('exchange_name', str),
-                            ThreeCommasJsonProperty('market_code', MarketCode),
+                            ThreeCommasJsonProperty('market_code', str, MarketCode),
                           ]),
 
 ]

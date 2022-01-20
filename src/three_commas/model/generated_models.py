@@ -1129,8 +1129,9 @@ class Account(OfDictClass):
 	def set_exchange_name(self, exchange_name: str):
 		self['exchange_name'] = exchange_name
 
-	def get_market_code(self) -> MarketCode:
+	@ThreeCommasParser.parsed(MarketCode)
+	def get_market_code(self) -> Union[str, MarketCode]:
 		return self.get('market_code')
 
-	def set_market_code(self, market_code: Union[MarketCode, MarketCode]):
+	def set_market_code(self, market_code: str):
 		self['market_code'] = market_code
