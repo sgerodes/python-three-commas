@@ -46,6 +46,7 @@ Some numeric data fetched from the api is returned as string. For example in the
     "safety_order_step_percentage": "1.0",
     ...
 
+Now you do not need to bother checking the type of the field and parsing it into the desired type.
 This library auto parses this fields:
 
     bot = three_commas.api.ver1.bots.get_show(bot_id=9999999)
