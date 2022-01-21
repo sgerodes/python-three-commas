@@ -1,7 +1,6 @@
 from typing import List, Union
 import logging
-from ...sys_utils import logged, with_py3cw, Py3cwClosure
-from ... import utils
+from ...sys_utils import logged, with_py3cw, Py3cwClosure, verify_no_error
 from ...model import Account, PieChartDataElement, AccountMarketCode
 
 
@@ -16,7 +15,7 @@ def get_pie_chart_data(account_id: int) -> List[PieChartDataElement]:
         action='pie_chart_data',
         action_id=str(account_id)
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return PieChartDataElement.of_list(data)
 
 
@@ -41,7 +40,7 @@ def get_account_balance_chart_data(account_id: int, date_from: str, date_to: str
         action_id=str(account_id),
         payload=payload
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return data
 
 
@@ -53,7 +52,7 @@ def get_market_pairs(market_code: Union[str, AccountMarketCode]) -> List[str]:
         action='market_pairs',
         payload={'market_code': market_code}
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return data
 
 
@@ -68,7 +67,7 @@ def get_accounts() -> List[Account]:
         entity='accounts',
         action=''
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return Account.of_list(data)
 
 
@@ -85,5 +84,5 @@ def get_account(account_id: int) -> Account:
         action='account_info',
         action_id=str(account_id)
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return Account.of(data)

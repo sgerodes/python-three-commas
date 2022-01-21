@@ -1,7 +1,6 @@
 from typing import List, Dict
 import logging
-from ...sys_utils import logged, with_py3cw, Py3cwClosure
-from ... import utils
+from ...sys_utils import logged, with_py3cw, Py3cwClosure, verify_no_error
 from ...model import Bot as BotShow
 
 
@@ -18,7 +17,7 @@ def update(bot_id: int, new_bot_show: dict) -> BotShow:
         action_id=str(bot_id),
         payload=new_bot_show
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return BotShow.of(data)
 
 
@@ -30,7 +29,7 @@ def disable(bot_id: int) -> BotShow:
         action='disable',
         action_id=str(bot_id)
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return BotShow.of(data)
 
 
@@ -42,7 +41,7 @@ def enable(bot_id: int):
         action='enable',
         action_id=str(bot_id)
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return data
 
 
@@ -77,7 +76,7 @@ def get_show(bot_id: int, include_events: bool = None) -> BotShow:
         action_id=str(bot_id),
         payload=payload
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return BotShow.of(data)
 
 
@@ -100,7 +99,7 @@ def copy_and_create(bot_id: int, name: str,  secret: str) -> dict:
             'secret': secret
         }
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return data
 
 
@@ -123,7 +122,7 @@ def get_bots(scope: str, limit: int = None) -> List[BotShow]:
         action='',
         payload=payload
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return BotShow.of_list(data)
 
 
@@ -138,7 +137,7 @@ def get_pairs_black_list() -> Dict[str, List[str]]:
         entity='bots',
         action='pairs_black_list'
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return data
 
 
@@ -154,7 +153,7 @@ def create_bot(bot_model: BotShow) -> BotShow:
         action='create_bot',
         payload=bot_model
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return BotShow.of(data)
 
 

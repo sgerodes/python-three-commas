@@ -1,7 +1,7 @@
 import logging
 
 from .error import ThreeCommasError
-from .model import Bot as BotShow
+from .model import Bot
 from typing import List
 from .sys_utils import get_parent_function_name
 
@@ -10,16 +10,19 @@ logger = logging.getLogger(__name__)
 
 class BotMath:
     # Legend: mabu is max amount bot usage
-    def __init__(self, bot_show: BotShow):
-        self.bot_show = bot_show
+    @staticmethod
+    def get_bot_math_arguments(bot: Bot) -> dict:
+        return {
+            'bo': bot.get_base_order_volume(),
+            'so':  bot.get_safety_order_volume(),
+            'max_so':  bot.get_max_safety_orders(),
+            'martingale':  bot.get_martingale_volume_coefficient(),
+            'mad':  bot.get_max_active_deals(),
+        }
 
-    def get_max_bot_usage(self) -> float:
-        bo = self.bot_show.get_base_order_volume()
-        so = self.bot_show.get_safety_order_volume()
-        max_so = self.bot_show.get_max_safety_orders()
-        martingale = self.bot_show.get_martingale_volume_coefficient()
-        mad = self.bot_show.get_max_active_deals()
-        return BotMath.calculate_max_bot_usage(bo=bo, so=so, max_so=max_so, martingale=martingale, mad=mad)
+    @staticmethod
+    def get_max_bot_usage(bot: Bot) -> float:
+        return BotMath.calculate_max_bot_usage(**BotMath.get_bot_math_arguments(bot))
 
     @staticmethod
     def calculate_max_bot_usage(bo: float, so: float, max_so: int, martingale: float, mad: int) -> float:
@@ -55,6 +58,13 @@ def filter_market_pairs_with_quote(market_pairs: List[str], quote: str):
     return [pair for pair in market_pairs if pair.upper().startswith(quote.upper())]
 
 
+def get_bot_quote(bot: Bot):
+    pairs = bot.get_pairs()
+    if not pairs:
+        return None
+    return pairs[0].split('_')[0].upper()
+
+
 def get_quote_from_3c_pair(tc_pair: str) -> str:
     return tc_pair.split('_')[0].upper()
 
@@ -82,19 +92,9 @@ def construct_futures_pair_from_base(base: str, account_market_code: str) -> str
         raise RuntimeError(f'Not known market code {account_market_code} in construct_futures_pair_from_quote_and_base')
 
 
-def filter_list_bot_show_having_pair(list_bot_show: List[BotShow], pair: str) -> List[BotShow]:
+def filter_list_bot_having_pair(list_bot_show: List[Bot], pair: str) -> List[Bot]:
     return [bot_model for bot_model in list_bot_show if bot_model.has_pair(pair)]
 
-
-def verify_no_error(error, data):
-    calling_function_name = get_parent_function_name()
-    if error:
-        error['function_name'] = calling_function_name
-        logger.error(error)
-        raise ThreeCommasError(error=error)
-    if data is None:
-        logger.warning(f'No data was received for function {calling_function_name}')
-        raise ThreeCommasError(error={'msg': 'Data is None', 'function_name': calling_function_name})
 
 
 

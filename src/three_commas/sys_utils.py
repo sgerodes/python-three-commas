@@ -7,6 +7,7 @@ from typing import Callable, Union, Tuple
 import os
 from .model.generated_enums import Mode
 from . import configuration
+from .error import ThreeCommasError
 
 logger = logging.getLogger(__name__)
 
@@ -155,6 +156,17 @@ def get_py3cw(req_api_key: str = None, req_api_secret: str = None, request_optio
     if api_key is None or api_secret is None:
         raise RuntimeError("Please configure 'THREE_COMMAS_API_KEY' and 'THREE_COMMAS_API_SECRET'")
     return Py3CW(key=api_key, secret=api_secret, request_options=request_options)
+
+
+def verify_no_error(error, data):
+    calling_function_name = get_parent_function_name()
+    if error:
+        error['function_name'] = calling_function_name
+        logger.error(error)
+        raise ThreeCommasError(error=error)
+    if data is None:
+        logger.warning(f'No data was received for function {calling_function_name}')
+        raise ThreeCommasError(error={'msg': 'Data is None', 'function_name': calling_function_name})
 
 
 def get_paper_headers():

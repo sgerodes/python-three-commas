@@ -31,7 +31,7 @@ def generate_enums():
     with open('../src/three_commas/model/generated_enums.py', 'w') as f:
         file_buffer = list()
         # imports
-        file_buffer.append('from .enums import AbstractStringEnum')
+        file_buffer.append('from .other_enums import AbstractStringEnum')
 
         for ep in enums_list:
             file_buffer.append('')

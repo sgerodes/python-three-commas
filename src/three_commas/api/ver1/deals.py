@@ -1,17 +1,16 @@
 from typing import List
 import logging
-from ...sys_utils import logged, with_py3cw
-from ... import utils
+from ...sys_utils import logged, with_py3cw, Py3cwClosure, verify_no_error
 from ...model import Deal as DealShow, DealMarketOrder
 
 
 logger = logging.getLogger(__name__)
+py3cw: Py3cwClosure = None
 
 
 @logged
 @with_py3cw
-def get_deals(py3cw,
-              bot_id: int = None,
+def get_deals(bot_id: int = None,
               account_id: int = None,
               limit: int = None,
               scope: str = None,
@@ -41,7 +40,7 @@ def get_deals(py3cw,
         action='',
         payload=payload
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return DealShow.of_list(data)
 
 
@@ -68,5 +67,5 @@ def get_deal_market_orders(py3cw, deal_id: int):
         action='market_orders',
         action_id=str(deal_id)
     )
-    utils.verify_no_error(error=error, data=data)
+    verify_no_error(error=error, data=data)
     return DealMarketOrder.of_list(data)
