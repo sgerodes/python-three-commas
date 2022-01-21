@@ -19,11 +19,6 @@ class AbstractStringEnum(Enum):
         # return list(map(lambda c: c.value, cls))
 
     @classmethod
-    def _list_members(cls) -> List[str]:
-        return list(cls._value2member_map_.values())
-        # return list(map(lambda c: c, cls))
-
-    @classmethod
     def _has_value(cls, value: str):
         return value in cls._value2member_map_
 

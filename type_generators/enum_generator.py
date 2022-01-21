@@ -1,6 +1,6 @@
 
 
-INDENT = '\t'
+INDENT = '    '
 
 
 class EnumProperties:
@@ -16,7 +16,7 @@ enums_list = [
                    values=['enabled', 'disabled']),
     EnumProperties('Mode',
                    values=['paper', 'real']),
-    EnumProperties('MarketCode',
+    EnumProperties('AccountMarketCode',
                    values=['paper_trading', 'binance', 'bitfinex', 'bitstamp', 'bittrex', 'gdax', 'gemini',
                            'huobi', 'kucoin', 'okex', 'poloniex', 'bitmex', 'kraken', 'gate_io', 'binance_margin',
                            'bybit', 'binance_us', 'binance_futures', 'deribit', 'ftx', 'ftx_us', 'bybit_usdt_perpetual',

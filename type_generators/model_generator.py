@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 import datetime
 import json
 from enum import Enum
@@ -8,11 +8,11 @@ from enum import Enum
 # from src.three_commas.model.generated_enums import DealStatus, MarketCode
 # from src.three_commas.model.other_enums import AbstractStringEnum
 
-INDENT = '\t'
+INDENT = '    '
 
 
 class ThreeCommasJsonProperty:
-    def __init__(self, name: str, initial_type: type, parsed_type: type = None):
+    def __init__(self, name: str, initial_type: type, parsed_type: Union[type, str] = None):
         self.name = name
         self.initial_type = initial_type
         self.parsed_type = parsed_type
@@ -24,24 +24,7 @@ class ThreeCommasModelClass:
         self.properties = properties
 
 
-class AbstractStringEnum(Enum):
-    pass
 
-
-class MarketCode(AbstractStringEnum):
-    pass
-
-
-class DealStatus(AbstractStringEnum):
-    pass
-
-
-class Deal:
-    pass
-
-
-class BotEvent:
-    pass
 
 
 tc_generated_classes = [
@@ -72,7 +55,7 @@ tc_generated_classes = [
                               ThreeCommasJsonProperty('stop_loss_timeout_in_seconds', int),
                               ThreeCommasJsonProperty('active_manual_safety_orders', int),
                               ThreeCommasJsonProperty('pair', str),
-                              ThreeCommasJsonProperty('status', str, DealStatus),  # could be enum DealStatus
+                              ThreeCommasJsonProperty('status', str, 'DealStatus'),  # could be enum DealStatus
                               ThreeCommasJsonProperty('localized_status', str),
                               ThreeCommasJsonProperty('take_profit', str, float),
                               ThreeCommasJsonProperty('base_order_volume', str, float),
@@ -120,7 +103,7 @@ tc_generated_classes = [
                               ThreeCommasJsonProperty('reserved_quote_funds', int),  # TODO could be float
                               # ThreeCommasJsonProperty('reserved_base_funds', int), # TODO could be float
                               # ThreeCommasJsonProperty('buy_steps', ), TODO
-                              ThreeCommasJsonProperty('bot_events', List[dict], List[BotEvent]),
+                              ThreeCommasJsonProperty('bot_events', List[dict], 'List[BotEvent]'),
                           ]),
     ThreeCommasModelClass(name='Bot',
                           properties=[
@@ -175,9 +158,9 @@ tc_generated_classes = [
                               # ThreeCommasJsonProperty('leverage_custom_value', ),  TODO probably str
                               ThreeCommasJsonProperty('start_order_type', str),
                               ThreeCommasJsonProperty('active_deals_usd_profit', str, float),
-                              ThreeCommasJsonProperty('active_deals', List[dict], List[Deal]),
+                              ThreeCommasJsonProperty('active_deals', List[dict], 'List[Deal]'),
                               # TODO probably complex type
-                              ThreeCommasJsonProperty('bot_events', List[dict], List[BotEvent]),
+                              ThreeCommasJsonProperty('bot_events', List[dict], 'List[BotEvent]'),
                           ]),
     ThreeCommasModelClass(name='DealMarketOrder',
                           properties=[
@@ -262,7 +245,7 @@ tc_generated_classes = [
                               ThreeCommasJsonProperty('total_usd_profit', str, float),
                               ThreeCommasJsonProperty('pretty_display_type', str),
                               ThreeCommasJsonProperty('exchange_name', str),
-                              ThreeCommasJsonProperty('market_code', str, MarketCode),
+                              ThreeCommasJsonProperty('market_code', str, 'AccountMarketCode'),
                           ]),
 
 ]
@@ -274,8 +257,8 @@ def generate_models():
         # imports
         file_buffer.append('from typing import List, Union')
         file_buffer.append('import datetime')
-        file_buffer.append('from .models import OfDictClass, ThreeCommasParser, BotEvent')
-        file_buffer.append('from .generated_enums import DealStatus, MarketCode')
+        file_buffer.append('from .models import * #OfDictClass, ThreeCommasParser, BotEvent')
+        file_buffer.append('from .generated_enums import * #DealStatus, AccountMarketCode')
         file_buffer.append('from . import other_enums')
 
         for tc_gen_class in tc_generated_classes:
@@ -296,9 +279,10 @@ def generate_models():
 
 
 def create_enum_boolean_methods(prop: ThreeCommasJsonProperty):
+    # Deprecated
     file_buffer = list()
     property_name = prop.name
-    enum_type: AbstractStringEnum = prop.initial_type
+    enum_type = prop.initial_type
 
     for et in enum_type._list_values():
         file_buffer.append('')
@@ -352,11 +336,12 @@ def create_setter(prop: ThreeCommasJsonProperty):
     property_name = prop.name
     property_variable = property_name.replace('?', '')
     initial_type_name_str = get_type_name_string(prop.initial_type)
+    parsed_type_name_str = get_type_name_string(prop.parsed_type)
 
     union_setter_condition = not is_typing_module_type(prop.initial_type) \
                              and is_abstract_three_commas_enum_class(prop.parsed_type)
     if union_setter_condition or is_primitive_type(prop.parsed_type):
-        attribute_types = f'Union[{initial_type_name_str}, {prop.parsed_type.__name__}]'
+        attribute_types = f'Union[{initial_type_name_str}, {parsed_type_name_str}]'
     else:
         attribute_types = initial_type_name_str
 
@@ -369,9 +354,11 @@ def create_setter(prop: ThreeCommasJsonProperty):
     return file_buffer
 
 
-def get_type_name_string(t) -> str:
+def get_type_name_string(t: Union[type, str]) -> str:
     if t is None:
         return None
+    if isinstance(t, str):
+        return t
 
     if is_primitive_type(t):
         return t.__name__
@@ -406,7 +393,8 @@ def is_primitive_type(t) -> bool:
 def is_abstract_three_commas_enum_class(t) -> bool:
     if t is None:
         return False
-    return not is_typing_module_type(t) and issubclass(t, AbstractStringEnum)
+    return str(t) in {'AccountMarketCode', 'DealStatus'}
+    # return not is_typing_module_type(t) and not isinstance(t, str) and issubclass(t, AbstractStringEnum)
     # return not is_typing_module_type(t) and issubclass(t, AbstractStringEnum)
 
 

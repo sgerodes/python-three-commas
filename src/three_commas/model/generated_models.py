@@ -1,7 +1,7 @@
 from typing import List, Union
 import datetime
-from .models import OfDictClass, ThreeCommasParser, BotEvent
-from .generated_enums import DealStatus, MarketCode
+from .models import * #OfDictClass, ThreeCommasParser, BotEvent
+from .generated_enums import * #DealStatus, AccountMarketCode
 from . import other_enums
 
 
@@ -1129,9 +1129,9 @@ class Account(OfDictClass):
     def set_exchange_name(self, exchange_name: str):
         self['exchange_name'] = exchange_name
 
-    @ThreeCommasParser.parsed(MarketCode)
-    def get_market_code(self) -> Union[str, MarketCode]:
+    @ThreeCommasParser.parsed(AccountMarketCode)
+    def get_market_code(self) -> Union[str, AccountMarketCode]:
         return self.get('market_code')
 
-    def set_market_code(self, market_code: Union[str, MarketCode]):
+    def set_market_code(self, market_code: Union[str, AccountMarketCode]):
         self['market_code'] = market_code
