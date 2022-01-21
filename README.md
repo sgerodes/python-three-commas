@@ -1,6 +1,7 @@
 # Title
 
-This library provides tools that help access the 3commas api very easily. The library is built on top of the py3cw library.
+This library provides tools that help develop code that access the 3commas api very fast and easy. 
+The library is built on top of the py3cw library.
 Main features are prebuilt function to access the api, models for easier access of the returned data, 
 automatic attribute parsing of the returned data.
 
