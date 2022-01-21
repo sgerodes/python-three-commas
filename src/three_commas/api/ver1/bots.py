@@ -1,7 +1,7 @@
-from typing import List, Dict
+from typing import List, Dict, Union
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure, verify_no_error
-from ...model import Bot as BotShow
+from ...model import Bot
 
 
 logger = logging.getLogger(__name__)
@@ -10,27 +10,27 @@ py3cw: Py3cwClosure = None
 
 @logged(reduce_long_arguments=True)
 @with_py3cw
-def update(bot_id: int, new_bot_show: dict) -> BotShow:
+def update(bot_id: int, bot: Union[dict, Bot]) -> Bot:
     error, data = py3cw.request(
         entity='bots',
         action='update',
         action_id=str(bot_id),
-        payload=new_bot_show
+        payload=bot
     )
     verify_no_error(error=error, data=data)
-    return BotShow.of(data)
+    return Bot.of(data)
 
 
 @logged
 @with_py3cw
-def disable(bot_id: int) -> BotShow:
+def disable(bot_id: int) -> Bot:
     error, data = py3cw.request(
         entity='bots',
         action='disable',
         action_id=str(bot_id)
     )
     verify_no_error(error=error, data=data)
-    return BotShow.of(data)
+    return Bot.of(data)
 
 
 @logged
@@ -53,8 +53,17 @@ def delete():
     pass
 
 
-def panic_sell_all_deals():
-    pass
+def panic_sell_all_deals(bot_id: int) -> dict:
+    """
+    POST /ver1/bots/{bot_id}/panic_sell_all_deals
+    """
+    error, data = py3cw.request(
+        entity='bots',
+        action='panic_sell_all_deals',
+        action_id=str(bot_id)
+    )
+    verify_no_error(error=error, data=data)
+    return data
 
 
 def cancel_all_deals():
@@ -63,7 +72,7 @@ def cancel_all_deals():
 
 @logged
 @with_py3cw
-def get_show(bot_id: int, include_events: bool = None) -> BotShow:
+def get_show(bot_id: int, include_events: bool = None) -> Bot:
     """
     /ver1/bots/:bot_id/show
     """
@@ -77,7 +86,7 @@ def get_show(bot_id: int, include_events: bool = None) -> BotShow:
         payload=payload
     )
     verify_no_error(error=error, data=data)
-    return BotShow.of(data)
+    return Bot.of(data)
 
 
 @logged(log_return=True)
@@ -105,7 +114,7 @@ def copy_and_create(bot_id: int, name: str,  secret: str) -> dict:
 
 @logged
 @with_py3cw
-def get_bots(scope: str, limit: int = None) -> List[BotShow]:
+def get_bots(scope: str, limit: int = None) -> List[Bot]:
     """
     GET /ver1/bots
     :param scope: enabled, disabled
@@ -123,7 +132,7 @@ def get_bots(scope: str, limit: int = None) -> List[BotShow]:
         payload=payload
     )
     verify_no_error(error=error, data=data)
-    return BotShow.of_list(data)
+    return Bot.of_list(data)
 
 
 def get_strategy_list() -> dict:
@@ -147,14 +156,14 @@ def update_pairs_black_list():
 
 @logged
 @with_py3cw
-def create_bot(bot_model: BotShow) -> BotShow:
+def create_bot(bot: Union[dict, Bot]) -> Bot:
     error, data = py3cw.request(
         entity='bots',
         action='create_bot',
-        payload=bot_model
+        payload=bot
     )
     verify_no_error(error=error, data=data)
-    return BotShow.of(data)
+    return Bot.of(data)
 
 
 def get_stats():

@@ -19,9 +19,21 @@ def test_enum_equality():
     assert 'disabled' != BotScope.ENABLED
 
 
+def test_enum_hashability():
+    assert BotScope.ENABLED in {BotScope.ENABLED}
+    assert BotScope.ENABLED in {'enabled'}
+    assert BotScope.ENABLED not in {BotScope.DISABLED}
+    assert BotScope.ENABLED not in {'disabled'}
+
+
+def test_enum_nullability():
+    pass
+    # TBD
+
+
 def test_enum_parsing():
     filepath = 'test/sample_data/deals/usdt/deal_show_usdt.json'
-    #filepath = './sample_data/deals/usdt/deal_show_usdt.json'
+    # filepath = './sample_data/deals/usdt/deal_show_usdt.json'
     with open(filepath, 'r+') as f:
         j: dict = json.loads(f.read())
         deal: Deal = Deal.of(j)

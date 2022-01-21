@@ -20,7 +20,7 @@ def get_bot_profit_line_chart_data(bot_id: int):
         'secret': url_secret,
     }
     url = f'{BASE_URL}/bots/{bot_id}/profit_line_chart_data'
-    response = requests.get(url=url,params=parameters)
+    response = requests.get(url=url, params=parameters)
     if not response.status_code == 200:
         return None
     obj = json.loads(response.text)
@@ -29,7 +29,7 @@ def get_bot_profit_line_chart_data(bot_id: int):
 
 def get_bot_deals_history(bot_id: int):
     # not working
-    bot_model: BotShow = get_show(bot_id=bot_id)
+    bot_model: Bot = get_show(bot_id=bot_id)
     url_secret = bot_model.get_url_secret()
     parameters = {
         'secret': url_secret,

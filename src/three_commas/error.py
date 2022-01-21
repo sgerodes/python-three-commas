@@ -32,7 +32,7 @@ class ThreeCommasError(RuntimeError):
         except:
             logger.warning(f'Failed to parse inner error msg {error}')
 
-    def bo_to_small_error(self) -> (float, str):
+    def bo_to_small_error(self) -> List[BoToSmallError]:
         ret = list()
         # ret = ThreeCommasError.BoToSmallError(present=False)
         if self._has_parsed_error_message() and self.error_parsed.get('base_order_volume'):
