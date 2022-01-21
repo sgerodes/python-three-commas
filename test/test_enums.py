@@ -1,4 +1,5 @@
 from src.three_commas.model import *
+from src.three_commas.model.generated_enums import *
 import json
 
 

@@ -4,6 +4,7 @@ import datetime
 import re
 import functools
 import logging
+from .. import configuration
 
 
 logger = logging.getLogger(__name__)
@@ -17,10 +18,12 @@ class ThreeCommasParser:
     @staticmethod
     def parsed_timestamp(func: Callable[[Any], Any]) -> Callable[[Any], Union[None, str, datetime.datetime]]:
         @functools.wraps(func)
-        def wrapper(*args, parsed: bool = False, **kwargs) -> Union[None, str, datetime.datetime]:
+        def wrapper(*args, parsed: bool = None, **kwargs) -> Union[None, str, datetime.datetime]:
             timestamp = func(*args, **kwargs)
             if timestamp is None:
                 return None
+            if parsed is None:
+                parsed = configuration.THREE_COMMAS_AUTO_PARSE_DATETIME_DEFAULT
             return datetime.datetime.strptime(timestamp, ThreeCommasParser.DATETIME_PATTERN) if parsed else timestamp
         return wrapper
 
@@ -28,10 +31,12 @@ class ThreeCommasParser:
     def parsed(t: T):
         def decorator(func: Callable[[Any], Any]) -> Callable[[Any],  Union[T, None]]:
             @functools.wraps(func)
-            def wrapper(*args, parsed: bool = True, **kwargs) -> Union[T, str, None]:
+            def wrapper(*args, parsed: bool = None, **kwargs) -> Union[T, str, None]:
                 result = func(*args, **kwargs)
                 if result is None:
                     return None
+                if parsed is None:
+                    parsed = configuration.THREE_COMMAS_AUTO_PARSE_DEFAULT
                 return t(result) if parsed else result
             return wrapper
         return decorator

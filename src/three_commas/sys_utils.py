@@ -6,6 +6,7 @@ from py3cw.request import Py3CW
 from typing import Callable, Union, Tuple
 import os
 from .model.generated_enums import Mode
+from . import configuration
 
 logger = logging.getLogger(__name__)
 
@@ -40,11 +41,10 @@ def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, r
     :param reduce_long_arguments: If True and the wrapping function is called with long arguments, the the log will be trimmed
     :return:
     """
-    REDUCED_LOGGING_LIMIT = 100
 
     def reduced_arg(arg):
         arg = str(arg)
-        return arg if len(arg) < REDUCED_LOGGING_LIMIT else arg[:REDUCED_LOGGING_LIMIT] + '...'
+        return arg if len(arg) < configuration.REDUCED_LOGGING_LIMIT else arg[:configuration.REDUCED_LOGGING_LIMIT] + '...'
 
     if use_logger is None:
         parent_module_name = get_parent_module_name()
@@ -56,6 +56,9 @@ def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, r
     def inner(function_to_wrap):
         @functools.wraps(function_to_wrap)
         def wrapper(*args, **kwargs):
+            if not configuration.THREE_COMMAS_LOG_API:
+                return function_to_wrap(*args, **kwargs)
+
             if reduce_long_arguments:
                 logging_args = ', '.join([reduced_arg(a) for a in args])
                 logging_kwargs = {k: reduced_arg(v) for k, v in kwargs}
@@ -67,7 +70,7 @@ def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, r
             try:
                 ret = function_to_wrap(*args, **kwargs)
             except Exception as e:
-                logger.debug(f"Function '{function_to_wrap.__name__}' raised an exception {repr(e)}")
+                use_logger.debug(f"Function '{function_to_wrap.__name__}' raised an exception {repr(e)}")
                 raise e
 
             if log_return:
