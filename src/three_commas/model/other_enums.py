@@ -7,7 +7,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class AbstractStringEnum(Enum):
+class AbstractStringEnum(str, Enum):
     @classmethod
     def _missing_(cls, value):
         logger.warning(f"Enum value='{value}' for {cls} is not known. Will extend the Enum. Allowed values were {cls._list_values()}")
