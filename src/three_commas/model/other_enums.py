@@ -32,5 +32,8 @@ class AbstractStringEnum(Enum):
         else:
             return super.__eq__(self, other)
 
+    def __hash__(self):
+        return hash(self.value)
+
     def __str__(self):
         return self.value
