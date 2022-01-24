@@ -247,6 +247,10 @@ tc_generated_classes = [
                               ThreeCommasJsonProperty('exchange_name', str),
                               ThreeCommasJsonProperty('market_code', str, 'AccountMarketCode'),
                           ]),
+    ThreeCommasModelClass(name='PairsBlackList',
+                          properties=[
+                              ThreeCommasJsonProperty('pairs', List[str]),
+                          ]),
 
 ]
 

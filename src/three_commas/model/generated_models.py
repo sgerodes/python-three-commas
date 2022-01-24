@@ -1135,3 +1135,12 @@ class Account(OfDictClass):
 
     def set_market_code(self, market_code: Union[str, AccountMarketCode]):
         self['market_code'] = market_code
+
+
+class PairsBlackList(OfDictClass):
+
+    def get_pairs(self) -> List[str]:
+        return self.get('pairs')
+
+    def set_pairs(self, pairs: List[str]):
+        self['pairs'] = pairs

@@ -1,7 +1,7 @@
 from typing import List, Dict, Union
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure, verify_no_error
-from ...model import Bot
+from ...model import Bot, PairsBlackList
 
 
 logger = logging.getLogger(__name__)
@@ -141,13 +141,13 @@ def get_strategy_list() -> dict:
 
 @logged
 @with_py3cw
-def get_pairs_black_list() -> Dict[str, List[str]]:
+def get_pairs_black_list() -> PairsBlackList:
     error, data = py3cw.request(
         entity='bots',
         action='pairs_black_list'
     )
     verify_no_error(error=error, data=data)
-    return data
+    return PairsBlackList.of(data)
 
 
 def update_pairs_black_list():
