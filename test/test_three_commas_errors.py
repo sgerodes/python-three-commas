@@ -12,8 +12,8 @@ def read_error(file_path) -> ThreeCommasError:
 def test_bo_to_small_tc_error_with_pair():
     error = read_error('test/sample_data/errors/bo_too_small_with_pair.json')
 
-    assert error.is_bo_to_small_error()
-    bo_error = error.get_bo_to_small_error()
+    assert error.is_base_order_to_small_error()
+    bo_error = error.get_base_order_to_small_error()
     assert len(bo_error) == 1
     assert bo_error[0].amount == 33.35
     assert bo_error[0].pair == 'USDT_YFI'
@@ -22,7 +22,7 @@ def test_bo_to_small_tc_error_with_pair():
 def test_multiple_bo_error():
     error = read_error('test/sample_data/errors/multiple_bo_so_errors.json')
 
-    bo_error = error.get_bo_to_small_error()
+    bo_error = error.get_base_order_to_small_error()
     assert len(bo_error) == 4
     assert set(map(lambda be: be.pair, bo_error)) == {'USDT_1INCH', 'USDT_AAVE', 'USDT_ACM', 'USDT_ADA'}
     assert list(map(lambda be: be.amount, bo_error)) == [10.0, 10.0, 10.0, 10.0]
@@ -31,7 +31,7 @@ def test_multiple_bo_error():
 def test_bo_to_small_tc_error_no_pair():
     error = read_error('test/sample_data/errors/bo_too_small_no_pair.json')
 
-    bo_error = error.get_bo_to_small_error()
+    bo_error = error.get_base_order_to_small_error()
     assert bo_error[0].amount == 9.4674
     assert not bo_error[0].pair
 
@@ -39,12 +39,12 @@ def test_bo_to_small_tc_error_no_pair():
 def test_no_bo_error():
     error = read_error('test/sample_data/errors/signature_invalid.json')
 
-    bo_error = error.get_bo_to_small_error()
+    bo_error = error.get_base_order_to_small_error()
     assert len(bo_error) == 0
-    assert not error.is_bo_to_small_error()
+    assert not error.is_base_order_to_small_error()
 
     error = ThreeCommasError({'custom_message': 'some error occured'})
-    bo_error = error.get_bo_to_small_error()
+    bo_error = error.get_base_order_to_small_error()
     assert len(bo_error) == 0
 
 
