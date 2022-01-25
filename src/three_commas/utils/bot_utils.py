@@ -1,5 +1,5 @@
 import logging
-from src.three_commas.model import Bot
+from ..model import Bot
 from typing import List, Union
 
 

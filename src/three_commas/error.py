@@ -20,51 +20,71 @@ class ThreeCommasError(RuntimeError):
     EXTRACT_PY3CW_MESSAGE_PATTERN = re.compile(r"Other error occurred: record_invalid Invalid parameters (\{.*\})\.", re.IGNORECASE)
     BOT_WAS_DELETED_ERROR_PATTERN = re.compile(r"Other error occurred: Not found None None", re.IGNORECASE)
     BOT_DID_NOT_EXISTED_OR_BELONGS_TO_OTHER_ACCOUNT_ERROR_PATTERN = re.compile(r"Other error occurred: not_found Not Found None", re.IGNORECASE)
+    API_KEY_NOT_ENOUGH_PERMISSION_PATTERN = re.compile(r"access_denied Api key doesn't have enough permissions", re.IGNORECASE)
+    API_KEY_INVALID_OR_EXPIRED_PATTERN = re.compile(r'api_key_invalid_or_expired Unauthorized. Invalid or expired api key', re.IGNORECASE)
 
     def __init__(self, error):
         self.error: dict = error
-        self.error_parsed: dict = None
         try:
             if self._has_error_message():
-                match = ThreeCommasError.EXTRACT_PY3CW_MESSAGE_PATTERN.findall(error.get('msg'))
+                match = ThreeCommasError.EXTRACT_PY3CW_MESSAGE_PATTERN.findall(self.get_msg())
                 if match:
                     self.error_parsed = eval(match[0])
         except:
             logger.warning(f'Failed to parse inner error msg {error}')
 
-    def bo_to_small_error(self) -> List[BoToSmallError]:
-        ret = list()
-        # ret = ThreeCommasError.BoToSmallError(present=False)
-        if self._has_parsed_error_message() and self.error_parsed.get('base_order_volume'):
-            # ret.present = True
-            for sub_message in self.error_parsed.get('base_order_volume'):
-                bo_min_match = ThreeCommasError.BO_TO_SMALL_ERROR_PATTERN.findall(sub_message)
-                if bo_min_match:
-                    amount = float(bo_min_match[0][0])
-                    pair = bo_min_match[0][1] or None
-                    ret.append(ThreeCommasError.BoToSmallError(amount=amount, pair=pair))
-                    #ret.matches.append((amount, pair))
-                    # ret.amount.append(float(bo_min_match[0][0]))
-                    # ret.pair.append(bo_min_match[0][1] or None)
+    def is_api_key_has_no_permission_error(self):
+        return self._has_error_message() and self.API_KEY_NOT_ENOUGH_PERMISSION_PATTERN.findall(self.get_msg())
 
-        return ret
+    def is_api_key_invalid_or_expired(self):
+        return self._has_error_message() and self.API_KEY_INVALID_OR_EXPIRED_PATTERN.findall(self.get_msg())
+
+    def is_bo_to_small_error(self):
+        return self._has_error_message() and self.BO_TO_SMALL_ERROR_PATTERN.findall(self.get_msg())
+
+    def is_not_found_error(self):
+        return self._has_error_message() and 'not_found' in self.get_msg() or 'Not found' in self.get_msg()
 
     def is_no_market_pair_error(self) -> List[str]:
+        return self._has_error_message() and self.NO_MARKET_PAIR_ERROR_PATTERN.findall(self.get_msg())
+
+    def get_no_market_pair_error(self) -> List[str]:
         if self._has_error_message():
             pairs_to_remove = ThreeCommasError.NO_MARKET_PAIR_ERROR_PATTERN.findall(self.error.get('msg'))
             if pairs_to_remove:
                 return pairs_to_remove
+        return list()
 
-    def is_not_found_error(self):
-        return self._has_error_message() and 'not_found' in self.error.get('msg') or 'Not found' in self.error.get('msg')
+    def get_bo_to_small_error(self) -> List[BoToSmallError]:
+        ret = list()
+        if self._has_error_message():
+            try:
+                match = ThreeCommasError.EXTRACT_PY3CW_MESSAGE_PATTERN.findall(self.get_msg())
+                if match:
+                    error_parsed = eval(match[0])
+                else:
+                    return list()
+            except:
+                return list()
+            if error_parsed.get('base_order_volume'):
+                for sub_message in error_parsed.get('base_order_volume'):
+                    bo_min_match = ThreeCommasError.BO_TO_SMALL_ERROR_PATTERN.findall(sub_message)
+                    if bo_min_match:
+                        amount = float(bo_min_match[0][0])
+                        pair = bo_min_match[0][1] or None
+                        ret.append(ThreeCommasError.BoToSmallError(amount=amount, pair=pair))
+        return ret
 
     def _has_error_message(self):
-        return self.error and self.error.get('msg')
+        return self.error and self.get_msg()
 
     def _has_parsed_error_message(self):
         return self.error_parsed
 
+    def get_msg(self):
+        return self.error.get('msg')
+
     def __repr__(self):
-        return f'{self.__class__}({self.error})'
+        return f'{self.__class__.__name__}({self.error})'
 
 
