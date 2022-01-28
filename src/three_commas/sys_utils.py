@@ -43,6 +43,12 @@ def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, r
     :return:
     """
 
+    def blur_api_keys(d: dict):
+        if 'api_key' in d:
+            d['api_key'] = f'{d.get("api_key")[:5]}...'
+        if 'api_secret' in d:
+            d['api_secret'] = f'{d.get("api_secret")[:5]}...'
+
     def reduced_arg(arg):
         arg = str(arg)
         return arg if len(arg) < configuration.REDUCED_LOGGING_LIMIT else arg[:configuration.REDUCED_LOGGING_LIMIT] + '...'
@@ -66,6 +72,7 @@ def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, r
             else:
                 logging_args = args
                 logging_kwargs = kwargs
+                blur_api_keys(logging_kwargs)
             use_logger.debug(f"Called '{function_to_wrap.__name__}' with args={logging_args}, kwargs={logging_kwargs}")
 
             try:
