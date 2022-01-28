@@ -19,4 +19,4 @@ def check_bool_env(env_var_name: str, default_value: bool) -> bool:
 THREE_COMMAS_AUTO_PARSE_DEFAULT = check_bool_env('THREE_COMMAS_AUTO_PARSE_DEFAULT', True)
 THREE_COMMAS_AUTO_PARSE_DATETIME_DEFAULT = check_bool_env('THREE_COMMAS_AUTO_PARSE_DATETIME_DEFAULT', False)
 THREE_COMMAS_LOG_API = check_bool_env('THREE_COMMAS_LOG_API_DEFAULT', True)  # will log only on debug level
-REDUCED_LOGGING_LIMIT = 100
+REDUCED_LOGGING_LIMIT = 130

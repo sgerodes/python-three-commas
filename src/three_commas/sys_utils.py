@@ -33,63 +33,77 @@ def get_parent_module_name() -> str:
         stack_frame = stack_frame.f_back
 
 
-def logged(*args, use_logger: logging.Logger = None, log_return: bool = False, reduce_long_arguments: bool = False):
+def blur_api_keys(initial_dict: dict):
+    result = dict(initial_dict)
+    if 'api_key' in result:
+        result['api_key'] = f'{result.get("api_key")[:5]}...'
+    if 'api_secret' in result:
+        result['api_secret'] = f'{result.get("api_secret")[:5]}...'
+    return result
+
+
+def reduced_arg(arg):
+    arg = str(arg)
+    return arg if len(arg) < configuration.REDUCED_LOGGING_LIMIT else arg[:configuration.REDUCED_LOGGING_LIMIT] + '...'
+
+
+def transform_args_kwargs_for_logging(args: tuple, kwargs: dict, reduce_long_arguments: bool):
+    if reduce_long_arguments:
+        logging_args = ', '.join([reduced_arg(a) for a in args])
+        logging_kwargs = {k: reduced_arg(v) for k, v in kwargs}
+    else:
+        logging_args = args
+        logging_kwargs = kwargs
+    logging_kwargs = blur_api_keys(logging_kwargs)
+    return logging_args, logging_kwargs
+
+
+def logged(*logged_args,
+           with_logger: logging.Logger = None,
+           log_return: bool = False,
+           reduce_long_arguments: bool = False):
     """
-    :param args:
-    :param use_logger: Uses the passed logger to log.
+    :param logged_args:
+    :param with_logger: Uses the passed logger to log.
     By default it will use the logger of the module where the annotation was called
     :param log_return: If True, will log the return after the execution of the function
     :param reduce_long_arguments: If True and the wrapping function is called with long arguments, the the log will be trimmed
     :return:
     """
 
-    def blur_api_keys(d: dict):
-        if 'api_key' in d:
-            d['api_key'] = f'{d.get("api_key")[:5]}...'
-        if 'api_secret' in d:
-            d['api_secret'] = f'{d.get("api_secret")[:5]}...'
-
-    def reduced_arg(arg):
-        arg = str(arg)
-        return arg if len(arg) < configuration.REDUCED_LOGGING_LIMIT else arg[:configuration.REDUCED_LOGGING_LIMIT] + '...'
-
-    if use_logger is None:
+    if with_logger is None:
         parent_module_name = get_parent_module_name()
         if parent_module_name is None:
-            use_logger = logger
+            with_logger = logger
         else:
-            use_logger = logging.getLogger(parent_module_name)
+            with_logger = logging.getLogger(parent_module_name)
 
     def inner(function_to_wrap):
         @functools.wraps(function_to_wrap)
-        def wrapper(*args, **kwargs):
+        def wrapper(*wrapper_args, **wrapper_kwargs):
             if not configuration.THREE_COMMAS_LOG_API:
-                return function_to_wrap(*args, **kwargs)
+                return function_to_wrap(*wrapper_args, **wrapper_kwargs)
 
-            if reduce_long_arguments:
-                logging_args = ', '.join([reduced_arg(a) for a in args])
-                logging_kwargs = {k: reduced_arg(v) for k, v in kwargs}
-            else:
-                logging_args = args
-                logging_kwargs = kwargs
-                blur_api_keys(logging_kwargs)
-            use_logger.debug(f"Called '{function_to_wrap.__name__}' with args={logging_args}, kwargs={logging_kwargs}")
+            logging_args, logging_kwargs = transform_args_kwargs_for_logging(wrapper_args,
+                                                                             wrapper_kwargs,
+                                                                             reduce_long_arguments)
+            with_logger.debug(f"Called '{function_to_wrap.__name__}' with args={logging_args}, kwargs={logging_kwargs}")
 
             try:
-                ret = function_to_wrap(*args, **kwargs)
+                ret = function_to_wrap(*wrapper_args, **wrapper_kwargs)
             except Exception as e:
-                use_logger.debug(f"Function '{function_to_wrap.__name__}' raised an exception {repr(e)}")
+                with_logger.debug(f"Function '{function_to_wrap.__name__}' raised an exception {repr(e)}")
                 raise e
 
             if log_return:
-                use_logger.debug(f"Function '{function_to_wrap.__name__}' was executed and returned: {ret}")
+                with_logger.debug(f"Function '{function_to_wrap.__name__}' was executed and returned: {ret}")
             else:
-                use_logger.debug(f"Function '{function_to_wrap.__name__}' was executed")
+                with_logger.debug(f"Function '{function_to_wrap.__name__}' was executed")
             return ret
         return wrapper
 
-    if len(args) == 1 and callable(args[0]):
-        return inner(function_to_wrap=args[0])
+    if len(logged_args) == 1 and callable(logged_args[0]):
+        return inner(function_to_wrap=logged_args[0])
     return inner
 
 
