@@ -1,9 +1,10 @@
 # Title
 
-This library provides tools that help develop code that access the 3commas api very fast and easy. 
+This library provides tools that help develop code that access the 
+[3commas api](https://github.com/3commas-io/3commas-official-api-docs) very fast and easy. 
 The library is built on top of the py3cw library.
-Main features are prebuilt function to access the api, models for easier access of the returned data, 
-automatic attribute parsing of the returned data.
+Main features are prebuilt functions for the api, models for easier access of the returned data, 
+automatic attribute parsing of the returned data, built in error parsing. 
 
 WIP: this library is still in construction. Some endpoints implementations are missing. Feel free to create a PR in github 
 if you desire a particular endpoint implementation https://github.com/badass-blockchain/python-three-commas
