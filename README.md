@@ -43,6 +43,25 @@ For example if you want to get the bot max_active_deals you can do both:
     max_active_deals = bot['max_active_deals']
     max_active_deals = bot.get_max_active_deals()
 
+### Websocket Streams
+
+You can easily connect to the websockets 
+You can use annotations.
+
+    import three_commas
+
+    @three_commas.streams.smart_trades_stream
+    def handle_smart_trades(smart_trade):
+        # Do here something with the smart trade
+        # Every new smart trade is passed to this function
+        print(smart_trade)
+
+    @three_commas.streams.deals_stream
+    def handle_smart_deals(deal):
+        # Do here something with the deal
+        # Every new deal is passed to this function
+        print(deal)
+
 ### Parsing
 One of the features of this library is the automatic parsing of the returned data. 
 Some numeric data fetched from the api is returned as string. For example in the bot object:
