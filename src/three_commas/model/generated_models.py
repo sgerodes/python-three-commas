@@ -1144,3 +1144,142 @@ class PairsBlackList(OfDictClass):
 
     def set_pairs(self, pairs: List[str]):
         self['pairs'] = pairs
+
+
+class SmartTradeV2(OfDictClass):
+
+    def get_id(self) -> int:
+        return self.get('id')
+
+    def set_id(self, id: int):
+        self['id'] = id
+
+    @ThreeCommasParser.parsed(float)
+    def get_average_price(self) -> Union[str, float]:
+        return self.get('average_price')
+
+    def set_average_price(self, average_price: Union[str, float]):
+        self['average_price'] = average_price
+
+    def get_follow_price_type(self) -> str:
+        return self.get('follow_price_type')
+
+    def set_follow_price_type(self, follow_price_type: str):
+        self['follow_price_type'] = follow_price_type
+
+    @ThreeCommasParser.parsed(float)
+    def get_initial_amount(self) -> Union[str, float]:
+        return self.get('initial_amount')
+
+    def set_initial_amount(self, initial_amount: Union[str, float]):
+        self['initial_amount'] = initial_amount
+
+    @ThreeCommasParser.parsed(float)
+    def get_initial_total(self) -> Union[str, float]:
+        return self.get('initial_total')
+
+    def set_initial_total(self, initial_total: Union[str, float]):
+        self['initial_total'] = initial_total
+
+    def get_order_side(self) -> str:
+        return self.get('order_side')
+
+    def set_order_side(self, order_side: str):
+        self['order_side'] = order_side
+
+    def get_order_type(self) -> str:
+        return self.get('order_type')
+
+    def set_order_type(self, order_type: str):
+        self['order_type'] = order_type
+
+    def get_pair(self) -> str:
+        return self.get('pair')
+
+    def set_pair(self, pair: str):
+        self['pair'] = pair
+
+    @ThreeCommasParser.parsed(float)
+    def get_realised_amount(self) -> Union[str, float]:
+        return self.get('realised_amount')
+
+    def set_realised_amount(self, realised_amount: Union[str, float]):
+        self['realised_amount'] = realised_amount
+
+    @ThreeCommasParser.parsed(float)
+    def get_realised_total(self) -> Union[str, float]:
+        return self.get('realised_total')
+
+    def set_realised_total(self, realised_total: Union[str, float]):
+        self['realised_total'] = realised_total
+
+    def get_status(self) -> str:
+        return self.get('status')
+
+    def set_status(self, status: str):
+        self['status'] = status
+
+    def get_trade_purpose(self) -> str:
+        return self.get('trade_purpose')
+
+    def set_trade_purpose(self, trade_purpose: str):
+        self['trade_purpose'] = trade_purpose
+
+    def is_trailing_enabled(self) -> bool:
+        return self.get('trailing_enabled')
+
+    def set_trailing_enabled(self, trailing_enabled: bool):
+        self['trailing_enabled'] = trailing_enabled
+
+    def get_trigger_type(self) -> str:
+        return self.get('trigger_type')
+
+    def set_trigger_type(self, trigger_type: str):
+        self['trigger_type'] = trigger_type
+
+    @ThreeCommasParser.parsed_timestamp
+    def get_created_at(self) -> Union[str, datetime.datetime]:
+        return self.get('created_at')
+
+    def set_created_at(self, created_at: str):
+        self['created_at'] = created_at
+
+    @ThreeCommasParser.parsed_timestamp
+    def get_updated_at(self) -> Union[str, datetime.datetime]:
+        return self.get('updated_at')
+
+    def set_updated_at(self, updated_at: str):
+        self['updated_at'] = updated_at
+
+    @ThreeCommasParser.parsed(float)
+    def get_realised_percentage(self) -> Union[str, float]:
+        return self.get('realised_percentage')
+
+    def set_realised_percentage(self, realised_percentage: Union[str, float]):
+        self['realised_percentage'] = realised_percentage
+
+    @ThreeCommasParser.parsed(float)
+    def get_initial_price(self) -> Union[str, float]:
+        return self.get('initial_price')
+
+    def set_initial_price(self, initial_price: Union[str, float]):
+        self['initial_price'] = initial_price
+
+    @ThreeCommasParser.parsed(float)
+    def get_realised_price(self) -> Union[str, float]:
+        return self.get('realised_price')
+
+    def set_realised_price(self, realised_price: Union[str, float]):
+        self['realised_price'] = realised_price
+
+    def is_cancelable(self) -> bool:
+        return self.get('cancelable')
+
+    def set_cancelable(self, cancelable: bool):
+        self['cancelable'] = cancelable
+
+    def is_force_processable(self) -> bool:
+        return self.get('force_processable')
+
+    def set_force_processable(self, force_processable: bool):
+        self['force_processable'] = force_processable
