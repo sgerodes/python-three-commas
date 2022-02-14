@@ -84,10 +84,10 @@ tc_generated_classes = [
                               ThreeCommasJsonProperty('from_currency', str),
                               ThreeCommasJsonProperty('to_currency', str),
                               ThreeCommasJsonProperty('current_price', str, float),
-                              # ThreeCommasJsonProperty('take_profit_price', NoneType), TODO
+                              ThreeCommasJsonProperty('take_profit_price', str, float),
                               # ThreeCommasJsonProperty('stop_loss_price', NoneType), TODO
                               ThreeCommasJsonProperty('final_profit_percentage', str, float),
-                              # ThreeCommasJsonProperty('actual_profit_percentage', str, int), # TODO could be float
+                              ThreeCommasJsonProperty('actual_profit_percentage', str, float),
                               ThreeCommasJsonProperty('bot_name', str),
                               ThreeCommasJsonProperty('account_name', str),
                               ThreeCommasJsonProperty('usd_final_profit', str, float),
@@ -100,9 +100,9 @@ tc_generated_classes = [
                               ThreeCommasJsonProperty('trailing_max_price', str, float),
                               # ThreeCommasJsonProperty('tsl_max_price', NoneType), TODO
                               ThreeCommasJsonProperty('strategy', str),
-                              ThreeCommasJsonProperty('reserved_quote_funds', int),  # TODO could be float
+                              ThreeCommasJsonProperty('reserved_quote_funds', str, float),
                               # ThreeCommasJsonProperty('reserved_base_funds', int), # TODO could be float
-                              # ThreeCommasJsonProperty('buy_steps', ), TODO
+                              ThreeCommasJsonProperty('buy_steps', 'List[dict]'),
                               ThreeCommasJsonProperty('bot_events', List[dict], 'List[BotEvent]'),
                           ]),
     ThreeCommasModelClass(name='Bot',
@@ -254,6 +254,28 @@ tc_generated_classes = [
     ThreeCommasModelClass(name='SmartTradeV2',
                           properties=[
                               ThreeCommasJsonProperty('id', int),
+                              ThreeCommasJsonProperty('version', int),
+                              ThreeCommasJsonProperty('account', dict),
+                              ThreeCommasJsonProperty('pair', str),
+                              ThreeCommasJsonProperty('instant', bool),
+                              ThreeCommasJsonProperty('status', dict),
+                              ThreeCommasJsonProperty('leverage', dict),
+                              ThreeCommasJsonProperty('position', dict),
+                              ThreeCommasJsonProperty('take_profit', dict),
+                              ThreeCommasJsonProperty('stop_loss', dict),
+                              ThreeCommasJsonProperty('reduce_funds', dict),
+                              ThreeCommasJsonProperty('market_close', dict),
+                              ThreeCommasJsonProperty('note', str),
+                              # ThreeCommasJsonProperty('note_raw', NoneType),
+                              ThreeCommasJsonProperty('skip_enter_step', bool),
+                              ThreeCommasJsonProperty('data', dict),
+                              ThreeCommasJsonProperty('profit', dict),
+                              ThreeCommasJsonProperty('margin', dict),
+                              ThreeCommasJsonProperty('is_position_not_filled', bool),
+                          ]),
+    ThreeCommasModelClass(name='SmartTradeV2Trade',
+                          properties=[
+                              ThreeCommasJsonProperty('id', int),
                               ThreeCommasJsonProperty('average_price', str, float),
                               ThreeCommasJsonProperty('follow_price_type', str),
                               ThreeCommasJsonProperty('initial_amount', str, float),
@@ -396,6 +418,8 @@ def get_type_name_string(t: Union[type, str]) -> str:
         return None
     if isinstance(t, str):
         return t
+    if t is dict:
+        return 'dict'
 
     if is_primitive_type(t):
         return t.__name__

@@ -329,11 +329,25 @@ class Deal(OfDictClass):
         self['current_price'] = current_price
 
     @ThreeCommasParser.parsed(float)
+    def get_take_profit_price(self) -> Union[str, float]:
+        return self.get('take_profit_price')
+
+    def set_take_profit_price(self, take_profit_price: Union[str, float]):
+        self['take_profit_price'] = take_profit_price
+
+    @ThreeCommasParser.parsed(float)
     def get_final_profit_percentage(self) -> Union[str, float]:
         return self.get('final_profit_percentage')
 
     def set_final_profit_percentage(self, final_profit_percentage: Union[str, float]):
         self['final_profit_percentage'] = final_profit_percentage
+
+    @ThreeCommasParser.parsed(float)
+    def get_actual_profit_percentage(self) -> Union[str, float]:
+        return self.get('actual_profit_percentage')
+
+    def set_actual_profit_percentage(self, actual_profit_percentage: Union[str, float]):
+        self['actual_profit_percentage'] = actual_profit_percentage
 
     def get_bot_name(self) -> str:
         return self.get('bot_name')
@@ -402,11 +416,18 @@ class Deal(OfDictClass):
     def set_strategy(self, strategy: str):
         self['strategy'] = strategy
 
-    def get_reserved_quote_funds(self) -> int:
+    @ThreeCommasParser.parsed(float)
+    def get_reserved_quote_funds(self) -> Union[str, float]:
         return self.get('reserved_quote_funds')
 
-    def set_reserved_quote_funds(self, reserved_quote_funds: int):
+    def set_reserved_quote_funds(self, reserved_quote_funds: Union[str, float]):
         self['reserved_quote_funds'] = reserved_quote_funds
+
+    def get_buy_steps(self) -> List[dict]:
+        return self.get('buy_steps')
+
+    def set_buy_steps(self, buy_steps: List[dict]):
+        self['buy_steps'] = buy_steps
 
     @ThreeCommasParser.lazy_parsed(List[BotEvent])
     def get_bot_events(self) -> Union[List[dict], List[BotEvent]]:
@@ -1147,6 +1168,117 @@ class PairsBlackList(OfDictClass):
 
 
 class SmartTradeV2(OfDictClass):
+
+    def get_id(self) -> int:
+        return self.get('id')
+
+    def set_id(self, id: int):
+        self['id'] = id
+
+    def get_version(self) -> int:
+        return self.get('version')
+
+    def set_version(self, version: int):
+        self['version'] = version
+
+    def get_account(self) -> dict:
+        return self.get('account')
+
+    def set_account(self, account: dict):
+        self['account'] = account
+
+    def get_pair(self) -> str:
+        return self.get('pair')
+
+    def set_pair(self, pair: str):
+        self['pair'] = pair
+
+    def is_instant(self) -> bool:
+        return self.get('instant')
+
+    def set_instant(self, instant: bool):
+        self['instant'] = instant
+
+    def get_status(self) -> dict:
+        return self.get('status')
+
+    def set_status(self, status: dict):
+        self['status'] = status
+
+    def get_leverage(self) -> dict:
+        return self.get('leverage')
+
+    def set_leverage(self, leverage: dict):
+        self['leverage'] = leverage
+
+    def get_position(self) -> dict:
+        return self.get('position')
+
+    def set_position(self, position: dict):
+        self['position'] = position
+
+    def get_take_profit(self) -> dict:
+        return self.get('take_profit')
+
+    def set_take_profit(self, take_profit: dict):
+        self['take_profit'] = take_profit
+
+    def get_stop_loss(self) -> dict:
+        return self.get('stop_loss')
+
+    def set_stop_loss(self, stop_loss: dict):
+        self['stop_loss'] = stop_loss
+
+    def get_reduce_funds(self) -> dict:
+        return self.get('reduce_funds')
+
+    def set_reduce_funds(self, reduce_funds: dict):
+        self['reduce_funds'] = reduce_funds
+
+    def get_market_close(self) -> dict:
+        return self.get('market_close')
+
+    def set_market_close(self, market_close: dict):
+        self['market_close'] = market_close
+
+    def get_note(self) -> str:
+        return self.get('note')
+
+    def set_note(self, note: str):
+        self['note'] = note
+
+    def is_skip_enter_step(self) -> bool:
+        return self.get('skip_enter_step')
+
+    def set_skip_enter_step(self, skip_enter_step: bool):
+        self['skip_enter_step'] = skip_enter_step
+
+    def get_data(self) -> dict:
+        return self.get('data')
+
+    def set_data(self, data: dict):
+        self['data'] = data
+
+    def get_profit(self) -> dict:
+        return self.get('profit')
+
+    def set_profit(self, profit: dict):
+        self['profit'] = profit
+
+    def get_margin(self) -> dict:
+        return self.get('margin')
+
+    def set_margin(self, margin: dict):
+        self['margin'] = margin
+
+    def is_position_not_filled(self) -> bool:
+        return self.get('is_position_not_filled')
+
+    def set_is_position_not_filled(self, is_position_not_filled: bool):
+        self['is_position_not_filled'] = is_position_not_filled
+
+
+class SmartTradeV2Trade(OfDictClass):
 
     def get_id(self) -> int:
         return self.get('id')
