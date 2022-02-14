@@ -17,10 +17,11 @@ if you desire a particular endpoint implementation https://github.com/badass-blo
 
 The package is built mirroring the names of the api paths. For example:
 
-    import three_commas.api.ver1 as api_v1
+    from three_commas import api
 
-    api_v1.bots # bots endpoint
-    api_v1.accounts # account endpoint
+    api.ver1.bots # bots endpoint
+    api.ver1.accounts # account endpoint
+    api.v2.smart_trades # v2 smart_trades endpoint
 
 You can get all bots with: 
 
@@ -29,6 +30,10 @@ You can get all bots with:
 Or a single bot with:
 
     bot = api_v1.bots.get_show(bot_id=<your_bot_id>)
+
+Or a smart trade
+
+    smart_trade = api.v2.smart_trades.get_by_id(smart_trade_id=9993000)
 
 The endpoints return a dict object with added functionality. You can use the object like a normal dictionary 
 (exactly how you receive from py3cw), or use the added functions. 
