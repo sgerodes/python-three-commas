@@ -9,6 +9,7 @@ cachetools = "*"
 py3cw = "*"
 python-dotenv = "*"
 aenum = "*"
+websockets = "*"
 
 [dev-packages]
 

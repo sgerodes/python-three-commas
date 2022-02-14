@@ -5,6 +5,8 @@ import functools
 from py3cw.request import Py3CW
 from typing import Callable, Union, Tuple
 import os
+import hmac
+import hashlib
 from .model.generated_enums import Mode
 from . import configuration
 from .error import ThreeCommasError
@@ -188,6 +190,13 @@ def verify_no_error(error, data):
     if data is None:
         logger.warning(f'No data was received for function {calling_function_name}')
         raise ThreeCommasError(error={'msg': 'Data is None', 'function_name': calling_function_name})
+
+
+def create_signature(payload, api_secret):
+    signature = hmac.new(bytes(api_secret, 'latin-1'),
+                         msg=bytes(payload, 'latin-1'),
+                         digestmod=hashlib.sha256).hexdigest()
+    return signature
 
 
 def get_paper_headers():
