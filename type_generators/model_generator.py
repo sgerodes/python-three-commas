@@ -302,11 +302,12 @@ def create_getter(prop: ThreeCommasJsonProperty):
     initial_type_name_str = get_type_name_string(prop.initial_type)
     parsed_type_name_str = get_type_name_string(prop.parsed_type)
 
-    getter_name = create_getter_function_name(prop)
+    getter_name = prop.name.replace('?', '')  # create_getter_function_name(prop)
 
     return_type = f'Union[{initial_type_name_str}, {parsed_type_name_str}]' if prop.parsed_type else initial_type_name_str
 
     file_buffer.append('')
+    file_buffer.append(f"{INDENT}@property")
     if prop.parsed_type is not None:
         if prop.parsed_type is datetime.datetime:
             file_buffer.append(f"{INDENT}@ThreeCommasParser.parsed_timestamp")
@@ -339,6 +340,7 @@ def create_setter(prop: ThreeCommasJsonProperty):
     file_buffer = list()
     property_name = prop.name
     property_variable = property_name.replace('?', '')
+    setter_name = prop.name.replace('?', '')  # create_setter_function_name(prop)
     initial_type_name_str = get_type_name_string(prop.initial_type)
     parsed_type_name_str = get_type_name_string(prop.parsed_type)
 
@@ -349,9 +351,8 @@ def create_setter(prop: ThreeCommasJsonProperty):
     else:
         attribute_types = initial_type_name_str
 
-    setter_name = create_setter_function_name(prop)
-
     file_buffer.append('')
+    file_buffer.append(f"{INDENT}@{setter_name}.setter")
     file_buffer.append(f'{INDENT}def {setter_name}(self, {property_variable}: {attribute_types}):')
     file_buffer.append(f"{INDENT * 2}self['{property_name}'] = {property_variable}")
 

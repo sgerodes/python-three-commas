@@ -8,7 +8,7 @@ def test_deal_market_orders():
         j = json.loads(f.read())
         dmo_list = DealMarketOrder.of_list(j)
         dmo: DealMarketOrder = dmo_list[0]
-        assert isinstance(dmo.get_order_id(), int)
+        assert isinstance(dmo.order_id, int)
         assert isinstance(dmo.get_created_at(parsed=True), datetime.datetime)
         assert isinstance(dmo.get_updated_at(parsed=True), datetime.datetime)
         assert isinstance(dmo.get_quantity(), float)
