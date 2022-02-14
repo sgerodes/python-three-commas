@@ -6,12 +6,11 @@ import logging
 from enum import Enum
 import functools
 import threading
-from .model import Deal
+from .model import Deal, SmartTradeV2
 
 logger = logging.getLogger(__name__)
 
 
-# BASE_URL = 'wss://ws.3commas.io/websocket/smart_trades'
 BASE_URL = 'wss://ws.3commas.io/websocket'
 
 
@@ -22,10 +21,8 @@ class StreamType(Enum):
             self.channel = channel
             self.parse_type = parse_type
 
-        def has_parse_type(self):
-            return self.parse_type is not None
 
-    SMART_TRADES = StreamTypeConfig(endpoint='/smart_trades', channel='SmartTradesChannel')
+    SMART_TRADES = StreamTypeConfig(endpoint='/smart_trades', channel='SmartTradesChannel', parse_type=SmartTradeV2)
     DEALS = StreamTypeConfig(endpoint='/deals', channel='DealsChannel', parse_type=Deal)
 
     def get_endpoint(self):
@@ -36,6 +33,9 @@ class StreamType(Enum):
 
     def get_parse_type(self):
         return self.value.parse_type
+
+    def has_parse_type(self):
+        return self.value.parse_type is not None
 
 
 class WebSocketMessageType(str, Enum):
@@ -113,7 +113,7 @@ def create_runner_for_stream_type(stream_type: StreamType, api_key, api_secret):
                     if ws_dict_message.is_stream_type(stream_type):
                         tc_message = ws_dict_message.get_message()
                         if stream_type.has_parse_type():
-                            tc_message = stream_type.get_parse_type(tc_message)
+                            tc_message = stream_type.get_parse_type()(tc_message)
                         function_to_wrap(tc_message)
 
         # loop = asyncio.get_event_loop()

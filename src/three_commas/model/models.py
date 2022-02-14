@@ -138,6 +138,9 @@ class OfDictClass(dict):
             return None
         return [cls.of(d) for d in list_of_d]
 
+    def __repr__(self):
+        return f'{self.__class__.__name__}({super().__repr__()})'
+
 
 class BotEvent(OfDictClass):
     PRICE_PATTERN = re.compile(r"Price: ([\d.]+)\b", re.IGNORECASE)
