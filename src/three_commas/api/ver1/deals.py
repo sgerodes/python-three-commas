@@ -1,12 +1,17 @@
 from py3cw.request import Py3CW
 from ...model import *
 from ...error import ThreeCommasError
-from typing import Tuple
+from typing import Tuple, List
+import logging
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 
 
-wrapper = Py3CW('', '')
+logger = logging.getLogger(__name__)
+wrapper: Py3cwClosure = None
 
 
+@logged
+@with_py3cw
 def get():
     """
     /ver1/deals
@@ -20,6 +25,8 @@ def get():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_convert_to_smart_trade_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/convert_to_smart_trade
@@ -34,6 +41,8 @@ def post_convert_to_smart_trade_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_update_max_safety_orders_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/update_max_safety_orders
@@ -48,6 +57,8 @@ def post_update_max_safety_orders_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_panic_sell_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/panic_sell
@@ -62,6 +73,8 @@ def post_panic_sell_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_cancel_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/cancel
@@ -76,6 +89,8 @@ def post_cancel_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def patch_update_deal_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/update_deal
@@ -90,6 +105,8 @@ def patch_update_deal_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_update_tp_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/update_tp
@@ -104,6 +121,8 @@ def post_update_tp_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_show_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/show
@@ -118,6 +137,8 @@ def get_show_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_cancel_order_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/cancel_order
@@ -132,6 +153,8 @@ def post_cancel_order_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_market_orders_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/market_orders
@@ -146,6 +169,8 @@ def get_market_orders_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_add_funds_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/add_funds
@@ -160,6 +185,8 @@ def post_add_funds_by_id(deal_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_data_for_adding_funds_by_id(deal_id):
     """
     /ver1/deals/{deal_id}/data_for_adding_funds

@@ -1,13 +1,33 @@
 from py3cw.request import Py3CW
 from ...model import *
 from ...error import ThreeCommasError
-from typing import Tuple
+from typing import Tuple, List
+import logging
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 
 
-wrapper = Py3CW('', '')
+logger = logging.getLogger(__name__)
+wrapper: Py3cwClosure = None
 
 
-def post():
+@logged
+@with_py3cw
+def get() -> Tuple[ThreeCommasError, List[SmartTradeV2Entity]]:
+    """
+    /v2/smart_trades
+    Get smart trade history (Permission: SMART_TRADE_READ, Security: SIGNED)
+
+    """
+    error, data = wrapper.request(
+        entity='smart_trades_v2',
+        action='',
+    )
+    return ThreeCommasError(error), SmartTradeV2Entity.of_list(data)
+
+
+@logged
+@with_py3cw
+def post() -> Tuple[ThreeCommasError, List[SmartTradeV2Entity]]:
     """
     /v2/smart_trades
     Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -17,9 +37,43 @@ def post():
         entity='smart_trades_v2',
         action='new',
     )
+    return ThreeCommasError(error), SmartTradeV2Entity.of_list(data)
+
+
+@logged
+@with_py3cw
+def get_by_id(id):
+    """
+    /v2/smart_trades/{id}
+    Get smart trade v2 by id (Permission: SMART_TRADE_READ, Security: SIGNED)
+
+    """
+    error, data = wrapper.request(
+        entity='smart_trades_v2',
+        action='get_by_id',
+        action_id=str(id),
+    )
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
+def delete_by_id(id):
+    """
+    /v2/smart_trades/{id}
+    Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
+
+    """
+    error, data = wrapper.request(
+        entity='smart_trades_v2',
+        action='cancel',
+        action_id=str(id),
+    )
+    return ThreeCommasError(error), data
+
+
+@logged
+@with_py3cw
 def patch_by_id(id):
     """
     /v2/smart_trades/{id}
@@ -35,6 +89,8 @@ def patch_by_id(id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_reduce_funds_by_id(id):
     """
     /v2/smart_trades/{id}/reduce_funds
@@ -50,6 +106,8 @@ def post_reduce_funds_by_id(id):
 '''
 
 
+@logged
+@with_py3cw
 def post_add_funds_by_id(id):
     """
     /v2/smart_trades/{id}/add_funds
@@ -64,6 +122,8 @@ def post_add_funds_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_close_by_market_by_id(id):
     """
     /v2/smart_trades/{id}/close_by_market
@@ -78,6 +138,8 @@ def post_close_by_market_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_force_start_by_id(id):
     """
     /v2/smart_trades/{id}/force_start
@@ -92,6 +154,8 @@ def post_force_start_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_force_process_by_id(id):
     """
     /v2/smart_trades/{id}/force_process
@@ -106,6 +170,8 @@ def post_force_process_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_set_note_by_id(id):
     """
     /v2/smart_trades/{id}/set_note
@@ -120,7 +186,9 @@ def post_set_note_by_id(id):
     return ThreeCommasError(error), data
 
 
-def get_trades_by_id(smart_trade_id):
+@logged
+@with_py3cw
+def get_trades_by_id(smart_trade_id) -> Tuple[ThreeCommasError, List[SmartTradeV2Entity]]:
     """
     /v2/smart_trades/{smart_trade_id}/trades
     Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)
@@ -131,9 +199,11 @@ def get_trades_by_id(smart_trade_id):
         action='get_trades',
         action_id=str(smart_trade_id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasError(error), SmartTradeV2Entity.of_list(data)
 
 
+@logged
+@with_py3cw
 def post_trades_close_by_market_by_id(smart_trade_id, id):
     """
     /v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market
@@ -149,6 +219,8 @@ def post_trades_close_by_market_by_id(smart_trade_id, id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def delete_trades_by_id(smart_trade_id, id):
     """
     /v2/smart_trades/{smart_trade_id}/trades/{id}

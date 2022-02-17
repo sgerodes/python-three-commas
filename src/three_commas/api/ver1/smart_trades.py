@@ -1,13 +1,18 @@
 from py3cw.request import Py3CW
 from ...model import *
 from ...error import ThreeCommasError
-from typing import Tuple
+from typing import Tuple, List
+import logging
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 
 
-wrapper = Py3CW('', '')
+logger = logging.getLogger(__name__)
+wrapper: Py3cwClosure = None
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_create_simple_sell():
     """
     /ver1/smart_trades/create_simple_sell
@@ -23,6 +28,8 @@ def post_create_simple_sell():
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_create_simple_buy():
     """
     /ver1/smart_trades/create_simple_buy
@@ -38,6 +45,8 @@ def post_create_simple_buy():
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_create_smart_sell():
     """
     /ver1/smart_trades/create_smart_sell
@@ -53,6 +62,8 @@ def post_create_smart_sell():
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_create_smart_cover():
     """
     /ver1/smart_trades/create_smart_cover
@@ -68,6 +79,8 @@ def post_create_smart_cover():
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_create_smart_trade():
     """
     /ver1/smart_trades/create_smart_trade
@@ -83,6 +96,8 @@ def post_create_smart_trade():
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def get():
     """
     /ver1/smart_trades
@@ -98,6 +113,8 @@ def get():
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_cancel_order_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/cancel_order
@@ -114,6 +131,8 @@ def post_cancel_order_by_id(smart_trade_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_add_funds_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/add_funds
@@ -130,6 +149,8 @@ def post_add_funds_by_id(smart_trade_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_step_panic_sell_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/step_panic_sell
@@ -146,6 +167,8 @@ def post_step_panic_sell_by_id(smart_trade_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def patch_update_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/update
@@ -162,6 +185,8 @@ def patch_update_by_id(smart_trade_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_cancel_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/cancel
@@ -178,6 +203,8 @@ def post_cancel_by_id(smart_trade_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_panic_sell_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/panic_sell
@@ -194,6 +221,8 @@ def post_panic_sell_by_id(smart_trade_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_force_start_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/force_start
@@ -210,6 +239,8 @@ def post_force_start_by_id(smart_trade_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def post_force_process_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/force_process
@@ -226,6 +257,8 @@ def post_force_process_by_id(smart_trade_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def get_show_by_id(smart_trade_id):
     """
     /ver1/smart_trades/{smart_trade_id}/show

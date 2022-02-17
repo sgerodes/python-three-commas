@@ -114,7 +114,11 @@ def create_function_logic(verb: str, path: str, parameters: List[dict], return_t
         code.append(f"{INDENT*2}action_sub_id=str({path_variable_2}),")
     code.append(f"{INDENT})")
     if return_type:
-        code.append(f"{INDENT}return ThreeCommasError(error), {return_type}(data)")
+        if return_type.startswith('List['):
+            list_element_type = return_type.split('[')[1].split(']')[0]
+            code.append(f"{INDENT}return ThreeCommasError(error), {list_element_type}.of_list(data)")
+        else:
+            code.append(f"{INDENT}return ThreeCommasError(error), {return_type}(data)")
     else:
         code.append(f"{INDENT}return ThreeCommasError(error), data")
 
@@ -214,6 +218,8 @@ def generate():
                 if return_type:
                     return_type_statement = f' -> Tuple[ThreeCommasError, {return_type}]'
 
+                code.append(f'@logged')
+                code.append(f'@with_py3cw')
                 code.append(f'def {function_name}({function_parameters}){return_type_statement}:')
                 docstring = create_docstring(path, parameters, description)
                 if docstring:
@@ -227,7 +233,7 @@ def generate():
                 code.append('')
                 code.append('')
 
-            structured_code[f'{version}/{endpoint}'].append('\n'.join(code))
+                structured_code[f'{version}/{endpoint}'].append('\n'.join(code))
 
         create_models(swaggerdoc)
 
@@ -236,10 +242,13 @@ def generate():
             imports.append("from py3cw.request import Py3CW")
             imports.append("from ...model import *")
             imports.append("from ...error import ThreeCommasError")
-            imports.append("from typing import Tuple")
+            imports.append("from typing import Tuple, List")
+            imports.append("import logging")
+            imports.append("from ...sys_utils import logged, with_py3cw, Py3cwClosure")
             imports.append("")
             imports.append("")
-            imports.append("wrapper = Py3CW('', '')")
+            imports.append("logger = logging.getLogger(__name__)")
+            imports.append("wrapper: Py3cwClosure = None")
             imports.append("")
             imports.append("")
             imports.append("")
@@ -251,6 +260,16 @@ def generate():
                 os.makedirs(os.path.dirname(full_path), exist_ok=True)
             with open(full_path, 'w') as f2:
                 f2.write(''.join(c))
+
+        with open(f'{PARENT_FOLDER_NAME}/__init__.py', 'w') as f3:
+            f3.write('from . import ver1, v2')
+            f3.write('\n')
+        with open(f'{PARENT_FOLDER_NAME}/v2/__init__.py', 'w') as f4:
+            f4.write('from . import smart_trades')
+            f4.write('\n')
+        with open(f'{PARENT_FOLDER_NAME}/ver1/__init__.py', 'w') as f5:
+            f5.write('from . import accounts, bots, deals, grid_bots, marketplace, users')
+            f5.write('\n')
 
 
 if __name__ == '__main__':

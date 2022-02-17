@@ -1,12 +1,17 @@
 from py3cw.request import Py3CW
 from ...model import *
 from ...error import ThreeCommasError
-from typing import Tuple
+from typing import Tuple, List
+import logging
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 
 
-wrapper = Py3CW('', '')
+logger = logging.getLogger(__name__)
+wrapper: Py3cwClosure = None
 
 
+@logged
+@with_py3cw
 def post_transfer():
     """
     /ver1/accounts/transfer
@@ -20,6 +25,8 @@ def post_transfer():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_transfer_history():
     """
     /ver1/accounts/transfer_history
@@ -33,6 +40,8 @@ def get_transfer_history():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_transfer_data():
     """
     /ver1/accounts/transfer_data
@@ -46,6 +55,8 @@ def get_transfer_data():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_new():
     """
     /ver1/accounts/new
@@ -59,6 +70,8 @@ def post_new():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_update():
     """
     /ver1/accounts/update
@@ -72,6 +85,8 @@ def post_update():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get():
     """
     /ver1/accounts
@@ -85,6 +100,8 @@ def get():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_market_list():
     """
     /ver1/accounts/market_list
@@ -98,6 +115,8 @@ def get_market_list():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_market_pairs():
     """
     /ver1/accounts/market_pairs
@@ -112,6 +131,8 @@ def get_market_pairs():
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def get_currency_rates_with_leverage_data():
     """
     /ver1/accounts/currency_rates_with_leverage_data
@@ -126,6 +147,8 @@ def get_currency_rates_with_leverage_data():
 '''
 
 
+@logged
+@with_py3cw
 def get_currency_rates():
     """
     /ver1/accounts/currency_rates
@@ -140,6 +163,8 @@ def get_currency_rates():
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def get_deposit_data_by_id(account_id):
     """
     /ver1/accounts/{account_id}/deposit_data
@@ -155,6 +180,8 @@ def get_deposit_data_by_id(account_id):
 '''
 
 
+@logged
+@with_py3cw
 def get_networks_info_by_id(account_id):
     """
     /ver1/accounts/{account_id}/networks_info
@@ -169,6 +196,8 @@ def get_networks_info_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_convert_dust_to_bnb_by_id(account_id):
     """
     /ver1/accounts/{account_id}/convert_dust_to_bnb
@@ -183,6 +212,8 @@ def post_convert_dust_to_bnb_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_active_trading_entities_by_id(account_id):
     """
     /ver1/accounts/{account_id}/active_trading_entities
@@ -197,6 +228,8 @@ def get_active_trading_entities_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_sell_all_to_usd_by_id(account_id):
     """
     /ver1/accounts/{account_id}/sell_all_to_usd
@@ -211,6 +244,8 @@ def post_sell_all_to_usd_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_sell_all_to_btc_by_id(account_id):
     """
     /ver1/accounts/{account_id}/sell_all_to_btc
@@ -225,6 +260,8 @@ def post_sell_all_to_btc_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_balance_chart_data_by_id(account_id):
     """
     /ver1/accounts/{account_id}/balance_chart_data
@@ -239,6 +276,8 @@ def get_balance_chart_data_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_load_balances_by_id(account_id):
     """
     /ver1/accounts/{account_id}/load_balances
@@ -253,6 +292,8 @@ def post_load_balances_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_rename_by_id(account_id):
     """
     /ver1/accounts/{account_id}/rename
@@ -267,6 +308,8 @@ def post_rename_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_pie_chart_data_by_id(account_id):
     """
     /ver1/accounts/{account_id}/pie_chart_data
@@ -281,6 +324,8 @@ def post_pie_chart_data_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_account_table_data_by_id(account_id):
     """
     /ver1/accounts/{account_id}/account_table_data
@@ -295,6 +340,8 @@ def post_account_table_data_by_id(account_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_remove_by_id(account_id):
     """
     /ver1/accounts/{account_id}/remove
@@ -310,6 +357,8 @@ def post_remove_by_id(account_id):
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def get_leverage_data_by_id(account_id):
     """
     /ver1/accounts/{account_id}/leverage_data
@@ -325,6 +374,8 @@ def get_leverage_data_by_id(account_id):
 '''
 
 
+@logged
+@with_py3cw
 def get_by_id(account_id):
     """
     /ver1/accounts/{account_id}

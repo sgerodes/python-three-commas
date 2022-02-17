@@ -1,4 +1,4 @@
-from .api.ver1.bots import get_show
+from .api.ver1.bots import get_show_by_id
 from .model import *
 import requests
 import logging
@@ -14,7 +14,7 @@ BASE_URL = 'https://3commas.io'
 
 @logged
 def get_bot_profit_line_chart_data(bot_id: int):
-    bot_model = get_show(bot_id=bot_id)
+    bot_model = get_show_by_id(bot_id=bot_id)
     url_secret = bot_model.get_url_secret()
     parameters = {
         'secret': url_secret,

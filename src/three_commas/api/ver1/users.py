@@ -1,12 +1,17 @@
 from py3cw.request import Py3CW
 from ...model import *
 from ...error import ThreeCommasError
-from typing import Tuple
+from typing import Tuple, List
+import logging
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 
 
-wrapper = Py3CW('', '')
+logger = logging.getLogger(__name__)
+wrapper: Py3cwClosure = None
 
 
+@logged
+@with_py3cw
 def get_current_mode():
     """
     /ver1/users/current_mode
@@ -20,6 +25,8 @@ def get_current_mode():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_change_mode():
     """
     /ver1/users/change_mode

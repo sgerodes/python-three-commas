@@ -1,13 +1,18 @@
 from py3cw.request import Py3CW
 from ...model import *
 from ...error import ThreeCommasError
-from typing import Tuple
+from typing import Tuple, List
+import logging
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 
 
-wrapper = Py3CW('', '')
+logger = logging.getLogger(__name__)
+wrapper: Py3cwClosure = None
 
 
 ''' This endpoint was not present in the py3cw module
+@logged
+@with_py3cw
 def get_presets():
     """
     /ver1/marketplace/presets
@@ -22,6 +27,8 @@ def get_presets():
 '''
 
 
+@logged
+@with_py3cw
 def get_items():
     """
     /ver1/marketplace/items
@@ -35,6 +42,8 @@ def get_items():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_signals_by_id(item_id):
     """
     /ver1/marketplace/{item_id}/signals

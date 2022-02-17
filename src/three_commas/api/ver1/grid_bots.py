@@ -1,12 +1,17 @@
 from py3cw.request import Py3CW
 from ...model import *
 from ...error import ThreeCommasError
-from typing import Tuple
+from typing import Tuple, List
+import logging
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 
 
-wrapper = Py3CW('', '')
+logger = logging.getLogger(__name__)
+wrapper: Py3cwClosure = None
 
 
+@logged
+@with_py3cw
 def post_ai():
     """
     /ver1/grid_bots/ai
@@ -20,6 +25,8 @@ def post_ai():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_manual():
     """
     /ver1/grid_bots/manual
@@ -33,6 +40,8 @@ def post_manual():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_ai_settings():
     """
     /ver1/grid_bots/ai_settings
@@ -46,6 +55,8 @@ def get_ai_settings():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get():
     """
     /ver1/grid_bots
@@ -59,6 +70,8 @@ def get():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_market_orders_by_id(id):
     """
     /ver1/grid_bots/{id}/market_orders
@@ -73,6 +86,8 @@ def get_market_orders_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_profits_by_id(id):
     """
     /ver1/grid_bots/{id}/profits
@@ -87,6 +102,8 @@ def get_profits_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def patch_ai_by_id(id):
     """
     /ver1/grid_bots/{id}/ai
@@ -101,6 +118,8 @@ def patch_ai_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def patch_manual_by_id(id):
     """
     /ver1/grid_bots/{id}/manual
@@ -115,6 +134,24 @@ def patch_manual_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
+def get_by_id(id):
+    """
+    /ver1/grid_bots/{id}
+    Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
+
+    """
+    error, data = wrapper.request(
+        entity='grid_bots',
+        action='get',
+        action_id=str(id),
+    )
+    return ThreeCommasError(error), data
+
+
+@logged
+@with_py3cw
 def delete_by_id(id):
     """
     /ver1/grid_bots/{id}
@@ -129,6 +166,8 @@ def delete_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_disable_by_id(id):
     """
     /ver1/grid_bots/{id}/disable
@@ -143,6 +182,8 @@ def post_disable_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_enable_by_id(id):
     """
     /ver1/grid_bots/{id}/enable
@@ -157,6 +198,8 @@ def post_enable_by_id(id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_required_balances_by_id(id):
     """
     /ver1/grid_bots/{id}/required_balances

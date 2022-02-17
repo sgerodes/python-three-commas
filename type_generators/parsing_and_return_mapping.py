@@ -4,7 +4,10 @@ from typing import *
 
 # {endpoint_path : str_class_to_parse_to}
 ENDPOINT_RETURNS_MAP = {
-    '/ver1/bots/{bot_id}/show': 'BotEntity'
+    '/ver1/bots/{bot_id}/show': 'BotEntity',
+    '/ver1/bots': 'List[BotEntity]',
+    '/v2/smart_trades': 'List[SmartTradeV2Entity]',
+    '/v2/smart_trades/{smart_trade_id}/trades': 'List[SmartTradeV2Entity]',
 }
 
 
@@ -42,7 +45,6 @@ PARSING_MAPPING = {
         'trailing_deviation': float,
         'trailing_max_price': float,
         'reserved_quote_funds': float,
-        # 'bot_events': List[BotEvent],
     },
     'BotEntity': {
         'created_at': datetime,
@@ -60,8 +62,6 @@ PARSING_MAPPING = {
         'finished_deals_profit_usd': float,
         'finished_deals_count': int,
         'active_deals_usd_profit': float,
-        # 'active_deals': List[Deal],
-        # 'bot_events': List[BotEvent],
     },
     'DealMarketOrderEntity': {
         'order_id': int,

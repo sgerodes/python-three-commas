@@ -1,12 +1,17 @@
 from py3cw.request import Py3CW
 from ...model import *
 from ...error import ThreeCommasError
-from typing import Tuple
+from typing import Tuple, List
+import logging
+from ...sys_utils import logged, with_py3cw, Py3cwClosure
 
 
-wrapper = Py3CW('', '')
+logger = logging.getLogger(__name__)
+wrapper: Py3cwClosure = None
 
 
+@logged
+@with_py3cw
 def get_strategy_list():
     """
     /ver1/bots/strategy_list
@@ -20,6 +25,8 @@ def get_strategy_list():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_pairs_black_list():
     """
     /ver1/bots/pairs_black_list
@@ -33,6 +40,8 @@ def get_pairs_black_list():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_update_pairs_black_list():
     """
     /ver1/bots/update_pairs_black_list
@@ -46,6 +55,8 @@ def post_update_pairs_black_list():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_create_bot():
     """
     /ver1/bots/create_bot
@@ -59,7 +70,9 @@ def post_create_bot():
     return ThreeCommasError(error), data
 
 
-def get():
+@logged
+@with_py3cw
+def get() -> Tuple[ThreeCommasError, List[BotEntity]]:
     """
     /ver1/bots
     User bots (Permission: BOTS_READ, Security: SIGNED)
@@ -69,9 +82,11 @@ def get():
         entity='bots',
         action='',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasError(error), BotEntity.of_list(data)
 
 
+@logged
+@with_py3cw
 def get_stats():
     """
     /ver1/bots/stats
@@ -85,6 +100,8 @@ def get_stats():
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_copy_and_create_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/copy_and_create
@@ -99,6 +116,8 @@ def post_copy_and_create_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def patch_update_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/update
@@ -113,6 +132,8 @@ def patch_update_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_disable_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/disable
@@ -127,6 +148,8 @@ def post_disable_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_enable_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/enable
@@ -141,6 +164,8 @@ def post_enable_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_start_new_deal_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/start_new_deal
@@ -155,6 +180,8 @@ def post_start_new_deal_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_delete_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/delete
@@ -169,6 +196,8 @@ def post_delete_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_panic_sell_all_deals_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/panic_sell_all_deals
@@ -183,6 +212,8 @@ def post_panic_sell_all_deals_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def post_cancel_all_deals_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/cancel_all_deals
@@ -197,6 +228,8 @@ def post_cancel_all_deals_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_deals_stats_by_id(bot_id):
     """
     /ver1/bots/{bot_id}/deals_stats
@@ -211,6 +244,8 @@ def get_deals_stats_by_id(bot_id):
     return ThreeCommasError(error), data
 
 
+@logged
+@with_py3cw
 def get_show_by_id(bot_id) -> Tuple[ThreeCommasError, BotEntity]:
     """
     /ver1/bots/{bot_id}/show
