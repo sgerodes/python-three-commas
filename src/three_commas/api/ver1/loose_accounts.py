@@ -1,5 +1,7 @@
 from py3cw.request import Py3CW
-from models import *
+from ...model import *
+from ...error import ThreeCommasError
+from typing import Tuple
 
 
 wrapper = Py3CW('', '')
@@ -11,9 +13,6 @@ def post():
     /ver1/loose_accounts
     Create Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 
-    :param name: REQUIRED, string
-    :param tokens[code]: REQUIRED, array
-    :param tokens[amount]: REQUIRED, array
     """
     error, data = wrapper.request(
         entity='<py3cw_entity>',
@@ -29,9 +28,6 @@ def get_available_currencies():
     /ver1/loose_accounts/available_currencies
     Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)
 
-    :param contains: string
-    :param limit: integer
-    :param offset: integer
     """
     error, data = wrapper.request(
         entity='<py3cw_entity>',
@@ -42,15 +38,11 @@ def get_available_currencies():
 
 
 ''' This endpoint was not present in the py3cw module
-def put_by_account_id(account_id):
+def put_by_id(account_id):
     """
     /ver1/loose_accounts/{account_id}
     Update Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 
-    :param tokens[code]: REQUIRED, array
-    :param tokens[amount]: REQUIRED, array
-    :param account_id: REQUIRED, integer
-    :param name: string
     """
     error, data = wrapper.request(
         entity='<py3cw_entity>',

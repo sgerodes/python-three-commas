@@ -1,7 +1,6 @@
 from __future__ import annotations
 from typing import List, Union, Callable, TypeVar, Any, Generic, Optional
 import datetime
-import re
 import functools
 import logging
 from .. import configuration
@@ -167,9 +166,14 @@ class GenericParsedGetSetProxy(Generic[T_initial, T_parsed]):
         self.t_parsed = t_parsed
 
         if t_parsed is not None:
-            @ThreeCommasParser.parsed(t_parsed)
-            def get_proxy() -> Optional[Union[t_initial, t_parsed]]:
-                return self.obj.get(self.attribute_name)
+            if t_parsed is datetime.datetime:
+                @ThreeCommasParser.parsed_timestamp
+                def get_proxy() -> Optional[Union[str, datetime.datetime]]:
+                    return self.obj.get(self.attribute_name)
+            else:
+                @ThreeCommasParser.parsed(t_parsed)
+                def get_proxy() -> Optional[Union[t_initial, t_parsed]]:
+                    return self.obj.get(self.attribute_name)
         else:
             def get_proxy() -> Optional[t_initial]:
                 return self.obj.get(self.attribute_name)

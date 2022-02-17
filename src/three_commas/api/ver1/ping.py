@@ -1,5 +1,7 @@
 from py3cw.request import Py3CW
-from models import *
+from ...model import *
+from ...error import ThreeCommasError
+from typing import Tuple
 
 
 wrapper = Py3CW('', '')

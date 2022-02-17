@@ -1,4 +1,4 @@
-from new_attributes import ThreeCommasModel, GenericParsedGetSetProxy
+from .models import ThreeCommasModel, GenericParsedGetSetProxy
 from datetime import datetime
 
 

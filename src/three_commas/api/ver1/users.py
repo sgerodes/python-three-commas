@@ -1,5 +1,7 @@
 from py3cw.request import Py3CW
-from models import *
+from ...model import *
+from ...error import ThreeCommasError
+from typing import Tuple
 
 
 wrapper = Py3CW('', '')
@@ -23,7 +25,6 @@ def post_change_mode():
     /ver1/users/change_mode
     Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 
-    :param mode: REQUIRED, string, values: ['paper', 'real']
     """
     error, data = wrapper.request(
         entity='users',

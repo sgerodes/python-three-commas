@@ -1,8 +1,8 @@
 import re
 from typing import List
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 import logging
-import json
+from .model.models import ThreeCommasDict
 
 logger = logging.getLogger(__name__)
 
@@ -13,7 +13,7 @@ class BaseOrderToSmallErrorElement:
     pair: str = None
 
 
-class ThreeCommasError(RuntimeError):
+class ThreeCommasError(ThreeCommasDict):
 
     BO_TO_SMALL_ERROR_PATTERN = re.compile(r"Base order size is too small\. Min: ([0-9.]*),? ?([\w_]+)?", re.IGNORECASE)
     NO_MARKET_PAIR_ERROR_PATTERN = re.compile(r"No market data for this pair: ([^\']*)\'", re.IGNORECASE)
@@ -22,9 +22,6 @@ class ThreeCommasError(RuntimeError):
     BOT_DID_NOT_EXISTED_OR_BELONGS_TO_OTHER_ACCOUNT_ERROR_PATTERN = re.compile(r"Other error occurred: not_found Not Found None", re.IGNORECASE)
     API_KEY_NOT_ENOUGH_PERMISSION_PATTERN = re.compile(r"access_denied Api key doesn't have enough permissions", re.IGNORECASE)
     API_KEY_INVALID_OR_EXPIRED_PATTERN = re.compile(r'api_key_invalid_or_expired Unauthorized. Invalid or expired api key', re.IGNORECASE)
-
-    def __init__(self, error):
-        self.error: dict = error
 
     def is_api_key_has_no_permission_error(self) -> bool:
         return self._has_error_message() and self.API_KEY_NOT_ENOUGH_PERMISSION_PATTERN.findall(self.get_msg())
@@ -43,7 +40,7 @@ class ThreeCommasError(RuntimeError):
 
     def get_no_market_pair_error(self) -> List[str]:
         if self._has_error_message():
-            pairs_to_remove = ThreeCommasError.NO_MARKET_PAIR_ERROR_PATTERN.findall(self.error.get('msg'))
+            pairs_to_remove = ThreeCommasError.NO_MARKET_PAIR_ERROR_PATTERN.findall(self.get_msg())
             if pairs_to_remove:
                 return pairs_to_remove
         return list()
@@ -69,12 +66,9 @@ class ThreeCommasError(RuntimeError):
         return ret
 
     def _has_error_message(self):
-        return self.error and self.get_msg()
+        return self and self.get_msg()
 
     def get_msg(self):
-        return self.error.get('msg')
-
-    def __repr__(self):
-        return f'{self.__class__.__name__}({self.error})'
+        return self.get('msg')
 
 

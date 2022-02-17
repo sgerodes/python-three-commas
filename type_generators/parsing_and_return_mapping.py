@@ -1,8 +1,14 @@
 import datetime
 from typing import *
+
+
+# {endpoint_path : str_class_to_parse_to}
+ENDPOINT_RETURNS_MAP = {
+    '/ver1/bots/{bot_id}/show': 'BotEntity'
+}
+
+
 # {name_of_model : {name_of_attr: parse_to}}
-
-
 PARSING_MAPPING = {
     'DealEntity': {
         'created_at': datetime,

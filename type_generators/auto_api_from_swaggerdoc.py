@@ -6,7 +6,7 @@ import os
 from py3cw.config import API_METHODS as PY3CW_API_METHODS
 import datetime
 import re
-from parsing_and_return_mapping import PARSING_MAPPING
+from parsing_and_return_mapping import PARSING_MAPPING, ENDPOINT_RETURNS_MAP
 
 
 INDENT = ' ' * 4
@@ -32,27 +32,27 @@ def create_docstring(path: str, parameters: list, description, return_type=None)
         code.append(f'{INDENT}{description}')
         code.append(f'')
 
-    if parameters:
-        parameters.sort(key=lambda p: p.get('required'), reverse=True)
-        for p in parameters:
-            _in = p.get('in')
-            param_name = p.get('name')
-            param_type = p.get('type')
-            required = p.get('required')
-            param_description = p.get('description')
-            enum = p.get('enum')
-
-            param_docstring = list()
-            if required:
-                param_docstring.append('REQUIRED')
-            if param_type:
-                param_docstring.append(param_type)
-            if enum:
-                param_docstring.append("values: " + str(enum))
-            if param_description:
-                param_docstring.append(param_description)
-
-            code.append(f'{INDENT}:param {param_name}: ' + ', '.join(param_docstring))
+    # if parameters:
+    #     parameters.sort(key=lambda p: p.get('required'), reverse=True)
+    #     for p in parameters:
+    #         _in = p.get('in')
+    #         param_name = p.get('name')
+    #         param_type = p.get('type')
+    #         required = p.get('required')
+    #         param_description = p.get('description')
+    #         enum = p.get('enum')
+    #
+    #         param_docstring = list()
+    #         if required:
+    #             param_docstring.append('REQUIRED')
+    #         if param_type:
+    #             param_docstring.append(param_type)
+    #         if enum:
+    #             param_docstring.append("values: " + str(enum))
+    #         if param_description:
+    #             param_docstring.append(param_description)
+    #
+    #         code.append(f'{INDENT}:param {param_name}: ' + ', '.join(param_docstring))
 
     if return_type:
         code.append(f'{INDENT}:return:{str(return_type)}')
@@ -73,12 +73,19 @@ def get_sub_path(path: str):
     return '/'.join(path.split('/')[3:])
 
 
-def create_logic(verb: str, path: str, parameters: List[dict]) -> str:
+def make_ids_uniform_for_path(sub_path):
+    second_replaced = re.sub(r'\{[^}]*\}', '{sub_id}', sub_path)
+    return re.sub(r'\{[^}]*\}', '{id}', second_replaced, 1)
+
+
+def create_function_logic(verb: str, path: str, parameters: List[dict], return_type: str = None) -> str:
     path_variable_1, path_variable_2 = get_path_variables(path)
 
     version = get_api_version_from_path(path)
     endpoint = get_major_endpoint_from_path(path)
     sub_path = get_sub_path(path)
+    py3cw_parsed_sub_path = make_ids_uniform_for_path(sub_path)
+
     if version == 'v2':
         endpoint = 'smart_trades_v2'
 
@@ -92,7 +99,7 @@ def create_logic(verb: str, path: str, parameters: List[dict]) -> str:
     # print(endpoint)
     if py3cw_endpoint:
         for k, v in py3cw_endpoint.items():
-            if verb.upper() == v[0] and sub_path == v[1]:
+            if verb.upper() == v[0] and py3cw_parsed_sub_path == v[1]:
                 py3cw_action = k
 
     code = list()
@@ -106,7 +113,10 @@ def create_logic(verb: str, path: str, parameters: List[dict]) -> str:
     if path_variable_2:
         code.append(f"{INDENT*2}action_sub_id=str({path_variable_2}),")
     code.append(f"{INDENT})")
-    code.append(f"{INDENT}return ThreeCommasError(error), data")
+    if return_type:
+        code.append(f"{INDENT}return ThreeCommasError(error), {return_type}(data)")
+    else:
+        code.append(f"{INDENT}return ThreeCommasError(error), data")
 
     return '\n'.join(code)
 
@@ -122,7 +132,7 @@ def create_models(swaggerdoc: Dict[str, dict]):
     }
     superclass = 'ThreeCommasModel'
     code = list()
-    code.append('from new_attributes import ThreeCommasModel, GenericParsedGetSetProxy')
+    code.append('from .models import ThreeCommasModel, GenericParsedGetSetProxy')
     code.append('from datetime import datetime')
     code.append(f'')
     code.append(f'')
@@ -188,10 +198,11 @@ def generate():
                 # operationId = definition.get(verb).get('operationId')
                 parameters = definition.get(verb).get('parameters')
 
-                function_name = f'{verb}{"_" + sub_endpoint if sub_endpoint else ""}{"_by_" + path_variable_1 if path_variable_1 else ""}'
-                return_type = f''  # TODO
+                function_name = f'{verb}{"_" + sub_endpoint if sub_endpoint else ""}{"_by_id" if path_variable_1 else ""}'
+                return_type = ENDPOINT_RETURNS_MAP.get(path)
+
                 code = list()
-                function_logic = create_logic(verb, path, parameters)
+                function_logic = create_function_logic(verb, path, parameters, return_type)
 
                 endpoint_found_in_py3cw = True
                 if '<py3cw_entity>' in function_logic or '<py3cw_action>' in function_logic:
@@ -199,14 +210,15 @@ def generate():
                 if not endpoint_found_in_py3cw:
                     code.append("''' This endpoint was not present in the py3cw module")
 
-                code.append(f'def {function_name}({function_parameters}):{return_type}')
+                return_type_statement = ''
+                if return_type:
+                    return_type_statement = f' -> Tuple[ThreeCommasError, {return_type}]'
+
+                code.append(f'def {function_name}({function_parameters}){return_type_statement}:')
                 docstring = create_docstring(path, parameters, description)
                 if docstring:
                     code.append(docstring)
                 code.append(function_logic)
-
-
-
 
                 if not endpoint_found_in_py3cw:
                     code.append("'''")
@@ -222,7 +234,9 @@ def generate():
         for k, v in structured_code.items():
             imports = list()
             imports.append("from py3cw.request import Py3CW")
-            imports.append("from models import *")
+            imports.append("from ...model import *")
+            imports.append("from ...error import ThreeCommasError")
+            imports.append("from typing import Tuple")
             imports.append("")
             imports.append("")
             imports.append("wrapper = Py3CW('', '')")
