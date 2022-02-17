@@ -4,11 +4,14 @@ from collections import defaultdict
 from pathlib import Path
 import os
 from py3cw.config import API_METHODS as PY3CW_API_METHODS
+import datetime
+import re
+from parsing_and_return_mapping import PARSING_MAPPING
 
 
 INDENT = ' ' * 4
-PARENT_FOLDER_NAME = 'api'
-MODEL_FOLDER_NAME = 'models.py'
+PARENT_FOLDER_NAME = '../src/three_commas/api'
+MODEL_FILE_NAME = '../src/three_commas/model/generated_models.py'
 
 
 def get_path_variables(path: str):
@@ -81,15 +84,20 @@ def create_logic(verb: str, path: str, parameters: List[dict]) -> str:
 
     py3cw_endpoint = PY3CW_API_METHODS.get(endpoint)
 
-    py3cw_entity = endpoint if endpoint in PY3CW_API_METHODS else '<py3cw_entity>'
+    py3cw_entity = '<py3cw_entity>'
+    if endpoint in PY3CW_API_METHODS:
+        py3cw_entity = endpoint
+
     py3cw_action = '<py3cw_action>'
-    print(endpoint)
+    # print(endpoint)
     if py3cw_endpoint:
         for k, v in py3cw_endpoint.items():
             if verb.upper() == v[0] and sub_path == v[1]:
                 py3cw_action = k
 
     code = list()
+
+
     code.append(f'{INDENT}error, data = wrapper.request(')
     code.append(f"{INDENT*2}entity='{py3cw_entity}',")
     code.append(f"{INDENT*2}action='{py3cw_action}',")
@@ -98,22 +106,63 @@ def create_logic(verb: str, path: str, parameters: List[dict]) -> str:
     if path_variable_2:
         code.append(f"{INDENT*2}action_sub_id=str({path_variable_2}),")
     code.append(f"{INDENT})")
+    code.append(f"{INDENT}return ThreeCommasError(error), data")
 
     return '\n'.join(code)
 
 
 def create_models(swaggerdoc: Dict[str, dict]):
+    swagger_type_2_py_type = {
+        'number': 'float',
+        'string': 'str',
+        'integer': 'int',
+        'object': 'dict',
+        'array': 'list',
+        'boolean': 'bool',
+    }
+    superclass = 'ThreeCommasModel'
     code = list()
+    code.append('from new_attributes import ThreeCommasModel, GenericParsedGetSetProxy')
+    code.append('from datetime import datetime')
+    code.append(f'')
+    code.append(f'')
     for model_name, model_definition in swaggerdoc.get('definitions').items():
-        code.append(f'class {model_name}:')
-        code.append(f'{INDENT}pass')
-        code.append(f'')
-        code.append(f'')
-        code_str = '\n'.join(code)
+        code.append(f'class {model_name}({superclass}):')
+        code.append(f'{INDENT}def __init__(self, d: dict = None):')
+        code.append(f'{INDENT*2}super().__init__(d)')
+        for json_attribute_name, attribute_definition in model_definition.get('properties').items():
+            swagger_type = attribute_definition.get('type')
+            py_type = swagger_type_2_py_type.get(swagger_type)
+            example = attribute_definition.get('example')
+            model_attribute_name = json_attribute_name.replace('?', '')
+            parsed_type = None
 
-    with open(MODEL_FOLDER_NAME, 'w') as f:
+            if example and isinstance(example, str):
+                # "2018-08-21 08:08:08"
+                pat = re.compile(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}')
+                if pat.match(example) is not None:
+                    parsed_type = 'datetime'
+
+            if parsed_type is None:
+                model_parsings = PARSING_MAPPING.get(model_name)
+                if model_parsings and json_attribute_name in model_parsings:
+                    parsed_type = model_parsings.get(json_attribute_name).__name__
+
+            codeline = f'{INDENT*2}self.{model_attribute_name} = GenericParsedGetSetProxy(self, "{json_attribute_name}"'
+            if swagger_type:
+                codeline += f', t_initial={py_type}'
+            if parsed_type:
+                codeline += f', t_parsed={parsed_type}'
+            codeline += ')'
+
+            code.append(codeline)
+
+        code.append(f'')
+        code.append(f'')
+    code_str = '\n'.join(code)
+
+    with open(MODEL_FILE_NAME, 'w') as f:
         f.write(code_str)
-
 
 
 def generate():
@@ -134,21 +183,34 @@ def generate():
             function_parameters = path_variable_1 or ''
             if path_variable_2:
                 function_parameters += f', {path_variable_2}'
-            code = list()
             for verb in http_verbs:
                 description = definition.get(verb).get('description')
                 # operationId = definition.get(verb).get('operationId')
                 parameters = definition.get(verb).get('parameters')
 
-
                 function_name = f'{verb}{"_" + sub_endpoint if sub_endpoint else ""}{"_by_" + path_variable_1 if path_variable_1 else ""}'
                 return_type = f''  # TODO
+                code = list()
+                function_logic = create_logic(verb, path, parameters)
+
+                endpoint_found_in_py3cw = True
+                if '<py3cw_entity>' in function_logic or '<py3cw_action>' in function_logic:
+                    endpoint_found_in_py3cw = False
+                if not endpoint_found_in_py3cw:
+                    code.append("''' This endpoint was not present in the py3cw module")
+
                 code.append(f'def {function_name}({function_parameters}):{return_type}')
                 docstring = create_docstring(path, parameters, description)
                 if docstring:
                     code.append(docstring)
-                logic = create_logic(verb, path, parameters)
-                code.append(logic)
+                code.append(function_logic)
+
+
+
+
+                if not endpoint_found_in_py3cw:
+                    code.append("'''")
+
                 code.append('')
                 code.append('')
                 code.append('')

@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Union, Callable, TypeVar, Any
+from typing import List, Union, Callable, TypeVar, Any, Generic, Optional
 import datetime
 import re
 import functools
@@ -125,7 +125,12 @@ class ThreeCommasParser:
         return decorator
 
 
-class OfDictClass(dict):
+class ThreeCommasDict(dict):
+    def __init__(self, d: dict = None):
+        if d is None:
+            return
+        super().__init__(d)
+
     @classmethod
     def of(cls, d: dict) -> Union[None, cls]:
         if d is None:
@@ -133,58 +138,50 @@ class OfDictClass(dict):
         return cls(d)
 
     @classmethod
-    def of_list(cls, list_of_d: List[dict]) -> Union[None, List[cls]]:
+    def of_list(cls, list_of_d: List[dict]) -> List[cls]:
         if list_of_d is None:
             return None
-        return [cls.of(d) for d in list_of_d]
+        return [cls(d) for d in list_of_d]
 
     def __repr__(self):
         return f'{self.__class__.__name__}({super().__repr__()})'
 
 
-class BotEvent(OfDictClass):
-    PRICE_PATTERN = re.compile(r"Price: ([\d.]+)\b", re.IGNORECASE)
-    SIZE_PATTERN = re.compile(r"Size: ([\d.]+)\b", re.IGNORECASE)
-    QUOTE_CURRENCY_PATTERN = re.compile(r"Price: [\d.]+ (\w+).", re.IGNORECASE)
-    BASE_CURRENCY_PATTERN = re.compile(r"\([\d.]+ (\w+)\)", re.IGNORECASE)
-    SAFETY_TRADE_EXECUTED_PATTERN = re.compile(r"Safety trade \(\d+ out of \d+\) executed", re.IGNORECASE)
-    SAFETY_TRADE_NR_PATTERN = re.compile(r"Safety trade \((\d+) out of \d+\) executed", re.IGNORECASE)
+class ThreeCommasModel(ThreeCommasDict):
+    def __setattr__(self, name, value):
+        if not isinstance(value, GenericParsedGetSetProxy):
+            raise RuntimeError(f'Please set the attributes of the object with <your_object>.<attribute>.set(<your_value>), not <your_object>.<attribute> = <your_value>')
+        super().__setattr__(name, value)
 
-    @ThreeCommasParser.parsed_timestamp
-    def get_created_at(self) -> Union[None, str, datetime.datetime]:
-        return self.get('created_at')
 
-    def get_message(self) -> str:
-        return self.get('message')
+T_initial = TypeVar('T_initial')
+T_parsed = TypeVar('T_parsed')
 
-    def is_base_order_executed_message(self):
-        return 'Base order executed' in self.get_message()
 
-    def is_error(self):
-        return 'error occurred' in self.get_message()
+class GenericParsedGetSetProxy(Generic[T_initial, T_parsed]):
 
-    def is_deal_completed_message(self):
-        return 'Deal completed' in self.get_message()
+    def __init__(self, obj: ThreeCommasDict, attribute_name: str, t_initial: T_initial = None, t_parsed: T_parsed = None):
+        self.obj = obj
+        self.attribute_name = attribute_name
+        self.t_initial = t_initial
+        self.t_parsed = t_parsed
 
-    def is_safety_trade_executed_message(self):
-        return len(self.SAFETY_TRADE_EXECUTED_PATTERN.findall(self.get_message())) > 0
+        if t_parsed is not None:
+            @ThreeCommasParser.parsed(t_parsed)
+            def get_proxy() -> Optional[Union[t_initial, t_parsed]]:
+                return self.obj.get(self.attribute_name)
+        else:
+            def get_proxy() -> Optional[t_initial]:
+                return self.obj.get(self.attribute_name)
 
-    def get_safety_trade_number(self):
-        findall = self.SAFETY_TRADE_NR_PATTERN.findall(self.get_message())
-        return findall[0] if findall else None
+        self.get_proxy = get_proxy
 
-    def get_price(self):
-        findall = self.PRICE_PATTERN.findall(self.get_message())
-        return findall[0] if findall else None
+    def set(self, value):
+        self.obj[self.attribute_name] = value
 
-    def get_size(self):
-        findall = self.SIZE_PATTERN.findall(self.get_message())
-        return findall[0] if findall else None
+    def get(self, *args, **kwargs) -> Optional[Union[T_initial, T_parsed]]:
+        return self.get_proxy(*args, **kwargs)
 
-    def get_quote_currency(self):
-        findall = self.QUOTE_CURRENCY_PATTERN.findall(self.get_message())
-        return findall[0] if findall else None
-
-    def get_base_currency(self):
-        findall = self.BASE_CURRENCY_PATTERN.findall(self.get_message())
-        return findall[0] if findall else None
+    def __repr__(self):
+        parsed_repr = f', {self.t_initial or ""} --> {self.t_parsed or ""}' if self.t_initial or self.t_parsed else ''
+        return f'{self.__class__.__name__}(class={self.obj.__class__.__name__}, attribute={self.attribute_name}{parsed_repr})'
