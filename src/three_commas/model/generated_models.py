@@ -1167,7 +1167,7 @@ class PairsBlackList(OfDictClass):
         self['pairs'] = pairs
 
 
-class SmartTradeV2(OfDictClass):
+class SmartTradeV2Entity(OfDictClass):
 
     def get_id(self) -> int:
         return self.get('id')

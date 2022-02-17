@@ -251,7 +251,7 @@ tc_generated_classes = [
                           properties=[
                               ThreeCommasJsonProperty('pairs', List[str]),
                           ]),
-    ThreeCommasModelClass(name='SmartTradeV2',
+    ThreeCommasModelClass(name='SmartTradeV2Entity',
                           properties=[
                               ThreeCommasJsonProperty('id', int),
                               ThreeCommasJsonProperty('version', int),
