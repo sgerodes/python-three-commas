@@ -1,362 +1,452 @@
-from .models import ThreeCommasModel, GenericParsedGetSetProxy
+from .models import ThreeCommasModel, StrFloatProxy, StrIntProxy, StrDatetimeProxy, QuestionMarkProxy
 from datetime import datetime
+from typing import Any
 
 
 class IndexEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.bots = GenericParsedGetSetProxy(self, "bots", t_initial=list)
-        self.total = GenericParsedGetSetProxy(self, "total", t_initial=int)
-        self.page = GenericParsedGetSetProxy(self, "page", t_initial=int)
+        self.bots: list
+        self.total: int
+        self.page: int
+    parsing_map = {
+    }
 
 
 class MarketplaceBotEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.type = GenericParsedGetSetProxy(self, "type", t_initial=str)
-        self.name = GenericParsedGetSetProxy(self, "name", t_initial=str)
-        self.strategy = GenericParsedGetSetProxy(self, "strategy", t_initial=str)
-        self.secret = GenericParsedGetSetProxy(self, "secret", t_initial=str)
-        self.marketplace_item = GenericParsedGetSetProxy(self, "marketplace_item")
-        self.profit = GenericParsedGetSetProxy(self, "profit")
-        self.currencies = GenericParsedGetSetProxy(self, "currencies", t_initial=list)
-        self.copies = GenericParsedGetSetProxy(self, "copies", t_initial=int)
-        self.is_favorite = GenericParsedGetSetProxy(self, "is_favorite", t_initial=bool)
+        self.id: int
+        self.type: str
+        self.name: str
+        self.strategy: str
+        self.secret: str
+        self.marketplace_item: None
+        self.profit: None
+        self.currencies: list
+        self.copies: int
+        self.is_favorite: bool
+    parsing_map = {
+    }
 
 
 class MarketplaceItem(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.name = GenericParsedGetSetProxy(self, "name", t_initial=str)
-        self.icon_url = GenericParsedGetSetProxy(self, "icon_url", t_initial=str)
+        self.id: int
+        self.name: str
+        self.icon_url: str
+    parsing_map = {
+    }
 
 
 class Profit(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.period = GenericParsedGetSetProxy(self, "period", t_initial=str)
-        self.amount = GenericParsedGetSetProxy(self, "amount", t_initial=float)
-        self.chart_data = GenericParsedGetSetProxy(self, "chart_data", t_initial=list)
+        self.period: str
+        self.amount: float
+        self.chart_data: list
+    parsing_map = {
+    }
 
 
 class PongEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.pong = GenericParsedGetSetProxy(self, "pong", t_initial=str)
+        self.pong: str
+    parsing_map = {
+    }
 
 
 class TimeEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.server_time = GenericParsedGetSetProxy(self, "server_time", t_initial=int)
+        self.server_time: int
+    parsing_map = {
+    }
 
 
 class BotEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.account_id = GenericParsedGetSetProxy(self, "account_id", t_initial=int)
-        self.is_enabled = GenericParsedGetSetProxy(self, "is_enabled", t_initial=bool)
-        self.max_safety_orders = GenericParsedGetSetProxy(self, "max_safety_orders", t_initial=int)
-        self.active_safety_orders_count = GenericParsedGetSetProxy(self, "active_safety_orders_count", t_initial=int)
-        self.pairs = GenericParsedGetSetProxy(self, "pairs", t_initial=str)
-        self.strategy_list = GenericParsedGetSetProxy(self, "strategy_list", t_initial=str)
-        self.max_active_deals = GenericParsedGetSetProxy(self, "max_active_deals", t_initial=int)
-        self.active_deals_count = GenericParsedGetSetProxy(self, "active_deals_count", t_initial=int)
-        self.deletable = GenericParsedGetSetProxy(self, "deletable?", t_initial=bool)
-        self.created_at = GenericParsedGetSetProxy(self, "created_at", t_initial=str, t_parsed=datetime)
-        self.updated_at = GenericParsedGetSetProxy(self, "updated_at", t_initial=str, t_parsed=datetime)
-        self.trailing_enabled = GenericParsedGetSetProxy(self, "trailing_enabled", t_initial=bool)
-        self.tsl_enabled = GenericParsedGetSetProxy(self, "tsl_enabled", t_initial=bool)
-        self.deal_start_delay_seconds = GenericParsedGetSetProxy(self, "deal_start_delay_seconds", t_initial=int)
-        self.stop_loss_timeout_enabled = GenericParsedGetSetProxy(self, "stop_loss_timeout_enabled", t_initial=bool)
-        self.stop_loss_timeout_in_seconds = GenericParsedGetSetProxy(self, "stop_loss_timeout_in_seconds", t_initial=int)
-        self.disable_after_deals_count = GenericParsedGetSetProxy(self, "disable_after_deals_count", t_initial=int)
-        self.deals_counter = GenericParsedGetSetProxy(self, "deals_counter", t_initial=int)
-        self.allowed_deals_on_same_pair = GenericParsedGetSetProxy(self, "allowed_deals_on_same_pair", t_initial=int)
-        self.easy_form_supported = GenericParsedGetSetProxy(self, "easy_form_supported", t_initial=bool)
-        self.close_deals_timeout = GenericParsedGetSetProxy(self, "close_deals_timeout", t_initial=int)
-        self.url_secret = GenericParsedGetSetProxy(self, "url_secret", t_initial=str)
-        self.name = GenericParsedGetSetProxy(self, "name", t_initial=str)
-        self.take_profit = GenericParsedGetSetProxy(self, "take_profit", t_initial=str, t_parsed=float)
-        self.base_order_volume = GenericParsedGetSetProxy(self, "base_order_volume", t_initial=str, t_parsed=float)
-        self.safety_order_volume = GenericParsedGetSetProxy(self, "safety_order_volume", t_initial=str, t_parsed=float)
-        self.safety_order_step_percentage = GenericParsedGetSetProxy(self, "safety_order_step_percentage", t_initial=str, t_parsed=float)
-        self.take_profit_type = GenericParsedGetSetProxy(self, "take_profit_type", t_initial=str)
-        self.type = GenericParsedGetSetProxy(self, "type", t_initial=str)
-        self.martingale_volume_coefficient = GenericParsedGetSetProxy(self, "martingale_volume_coefficient", t_initial=str, t_parsed=float)
-        self.martingale_step_coefficient = GenericParsedGetSetProxy(self, "martingale_step_coefficient", t_initial=str, t_parsed=float)
-        self.stop_loss_percentage = GenericParsedGetSetProxy(self, "stop_loss_percentage", t_initial=str, t_parsed=float)
-        self.cooldown = GenericParsedGetSetProxy(self, "cooldown", t_initial=str)
-        self.btc_price_limit = GenericParsedGetSetProxy(self, "btc_price_limit", t_initial=str, t_parsed=float)
-        self.strategy = GenericParsedGetSetProxy(self, "strategy", t_initial=str)
-        self.min_volume_btc_24h = GenericParsedGetSetProxy(self, "min_volume_btc_24h", t_initial=str, t_parsed=float)
-        self.profit_currency = GenericParsedGetSetProxy(self, "profit_currency", t_initial=str)
-        self.min_price = GenericParsedGetSetProxy(self, "min_price", t_initial=str)
-        self.max_price = GenericParsedGetSetProxy(self, "max_price", t_initial=str)
-        self.stop_loss_type = GenericParsedGetSetProxy(self, "stop_loss_type", t_initial=str)
-        self.safety_order_volume_type = GenericParsedGetSetProxy(self, "safety_order_volume_type", t_initial=str)
-        self.base_order_volume_type = GenericParsedGetSetProxy(self, "base_order_volume_type", t_initial=str)
-        self.account_name = GenericParsedGetSetProxy(self, "account_name", t_initial=str)
-        self.trailing_deviation = GenericParsedGetSetProxy(self, "trailing_deviation", t_initial=str, t_parsed=float)
-        self.finished_deals_profit_usd = GenericParsedGetSetProxy(self, "finished_deals_profit_usd", t_initial=str, t_parsed=float)
-        self.finished_deals_count = GenericParsedGetSetProxy(self, "finished_deals_count", t_initial=str, t_parsed=int)
-        self.leverage_type = GenericParsedGetSetProxy(self, "leverage_type", t_initial=str)
-        self.leverage_custom_value = GenericParsedGetSetProxy(self, "leverage_custom_value", t_initial=str)
-        self.start_order_type = GenericParsedGetSetProxy(self, "start_order_type", t_initial=str)
-        self.active_deals_usd_profit = GenericParsedGetSetProxy(self, "active_deals_usd_profit", t_initial=str, t_parsed=float)
+        self.id: int
+        self.account_id: int
+        self.is_enabled: bool
+        self.max_safety_orders: int
+        self.active_safety_orders_count: int
+        self.pairs: str
+        self.strategy_list: str
+        self.max_active_deals: int
+        self.active_deals_count: int
+        self.deletable: bool
+        self.created_at: str
+        self.updated_at: str
+        self.trailing_enabled: bool
+        self.tsl_enabled: bool
+        self.deal_start_delay_seconds: int
+        self.stop_loss_timeout_enabled: bool
+        self.stop_loss_timeout_in_seconds: int
+        self.disable_after_deals_count: int
+        self.deals_counter: int
+        self.allowed_deals_on_same_pair: int
+        self.easy_form_supported: bool
+        self.close_deals_timeout: int
+        self.url_secret: str
+        self.name: str
+        self.take_profit: StrFloatProxy
+        self.base_order_volume: StrFloatProxy
+        self.safety_order_volume: StrFloatProxy
+        self.safety_order_step_percentage: StrFloatProxy
+        self.take_profit_type: str
+        self.type: str
+        self.martingale_volume_coefficient: StrFloatProxy
+        self.martingale_step_coefficient: StrFloatProxy
+        self.stop_loss_percentage: StrFloatProxy
+        self.cooldown: str
+        self.btc_price_limit: StrFloatProxy
+        self.strategy: str
+        self.min_volume_btc_24h: StrFloatProxy
+        self.profit_currency: str
+        self.min_price: str
+        self.max_price: str
+        self.stop_loss_type: str
+        self.safety_order_volume_type: str
+        self.base_order_volume_type: str
+        self.account_name: str
+        self.trailing_deviation: StrFloatProxy
+        self.finished_deals_profit_usd: StrFloatProxy
+        self.finished_deals_count: StrIntProxy
+        self.leverage_type: str
+        self.leverage_custom_value: str
+        self.start_order_type: str
+        self.active_deals_usd_profit: StrFloatProxy
+    parsing_map = {
+        'deletable': QuestionMarkProxy,
+        'take_profit': StrFloatProxy,
+        'base_order_volume': StrFloatProxy,
+        'safety_order_volume': StrFloatProxy,
+        'safety_order_step_percentage': StrFloatProxy,
+        'martingale_volume_coefficient': StrFloatProxy,
+        'martingale_step_coefficient': StrFloatProxy,
+        'stop_loss_percentage': StrFloatProxy,
+        'btc_price_limit': StrFloatProxy,
+        'min_volume_btc_24h': StrFloatProxy,
+        'trailing_deviation': StrFloatProxy,
+        'finished_deals_profit_usd': StrFloatProxy,
+        'finished_deals_count': StrIntProxy,
+        'active_deals_usd_profit': StrFloatProxy,
+    }
 
 
 class AccountEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.auto_balance_period = GenericParsedGetSetProxy(self, "auto_balance_period", t_initial=int)
-        self.auto_balance_portfolio_id = GenericParsedGetSetProxy(self, "auto_balance_portfolio_id", t_initial=int)
-        self.auto_balance_currency_change_limit = GenericParsedGetSetProxy(self, "auto_balance_currency_change_limit", t_initial=int)
-        self.autobalance_enabled = GenericParsedGetSetProxy(self, "autobalance_enabled", t_initial=bool)
-        self.hedge_mode_available = GenericParsedGetSetProxy(self, "hedge_mode_available", t_initial=bool)
-        self.hedge_mode_enabled = GenericParsedGetSetProxy(self, "hedge_mode_enabled", t_initial=bool)
-        self.is_locked = GenericParsedGetSetProxy(self, "is_locked", t_initial=bool)
-        self.smart_trading_supported = GenericParsedGetSetProxy(self, "smart_trading_supported", t_initial=bool)
-        self.smart_selling_supported = GenericParsedGetSetProxy(self, "smart_selling_supported", t_initial=bool)
-        self.available_for_trading = GenericParsedGetSetProxy(self, "available_for_trading", t_initial=bool)
-        self.stats_supported = GenericParsedGetSetProxy(self, "stats_supported", t_initial=bool)
-        self.trading_supported = GenericParsedGetSetProxy(self, "trading_supported", t_initial=bool)
-        self.market_buy_supported = GenericParsedGetSetProxy(self, "market_buy_supported", t_initial=bool)
-        self.market_sell_supported = GenericParsedGetSetProxy(self, "market_sell_supported", t_initial=bool)
-        self.conditional_buy_supported = GenericParsedGetSetProxy(self, "conditional_buy_supported", t_initial=bool)
-        self.bots_allowed = GenericParsedGetSetProxy(self, "bots_allowed", t_initial=bool)
-        self.bots_ttp_allowed = GenericParsedGetSetProxy(self, "bots_ttp_allowed", t_initial=bool)
-        self.bots_tsl_allowed = GenericParsedGetSetProxy(self, "bots_tsl_allowed", t_initial=bool)
-        self.gordon_bots_available = GenericParsedGetSetProxy(self, "gordon_bots_available", t_initial=bool)
-        self.multi_bots_allowed = GenericParsedGetSetProxy(self, "multi_bots_allowed", t_initial=bool)
-        self.created_at = GenericParsedGetSetProxy(self, "created_at", t_initial=str, t_parsed=datetime)
-        self.updated_at = GenericParsedGetSetProxy(self, "updated_at", t_initial=str, t_parsed=datetime)
-        self.last_auto_balance = GenericParsedGetSetProxy(self, "last_auto_balance", t_initial=str, t_parsed=datetime)
-        self.fast_convert_available = GenericParsedGetSetProxy(self, "fast_convert_available", t_initial=bool)
-        self.grid_bots_allowed = GenericParsedGetSetProxy(self, "grid_bots_allowed", t_initial=bool)
-        self.api_key_invalid = GenericParsedGetSetProxy(self, "api_key_invalid", t_initial=bool)
-        self.deposit_enabled = GenericParsedGetSetProxy(self, "deposit_enabled", t_initial=bool)
-        self.supported_market_types = GenericParsedGetSetProxy(self, "supported_market_types", t_initial=str)
-        self.api_key = GenericParsedGetSetProxy(self, "api_key", t_initial=str)
-        self.name = GenericParsedGetSetProxy(self, "name", t_initial=str)
-        self.auto_balance_method = GenericParsedGetSetProxy(self, "auto_balance_method", t_initial=int)
-        self.auto_balance_error = GenericParsedGetSetProxy(self, "auto_balance_error", t_initial=str)
-        self.customer_id = GenericParsedGetSetProxy(self, "customer_id", t_initial=str)
-        self.subaccount_name = GenericParsedGetSetProxy(self, "subaccount_name", t_initial=str)
-        self.lock_reason = GenericParsedGetSetProxy(self, "lock_reason", t_initial=str)
-        self.btc_amount = GenericParsedGetSetProxy(self, "btc_amount", t_initial=str, t_parsed=float)
-        self.usd_amount = GenericParsedGetSetProxy(self, "usd_amount", t_initial=str, t_parsed=float)
-        self.day_profit_btc = GenericParsedGetSetProxy(self, "day_profit_btc", t_initial=str, t_parsed=float)
-        self.day_profit_usd = GenericParsedGetSetProxy(self, "day_profit_usd", t_initial=str, t_parsed=float)
-        self.day_profit_btc_percentage = GenericParsedGetSetProxy(self, "day_profit_btc_percentage", t_initial=str, t_parsed=float)
-        self.day_profit_usd_percentage = GenericParsedGetSetProxy(self, "day_profit_usd_percentage", t_initial=str, t_parsed=float)
-        self.btc_profit = GenericParsedGetSetProxy(self, "btc_profit", t_initial=str, t_parsed=float)
-        self.usd_profit = GenericParsedGetSetProxy(self, "usd_profit", t_initial=str, t_parsed=float)
-        self.usd_profit_percentage = GenericParsedGetSetProxy(self, "usd_profit_percentage", t_initial=str, t_parsed=float)
-        self.btc_profit_percentage = GenericParsedGetSetProxy(self, "btc_profit_percentage", t_initial=str, t_parsed=float)
-        self.total_btc_profit = GenericParsedGetSetProxy(self, "total_btc_profit", t_initial=str, t_parsed=float)
-        self.total_usd_profit = GenericParsedGetSetProxy(self, "total_usd_profit", t_initial=str, t_parsed=float)
-        self.pretty_display_type = GenericParsedGetSetProxy(self, "pretty_display_type", t_initial=str)
-        self.exchange_name = GenericParsedGetSetProxy(self, "exchange_name", t_initial=str)
-        self.market_code = GenericParsedGetSetProxy(self, "market_code", t_initial=str)
-        self.address = GenericParsedGetSetProxy(self, "address", t_initial=str)
+        self.id: int
+        self.auto_balance_period: int
+        self.auto_balance_portfolio_id: int
+        self.auto_balance_currency_change_limit: int
+        self.autobalance_enabled: bool
+        self.hedge_mode_available: bool
+        self.hedge_mode_enabled: bool
+        self.is_locked: bool
+        self.smart_trading_supported: bool
+        self.smart_selling_supported: bool
+        self.available_for_trading: bool
+        self.stats_supported: bool
+        self.trading_supported: bool
+        self.market_buy_supported: bool
+        self.market_sell_supported: bool
+        self.conditional_buy_supported: bool
+        self.bots_allowed: bool
+        self.bots_ttp_allowed: bool
+        self.bots_tsl_allowed: bool
+        self.gordon_bots_available: bool
+        self.multi_bots_allowed: bool
+        self.created_at: str
+        self.updated_at: str
+        self.last_auto_balance: str
+        self.fast_convert_available: bool
+        self.grid_bots_allowed: bool
+        self.api_key_invalid: bool
+        self.deposit_enabled: bool
+        self.supported_market_types: str
+        self.api_key: str
+        self.name: str
+        self.auto_balance_method: int
+        self.auto_balance_error: str
+        self.customer_id: str
+        self.subaccount_name: str
+        self.lock_reason: str
+        self.btc_amount: StrFloatProxy
+        self.usd_amount: StrFloatProxy
+        self.day_profit_btc: StrFloatProxy
+        self.day_profit_usd: StrFloatProxy
+        self.day_profit_btc_percentage: StrFloatProxy
+        self.day_profit_usd_percentage: StrFloatProxy
+        self.btc_profit: StrFloatProxy
+        self.usd_profit: StrFloatProxy
+        self.usd_profit_percentage: StrFloatProxy
+        self.btc_profit_percentage: StrFloatProxy
+        self.total_btc_profit: StrFloatProxy
+        self.total_usd_profit: StrFloatProxy
+        self.pretty_display_type: str
+        self.exchange_name: str
+        self.market_code: str
+        self.address: str
+    parsing_map = {
+        'btc_amount': StrFloatProxy,
+        'usd_amount': StrFloatProxy,
+        'day_profit_btc': StrFloatProxy,
+        'day_profit_usd': StrFloatProxy,
+        'day_profit_btc_percentage': StrFloatProxy,
+        'day_profit_usd_percentage': StrFloatProxy,
+        'btc_profit': StrFloatProxy,
+        'usd_profit': StrFloatProxy,
+        'usd_profit_percentage': StrFloatProxy,
+        'btc_profit_percentage': StrFloatProxy,
+        'total_btc_profit': StrFloatProxy,
+        'total_usd_profit': StrFloatProxy,
+    }
 
 
 class GridBotEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.account_id = GenericParsedGetSetProxy(self, "account_id", t_initial=int)
-        self.account_name = GenericParsedGetSetProxy(self, "account_name", t_initial=str)
-        self.is_enabled = GenericParsedGetSetProxy(self, "is_enabled", t_initial=bool)
-        self.grids_quantity = GenericParsedGetSetProxy(self, "grids_quantity", t_initial=str)
-        self.created_at = GenericParsedGetSetProxy(self, "created_at", t_initial=str, t_parsed=datetime)
-        self.updated_at = GenericParsedGetSetProxy(self, "updated_at", t_initial=str, t_parsed=datetime)
-        self.strategy_type = GenericParsedGetSetProxy(self, "strategy_type", t_initial=str)
-        self.lower_price = GenericParsedGetSetProxy(self, "lower_price", t_initial=str)
-        self.upper_price = GenericParsedGetSetProxy(self, "upper_price", t_initial=str)
-        self.quantity_per_grid = GenericParsedGetSetProxy(self, "quantity_per_grid", t_initial=str)
-        self.leverage_type = GenericParsedGetSetProxy(self, "leverage_type", t_initial=str)
-        self.leverage_custom_value = GenericParsedGetSetProxy(self, "leverage_custom_value", t_initial=str)
-        self.name = GenericParsedGetSetProxy(self, "name", t_initial=str)
-        self.pair = GenericParsedGetSetProxy(self, "pair", t_initial=str)
-        self.start_price = GenericParsedGetSetProxy(self, "start_price", t_initial=str)
-        self.grid_price_step = GenericParsedGetSetProxy(self, "grid_price_step", t_initial=str)
-        self.current_profit = GenericParsedGetSetProxy(self, "current_profit", t_initial=str)
-        self.current_profit_usd = GenericParsedGetSetProxy(self, "current_profit_usd", t_initial=str)
-        self.total_profits_count = GenericParsedGetSetProxy(self, "total_profits_count", t_initial=str)
-        self.bought_volume = GenericParsedGetSetProxy(self, "bought_volume", t_initial=str)
-        self.sold_volume = GenericParsedGetSetProxy(self, "sold_volume", t_initial=str)
-        self.profit_percentage = GenericParsedGetSetProxy(self, "profit_percentage", t_initial=str)
-        self.current_price = GenericParsedGetSetProxy(self, "current_price", t_initial=str)
-        self.investment_base_currency = GenericParsedGetSetProxy(self, "investment_base_currency", t_initial=str)
-        self.investment_quote_currency = GenericParsedGetSetProxy(self, "investment_quote_currency", t_initial=str)
-        self.grid_lines = GenericParsedGetSetProxy(self, "grid_lines")
+        self.id: int
+        self.account_id: int
+        self.account_name: str
+        self.is_enabled: bool
+        self.grids_quantity: str
+        self.created_at: str
+        self.updated_at: str
+        self.strategy_type: str
+        self.lower_price: str
+        self.upper_price: str
+        self.quantity_per_grid: str
+        self.leverage_type: str
+        self.leverage_custom_value: str
+        self.name: str
+        self.pair: str
+        self.start_price: str
+        self.grid_price_step: str
+        self.current_profit: str
+        self.current_profit_usd: str
+        self.total_profits_count: str
+        self.bought_volume: str
+        self.sold_volume: str
+        self.profit_percentage: str
+        self.current_price: str
+        self.investment_base_currency: str
+        self.investment_quote_currency: str
+        self.grid_lines: None
+    parsing_map = {
+    }
 
 
 class GridLineEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.price = GenericParsedGetSetProxy(self, "price", t_initial=str)
-        self.side = GenericParsedGetSetProxy(self, "side", t_initial=str)
-        self.order_placed = GenericParsedGetSetProxy(self, "order_placed", t_initial=bool)
+        self.price: str
+        self.side: str
+        self.order_placed: bool
+    parsing_map = {
+    }
 
 
 class GridBotProfitsEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.grid_line_id = GenericParsedGetSetProxy(self, "grid_line_id", t_initial=int)
-        self.profit = GenericParsedGetSetProxy(self, "profit", t_initial=str)
-        self.usd_profit = GenericParsedGetSetProxy(self, "usd_profit", t_initial=str)
-        self.created_at = GenericParsedGetSetProxy(self, "created_at", t_initial=str, t_parsed=datetime)
+        self.grid_line_id: int
+        self.profit: str
+        self.usd_profit: str
+        self.created_at: str
+    parsing_map = {
+    }
 
 
 class DealEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.type = GenericParsedGetSetProxy(self, "type", t_initial=str)
-        self.bot_id = GenericParsedGetSetProxy(self, "bot_id", t_initial=int)
-        self.max_safety_orders = GenericParsedGetSetProxy(self, "max_safety_orders", t_initial=int)
-        self.deal_has_error = GenericParsedGetSetProxy(self, "deal_has_error", t_initial=bool)
-        self.from_currency_id = GenericParsedGetSetProxy(self, "from_currency_id", t_initial=int)
-        self.to_currency_id = GenericParsedGetSetProxy(self, "to_currency_id", t_initial=int)
-        self.account_id = GenericParsedGetSetProxy(self, "account_id", t_initial=int)
-        self.active_safety_orders_count = GenericParsedGetSetProxy(self, "active_safety_orders_count", t_initial=int)
-        self.created_at = GenericParsedGetSetProxy(self, "created_at", t_initial=str, t_parsed=datetime)
-        self.updated_at = GenericParsedGetSetProxy(self, "updated_at", t_initial=str, t_parsed=datetime)
-        self.closed_at = GenericParsedGetSetProxy(self, "closed_at", t_initial=str, t_parsed=datetime)
-        self.finished = GenericParsedGetSetProxy(self, "finished?", t_initial=bool)
-        self.current_active_safety_orders_count = GenericParsedGetSetProxy(self, "current_active_safety_orders_count", t_initial=int)
-        self.current_active_safety_orders = GenericParsedGetSetProxy(self, "current_active_safety_orders", t_initial=int)
-        self.completed_safety_orders_count = GenericParsedGetSetProxy(self, "completed_safety_orders_count", t_initial=int)
-        self.completed_manual_safety_orders_count = GenericParsedGetSetProxy(self, "completed_manual_safety_orders_count", t_initial=int)
-        self.cancellable = GenericParsedGetSetProxy(self, "cancellable?", t_initial=bool)
-        self.panic_sellable = GenericParsedGetSetProxy(self, "panic_sellable?", t_initial=bool)
-        self.trailing_enabled = GenericParsedGetSetProxy(self, "trailing_enabled", t_initial=bool)
-        self.tsl_enabled = GenericParsedGetSetProxy(self, "tsl_enabled", t_initial=bool)
-        self.stop_loss_timeout_enabled = GenericParsedGetSetProxy(self, "stop_loss_timeout_enabled", t_initial=bool)
-        self.stop_loss_timeout_in_seconds = GenericParsedGetSetProxy(self, "stop_loss_timeout_in_seconds", t_initial=int)
-        self.active_manual_safety_orders = GenericParsedGetSetProxy(self, "active_manual_safety_orders", t_initial=int)
-        self.pair = GenericParsedGetSetProxy(self, "pair", t_initial=str)
-        self.status = GenericParsedGetSetProxy(self, "status", t_initial=str)
-        self.localized_status = GenericParsedGetSetProxy(self, "localized_status", t_initial=str)
-        self.take_profit = GenericParsedGetSetProxy(self, "take_profit", t_initial=str, t_parsed=float)
-        self.base_order_volume = GenericParsedGetSetProxy(self, "base_order_volume", t_initial=str, t_parsed=float)
-        self.safety_order_volume = GenericParsedGetSetProxy(self, "safety_order_volume", t_initial=str, t_parsed=float)
-        self.safety_order_step_percentage = GenericParsedGetSetProxy(self, "safety_order_step_percentage", t_initial=str, t_parsed=float)
-        self.leverage_type = GenericParsedGetSetProxy(self, "leverage_type", t_initial=str)
-        self.leverage_custom_value = GenericParsedGetSetProxy(self, "leverage_custom_value", t_initial=str)
-        self.bought_amount = GenericParsedGetSetProxy(self, "bought_amount", t_initial=str, t_parsed=float)
-        self.bought_volume = GenericParsedGetSetProxy(self, "bought_volume", t_initial=str, t_parsed=float)
-        self.bought_average_price = GenericParsedGetSetProxy(self, "bought_average_price", t_initial=str, t_parsed=float)
-        self.base_order_average_price = GenericParsedGetSetProxy(self, "base_order_average_price", t_initial=str, t_parsed=float)
-        self.sold_amount = GenericParsedGetSetProxy(self, "sold_amount", t_initial=str, t_parsed=float)
-        self.sold_volume = GenericParsedGetSetProxy(self, "sold_volume", t_initial=str, t_parsed=float)
-        self.sold_average_price = GenericParsedGetSetProxy(self, "sold_average_price", t_initial=str, t_parsed=float)
-        self.take_profit_type = GenericParsedGetSetProxy(self, "take_profit_type", t_initial=str)
-        self.final_profit = GenericParsedGetSetProxy(self, "final_profit", t_initial=str, t_parsed=float)
-        self.martingale_coefficient = GenericParsedGetSetProxy(self, "martingale_coefficient", t_initial=str, t_parsed=float)
-        self.martingale_volume_coefficient = GenericParsedGetSetProxy(self, "martingale_volume_coefficient", t_initial=str, t_parsed=float)
-        self.martingale_step_coefficient = GenericParsedGetSetProxy(self, "martingale_step_coefficient", t_initial=str, t_parsed=float)
-        self.stop_loss_percentage = GenericParsedGetSetProxy(self, "stop_loss_percentage", t_initial=str, t_parsed=float)
-        self.error_message = GenericParsedGetSetProxy(self, "error_message", t_initial=str)
-        self.profit_currency = GenericParsedGetSetProxy(self, "profit_currency", t_initial=str)
-        self.stop_loss_type = GenericParsedGetSetProxy(self, "stop_loss_type", t_initial=str)
-        self.safety_order_volume_type = GenericParsedGetSetProxy(self, "safety_order_volume_type", t_initial=str)
-        self.base_order_volume_type = GenericParsedGetSetProxy(self, "base_order_volume_type", t_initial=str)
-        self.from_currency = GenericParsedGetSetProxy(self, "from_currency", t_initial=str)
-        self.to_currency = GenericParsedGetSetProxy(self, "to_currency", t_initial=str)
-        self.current_price = GenericParsedGetSetProxy(self, "current_price", t_initial=str, t_parsed=float)
-        self.take_profit_price = GenericParsedGetSetProxy(self, "take_profit_price", t_initial=str, t_parsed=float)
-        self.stop_loss_price = GenericParsedGetSetProxy(self, "stop_loss_price", t_initial=str)
-        self.final_profit_percentage = GenericParsedGetSetProxy(self, "final_profit_percentage", t_initial=str, t_parsed=float)
-        self.actual_profit_percentage = GenericParsedGetSetProxy(self, "actual_profit_percentage", t_initial=str, t_parsed=float)
-        self.bot_name = GenericParsedGetSetProxy(self, "bot_name", t_initial=str)
-        self.account_name = GenericParsedGetSetProxy(self, "account_name", t_initial=str)
-        self.usd_final_profit = GenericParsedGetSetProxy(self, "usd_final_profit", t_initial=str, t_parsed=float)
-        self.actual_profit = GenericParsedGetSetProxy(self, "actual_profit", t_initial=str, t_parsed=float)
-        self.actual_usd_profit = GenericParsedGetSetProxy(self, "actual_usd_profit", t_initial=str, t_parsed=float)
-        self.failed_message = GenericParsedGetSetProxy(self, "failed_message", t_initial=str)
-        self.reserved_base_coin = GenericParsedGetSetProxy(self, "reserved_base_coin", t_initial=str, t_parsed=float)
-        self.reserved_second_coin = GenericParsedGetSetProxy(self, "reserved_second_coin", t_initial=str, t_parsed=float)
-        self.trailing_deviation = GenericParsedGetSetProxy(self, "trailing_deviation", t_initial=str, t_parsed=float)
-        self.trailing_max_price = GenericParsedGetSetProxy(self, "trailing_max_price", t_initial=str, t_parsed=float)
-        self.tsl_max_price = GenericParsedGetSetProxy(self, "tsl_max_price", t_initial=str)
-        self.strategy = GenericParsedGetSetProxy(self, "strategy", t_initial=str)
-        self.reserved_quote_funds = GenericParsedGetSetProxy(self, "reserved_quote_funds", t_initial=float, t_parsed=float)
-        self.reserved_base_funds = GenericParsedGetSetProxy(self, "reserved_base_funds", t_initial=float)
+        self.id: int
+        self.type: str
+        self.bot_id: int
+        self.max_safety_orders: int
+        self.deal_has_error: bool
+        self.from_currency_id: int
+        self.to_currency_id: int
+        self.account_id: int
+        self.active_safety_orders_count: int
+        self.created_at: str
+        self.updated_at: str
+        self.closed_at: str
+        self.finished: bool
+        self.current_active_safety_orders_count: int
+        self.current_active_safety_orders: int
+        self.completed_safety_orders_count: int
+        self.completed_manual_safety_orders_count: int
+        self.cancellable: bool
+        self.panic_sellable: bool
+        self.trailing_enabled: bool
+        self.tsl_enabled: bool
+        self.stop_loss_timeout_enabled: bool
+        self.stop_loss_timeout_in_seconds: int
+        self.active_manual_safety_orders: int
+        self.pair: str
+        self.status: str
+        self.localized_status: str
+        self.take_profit: StrFloatProxy
+        self.base_order_volume: StrFloatProxy
+        self.safety_order_volume: StrFloatProxy
+        self.safety_order_step_percentage: StrFloatProxy
+        self.leverage_type: str
+        self.leverage_custom_value: str
+        self.bought_amount: StrFloatProxy
+        self.bought_volume: StrFloatProxy
+        self.bought_average_price: StrFloatProxy
+        self.base_order_average_price: StrFloatProxy
+        self.sold_amount: StrFloatProxy
+        self.sold_volume: StrFloatProxy
+        self.sold_average_price: StrFloatProxy
+        self.take_profit_type: str
+        self.final_profit: StrFloatProxy
+        self.martingale_coefficient: StrFloatProxy
+        self.martingale_volume_coefficient: StrFloatProxy
+        self.martingale_step_coefficient: StrFloatProxy
+        self.stop_loss_percentage: StrFloatProxy
+        self.error_message: str
+        self.profit_currency: str
+        self.stop_loss_type: str
+        self.safety_order_volume_type: str
+        self.base_order_volume_type: str
+        self.from_currency: str
+        self.to_currency: str
+        self.current_price: StrFloatProxy
+        self.take_profit_price: StrFloatProxy
+        self.stop_loss_price: str
+        self.final_profit_percentage: StrFloatProxy
+        self.actual_profit_percentage: StrFloatProxy
+        self.bot_name: str
+        self.account_name: str
+        self.usd_final_profit: StrFloatProxy
+        self.actual_profit: StrFloatProxy
+        self.actual_usd_profit: StrFloatProxy
+        self.failed_message: str
+        self.reserved_base_coin: StrFloatProxy
+        self.reserved_second_coin: StrFloatProxy
+        self.trailing_deviation: StrFloatProxy
+        self.trailing_max_price: StrFloatProxy
+        self.tsl_max_price: str
+        self.strategy: str
+        self.reserved_quote_funds: StrFloatProxy
+        self.reserved_base_funds: float
+    parsing_map = {
+        'finished': QuestionMarkProxy,
+        'cancellable': QuestionMarkProxy,
+        'panic_sellable': QuestionMarkProxy,
+        'take_profit': StrFloatProxy,
+        'base_order_volume': StrFloatProxy,
+        'safety_order_volume': StrFloatProxy,
+        'safety_order_step_percentage': StrFloatProxy,
+        'bought_amount': StrFloatProxy,
+        'bought_volume': StrFloatProxy,
+        'bought_average_price': StrFloatProxy,
+        'base_order_average_price': StrFloatProxy,
+        'sold_amount': StrFloatProxy,
+        'sold_volume': StrFloatProxy,
+        'sold_average_price': StrFloatProxy,
+        'final_profit': StrFloatProxy,
+        'martingale_coefficient': StrFloatProxy,
+        'martingale_volume_coefficient': StrFloatProxy,
+        'martingale_step_coefficient': StrFloatProxy,
+        'stop_loss_percentage': StrFloatProxy,
+        'current_price': StrFloatProxy,
+        'take_profit_price': StrFloatProxy,
+        'final_profit_percentage': StrFloatProxy,
+        'actual_profit_percentage': StrFloatProxy,
+        'usd_final_profit': StrFloatProxy,
+        'actual_profit': StrFloatProxy,
+        'actual_usd_profit': StrFloatProxy,
+        'reserved_base_coin': StrFloatProxy,
+        'reserved_second_coin': StrFloatProxy,
+        'trailing_deviation': StrFloatProxy,
+        'trailing_max_price': StrFloatProxy,
+        'reserved_quote_funds': StrFloatProxy,
+    }
 
 
 class SmartTradeV2Entity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.version = GenericParsedGetSetProxy(self, "version", t_initial=int)
-        self.account = GenericParsedGetSetProxy(self, "account", t_initial=dict)
-        self.pair = GenericParsedGetSetProxy(self, "pair", t_initial=str)
-        self.instant = GenericParsedGetSetProxy(self, "instant", t_initial=bool)
-        self.status = GenericParsedGetSetProxy(self, "status", t_initial=dict)
-        self.leverage = GenericParsedGetSetProxy(self, "leverage", t_initial=dict)
-        self.position = GenericParsedGetSetProxy(self, "position", t_initial=dict)
-        self.take_profit = GenericParsedGetSetProxy(self, "take_profit", t_initial=dict)
-        self.stop_loss = GenericParsedGetSetProxy(self, "stop_loss", t_initial=dict)
-        self.note = GenericParsedGetSetProxy(self, "note", t_initial=str)
-        self.skip_enter_step = GenericParsedGetSetProxy(self, "skip_enter_step", t_initial=bool)
-        self.data = GenericParsedGetSetProxy(self, "data", t_initial=dict)
-        self.profit = GenericParsedGetSetProxy(self, "profit", t_initial=dict)
-        self.margin = GenericParsedGetSetProxy(self, "margin", t_initial=dict)
-        self.is_position_not_filled = GenericParsedGetSetProxy(self, "is_position_not_filled", t_initial=bool)
+        self.id: int
+        self.version: int
+        self.account: dict
+        self.pair: str
+        self.instant: bool
+        self.status: dict
+        self.leverage: dict
+        self.position: dict
+        self.take_profit: dict
+        self.stop_loss: dict
+        self.note: str
+        self.skip_enter_step: bool
+        self.data: dict
+        self.profit: dict
+        self.margin: dict
+        self.is_position_not_filled: bool
+    parsing_map = {
+    }
 
 
 class TakeProfitStep(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.version = GenericParsedGetSetProxy(self, "version", t_initial=int)
-        self.account = GenericParsedGetSetProxy(self, "account", t_initial=dict)
-        self.pair = GenericParsedGetSetProxy(self, "pair", t_initial=str)
-        self.instant = GenericParsedGetSetProxy(self, "instant", t_initial=bool)
-        self.status = GenericParsedGetSetProxy(self, "status", t_initial=dict)
-        self.leverage = GenericParsedGetSetProxy(self, "leverage", t_initial=dict)
-        self.position = GenericParsedGetSetProxy(self, "position", t_initial=dict)
-        self.take_profit = GenericParsedGetSetProxy(self, "take_profit", t_initial=dict)
-        self.stop_loss = GenericParsedGetSetProxy(self, "stop_loss", t_initial=dict)
-        self.note = GenericParsedGetSetProxy(self, "note", t_initial=str)
-        self.skip_enter_step = GenericParsedGetSetProxy(self, "skip_enter_step", t_initial=bool)
-        self.data = GenericParsedGetSetProxy(self, "data", t_initial=dict)
-        self.profit = GenericParsedGetSetProxy(self, "profit", t_initial=dict)
-        self.margin = GenericParsedGetSetProxy(self, "margin", t_initial=dict)
-        self.is_position_not_filled = GenericParsedGetSetProxy(self, "is_position_not_filled", t_initial=bool)
+        self.id: int
+        self.version: int
+        self.account: dict
+        self.pair: str
+        self.instant: bool
+        self.status: dict
+        self.leverage: dict
+        self.position: dict
+        self.take_profit: dict
+        self.stop_loss: dict
+        self.note: str
+        self.skip_enter_step: bool
+        self.data: dict
+        self.profit: dict
+        self.margin: dict
+        self.is_position_not_filled: bool
+    parsing_map = {
+    }
 
 
 class BotDealsStatsEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.completed = GenericParsedGetSetProxy(self, "completed", t_initial=int)
-        self.panic_sold = GenericParsedGetSetProxy(self, "panic_sold", t_initial=int)
-        self.active = GenericParsedGetSetProxy(self, "active", t_initial=int)
-        self.completed_deals_usd_profit = GenericParsedGetSetProxy(self, "completed_deals_usd_profit", t_initial=str)
-        self.from_currency_is_dollars = GenericParsedGetSetProxy(self, "from_currency_is_dollars", t_initial=bool)
-        self.completed_deals_btc_profit = GenericParsedGetSetProxy(self, "completed_deals_btc_profit", t_initial=str)
-        self.funds_locked_in_active_deals = GenericParsedGetSetProxy(self, "funds_locked_in_active_deals", t_initial=str)
-        self.btc_funds_locked_in_active_deals = GenericParsedGetSetProxy(self, "btc_funds_locked_in_active_deals", t_initial=str)
-        self.active_deals_usd_profit = GenericParsedGetSetProxy(self, "active_deals_usd_profit", t_initial=str)
-        self.active_deals_btc_profit = GenericParsedGetSetProxy(self, "active_deals_btc_profit", t_initial=str)
+        self.completed: int
+        self.panic_sold: int
+        self.active: int
+        self.completed_deals_usd_profit: str
+        self.from_currency_is_dollars: bool
+        self.completed_deals_btc_profit: str
+        self.funds_locked_in_active_deals: str
+        self.btc_funds_locked_in_active_deals: str
+        self.active_deals_usd_profit: str
+        self.active_deals_btc_profit: str
+    parsing_map = {
+    }
 
 
 class LooseAccountEntity(ThreeCommasModel):
     def __init__(self, d: dict = None):
         super().__init__(d)
-        self.id = GenericParsedGetSetProxy(self, "id", t_initial=int)
-        self.name = GenericParsedGetSetProxy(self, "name", t_initial=str)
-        self.created_at = GenericParsedGetSetProxy(self, "created_at", t_initial=str, t_parsed=datetime)
-        self.updated_at = GenericParsedGetSetProxy(self, "updated_at", t_initial=str, t_parsed=datetime)
-        self.type = GenericParsedGetSetProxy(self, "type", t_initial=str)
-        self.is_deleted = GenericParsedGetSetProxy(self, "is_deleted", t_initial=bool)
-        self.is_locked = GenericParsedGetSetProxy(self, "is_locked", t_initial=bool)
+        self.id: int
+        self.name: str
+        self.created_at: str
+        self.updated_at: str
+        self.type: str
+        self.is_deleted: bool
+        self.is_locked: bool
+    parsing_map = {
+    }
 

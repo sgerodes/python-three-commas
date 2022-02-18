@@ -147,45 +147,40 @@ class ThreeCommasDict(dict):
 
 
 class ThreeCommasModel(ThreeCommasDict):
-    def __setattr__(self, name, value):
-        if not isinstance(value, GenericParsedGetSetProxy):
-            raise RuntimeError(f'Please set the attributes of the object with <your_object>.<attribute>.set(<your_value>), not <your_object>.<attribute> = <your_value>')
-        super().__setattr__(name, value)
+    def __getattr__(self, name):
+        proxy_type = self.__class__.parsing_map.get(name)
+        if proxy_type is QuestionMarkProxy:
+            return self.get(name + '?')
+        item = self.get(name)
+        if item is None:
+            return None
+        if proxy_type is None:
+            return item
+        try:
+            return proxy_type(item)
+        except ValueError:
+            return item
+
+    def __setattr__(self, key, value):
+        self[key] = value
 
 
-T_initial = TypeVar('T_initial')
-T_parsed = TypeVar('T_parsed')
+class StrIntProxy(int):
+    def parsed(self, parsed: bool) -> Union[str, int]:
+        return self if parsed else str(self)
 
 
-class GenericParsedGetSetProxy(Generic[T_initial, T_parsed]):
+class StrFloatProxy(float):
+    def parsed(self, parsed: bool) -> Union[str, float]:
+        return self if parsed else str(self)
 
-    def __init__(self, obj: ThreeCommasDict, attribute_name: str, t_initial: T_initial = None, t_parsed: T_parsed = None):
-        self.obj = obj
-        self.attribute_name = attribute_name
-        self.t_initial = t_initial
-        self.t_parsed = t_parsed
 
-        if t_parsed is not None:
-            if t_parsed is datetime.datetime:
-                @ThreeCommasParser.parsed_timestamp
-                def get_proxy() -> Optional[Union[str, datetime.datetime]]:
-                    return self.obj.get(self.attribute_name)
-            else:
-                @ThreeCommasParser.parsed(t_parsed)
-                def get_proxy() -> Optional[Union[t_initial, t_parsed]]:
-                    return self.obj.get(self.attribute_name)
-        else:
-            def get_proxy() -> Optional[t_initial]:
-                return self.obj.get(self.attribute_name)
+class StrDatetimeProxy(str):
+    DATETIME_PATTERN = '%Y-%m-%dT%H:%M:%S.%fZ'
 
-        self.get_proxy = get_proxy
+    def parsed(self, parsed: bool) -> Union[str, datetime]:
+        return datetime.strptime(self, StrDatetimeProxy.DATETIME_PATTERN) if parsed else self
 
-    def set(self, value):
-        self.obj[self.attribute_name] = value
 
-    def get(self, *args, **kwargs) -> Optional[Union[T_initial, T_parsed]]:
-        return self.get_proxy(*args, **kwargs)
-
-    def __repr__(self):
-        parsed_repr = f', {self.t_initial or ""} --> {self.t_parsed or ""}' if self.t_initial or self.t_parsed else ''
-        return f'{self.__class__.__name__}(class={self.obj.__class__.__name__}, attribute={self.attribute_name}{parsed_repr})'
+class QuestionMarkProxy:
+    pass

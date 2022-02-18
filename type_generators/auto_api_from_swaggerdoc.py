@@ -135,13 +135,21 @@ def create_models(swaggerdoc: Dict[str, dict]):
         'array': 'list',
         'boolean': 'bool',
     }
+    proxy_parse_type_mapping = {
+        float: 'StrFloatProxy',
+        int: 'StrIntProxy',
+        datetime.datetime: 'StrDatetimeProxy',
+    }
     superclass = 'ThreeCommasModel'
     code = list()
-    code.append('from .models import ThreeCommasModel, GenericParsedGetSetProxy')
+    code.append('from .models import ThreeCommasModel, StrFloatProxy, StrIntProxy, StrDatetimeProxy, QuestionMarkProxy')
     code.append('from datetime import datetime')
+    code.append('from typing import Any')
     code.append(f'')
     code.append(f'')
+
     for model_name, model_definition in swaggerdoc.get('definitions').items():
+        proxy_parse_type_parsing_map = dict()
         code.append(f'class {model_name}({superclass}):')
         code.append(f'{INDENT}def __init__(self, d: dict = None):')
         code.append(f'{INDENT*2}super().__init__(d)')
@@ -161,17 +169,21 @@ def create_models(swaggerdoc: Dict[str, dict]):
             if parsed_type is None:
                 model_parsings = PARSING_MAPPING.get(model_name)
                 if model_parsings and json_attribute_name in model_parsings:
-                    parsed_type = model_parsings.get(json_attribute_name).__name__
+                    parsed_type = model_parsings.get(json_attribute_name)
+            proxy_type = proxy_parse_type_mapping.get(parsed_type)
+            if proxy_type:
+                proxy_parse_type_parsing_map[model_attribute_name] = proxy_type
+            if json_attribute_name.endswith('?'):
+                proxy_parse_type_parsing_map[model_attribute_name] = 'QuestionMarkProxy'
 
-            codeline = f'{INDENT*2}self.{model_attribute_name} = GenericParsedGetSetProxy(self, "{json_attribute_name}"'
-            if swagger_type:
-                codeline += f', t_initial={py_type}'
-            if parsed_type:
-                codeline += f', t_parsed={parsed_type}'
-            codeline += ')'
+            codeline = f'{INDENT*2}self.{model_attribute_name}: {proxy_type if proxy_type else py_type}'
 
             code.append(codeline)
 
+        code.append(f'{INDENT}parsing_map = {"{"}')
+        for model_attribute_name, proxy_type in proxy_parse_type_parsing_map.items():
+            code.append(f"{INDENT*2}'{model_attribute_name}': {proxy_type},")
+        code.append(f'{INDENT}{"}"}')
         code.append(f'')
         code.append(f'')
     code_str = '\n'.join(code)
