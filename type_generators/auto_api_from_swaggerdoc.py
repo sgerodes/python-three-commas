@@ -6,7 +6,7 @@ import os
 from py3cw.config import API_METHODS as PY3CW_API_METHODS
 import datetime
 import re
-from parsing_and_return_mapping import PARSING_MAPPING, ENDPOINT_RETURNS_MAP
+from parsing_and_return_mapping import PARSING_MAPPING, endpoint_returns, endpoint_consumes
 
 
 INDENT = ' ' * 4
@@ -21,13 +21,13 @@ def get_path_variables(path: str):
     return path_variable_1, path_variable_2
 
 
-def create_docstring(path: str, parameters: list, description, return_type=None):
+def create_docstring(verb: str, path: str, parameters: list, description, return_type=None):
     if not parameters and not description:
         return None
 
     code = list()
     code.append(f'{INDENT}"""')
-    code.append(f'{INDENT}{path}')
+    code.append(f'{INDENT}{verb.upper()} {path}')
     if description:
         code.append(f'{INDENT}{description}')
         code.append(f'')
@@ -78,7 +78,7 @@ def make_ids_uniform_for_path(sub_path):
     return re.sub(r'\{[^}]*\}', '{id}', second_replaced, 1)
 
 
-def create_function_logic(verb: str, path: str, parameters: List[dict], return_type: str = None) -> str:
+def create_function_logic(verb: str, path: str, parameters: List[dict], return_type: str = None, function_has_payload: bool = None) -> str:
     path_variable_1, path_variable_2 = get_path_variables(path)
 
     version = get_api_version_from_path(path)
@@ -104,7 +104,6 @@ def create_function_logic(verb: str, path: str, parameters: List[dict], return_t
 
     code = list()
 
-
     code.append(f'{INDENT}error, data = wrapper.request(')
     code.append(f"{INDENT*2}entity='{py3cw_entity}',")
     code.append(f"{INDENT*2}action='{py3cw_action}',")
@@ -112,15 +111,17 @@ def create_function_logic(verb: str, path: str, parameters: List[dict], return_t
         code.append(f"{INDENT*2}action_id=str({path_variable_1}),")
     if path_variable_2:
         code.append(f"{INDENT*2}action_sub_id=str({path_variable_2}),")
+    if function_has_payload:
+        code.append(f"{INDENT*2}payload=entity,")
     code.append(f"{INDENT})")
     if return_type:
         if return_type.startswith('List['):
             list_element_type = return_type.split('[')[1].split(']')[0]
-            code.append(f"{INDENT}return ThreeCommasError(error), {list_element_type}.of_list(data)")
+            code.append(f"{INDENT}return ThreeCommasApiError(error), {list_element_type}.of_list(data)")
         else:
-            code.append(f"{INDENT}return ThreeCommasError(error), {return_type}(data)")
+            code.append(f"{INDENT}return ThreeCommasApiError(error), {return_type}(data)")
     else:
-        code.append(f"{INDENT}return ThreeCommasError(error), data")
+        code.append(f"{INDENT}return ThreeCommasApiError(error), data")
 
     return '\n'.join(code)
 
@@ -197,16 +198,21 @@ def generate():
             function_parameters = path_variable_1 or ''
             if path_variable_2:
                 function_parameters += f', {path_variable_2}'
+
             for verb in http_verbs:
+                function_has_payload = endpoint_consumes(verb, path)
+                if function_has_payload:
+                    function_parameters += f'{", " if function_parameters else ""}entity: dict'
+
                 description = definition.get(verb).get('description')
                 # operationId = definition.get(verb).get('operationId')
                 parameters = definition.get(verb).get('parameters')
 
                 function_name = f'{verb}{"_" + sub_endpoint if sub_endpoint else ""}{"_by_id" if path_variable_1 else ""}'
-                return_type = ENDPOINT_RETURNS_MAP.get(path)
+                return_type = endpoint_returns(verb, path)
 
                 code = list()
-                function_logic = create_function_logic(verb, path, parameters, return_type)
+                function_logic = create_function_logic(verb, path, parameters, return_type, function_has_payload)
 
                 endpoint_found_in_py3cw = True
                 if '<py3cw_entity>' in function_logic or '<py3cw_action>' in function_logic:
@@ -216,12 +222,12 @@ def generate():
 
                 return_type_statement = ''
                 if return_type:
-                    return_type_statement = f' -> Tuple[ThreeCommasError, {return_type}]'
+                    return_type_statement = f' -> Tuple[ThreeCommasApiError, {return_type}]'
 
                 code.append(f'@logged')
                 code.append(f'@with_py3cw')
                 code.append(f'def {function_name}({function_parameters}){return_type_statement}:')
-                docstring = create_docstring(path, parameters, description)
+                docstring = create_docstring(verb, path, parameters, description)
                 if docstring:
                     code.append(docstring)
                 code.append(function_logic)
@@ -241,7 +247,7 @@ def generate():
             imports = list()
             imports.append("from py3cw.request import Py3CW")
             imports.append("from ...model import *")
-            imports.append("from ...error import ThreeCommasError")
+            imports.append("from ...error import ThreeCommasApiError")
             imports.append("from typing import Tuple, List")
             imports.append("import logging")
             imports.append("from ...sys_utils import logged, with_py3cw, Py3cwClosure")

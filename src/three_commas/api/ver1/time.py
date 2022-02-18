@@ -1,6 +1,6 @@
 from py3cw.request import Py3CW
 from ...model import *
-from ...error import ThreeCommasError
+from ...error import ThreeCommasApiError
 from typing import Tuple, List
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure
@@ -15,7 +15,7 @@ wrapper: Py3cwClosure = None
 @with_py3cw
 def get():
     """
-    /ver1/time
+    GET /ver1/time
     Test connectivity to the Rest API and get the current server time (Permission: NONE, Security: NONE)
 
     """
@@ -23,7 +23,7 @@ def get():
         entity='<py3cw_entity>',
         action='<py3cw_action>',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 '''
 
 

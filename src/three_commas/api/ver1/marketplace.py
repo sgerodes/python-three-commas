@@ -1,6 +1,6 @@
 from py3cw.request import Py3CW
 from ...model import *
-from ...error import ThreeCommasError
+from ...error import ThreeCommasApiError
 from typing import Tuple, List
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure
@@ -15,7 +15,7 @@ wrapper: Py3cwClosure = None
 @with_py3cw
 def get_presets():
     """
-    /ver1/marketplace/presets
+    GET /ver1/marketplace/presets
     Marketplace presets (Permission: NONE, Security: SIGNED)
 
     """
@@ -23,7 +23,7 @@ def get_presets():
         entity='marketplace',
         action='<py3cw_action>',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 '''
 
 
@@ -31,7 +31,7 @@ def get_presets():
 @with_py3cw
 def get_items():
     """
-    /ver1/marketplace/items
+    GET /ver1/marketplace/items
     All marketplace items (Permission: NONE, Security: NONE)
 
     """
@@ -39,14 +39,14 @@ def get_items():
         entity='marketplace',
         action='items',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def get_signals_by_id(item_id):
     """
-    /ver1/marketplace/{item_id}/signals
+    GET /ver1/marketplace/{item_id}/signals
     Marketplace Item Signals (Permission: NONE, Security: NONE)
 
     """
@@ -55,6 +55,6 @@ def get_signals_by_id(item_id):
         action='signals',
         action_id=str(item_id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 

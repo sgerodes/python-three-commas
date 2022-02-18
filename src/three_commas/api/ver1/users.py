@@ -1,6 +1,6 @@
 from py3cw.request import Py3CW
 from ...model import *
-from ...error import ThreeCommasError
+from ...error import ThreeCommasApiError
 from typing import Tuple, List
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure
@@ -14,7 +14,7 @@ wrapper: Py3cwClosure = None
 @with_py3cw
 def get_current_mode():
     """
-    /ver1/users/current_mode
+    GET /ver1/users/current_mode
     Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)
 
     """
@@ -22,14 +22,14 @@ def get_current_mode():
         entity='users',
         action='current_mode',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def post_change_mode():
     """
-    /ver1/users/change_mode
+    POST /ver1/users/change_mode
     Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 
     """
@@ -37,6 +37,6 @@ def post_change_mode():
         entity='users',
         action='change_mode',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 

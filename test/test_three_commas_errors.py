@@ -1,11 +1,11 @@
-from src.three_commas.error import ThreeCommasError
+from src.three_commas.error import ThreeCommasApiError
 import json
 
 
-def read_error_from_json(file_path) -> ThreeCommasError:
+def read_error_from_json(file_path) -> ThreeCommasApiError:
     with open(file_path, 'r+') as f:
         error = json.loads(f.read())
-        error_model = ThreeCommasError(error)
+        error_model = ThreeCommasApiError(error)
     return error_model
 
 
@@ -43,7 +43,7 @@ def test_no_bo_error():
     assert len(bo_error) == 0
     assert not error.is_base_order_to_small_error()
 
-    error = ThreeCommasError({'custom_message': 'some error occured'})
+    error = ThreeCommasApiError({'custom_message': 'some error occured'})
     bo_error = error.get_base_order_to_small_error()
     assert len(bo_error) == 0
 

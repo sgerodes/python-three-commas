@@ -9,7 +9,7 @@ import hmac
 import hashlib
 from .model.generated_enums import Mode
 from . import configuration
-from .error import ThreeCommasError
+from .error import ThreeCommasApiError
 
 logger = logging.getLogger(__name__)
 
@@ -186,10 +186,10 @@ def verify_no_error(error, data):
     if error:
         error['function_name'] = calling_function_name
         logger.error(error)
-        raise ThreeCommasError(error=error)
+        raise ThreeCommasApiError(error=error)
     if data is None:
         logger.warning(f'No data was received for function {calling_function_name}')
-        raise ThreeCommasError(error={'msg': 'Data is None', 'function_name': calling_function_name})
+        raise ThreeCommasApiError(error={'msg': 'Data is None', 'function_name': calling_function_name})
 
 
 def create_signature(payload, api_secret):

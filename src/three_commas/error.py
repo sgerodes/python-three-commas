@@ -13,7 +13,7 @@ class BaseOrderToSmallErrorElement:
     pair: str = None
 
 
-class ThreeCommasError(ThreeCommasDict):
+class ThreeCommasApiError(ThreeCommasDict):
 
     BO_TO_SMALL_ERROR_PATTERN = re.compile(r"Base order size is too small\. Min: ([0-9.]*),? ?([\w_]+)?", re.IGNORECASE)
     NO_MARKET_PAIR_ERROR_PATTERN = re.compile(r"No market data for this pair: ([^\']*)\'", re.IGNORECASE)
@@ -40,7 +40,7 @@ class ThreeCommasError(ThreeCommasDict):
 
     def get_no_market_pair_error(self) -> List[str]:
         if self._has_error_message():
-            pairs_to_remove = ThreeCommasError.NO_MARKET_PAIR_ERROR_PATTERN.findall(self.get_msg())
+            pairs_to_remove = ThreeCommasApiError.NO_MARKET_PAIR_ERROR_PATTERN.findall(self.get_msg())
             if pairs_to_remove:
                 return pairs_to_remove
         return list()
@@ -49,7 +49,7 @@ class ThreeCommasError(ThreeCommasDict):
         ret = list()
         if self._has_error_message():
             try:
-                match = ThreeCommasError.EXTRACT_PY3CW_MESSAGE_PATTERN.findall(self.get_msg())
+                match = ThreeCommasApiError.EXTRACT_PY3CW_MESSAGE_PATTERN.findall(self.get_msg())
                 if match:
                     error_parsed = eval(match[0])
                 else:
@@ -58,7 +58,7 @@ class ThreeCommasError(ThreeCommasDict):
                 return list()
             if error_parsed.get('base_order_volume'):
                 for sub_message in error_parsed.get('base_order_volume'):
-                    bo_min_match = ThreeCommasError.BO_TO_SMALL_ERROR_PATTERN.findall(sub_message)
+                    bo_min_match = ThreeCommasApiError.BO_TO_SMALL_ERROR_PATTERN.findall(sub_message)
                     if bo_min_match:
                         amount = float(bo_min_match[0][0])
                         pair = bo_min_match[0][1] or None
@@ -72,3 +72,5 @@ class ThreeCommasError(ThreeCommasDict):
         return self.get('msg')
 
 
+class ThreeCommasException(RuntimeError):
+    pass

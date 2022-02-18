@@ -1,6 +1,6 @@
 from py3cw.request import Py3CW
 from ...model import *
-from ...error import ThreeCommasError
+from ...error import ThreeCommasApiError
 from typing import Tuple, List
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure
@@ -15,7 +15,7 @@ wrapper: Py3cwClosure = None
 @with_py3cw
 def post():
     """
-    /ver1/loose_accounts
+    POST /ver1/loose_accounts
     Create Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 
     """
@@ -23,7 +23,7 @@ def post():
         entity='<py3cw_entity>',
         action='<py3cw_action>',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 '''
 
 
@@ -32,7 +32,7 @@ def post():
 @with_py3cw
 def get_available_currencies():
     """
-    /ver1/loose_accounts/available_currencies
+    GET /ver1/loose_accounts/available_currencies
     Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)
 
     """
@@ -40,7 +40,7 @@ def get_available_currencies():
         entity='<py3cw_entity>',
         action='<py3cw_action>',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 '''
 
 
@@ -49,7 +49,7 @@ def get_available_currencies():
 @with_py3cw
 def put_by_id(account_id):
     """
-    /ver1/loose_accounts/{account_id}
+    PUT /ver1/loose_accounts/{account_id}
     Update Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)
 
     """
@@ -58,7 +58,7 @@ def put_by_id(account_id):
         action='<py3cw_action>',
         action_id=str(account_id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 '''
 
 

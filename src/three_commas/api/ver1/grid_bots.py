@@ -1,6 +1,6 @@
 from py3cw.request import Py3CW
 from ...model import *
-from ...error import ThreeCommasError
+from ...error import ThreeCommasApiError
 from typing import Tuple, List
 import logging
 from ...sys_utils import logged, with_py3cw, Py3cwClosure
@@ -14,7 +14,7 @@ wrapper: Py3cwClosure = None
 @with_py3cw
 def post_ai():
     """
-    /ver1/grid_bots/ai
+    POST /ver1/grid_bots/ai
     Create AI Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 
     """
@@ -22,14 +22,14 @@ def post_ai():
         entity='grid_bots',
         action='ai',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def post_manual():
     """
-    /ver1/grid_bots/manual
+    POST /ver1/grid_bots/manual
     Create Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 
     """
@@ -37,14 +37,14 @@ def post_manual():
         entity='grid_bots',
         action='manual',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def get_ai_settings():
     """
-    /ver1/grid_bots/ai_settings
+    GET /ver1/grid_bots/ai_settings
     Get AI settings (Permission: BOTS_READ, Security: SIGNED)
 
     """
@@ -52,14 +52,14 @@ def get_ai_settings():
         entity='grid_bots',
         action='ai_settings',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def get():
     """
-    /ver1/grid_bots
+    GET /ver1/grid_bots
     Grid bots list (Permission: BOTS_READ, Security: SIGNED)
 
     """
@@ -67,14 +67,14 @@ def get():
         entity='grid_bots',
         action='',
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def get_market_orders_by_id(id):
     """
-    /ver1/grid_bots/{id}/market_orders
+    GET /ver1/grid_bots/{id}/market_orders
     Grid Bot Market Orders (Permission: BOTS_READ, Security: SIGNED)
 
     """
@@ -83,14 +83,14 @@ def get_market_orders_by_id(id):
         action='market_orders',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def get_profits_by_id(id):
     """
-    /ver1/grid_bots/{id}/profits
+    GET /ver1/grid_bots/{id}/profits
     Grid Bot Profits (Permission: BOTS_READ, Security: SIGNED)
 
     """
@@ -99,14 +99,14 @@ def get_profits_by_id(id):
         action='profits',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def patch_ai_by_id(id):
     """
-    /ver1/grid_bots/{id}/ai
+    PATCH /ver1/grid_bots/{id}/ai
     Edit Grid Bot (AI) (Permission: BOTS_WRITE, Security: SIGNED)
 
     """
@@ -115,14 +115,14 @@ def patch_ai_by_id(id):
         action='ai_update',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def patch_manual_by_id(id):
     """
-    /ver1/grid_bots/{id}/manual
+    PATCH /ver1/grid_bots/{id}/manual
     Edit Grid Bot (Manual) (Permission: BOTS_WRITE, Security: SIGNED)
 
     """
@@ -131,14 +131,14 @@ def patch_manual_by_id(id):
         action='manual_update',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def get_by_id(id):
     """
-    /ver1/grid_bots/{id}
+    GET /ver1/grid_bots/{id}
     Show Grid Bot (Permission: BOTS_READ, Security: SIGNED)
 
     """
@@ -147,14 +147,14 @@ def get_by_id(id):
         action='get',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def delete_by_id(id):
     """
-    /ver1/grid_bots/{id}
+    DELETE /ver1/grid_bots/{id}
     Delete Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 
     """
@@ -163,14 +163,14 @@ def delete_by_id(id):
         action='delete',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def post_disable_by_id(id):
     """
-    /ver1/grid_bots/{id}/disable
+    POST /ver1/grid_bots/{id}/disable
     Disable Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 
     """
@@ -179,14 +179,14 @@ def post_disable_by_id(id):
         action='disable',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def post_enable_by_id(id):
     """
-    /ver1/grid_bots/{id}/enable
+    POST /ver1/grid_bots/{id}/enable
     Enable Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)
 
     """
@@ -195,14 +195,14 @@ def post_enable_by_id(id):
         action='enable',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
 def get_required_balances_by_id(id):
     """
-    /ver1/grid_bots/{id}/required_balances
+    GET /ver1/grid_bots/{id}/required_balances
     Get required balances to start bot(Permission: BOTS_READ, Security: SIGNED)
 
     """
@@ -211,6 +211,6 @@ def get_required_balances_by_id(id):
         action='required_balances',
         action_id=str(id),
     )
-    return ThreeCommasError(error), data
+    return ThreeCommasApiError(error), data
 
 

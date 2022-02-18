@@ -1,14 +1,28 @@
-import datetime
+from datetime import datetime
 from typing import *
 
 
 # {endpoint_path : str_class_to_parse_to}
-ENDPOINT_RETURNS_MAP = {
-    '/ver1/bots/{bot_id}/show': 'BotEntity',
-    '/ver1/bots': 'List[BotEntity]',
-    '/v2/smart_trades': 'List[SmartTradeV2Entity]',
-    '/v2/smart_trades/{smart_trade_id}/trades': 'List[SmartTradeV2Entity]',
+ENDPOINT_PRODUCTION_MAP = {
+    'get /ver1/bots/{bot_id}/show': 'BotEntity',
+    'get /ver1/bots': 'List[BotEntity]',
+    'get /v2/smart_trades': 'List[SmartTradeV2Entity]',
+    'get /v2/smart_trades/{id}': 'SmartTradeV2Entity',
 }
+
+
+def endpoint_returns(verb, endpoint):
+    return ENDPOINT_PRODUCTION_MAP.get(f'{verb} {endpoint}')
+
+
+# {endpoint_path : str_class_to_soncume}
+ENDPOINT_CONSUMPTION_MAP = {
+    'post /v2/smart_trades': 'SmartTradeV2Entity',
+}
+
+
+def endpoint_consumes(verb, endpoint):
+    return ENDPOINT_CONSUMPTION_MAP.get(f'{verb} {endpoint}')
 
 
 # {name_of_model : {name_of_attr: parse_to}}

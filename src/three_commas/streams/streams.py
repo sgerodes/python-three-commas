@@ -1,13 +1,14 @@
 import asyncio
 import websockets
 import json
-from src.three_commas.sys_utils import create_signature
+from ..sys_utils import create_signature
+from ..model import DealEntity, SmartTradeV2Entity
+from ..error import ThreeCommasException
 import logging
 from enum import Enum
 import functools
 import threading
 import os
-from src.three_commas.model import DealEntity, SmartTradeV2Entity
 
 logger = logging.getLogger(__name__)
 
@@ -81,21 +82,27 @@ class WebSocketMessage(dict):
         return channel and channel == stream_type.get_channel()
 
 
-def smart_trades_stream_decorator(api_key=None, api_secret=None):
+def smart_trades_stream_decorator(*args, api_key=None, api_secret=None):
     return create_runner_for_stream_type(StreamType.SMART_TRADES, api_key, api_secret)
 
 
-def deals_stream_decorator(api_key=None, api_secret=None):
+def deals_stream_decorator(*args, api_key=None, api_secret=None):
+    # if len(args) == 1 and callable(args[0]):
+    #     return inner(function_to_wrap=args[0])
+    # return inner
     return create_runner_for_stream_type(StreamType.DEALS, api_key, api_secret)
 
 
 def create_runner_for_stream_type(stream_type: StreamType, api_key, api_secret):
     api_key = api_key or os.getenv('THREE_COMMAS_API_KEY')
     api_secret = api_secret or os.getenv('THREE_COMMAS_API_SECRET')
-
-    initial_message = get_message_for(stream_type, api_key, api_secret)
+    if not api_key or not api_secret:
+        raise ThreeCommasException('api_key or api_secret is not set. '
+                                   'Set the THREE_COMMAS_API_KEY and THREE_COMMAS_API_SECRET environment variables.'
+                                   'Or pass the api_key and api_secret as parameters to the decorator.')
 
     def inner(function_to_wrap):
+        initial_message = get_message_for(stream_type, api_key, api_secret)
         logger.info(f'Initializing a {stream_type.get_channel()}')
 
         @functools.wraps(function_to_wrap)
