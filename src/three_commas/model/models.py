@@ -179,7 +179,7 @@ class StrDatetimeProxy(str):
     DATETIME_PATTERN = '%Y-%m-%dT%H:%M:%S.%fZ'
 
     def parsed(self, parsed: bool) -> Union[str, datetime]:
-        return datetime.strptime(self, StrDatetimeProxy.DATETIME_PATTERN) if parsed else self
+        return datetime.datetime.strptime(self, StrDatetimeProxy.DATETIME_PATTERN) if parsed else self
 
 
 class QuestionMarkProxy:
