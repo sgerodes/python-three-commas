@@ -143,7 +143,7 @@ def create_models(swaggerdoc: Dict[str, dict]):
     superclass = 'ThreeCommasModel'
     code = list()
     code.append('from .models import ThreeCommasModel, StrFloatProxy, StrIntProxy, StrDatetimeProxy, QuestionMarkProxy')
-    code.append('from datetime import datetime')
+    code.append('import datetime')
     code.append('from typing import Any')
     code.append(f'')
     code.append(f'')
@@ -161,15 +161,17 @@ def create_models(swaggerdoc: Dict[str, dict]):
             parsed_type = None
 
             if example and isinstance(example, str):
-                # "2018-08-21 08:08:08"
-                pat = re.compile(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}')
+                # '2019-01-01T00:00:00.000Z'
+                # TODO the formats are messed up
+                pat = re.compile(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z')
                 if pat.match(example) is not None:
-                    parsed_type = 'datetime'
+                    parsed_type = 'datetime.datetime'
 
             if parsed_type is None:
                 model_parsings = PARSING_MAPPING.get(model_name)
                 if model_parsings and json_attribute_name in model_parsings:
                     parsed_type = model_parsings.get(json_attribute_name)
+
             proxy_type = proxy_parse_type_mapping.get(parsed_type)
             if proxy_type:
                 proxy_parse_type_parsing_map[model_attribute_name] = proxy_type

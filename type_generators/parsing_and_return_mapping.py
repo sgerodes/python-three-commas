@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 from typing import *
 
 
@@ -28,9 +28,9 @@ def endpoint_consumes(verb, endpoint):
 # {name_of_model : {name_of_attr: parse_to}}
 PARSING_MAPPING = {
     'DealEntity': {
-        'created_at': datetime,
-        'updated_at': datetime,
-        'closed_at': datetime,
+        'created_at': datetime.datetime,
+        'updated_at': datetime.datetime,
+        'closed_at': datetime.datetime,
         'take_profit': float,
         'base_order_volume': float,
         'safety_order_volume': float,
@@ -61,8 +61,8 @@ PARSING_MAPPING = {
         'reserved_quote_funds': float,
     },
     'BotEntity': {
-        'created_at': datetime,
-        'updated_at': datetime,
+        'created_at': datetime.datetime,
+        'updated_at': datetime.datetime,
         'take_profit': float,
         'base_order_volume': float,
         'safety_order_volume': float,
@@ -79,8 +79,8 @@ PARSING_MAPPING = {
     },
     'DealMarketOrderEntity': {
         'order_id': int,
-        'created_at': datetime,
-        'updated_at': datetime,
+        'created_at': datetime.datetime,
+        'updated_at': datetime.datetime,
         'quantity': float,
         'quantity_remaining': float,
         'total': float,
@@ -93,8 +93,8 @@ PARSING_MAPPING = {
         'usd_value': float,
     },
     'AccountEntity': {
-        'created_at': datetime,
-        'updated_at': datetime,
+        'created_at': datetime.datetime,
+        'updated_at': datetime.datetime,
         'btc_amount': float,
         'usd_amount': float,
         'day_profit_btc': float,
@@ -114,8 +114,8 @@ PARSING_MAPPING = {
         'initial_total': float,
         'realised_amount': float,
         'realised_total': float,
-        'created_at': datetime,
-        'updated_at': datetime,
+        'created_at': datetime.datetime,
+        'updated_at': datetime.datetime,
         'realised_percentage': float,
         'initial_price': float,
         'realised_price': float,

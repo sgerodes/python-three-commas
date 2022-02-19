@@ -1,5 +1,5 @@
 from .models import ThreeCommasModel, StrFloatProxy, StrIntProxy, StrDatetimeProxy, QuestionMarkProxy
-from datetime import datetime
+import datetime
 from typing import Any
 
 
@@ -79,8 +79,8 @@ class BotEntity(ThreeCommasModel):
         self.max_active_deals: int
         self.active_deals_count: int
         self.deletable: bool
-        self.created_at: str
-        self.updated_at: str
+        self.created_at: StrDatetimeProxy
+        self.updated_at: StrDatetimeProxy
         self.trailing_enabled: bool
         self.tsl_enabled: bool
         self.deal_start_delay_seconds: int
@@ -122,6 +122,8 @@ class BotEntity(ThreeCommasModel):
         self.active_deals_usd_profit: StrFloatProxy
     parsing_map = {
         'deletable': QuestionMarkProxy,
+        'created_at': StrDatetimeProxy,
+        'updated_at': StrDatetimeProxy,
         'take_profit': StrFloatProxy,
         'base_order_volume': StrFloatProxy,
         'safety_order_volume': StrFloatProxy,
@@ -162,8 +164,8 @@ class AccountEntity(ThreeCommasModel):
         self.bots_tsl_allowed: bool
         self.gordon_bots_available: bool
         self.multi_bots_allowed: bool
-        self.created_at: str
-        self.updated_at: str
+        self.created_at: StrDatetimeProxy
+        self.updated_at: StrDatetimeProxy
         self.last_auto_balance: str
         self.fast_convert_available: bool
         self.grid_bots_allowed: bool
@@ -194,6 +196,8 @@ class AccountEntity(ThreeCommasModel):
         self.market_code: str
         self.address: str
     parsing_map = {
+        'created_at': StrDatetimeProxy,
+        'updated_at': StrDatetimeProxy,
         'btc_amount': StrFloatProxy,
         'usd_amount': StrFloatProxy,
         'day_profit_btc': StrFloatProxy,
@@ -276,9 +280,9 @@ class DealEntity(ThreeCommasModel):
         self.to_currency_id: int
         self.account_id: int
         self.active_safety_orders_count: int
-        self.created_at: str
-        self.updated_at: str
-        self.closed_at: str
+        self.created_at: StrDatetimeProxy
+        self.updated_at: StrDatetimeProxy
+        self.closed_at: StrDatetimeProxy
         self.finished: bool
         self.current_active_safety_orders_count: int
         self.current_active_safety_orders: int
@@ -340,6 +344,9 @@ class DealEntity(ThreeCommasModel):
         self.reserved_quote_funds: StrFloatProxy
         self.reserved_base_funds: float
     parsing_map = {
+        'created_at': StrDatetimeProxy,
+        'updated_at': StrDatetimeProxy,
+        'closed_at': StrDatetimeProxy,
         'finished': QuestionMarkProxy,
         'cancellable': QuestionMarkProxy,
         'panic_sellable': QuestionMarkProxy,
