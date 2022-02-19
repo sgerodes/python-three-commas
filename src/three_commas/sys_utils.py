@@ -9,7 +9,7 @@ import hmac
 import hashlib
 from .model.generated_enums import Mode
 from . import configuration
-from .error import ThreeCommasError
+from .error import ThreeCommasApiError
 
 logger = logging.getLogger(__name__)
 
@@ -145,14 +145,14 @@ def with_py3cw(func: Callable) -> Callable:
         # create buffer
         py3cw_closure = Py3cwClosure(additional_headers=additional_headers, py3cw=py3cw)
 
-        inject_py3cw_into_function(func=func, py3cw=py3cw_closure)
+        inject_py3cw_into_function(func=func, wrapper=py3cw_closure)
 
         return func(*args, **kwargs)
     return wrapper
 
 
-def inject_py3cw_into_function(func: Callable, py3cw: Union[Py3CW, Py3cwClosure]):
-    func.__globals__['py3cw'] = py3cw
+def inject_py3cw_into_function(func: Callable, wrapper: Union[Py3CW, Py3cwClosure]):
+    func.__globals__['wrapper'] = wrapper
 
 
 def get_forced_mode_headers(req_forced_mode: Union[str, Mode] = None) -> dict:
@@ -186,10 +186,10 @@ def verify_no_error(error, data):
     if error:
         error['function_name'] = calling_function_name
         logger.error(error)
-        raise ThreeCommasError(error=error)
+        raise ThreeCommasApiError(error=error)
     if data is None:
         logger.warning(f'No data was received for function {calling_function_name}')
-        raise ThreeCommasError(error={'msg': 'Data is None', 'function_name': calling_function_name})
+        raise ThreeCommasApiError(error={'msg': 'Data is None', 'function_name': calling_function_name})
 
 
 def create_signature(payload, api_secret):

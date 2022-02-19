@@ -4,3 +4,4 @@ from . import cached_api
 from . import error
 from . import model
 from . import utils
+from . import streams

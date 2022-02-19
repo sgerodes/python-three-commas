@@ -4,11 +4,14 @@ from collections import defaultdict
 from pathlib import Path
 import os
 from py3cw.config import API_METHODS as PY3CW_API_METHODS
+import datetime
+import re
+from parsing_and_return_mapping import PARSING_MAPPING, endpoint_returns, endpoint_consumes
 
 
 INDENT = ' ' * 4
-PARENT_FOLDER_NAME = 'api'
-MODEL_FOLDER_NAME = 'models.py'
+PARENT_FOLDER_NAME = '../src/three_commas/api'
+MODEL_FILE_NAME = '../src/three_commas/model/generated_models.py'
 
 
 def get_path_variables(path: str):
@@ -18,38 +21,38 @@ def get_path_variables(path: str):
     return path_variable_1, path_variable_2
 
 
-def create_docstring(path: str, parameters: list, description, return_type=None):
+def create_docstring(verb: str, path: str, parameters: list, description, return_type=None):
     if not parameters and not description:
         return None
 
     code = list()
     code.append(f'{INDENT}"""')
-    code.append(f'{INDENT}{path}')
+    code.append(f'{INDENT}{verb.upper()} {path}')
     if description:
         code.append(f'{INDENT}{description}')
         code.append(f'')
 
-    if parameters:
-        parameters.sort(key=lambda p: p.get('required'), reverse=True)
-        for p in parameters:
-            _in = p.get('in')
-            param_name = p.get('name')
-            param_type = p.get('type')
-            required = p.get('required')
-            param_description = p.get('description')
-            enum = p.get('enum')
-
-            param_docstring = list()
-            if required:
-                param_docstring.append('REQUIRED')
-            if param_type:
-                param_docstring.append(param_type)
-            if enum:
-                param_docstring.append("values: " + str(enum))
-            if param_description:
-                param_docstring.append(param_description)
-
-            code.append(f'{INDENT}:param {param_name}: ' + ', '.join(param_docstring))
+    # if parameters:
+    #     parameters.sort(key=lambda p: p.get('required'), reverse=True)
+    #     for p in parameters:
+    #         _in = p.get('in')
+    #         param_name = p.get('name')
+    #         param_type = p.get('type')
+    #         required = p.get('required')
+    #         param_description = p.get('description')
+    #         enum = p.get('enum')
+    #
+    #         param_docstring = list()
+    #         if required:
+    #             param_docstring.append('REQUIRED')
+    #         if param_type:
+    #             param_docstring.append(param_type)
+    #         if enum:
+    #             param_docstring.append("values: " + str(enum))
+    #         if param_description:
+    #             param_docstring.append(param_description)
+    #
+    #         code.append(f'{INDENT}:param {param_name}: ' + ', '.join(param_docstring))
 
     if return_type:
         code.append(f'{INDENT}:return:{str(return_type)}')
@@ -70,26 +73,37 @@ def get_sub_path(path: str):
     return '/'.join(path.split('/')[3:])
 
 
-def create_logic(verb: str, path: str, parameters: List[dict]) -> str:
+def make_ids_uniform_for_path(sub_path):
+    second_replaced = re.sub(r'\{[^}]*\}', '{sub_id}', sub_path)
+    return re.sub(r'\{[^}]*\}', '{id}', second_replaced, 1)
+
+
+def create_function_logic(verb: str, path: str, parameters: List[dict], return_type: str = None, function_has_payload: bool = None) -> str:
     path_variable_1, path_variable_2 = get_path_variables(path)
 
     version = get_api_version_from_path(path)
     endpoint = get_major_endpoint_from_path(path)
     sub_path = get_sub_path(path)
+    py3cw_parsed_sub_path = make_ids_uniform_for_path(sub_path)
+
     if version == 'v2':
         endpoint = 'smart_trades_v2'
 
     py3cw_endpoint = PY3CW_API_METHODS.get(endpoint)
 
-    py3cw_entity = endpoint if endpoint in PY3CW_API_METHODS else '<py3cw_entity>'
+    py3cw_entity = '<py3cw_entity>'
+    if endpoint in PY3CW_API_METHODS:
+        py3cw_entity = endpoint
+
     py3cw_action = '<py3cw_action>'
-    print(endpoint)
+    # print(endpoint)
     if py3cw_endpoint:
         for k, v in py3cw_endpoint.items():
-            if verb.upper() == v[0] and sub_path == v[1]:
+            if verb.upper() == v[0] and py3cw_parsed_sub_path == v[1]:
                 py3cw_action = k
 
     code = list()
+
     code.append(f'{INDENT}error, data = wrapper.request(')
     code.append(f"{INDENT*2}entity='{py3cw_entity}',")
     code.append(f"{INDENT*2}action='{py3cw_action}',")
@@ -97,23 +111,87 @@ def create_logic(verb: str, path: str, parameters: List[dict]) -> str:
         code.append(f"{INDENT*2}action_id=str({path_variable_1}),")
     if path_variable_2:
         code.append(f"{INDENT*2}action_sub_id=str({path_variable_2}),")
+    if function_has_payload:
+        code.append(f"{INDENT*2}payload=entity,")
     code.append(f"{INDENT})")
+    if return_type:
+        if return_type.startswith('List['):
+            list_element_type = return_type.split('[')[1].split(']')[0]
+            code.append(f"{INDENT}return ThreeCommasApiError(error), {list_element_type}.of_list(data)")
+        else:
+            code.append(f"{INDENT}return ThreeCommasApiError(error), {return_type}(data)")
+    else:
+        code.append(f"{INDENT}return ThreeCommasApiError(error), data")
 
     return '\n'.join(code)
 
 
 def create_models(swaggerdoc: Dict[str, dict]):
+    swagger_type_2_py_type = {
+        'number': 'float',
+        'string': 'str',
+        'integer': 'int',
+        'object': 'dict',
+        'array': 'list',
+        'boolean': 'bool',
+    }
+    proxy_parse_type_mapping = {
+        float: 'StrFloatProxy',
+        int: 'StrIntProxy',
+        datetime.datetime: 'StrDatetimeProxy',
+    }
+    superclass = 'ThreeCommasModel'
     code = list()
+    code.append('from .models import ThreeCommasModel, StrFloatProxy, StrIntProxy, StrDatetimeProxy, QuestionMarkProxy')
+    code.append('import datetime')
+    code.append('from typing import Any')
+    code.append(f'')
+    code.append(f'')
+
     for model_name, model_definition in swaggerdoc.get('definitions').items():
-        code.append(f'class {model_name}:')
-        code.append(f'{INDENT}pass')
-        code.append(f'')
-        code.append(f'')
-        code_str = '\n'.join(code)
+        proxy_parse_type_parsing_map = dict()
+        code.append(f'class {model_name}({superclass}):')
+        code.append(f'{INDENT}def __init__(self, d: dict = None):')
+        code.append(f'{INDENT*2}super().__init__(d)')
+        for json_attribute_name, attribute_definition in model_definition.get('properties').items():
+            swagger_type = attribute_definition.get('type')
+            py_type = swagger_type_2_py_type.get(swagger_type)
+            example = attribute_definition.get('example')
+            model_attribute_name = json_attribute_name.replace('?', '')
+            parsed_type = None
 
-    with open(MODEL_FOLDER_NAME, 'w') as f:
+            if example and isinstance(example, str):
+                # '2019-01-01T00:00:00.000Z'
+                # TODO the formats are messed up
+                pat = re.compile(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z')
+                if pat.match(example) is not None:
+                    parsed_type = 'datetime.datetime'
+
+            if parsed_type is None:
+                model_parsings = PARSING_MAPPING.get(model_name)
+                if model_parsings and json_attribute_name in model_parsings:
+                    parsed_type = model_parsings.get(json_attribute_name)
+
+            proxy_type = proxy_parse_type_mapping.get(parsed_type)
+            if proxy_type:
+                proxy_parse_type_parsing_map[model_attribute_name] = proxy_type
+            if json_attribute_name.endswith('?'):
+                proxy_parse_type_parsing_map[model_attribute_name] = 'QuestionMarkProxy'
+
+            codeline = f'{INDENT*2}self.{model_attribute_name}: {proxy_type if proxy_type else py_type}'
+
+            code.append(codeline)
+
+        code.append(f'{INDENT}parsing_map = {"{"}')
+        for model_attribute_name, proxy_type in proxy_parse_type_parsing_map.items():
+            code.append(f"{INDENT*2}'{model_attribute_name}': {proxy_type},")
+        code.append(f'{INDENT}{"}"}')
+        code.append(f'')
+        code.append(f'')
+    code_str = '\n'.join(code)
+
+    with open(MODEL_FILE_NAME, 'w') as f:
         f.write(code_str)
-
 
 
 def generate():
@@ -134,36 +212,63 @@ def generate():
             function_parameters = path_variable_1 or ''
             if path_variable_2:
                 function_parameters += f', {path_variable_2}'
-            code = list()
+
             for verb in http_verbs:
+                function_has_payload = endpoint_consumes(verb, path)
+                if function_has_payload:
+                    function_parameters += f'{", " if function_parameters else ""}entity: dict'
+
                 description = definition.get(verb).get('description')
                 # operationId = definition.get(verb).get('operationId')
                 parameters = definition.get(verb).get('parameters')
 
+                function_name = f'{verb}{"_" + sub_endpoint if sub_endpoint else ""}{"_by_id" if path_variable_1 else ""}'
+                return_type = endpoint_returns(verb, path)
 
-                function_name = f'{verb}{"_" + sub_endpoint if sub_endpoint else ""}{"_by_" + path_variable_1 if path_variable_1 else ""}'
-                return_type = f''  # TODO
-                code.append(f'def {function_name}({function_parameters}):{return_type}')
-                docstring = create_docstring(path, parameters, description)
+                code = list()
+                function_logic = create_function_logic(verb, path, parameters, return_type, function_has_payload)
+
+                endpoint_found_in_py3cw = True
+                if '<py3cw_entity>' in function_logic or '<py3cw_action>' in function_logic:
+                    endpoint_found_in_py3cw = False
+                if not endpoint_found_in_py3cw:
+                    code.append("''' This endpoint was not present in the py3cw module")
+
+                return_type_statement = ''
+                if return_type:
+                    return_type_statement = f' -> Tuple[ThreeCommasApiError, {return_type}]'
+
+                code.append(f'@logged')
+                code.append(f'@with_py3cw')
+                code.append(f'def {function_name}({function_parameters}){return_type_statement}:')
+                docstring = create_docstring(verb, path, parameters, description)
                 if docstring:
                     code.append(docstring)
-                logic = create_logic(verb, path, parameters)
-                code.append(logic)
+                code.append(function_logic)
+
+                if not endpoint_found_in_py3cw:
+                    code.append("'''")
+
                 code.append('')
                 code.append('')
                 code.append('')
 
-            structured_code[f'{version}/{endpoint}'].append('\n'.join(code))
+                structured_code[f'{version}/{endpoint}'].append('\n'.join(code))
 
         create_models(swaggerdoc)
 
         for k, v in structured_code.items():
             imports = list()
             imports.append("from py3cw.request import Py3CW")
-            imports.append("from models import *")
+            imports.append("from ...model import *")
+            imports.append("from ...error import ThreeCommasApiError")
+            imports.append("from typing import Tuple, List")
+            imports.append("import logging")
+            imports.append("from ...sys_utils import logged, with_py3cw, Py3cwClosure")
             imports.append("")
             imports.append("")
-            imports.append("wrapper = Py3CW('', '')")
+            imports.append("logger = logging.getLogger(__name__)")
+            imports.append("wrapper: Py3cwClosure = None")
             imports.append("")
             imports.append("")
             imports.append("")
@@ -175,6 +280,16 @@ def generate():
                 os.makedirs(os.path.dirname(full_path), exist_ok=True)
             with open(full_path, 'w') as f2:
                 f2.write(''.join(c))
+
+        with open(f'{PARENT_FOLDER_NAME}/__init__.py', 'w') as f3:
+            f3.write('from . import ver1, v2')
+            f3.write('\n')
+        with open(f'{PARENT_FOLDER_NAME}/v2/__init__.py', 'w') as f4:
+            f4.write('from . import smart_trades')
+            f4.write('\n')
+        with open(f'{PARENT_FOLDER_NAME}/ver1/__init__.py', 'w') as f5:
+            f5.write('from . import accounts, bots, deals, grid_bots, marketplace, users')
+            f5.write('\n')
 
 
 if __name__ == '__main__':
