@@ -112,14 +112,14 @@ def create_runner_for_stream_type(stream_type: StreamType, api_key, api_secret):
                 msg = await ws.send(json.dumps(initial_message))
                 async for ws_message in ws:
                     ws_dict_message = WebSocketMessage(json.loads(ws_message))
-                    logger.info(f'Received message {json.dumps(ws_dict_message)}')
+                    logger.debug(f'Websocket message {json.dumps(ws_dict_message)}')
                     if ws_dict_message.is_stream_type(stream_type) and ws_dict_message.is_confirm_subscription():
                         logger.info(f'Confirmed subscription to {stream_type.get_channel()}')
                         break
 
                 async for ws_message in ws:
                     ws_dict_message = WebSocketMessage(json.loads(ws_message))
-                    logger.debug(f'Received message {json.dumps(ws_dict_message)}')
+                    logger.debug(f'Websocket message {json.dumps(ws_dict_message)}')
                     if ws_dict_message.is_stream_type(stream_type):
                         tc_message = ws_dict_message.get_message()
                         if stream_type.has_parse_type():

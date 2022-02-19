@@ -60,18 +60,39 @@ You can easily connect to the websockets
 You can use annotations.
 
     import three_commas
+    from three_commas.models import DealEntity, SmartTradeV2Entity
 
-    @three_commas.streams.smart_trades
-    def handle_smart_trades(smart_trade):
+    @three_commas.streams.smart_trades()
+    def handle_smart_trades(smart_trade: SmartTradeV2Entity):
         # Do here something with the smart trade
         # Every new smart trade is passed to this function
         print(smart_trade)
 
-    @three_commas.streams.deals
-    def handle_smart_deals(deal):
-        # Do here something with the deal
-        # Every new deal is passed to this function
-        print(deal)
+    @three_commas.streams.deals()
+    def handle_smart_deals(deal: DealEntity):
+        # do your awesome stuff with the deal
+        print(deal)  #  {'id': 1311811868, 'type': 'Deal', 'bot_id': 6313165, 'max_safety_orders': 6, 'deal_has_error': False ....
+        print(deal.account_id)  #  99648312
+        print(deal.created_at)  #  string object '2022-02-18T05:26:06.803Z'
+        print(deal.created_at.parsed(True))  #  datetime.datetime object 
+
+
+For debugging you can turn on debug level
+
+    import logging
+
+    logging.getLogger('three_commas.streams').setLevel(level=logging.DEBUG)
+
+You will see a lot of websocket messages including pings:
+
+    > DEBUG:three_commas.streams.streams: {"type": "welcome"}
+    > DEBUG:three_commas.streams.streams: {"type": "ping", "message": 1645286932}
+    > DEBUG:three_commas.streams.streams: {"type": "ping", "message": 1645286935}
+    > DEBUG:three_commas.streams.streams: {"type": "ping", "message": 1645286938}
+
+You can also set up the level to info 
+    logging.getLogger('three_commas.streams').setLevel(level=logging.INFO)
+
 
 ### Parsing
 One of the features of this library is the automatic parsing of the returned data. 
