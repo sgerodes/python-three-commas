@@ -74,7 +74,7 @@ You can use annotations.
         print(deal)  #  {'id': 1311811868, 'type': 'Deal', 'bot_id': 6313165, 'max_safety_orders': 6, 'deal_has_error': False ....
         print(deal.account_id)  #  99648312
         print(deal.created_at)  #  string object '2022-02-18T05:26:06.803Z'
-        print(deal.created_at.parsed(True))  #  datetime.datetime object 
+        print(deal.parsed(True).created_at)  #  datetime.datetime object 
 
 
 In order to use the websocket streams you need to set the api key and secret in your environment.
@@ -127,7 +127,7 @@ If you do not want the field to be parsed, and you want the original string to b
 
     bot = api.ver1.bots.get_show(9999999)
     # base_order_volume is a str
-    base_order_volume = bot.base_order_volume.parsed(False) 
+    base_order_volume = bot.parsed(False).base_order_volume 
 
 
 Some fields like "created_at" are timestamps. You can parse these fields to a python datetime object. 
@@ -139,7 +139,7 @@ Timestamp fields are NOT parsed by default, only on demand:
     created_at_str = account.created_at
 
     # parsed into a datetime.datetime object
-    created_at_datetime = account.created_at.parsed(True) 
+    created_at_datetime = account.parsed(True).created_at
 
 
 ### Api keys
