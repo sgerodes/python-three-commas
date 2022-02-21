@@ -147,40 +147,72 @@ class ThreeCommasDict(dict):
 
 
 class ThreeCommasModel(ThreeCommasDict):
-    def __getattr__(self, name):
-        proxy_type = self.__class__.parsing_map.get(name)
-        if proxy_type is QuestionMarkProxy:
-            return self.get(name + '?')
-        item = self.get(name)
-        if item is None:
+    def __getattr__(self, name, parsed: bool = None):
+        proxy_name = self._name_proxy.get(name)
+        if proxy_name:
+            name = proxy_name
+        value = self.get(name)
+
+        if value is None:
             return None
-        if proxy_type is None:
-            return item
+        if parsed is False:
+            return value
+
+        parser: Parser = self.__class__._parse_map.get(name)
+        if parser is None:
+            return value
         try:
-            return proxy_type(item)
-        except ValueError:
-            return item
+            if parsed is None:
+                return parser.parse(value=value)
+            else:
+                return parser.parse(value=value, parsed=parsed)
+        except Exception:
+            return value
+
+    def __setattr__(self, name, value):
+        proxy_name = self._name_proxy.get(name)
+        if proxy_name is not None:
+            self[proxy_name] = value
+        else:
+            self[name] = value
+
+
+class ParsedProxy:
+    MODEL_KEY = '_model'
+    PARSED_KEY = '_parsed'
+
+    def __init__(self, model: ThreeCommasModel, parsed: bool):
+        self.__dict__[ParsedProxy.MODEL_KEY] = model
+        self.__dict__[ParsedProxy.PARSED_KEY] = parsed
+
+    def __getattr__(self, name):
+        return self.__dict__[ParsedProxy.MODEL_KEY].__getattr__(name, parsed=self.__dict__[ParsedProxy.PARSED_KEY])
 
     def __setattr__(self, key, value):
-        self[key] = value
+        self.model.__setattr__(key, value)
 
 
-class StrIntProxy(int):
-    def parsed(self, parsed: bool) -> Union[str, int]:
-        return self if parsed else str(self)
+class Parser:
+    @staticmethod
+    def parse(value: str, parsed: bool = None):
+        raise NotImplemented("The method for parsing was not implemented")
 
 
-class StrFloatProxy(float):
-    def parsed(self, parsed: bool) -> Union[str, float]:
-        return self if parsed else str(self)
+class IntParser(Parser):
+    @staticmethod
+    def parse(value: str, parsed: bool = True) -> Union[str, int]:
+        return int(value) if parsed else value
 
 
-class StrDatetimeProxy(str):
+class FloatParser(Parser):
+    @staticmethod
+    def parse(value: str, parsed: bool = True) -> Union[str, float]:
+        return float(value) if parsed else value
+
+
+class DatetimeParser(Parser):
     DATETIME_PATTERN = '%Y-%m-%dT%H:%M:%S.%fZ'
 
-    def parsed(self, parsed: bool) -> Union[str, datetime]:
-        return datetime.datetime.strptime(self, StrDatetimeProxy.DATETIME_PATTERN) if parsed else self
-
-
-class QuestionMarkProxy:
-    pass
+    @staticmethod
+    def parse(value, parsed: bool = False) -> Union[str, datetime]:
+        return datetime.datetime.strptime(value, DatetimeParser.DATETIME_PATTERN) if parsed else value

@@ -128,6 +128,15 @@ def create_function_logic(verb: str, path: str, parameters: List[dict], return_t
     return '\n'.join(code)
 
 
+def get_str_repr_for_type(parsed_type: type):
+    if parsed_type in {str, float, int, bool}:
+        return parsed_type.__name__
+    if isinstance(parsed_type, str):
+        return parsed_type
+
+    return parsed_type.__name__
+
+
 def create_models(swaggerdoc: Dict[str, dict]):
     swagger_type_2_py_type = {
         'number': 'float',
@@ -138,23 +147,26 @@ def create_models(swaggerdoc: Dict[str, dict]):
         'boolean': 'bool',
     }
     proxy_parse_type_mapping = {
-        float: 'StrFloatProxy',
-        int: 'StrIntProxy',
-        datetime.datetime: 'StrDatetimeProxy',
+        float: 'FloatParser',
+        int: 'IntParser',
+        datetime.datetime: 'DatetimeParser',
     }
     superclass = 'ThreeCommasModel'
     code = list()
-    code.append('from .models import ThreeCommasModel, StrFloatProxy, StrIntProxy, StrDatetimeProxy, QuestionMarkProxy')
+    code.append(f'from __future__ import annotations')
+    code.append('from .models import ThreeCommasModel, FloatParser, IntParser, DatetimeParser, ParsedProxy')
     code.append('import datetime')
-    code.append('from typing import Any')
+    code.append('from typing import Union')
     code.append(f'')
     code.append(f'')
 
     for model_name, model_definition in swaggerdoc.get('definitions').items():
-        proxy_parse_type_parsing_map = dict()
+        _parse_map = dict()
+        _name_proxy = dict()
+        # proxy_parse_type_parsing_map = dict()
         code.append(f'class {model_name}({superclass}):')
-        code.append(f'{INDENT}def __init__(self, d: dict = None):')
-        code.append(f'{INDENT*2}super().__init__(d)')
+        # code.append(f'{INDENT}def __init__(self, d: dict = None):')
+        # code.append(f'{INDENT*2}super().__init__(d)')
         for json_attribute_name, attribute_definition in model_definition.get('properties').items():
             swagger_type = attribute_definition.get('type')
             py_type = swagger_type_2_py_type.get(swagger_type)
@@ -174,20 +186,35 @@ def create_models(swaggerdoc: Dict[str, dict]):
                 if model_parsings and json_attribute_name in model_parsings:
                     parsed_type = model_parsings.get(json_attribute_name)
 
-            proxy_type = proxy_parse_type_mapping.get(parsed_type)
-            if proxy_type:
-                proxy_parse_type_parsing_map[model_attribute_name] = proxy_type
+            parse_type = proxy_parse_type_mapping.get(parsed_type)
+            if parse_type:
+                _parse_map[model_attribute_name] = parse_type
+                # proxy_parse_type_parsing_map[model_attribute_name] = proxy_type
             if json_attribute_name.endswith('?'):
-                proxy_parse_type_parsing_map[model_attribute_name] = 'QuestionMarkProxy'
+                # proxy_parse_type_parsing_map[model_attribute_name] = 'QuestionMarkProxy'
+                _name_proxy[model_attribute_name] = json_attribute_name
 
-            codeline = f'{INDENT*2}self.{model_attribute_name}: {proxy_type if proxy_type else py_type}'
+            attribute_type = f'Union[{py_type}, {get_str_repr_for_type(parsed_type)}]' if parse_type else f'{py_type}'
+            codeline = f'{INDENT}{model_attribute_name}: {attribute_type}'
 
             code.append(codeline)
 
-        code.append(f'{INDENT}parsing_map = {"{"}')
-        for model_attribute_name, proxy_type in proxy_parse_type_parsing_map.items():
-            code.append(f"{INDENT*2}'{model_attribute_name}': {proxy_type},")
+        code.append(f'')
+        code.append(f'{INDENT}def parsed(self, parsed: bool) -> {model_name}:')
+        code.append(f'{INDENT*2}return ParsedProxy(model=self, parsed=parsed)')
+        code.append(f'')
+
+        code.append(f'{INDENT}_parse_map = {"{"}')
+        for model_attribute_name, parse_type in _parse_map.items():
+            code.append(f"{INDENT*2}'{model_attribute_name}': {parse_type},")
         code.append(f'{INDENT}{"}"}')
+        code.append(f'')
+
+        code.append(f'{INDENT}_name_proxy = {"{"}')
+        for model_attribute_name, json_name in _name_proxy.items():
+            code.append(f"{INDENT*2}'{model_attribute_name}': '{json_name}',")
+        code.append(f'{INDENT}{"}"}')
+
         code.append(f'')
         code.append(f'')
     code_str = '\n'.join(code)
