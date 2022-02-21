@@ -108,9 +108,11 @@ def create_function_logic(verb: str, path: str, parameters: List[dict], return_t
     code.append(f"{INDENT*2}entity='{py3cw_entity}',")
     code.append(f"{INDENT*2}action='{py3cw_action}',")
     if path_variable_1:
-        code.append(f"{INDENT*2}action_id=str({path_variable_1}),")
+        # code.append(f"{INDENT*2}action_id=str({path_variable_1}),")
+        code.append(f"{INDENT*2}action_id=str(id),")
     if path_variable_2:
-        code.append(f"{INDENT*2}action_sub_id=str({path_variable_2}),")
+        # code.append(f"{INDENT*2}action_sub_id=str({path_variable_2}),")
+        code.append(f"{INDENT*2}action_sub_id=str(sub_id),")
     if function_has_payload:
         code.append(f"{INDENT*2}payload=entity,")
     code.append(f"{INDENT})")
@@ -209,9 +211,11 @@ def generate():
             sub_endpoint = '_'.join(endpoint_list) if endpoint_list else ''
             path_variable_1, path_variable_2 = get_path_variables(path)
 
-            function_parameters = path_variable_1 or ''
+            # function_parameters = path_variable_1 or ''
+            function_parameters = 'id' if path_variable_1 else ''
             if path_variable_2:
-                function_parameters += f', {path_variable_2}'
+                # function_parameters += f', {path_variable_2}'
+                function_parameters += f', sub_id'
 
             for verb in http_verbs:
                 function_has_payload = endpoint_consumes(verb, path)

@@ -44,7 +44,7 @@ def get_items():
 
 @logged
 @with_py3cw
-def get_signals_by_id(item_id):
+def get_signals_by_id(id):
     """
     GET /ver1/marketplace/{item_id}/signals
     Marketplace Item Signals (Permission: NONE, Security: NONE)
@@ -53,7 +53,7 @@ def get_signals_by_id(item_id):
     error, data = wrapper.request(
         entity='marketplace',
         action='signals',
-        action_id=str(item_id),
+        action_id=str(id),
     )
     return ThreeCommasApiError(error), data
 

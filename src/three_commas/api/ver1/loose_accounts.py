@@ -47,7 +47,7 @@ def get_available_currencies():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def put_by_id(account_id):
+def put_by_id(id):
     """
     PUT /ver1/loose_accounts/{account_id}
     Update Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)
@@ -56,7 +56,7 @@ def put_by_id(account_id):
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
-        action_id=str(account_id),
+        action_id=str(id),
     )
     return ThreeCommasApiError(error), data
 '''
