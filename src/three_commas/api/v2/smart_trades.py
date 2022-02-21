@@ -189,7 +189,7 @@ def post_set_note_by_id(id):
 
 @logged
 @with_py3cw
-def get_trades_by_id(smart_trade_id):
+def get_trades_by_id(id):
     """
     GET /v2/smart_trades/{smart_trade_id}/trades
     Get smart trade v2 trades (Permission: SMART_TRADE_READ, Security: SIGNED)
@@ -198,14 +198,14 @@ def get_trades_by_id(smart_trade_id):
     error, data = wrapper.request(
         entity='smart_trades_v2',
         action='get_trades',
-        action_id=str(smart_trade_id),
+        action_id=str(id),
     )
     return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
-def post_trades_close_by_market_by_id(smart_trade_id, id):
+def post_trades_close_by_market_by_id(id, sub_id):
     """
     POST /v2/smart_trades/{smart_trade_id}/trades/{id}/close_by_market
     Panic close trade by market (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -214,15 +214,15 @@ def post_trades_close_by_market_by_id(smart_trade_id, id):
     error, data = wrapper.request(
         entity='smart_trades_v2',
         action='panic_close_by_market',
-        action_id=str(smart_trade_id),
-        action_sub_id=str(id),
+        action_id=str(id),
+        action_sub_id=str(sub_id),
     )
     return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
-def delete_trades_by_id(smart_trade_id, id):
+def delete_trades_by_id(id, sub_id):
     """
     DELETE /v2/smart_trades/{smart_trade_id}/trades/{id}
     Cancel trade (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -231,8 +231,8 @@ def delete_trades_by_id(smart_trade_id, id):
     error, data = wrapper.request(
         entity='smart_trades_v2',
         action='cancel_trade',
-        action_id=str(smart_trade_id),
-        action_sub_id=str(id),
+        action_id=str(id),
+        action_sub_id=str(sub_id),
     )
     return ThreeCommasApiError(error), data
 

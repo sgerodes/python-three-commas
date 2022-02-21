@@ -69,12 +69,22 @@ You can use annotations.
         print(smart_trade)
 
     @three_commas.streams.deals()
-    def handle_smart_deals(deal: DealEntity):
+    def handle_deals(deal: DealEntity):
         # do your awesome stuff with the deal
         print(deal)  #  {'id': 1311811868, 'type': 'Deal', 'bot_id': 6313165, 'max_safety_orders': 6, 'deal_has_error': False ....
         print(deal.account_id)  #  99648312
         print(deal.created_at)  #  string object '2022-02-18T05:26:06.803Z'
         print(deal.created_at.parsed(True))  #  datetime.datetime object 
+
+
+In order to use the websocket streams you need to set the api key and secret in your environment.
+[Later in the document you can find how to set up the environment variables](#Set the api key and secret)
+
+Or you can pass the keys to the decorator:
+
+    @three_commas.streams.deals(api_key='<your_api_key>', secret='<your_secret>')
+    def handle_deals(deal):
+        ...
 
 
 For debugging you can turn on debug level
@@ -90,7 +100,7 @@ You will see a lot of websocket messages including pings:
     > DEBUG:three_commas.streams.streams: {"type": "ping", "message": 1645286935}
     > DEBUG:three_commas.streams.streams: {"type": "ping", "message": 1645286938}
 
-You can also set up the level to info 
+You can also set up the level to info for less verbose loging
     logging.getLogger('three_commas.streams').setLevel(level=logging.INFO)
 
 
@@ -162,6 +172,33 @@ Some enum fields have functionality.
             # do stuff with the binance account.
 
 You can check what enums are available in the three_commas.model.generated_enums package
+
+### Set the api key and secret
+
+You can set key and secret as an environment variables. The preferred way is to use a .env file:
+
+create a file called .env with the following content:
+
+    THREE_COMMAS_API_KEY=<your_api_key>
+    THREE_COMMAS_API_SECRET=<your_api_secret>
+
+Use a .env loader as python-dotenv. Install it on your machine with pip: "pip install python-dotenv".
+If your project is a git project make sure you gitignore the .env file.
+Then in your code
+
+    from dotenv import load_dotenv
+    load_dotenv()
+
+Now your variables are loaded. Enjoy using the library.
+
+
+You can also set the api key and secret directly in the code. This method is less secure and not recommended.
+    
+    import os
+
+    os.environ["THREE_COMMAS_API_KEY"] = <your_api_key>
+    os.environ["THREE_COMMAS_API_SECRET"] = <your_api_secret>
+
 
 
 ### Examples
