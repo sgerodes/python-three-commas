@@ -133,6 +133,8 @@ def get_str_repr_for_type(parsed_type: type):
         return parsed_type.__name__
     if isinstance(parsed_type, str):
         return parsed_type
+    if parsed_type is datetime.datetime:
+        return 'datetime.datetime'
 
     return parsed_type.__name__
 

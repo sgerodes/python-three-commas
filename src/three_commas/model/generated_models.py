@@ -84,8 +84,8 @@ class BotEntity(ThreeCommasModel):
     max_active_deals: int
     active_deals_count: int
     deletable: bool
-    created_at: Union[str, datetime]
-    updated_at: Union[str, datetime]
+    created_at: Union[str, datetime.datetime]
+    updated_at: Union[str, datetime.datetime]
     trailing_enabled: bool
     tsl_enabled: bool
     deal_start_delay_seconds: int
@@ -170,8 +170,8 @@ class AccountEntity(ThreeCommasModel):
     bots_tsl_allowed: bool
     gordon_bots_available: bool
     multi_bots_allowed: bool
-    created_at: Union[str, datetime]
-    updated_at: Union[str, datetime]
+    created_at: Union[str, datetime.datetime]
+    updated_at: Union[str, datetime.datetime]
     last_auto_balance: str
     fast_convert_available: bool
     grid_bots_allowed: bool
@@ -290,9 +290,9 @@ class DealEntity(ThreeCommasModel):
     to_currency_id: int
     account_id: int
     active_safety_orders_count: int
-    created_at: Union[str, datetime]
-    updated_at: Union[str, datetime]
-    closed_at: Union[str, datetime]
+    created_at: Union[str, datetime.datetime]
+    updated_at: Union[str, datetime.datetime]
+    closed_at: Union[str, datetime.datetime]
     finished: bool
     current_active_safety_orders_count: int
     current_active_safety_orders: int
