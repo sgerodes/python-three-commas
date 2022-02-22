@@ -125,21 +125,15 @@ class ThreeCommasParser:
 
 
 class ThreeCommasDict(dict):
-    def __init__(self, d: dict = None):
-        if d is None:
+    def __init__(self, *args, **kwargs):
+        if not args and not kwargs or (args and args[0] is None):
             return
-        super().__init__(d)
-
-    @classmethod
-    def of(cls, d: dict) -> Union[None, cls]:
-        if d is None:
-            return None
-        return cls(d)
+        super().__init__(*args, **kwargs)
 
     @classmethod
     def of_list(cls, list_of_d: List[dict]) -> List[cls]:
         if list_of_d is None:
-            return None
+            return list()
         return [cls(d) for d in list_of_d]
 
     def __repr__(self):
@@ -175,6 +169,11 @@ class ThreeCommasModel(ThreeCommasDict):
             self[proxy_name] = value
         else:
             self[name] = value
+
+    TP = TypeVar('TP')
+
+    def parsed(self: TP, parsed: bool) -> TP:
+        return ParsedProxy(model=self, parsed=parsed)
 
 
 class ParsedProxy:

@@ -199,16 +199,15 @@ def create_models(swaggerdoc: Dict[str, dict]):
 
             code.append(codeline)
 
-        code.append(f'')
-        code.append(f'{INDENT}def parsed(self, parsed: bool) -> {model_name}:')
-        code.append(f'{INDENT*2}return ParsedProxy(model=self, parsed=parsed)')
-        code.append(f'')
+        # code.append(f'')
+        # code.append(f'{INDENT}def parsed(self, parsed: bool) -> {model_name}:')
+        # code.append(f'{INDENT*2}return ParsedProxy(model=self, parsed=parsed)')
 
+        code.append(f'')
         code.append(f'{INDENT}_parse_map = {"{"}')
         for model_attribute_name, parse_type in _parse_map.items():
             code.append(f"{INDENT*2}'{model_attribute_name}': {parse_type},")
         code.append(f'{INDENT}{"}"}')
-        code.append(f'')
 
         code.append(f'{INDENT}_name_proxy = {"{"}')
         for model_attribute_name, json_name in _name_proxy.items():

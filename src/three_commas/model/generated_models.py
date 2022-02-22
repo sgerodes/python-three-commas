@@ -9,12 +9,8 @@ class IndexEntity(ThreeCommasModel):
     total: int
     page: int
 
-    def parsed(self, parsed: bool) -> IndexEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -31,12 +27,8 @@ class MarketplaceBotEntity(ThreeCommasModel):
     copies: int
     is_favorite: bool
 
-    def parsed(self, parsed: bool) -> MarketplaceBotEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -46,12 +38,8 @@ class MarketplaceItem(ThreeCommasModel):
     name: str
     icon_url: str
 
-    def parsed(self, parsed: bool) -> MarketplaceItem:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -61,12 +49,8 @@ class Profit(ThreeCommasModel):
     amount: float
     chart_data: list
 
-    def parsed(self, parsed: bool) -> Profit:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -74,12 +58,8 @@ class Profit(ThreeCommasModel):
 class PongEntity(ThreeCommasModel):
     pong: str
 
-    def parsed(self, parsed: bool) -> PongEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -87,12 +67,8 @@ class PongEntity(ThreeCommasModel):
 class TimeEntity(ThreeCommasModel):
     server_time: int
 
-    def parsed(self, parsed: bool) -> TimeEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -150,9 +126,6 @@ class BotEntity(ThreeCommasModel):
     start_order_type: str
     active_deals_usd_profit: Union[str, float]
 
-    def parsed(self, parsed: bool) -> BotEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
         'created_at': DatetimeParser,
         'updated_at': DatetimeParser,
@@ -170,7 +143,6 @@ class BotEntity(ThreeCommasModel):
         'finished_deals_count': IntParser,
         'active_deals_usd_profit': FloatParser,
     }
-
     _name_proxy = {
         'deletable': 'deletable?',
     }
@@ -230,9 +202,6 @@ class AccountEntity(ThreeCommasModel):
     market_code: str
     address: str
 
-    def parsed(self, parsed: bool) -> AccountEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
         'created_at': DatetimeParser,
         'updated_at': DatetimeParser,
@@ -249,7 +218,6 @@ class AccountEntity(ThreeCommasModel):
         'total_btc_profit': FloatParser,
         'total_usd_profit': FloatParser,
     }
-
     _name_proxy = {
     }
 
@@ -283,12 +251,8 @@ class GridBotEntity(ThreeCommasModel):
     investment_quote_currency: str
     grid_lines: None
 
-    def parsed(self, parsed: bool) -> GridBotEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -298,12 +262,8 @@ class GridLineEntity(ThreeCommasModel):
     side: str
     order_placed: bool
 
-    def parsed(self, parsed: bool) -> GridLineEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -314,12 +274,8 @@ class GridBotProfitsEntity(ThreeCommasModel):
     usd_profit: str
     created_at: str
 
-    def parsed(self, parsed: bool) -> GridBotProfitsEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -398,9 +354,6 @@ class DealEntity(ThreeCommasModel):
     reserved_quote_funds: Union[float, float]
     reserved_base_funds: float
 
-    def parsed(self, parsed: bool) -> DealEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
         'created_at': DatetimeParser,
         'updated_at': DatetimeParser,
@@ -434,7 +387,6 @@ class DealEntity(ThreeCommasModel):
         'trailing_max_price': FloatParser,
         'reserved_quote_funds': FloatParser,
     }
-
     _name_proxy = {
         'finished': 'finished?',
         'cancellable': 'cancellable?',
@@ -460,12 +412,8 @@ class SmartTradeV2Entity(ThreeCommasModel):
     margin: dict
     is_position_not_filled: bool
 
-    def parsed(self, parsed: bool) -> SmartTradeV2Entity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -488,12 +436,8 @@ class TakeProfitStep(ThreeCommasModel):
     margin: dict
     is_position_not_filled: bool
 
-    def parsed(self, parsed: bool) -> TakeProfitStep:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -510,12 +454,8 @@ class BotDealsStatsEntity(ThreeCommasModel):
     active_deals_usd_profit: str
     active_deals_btc_profit: str
 
-    def parsed(self, parsed: bool) -> BotDealsStatsEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
@@ -529,12 +469,8 @@ class LooseAccountEntity(ThreeCommasModel):
     is_deleted: bool
     is_locked: bool
 
-    def parsed(self, parsed: bool) -> LooseAccountEntity:
-        return ParsedProxy(model=self, parsed=parsed)
-
     _parse_map = {
     }
-
     _name_proxy = {
     }
 
