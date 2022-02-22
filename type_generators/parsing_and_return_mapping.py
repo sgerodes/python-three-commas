@@ -59,6 +59,7 @@ PARSING_MAPPING = {
         'trailing_deviation': float,
         'trailing_max_price': float,
         'reserved_quote_funds': float,
+        'reserved_base_funds': float,
     },
     'BotEntity': {
         'created_at': datetime.datetime,
