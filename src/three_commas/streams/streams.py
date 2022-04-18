@@ -136,6 +136,7 @@ def create_runner_for_stream_type(stream_type: StreamType, api_key, api_secret):
         if not loop.is_running():
             t = threading.Thread(target=loop.run_forever)
             t.start()
+            t.join()
         return stream_decorator
 
     return inner
