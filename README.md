@@ -62,13 +62,13 @@ You can use annotations.
     import three_commas
     from three_commas.model import DealEntity, SmartTradeV2Entity
 
-    @three_commas.stream.smart_trades()
+    @three_commas.streams.smart_trades
     def handle_smart_trades(smart_trade: SmartTradeV2Entity):
         # Do here something with the smart trade
         # Every new smart trade is passed to this function
         print(smart_trade)
 
-    @three_commas.stream.deals()
+    @three_commas.streams.deals
     def handle_deals(deal: DealEntity):
         # do your awesome stuff with the deal
         print(deal)  #  {'id': 1311811868, 'type': 'Deal', 'bot_id': 6313165, 'max_safety_orders': 6, 'deal_has_error': False ....
