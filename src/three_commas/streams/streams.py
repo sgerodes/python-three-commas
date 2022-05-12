@@ -82,18 +82,15 @@ class WebSocketMessage(dict):
         return channel and channel == stream_type.get_channel()
 
 
-def smart_trades_stream_decorator(*args, api_key=None, api_secret=None):
-    return create_runner_for_stream_type(StreamType.SMART_TRADES, api_key, api_secret)
+def smart_trades_stream_decorator(*args, **kwargs):
+    return create_runner_for_stream_type(*args, stream_type=StreamType.SMART_TRADES, **kwargs)
 
 
-def deals_stream_decorator(*args, api_key=None, api_secret=None):
-    # if len(args) == 1 and callable(args[0]):
-    #     return inner(function_to_wrap=args[0])
-    # return inner
-    return create_runner_for_stream_type(StreamType.DEALS, api_key, api_secret)
+def deals_stream_decorator(*args, **kwargs):
+    return create_runner_for_stream_type(*args, stream_type=StreamType.DEALS, **kwargs)
 
 
-def create_runner_for_stream_type(stream_type: StreamType, api_key, api_secret):
+def create_runner_for_stream_type(*args, stream_type: StreamType, api_key: str = None, api_secret: str = None):
     api_key = api_key or os.getenv('THREE_COMMAS_API_KEY')
     api_secret = api_secret or os.getenv('THREE_COMMAS_API_SECRET')
     if not api_key or not api_secret:
@@ -138,7 +135,10 @@ def create_runner_for_stream_type(stream_type: StreamType, api_key, api_secret):
             t.start()
         return stream_decorator
 
-    return inner
+    if len(args) == 1 and callable(args[0]): # this enables the decorator to be both parametrized or with no parameters
+        return inner(function_to_wrap=args[0])
+    else:
+        return inner
 
 
 def get_message_for(stream_type: StreamType, api_key, api_secret):
