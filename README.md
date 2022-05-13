@@ -28,31 +28,32 @@ The package is built mirroring the names of the api paths. For example:
 The endpoints are mirrored from the paths too.
     
     # GET /ver1/bots/pairs_black_list
-    black_list_pairs = api.ver1.bots.get_pairs_black_list()
+    error, black_list_pairs = api.ver1.bots.get_pairs_black_list()
 
     # GET /v2/smart_trades/{id}
-    smart_trades_list = api.v2.smart_trades.get_by_id(id=<your_smart_trade_id>)
+    error, smart_trades_list = api.v2.smart_trades.get_by_id(id=<your_smart_trade_id>)
 
 
 You can get all bots with: 
 
-    bots_list = api.ver1.bots.get()
+    error, bots_list = api.ver1.bots.get()
 
 Or a single bot with:
 
-    bot = api.ver1.bots.get_show_by_id(bot_id=<your_bot_id>)
+    error, bot = api.ver1.bots.get_show_by_id(bot_id=<your_bot_id>)
 
 Or a smart trade
 
-    smart_trade = api.v2.smart_trades.get_by_id(id=9993000)
+    error, smart_trade = api.v2.smart_trades.get_by_id(id=9993000)
 
 The endpoints return a dict object with added functionality. You can use the object like a normal dictionary 
 (exactly how you receive from py3cw), or use the added functions. 
 For example if you want to get the bot max_active_deals you can do both:
 
-    bot = api.ver1.bots.get_show_by_id(bot_id=9999999)
-    max_active_deals = bot['max_active_deals']
-    max_active_deals = bot.max_active_deals
+    error, bot = api.ver1.bots.get_show_by_id(bot_id=9999999)
+    if not error:
+        max_active_deals = bot['max_active_deals']
+        max_active_deals = bot.max_active_deals
 
 ### Websocket Streams
 
@@ -117,7 +118,7 @@ Some numeric data fetched from the api is returned as string. For example in the
 Now you do not need to bother checking the type of the field and parsing it into the desired type.
 This library auto parses these fields:
 
-    bot = api.ver1.bots.get_show(9999999)
+    error, bot = api.ver1.bots.get_show(9999999)
     # base_order_volume is a float
     base_order_volume = bot.get_base_order_volume() 
 
@@ -125,7 +126,7 @@ This library auto parses these fields:
 Parsing (except datetime fields) is done by default. 
 If you do not want the field to be parsed, and you want the original string to be returned use parsed=False
 
-    bot = api.ver1.bots.get_show(9999999)
+    error, bot = api.ver1.bots.get_show(9999999)
     # base_order_volume is a str
     base_order_volume = bot.parsed(False).base_order_volume 
 
@@ -133,7 +134,7 @@ If you do not want the field to be parsed, and you want the original string to b
 Some fields like "created_at" are timestamps. You can parse these fields to a python datetime object. 
 Timestamp fields are NOT parsed by default, only on demand:
 
-    account = api.ver1.accounts.get_by_id(8888888)
+    error, account = api.ver1.accounts.get_by_id(8888888)
 
     # the original string returned by the api
     created_at_str = account.created_at
@@ -148,7 +149,7 @@ In order to use the api you need to set the api key and secret. This could be do
 To set it globally you need to set the environment variables THREE_COMMAS_API_KEY and THREE_COMMAS_API_SECRET.
 To do it per request just pass them into the function:
 
-    account = api.ver1.accounts.get_by_id(8888888, api_key='my_key', api_secret='my_secret')
+    error, account = api.ver1.accounts.get_by_id(8888888, api_key='my_key', api_secret='my_secret')
 
 Request keys have priority. If both global and request keys are set, then the request keys will be used.
 
@@ -158,18 +159,21 @@ You can set the forced mode globally or also per request.
 To set it globally set the environment variable THREE_COMMAS_FORCED_MODE to either paper or real.
 To use the forced mode per request pass it as an argument:
 
-    paper_deals = api.ver1.deals.get(forced_mode='paper')
-    real_deals = api.ver1.deals.get(forced_mode='real')
+    error, paper_deals = api.ver1.deals.get(forced_mode='paper')
+    error, real_deals = api.ver1.deals.get(forced_mode='real')
 
 
 ### Enums
 
 Some enum fields have functionality. 
 
-    accounts_list = api_v1.accounts.get_accounts()
-    for account in accounts_list:
-        if account.get_market_code().is_binance():
-            # do stuff with the binance account.
+    error, accounts_list = api_v1.accounts.get_accounts()
+    if not error:
+        for account in accounts_list:
+            if account.get_market_code().is_binance():
+                # do stuff with the binance account.
+    else:
+        # deal with error here
 
 You can check what enums are available in the three_commas.model.generated_enums package
 
@@ -226,6 +230,7 @@ You can also set the api key and secret directly in the code. This method is les
     }
 
     error, smart_trade_response = api.v2.smart_trades.post(smart_trade)
+
 #### Retrieving a smart trade
 
     error, smart_trade = api.v2.smart_trades.get_by_id(13819196)
