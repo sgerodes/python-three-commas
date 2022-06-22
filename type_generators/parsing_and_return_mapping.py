@@ -8,6 +8,7 @@ ENDPOINT_PRODUCTION_MAP = {
     'get /ver1/bots': 'List[BotEntity]',
     'get /v2/smart_trades': 'List[SmartTradeV2Entity]',
     'get /v2/smart_trades/{id}': 'SmartTradeV2Entity',
+    'get /ver1/accounts/market_pairs': 'List[str]',
 }
 
 
@@ -15,9 +16,10 @@ def endpoint_returns(verb, endpoint):
     return ENDPOINT_PRODUCTION_MAP.get(f'{verb} {endpoint}')
 
 
-# {endpoint_path : str_class_to_soncume}
+# {endpoint_path : str_class_to_consume}
 ENDPOINT_CONSUMPTION_MAP = {
     'post /v2/smart_trades': 'SmartTradeV2Entity',
+    'get /ver1/accounts/market_pairs': 'dict',
 }
 
 

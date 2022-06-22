@@ -13,7 +13,7 @@ setup(
               'three_commas.utils',
               'three_commas.streams',
               ],
-    version='0.2.0',
+    version='0.2.1',
     description='Python api wrapper for 3commas with extended functionality in the api, models, error handling',
     url='https://github.com/badass-blockchain/python-three-commas',
     author='Sergey Gerodes',

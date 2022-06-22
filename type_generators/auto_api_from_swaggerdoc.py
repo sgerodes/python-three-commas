@@ -114,12 +114,15 @@ def create_function_logic(verb: str, path: str, parameters: List[dict], return_t
         # code.append(f"{INDENT*2}action_sub_id=str({path_variable_2}),")
         code.append(f"{INDENT*2}action_sub_id=str(sub_id),")
     if function_has_payload:
-        code.append(f"{INDENT*2}payload=entity,")
+        code.append(f"{INDENT*2}payload=payload,")
     code.append(f"{INDENT})")
     if return_type:
         if return_type.startswith('List['):
             list_element_type = return_type.split('[')[1].split(']')[0]
-            code.append(f"{INDENT}return ThreeCommasApiError(error), {list_element_type}.of_list(data)")
+            if list_element_type in {"str", "float", "int", "bool", "dict", "list"}:
+                code.append(f"{INDENT}return ThreeCommasApiError(error), data")
+            else:
+                code.append(f"{INDENT}return ThreeCommasApiError(error), {list_element_type}.of_list(data)")
         else:
             code.append(f"{INDENT}return ThreeCommasApiError(error), {return_type}(data)")
     else:
@@ -246,9 +249,10 @@ def generate():
                 function_parameters += f', sub_id'
 
             for verb in http_verbs:
-                function_has_payload = endpoint_consumes(verb, path)
+                # function_has_payload = endpoint_consumes(verb, path)
+                function_has_payload = True
                 if function_has_payload:
-                    function_parameters += f'{", " if function_parameters else ""}entity: dict'
+                    function_parameters += f'{", " if function_parameters else ""}payload: dict = None'
 
                 description = definition.get(verb).get('description')
                 # operationId = definition.get(verb).get('operationId')

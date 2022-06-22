@@ -13,7 +13,7 @@ wrapper: Py3cwClosure = None
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def get_presets():
+def get_presets(payload: dict = None):
     """
     GET /ver1/marketplace/presets
     Marketplace presets (Permission: NONE, Security: SIGNED)
@@ -22,6 +22,7 @@ def get_presets():
     error, data = wrapper.request(
         entity='marketplace',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -29,7 +30,7 @@ def get_presets():
 
 @logged
 @with_py3cw
-def get_items():
+def get_items(payload: dict = None):
     """
     GET /ver1/marketplace/items
     All marketplace items (Permission: NONE, Security: NONE)
@@ -38,13 +39,14 @@ def get_items():
     error, data = wrapper.request(
         entity='marketplace',
         action='items',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
-def get_signals_by_id(id):
+def get_signals_by_id(id, payload: dict = None):
     """
     GET /ver1/marketplace/{item_id}/signals
     Marketplace Item Signals (Permission: NONE, Security: NONE)
@@ -54,6 +56,7 @@ def get_signals_by_id(id):
         entity='marketplace',
         action='signals',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 

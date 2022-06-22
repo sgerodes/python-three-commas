@@ -13,7 +13,7 @@ wrapper: Py3cwClosure = None
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post():
+def post(payload: dict = None):
     """
     POST /ver1/loose_accounts
     Create Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)
@@ -22,6 +22,7 @@ def post():
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -30,7 +31,7 @@ def post():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def get_available_currencies():
+def get_available_currencies(payload: dict = None):
     """
     GET /ver1/loose_accounts/available_currencies
     Available currencies (Permission: ACCOUNTS_READ, Security: SIGNED)
@@ -39,6 +40,7 @@ def get_available_currencies():
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -47,7 +49,7 @@ def get_available_currencies():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def put_by_id(id):
+def put_by_id(id, payload: dict = None):
     """
     PUT /ver1/loose_accounts/{account_id}
     Update Loose Account (Permission: ACCOUNTS_WRITE, Security: SIGNED)
@@ -57,6 +59,7 @@ def put_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''

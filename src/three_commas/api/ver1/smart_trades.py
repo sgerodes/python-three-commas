@@ -13,7 +13,7 @@ wrapper: Py3cwClosure = None
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_create_simple_sell():
+def post_create_simple_sell(payload: dict = None):
     """
     POST /ver1/smart_trades/create_simple_sell
     Create SimpleSell (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -22,6 +22,7 @@ def post_create_simple_sell():
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -30,7 +31,7 @@ def post_create_simple_sell():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_create_simple_buy():
+def post_create_simple_buy(payload: dict = None):
     """
     POST /ver1/smart_trades/create_simple_buy
     Create SimpleBuy (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -39,6 +40,7 @@ def post_create_simple_buy():
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -47,7 +49,7 @@ def post_create_simple_buy():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_create_smart_sell():
+def post_create_smart_sell(payload: dict = None):
     """
     POST /ver1/smart_trades/create_smart_sell
     Create SmartSale (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -56,6 +58,7 @@ def post_create_smart_sell():
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -64,7 +67,7 @@ def post_create_smart_sell():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_create_smart_cover():
+def post_create_smart_cover(payload: dict = None):
     """
     POST /ver1/smart_trades/create_smart_cover
     Create SmartCover (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -73,6 +76,7 @@ def post_create_smart_cover():
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -81,7 +85,7 @@ def post_create_smart_cover():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_create_smart_trade():
+def post_create_smart_trade(payload: dict = None):
     """
     POST /ver1/smart_trades/create_smart_trade
     Create SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -90,6 +94,7 @@ def post_create_smart_trade():
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -98,7 +103,7 @@ def post_create_smart_trade():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def get():
+def get(payload: dict = None):
     """
     GET /ver1/smart_trades
     Get SmartTrade history (Permission: SMART_TRADE_READ, Security: SIGNED)
@@ -107,6 +112,7 @@ def get():
     error, data = wrapper.request(
         entity='<py3cw_entity>',
         action='<py3cw_action>',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -115,7 +121,7 @@ def get():
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_cancel_order_by_id(id):
+def post_cancel_order_by_id(id, payload: dict = None):
     """
     POST /ver1/smart_trades/{smart_trade_id}/cancel_order
     Manual cancel order (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -125,6 +131,7 @@ def post_cancel_order_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -133,7 +140,7 @@ def post_cancel_order_by_id(id):
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_add_funds_by_id(id):
+def post_add_funds_by_id(id, payload: dict = None):
     """
     POST /ver1/smart_trades/{smart_trade_id}/add_funds
     Smart Trade add funds (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -143,6 +150,7 @@ def post_add_funds_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -151,7 +159,7 @@ def post_add_funds_by_id(id):
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_step_panic_sell_by_id(id):
+def post_step_panic_sell_by_id(id, payload: dict = None):
     """
     POST /ver1/smart_trades/{smart_trade_id}/step_panic_sell
     Step panic sell (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -161,6 +169,7 @@ def post_step_panic_sell_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -169,7 +178,7 @@ def post_step_panic_sell_by_id(id):
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def patch_update_by_id(id):
+def patch_update_by_id(id, payload: dict = None):
     """
     PATCH /ver1/smart_trades/{smart_trade_id}/update
     Edit SmartTrade/SmartSale/SmartCover (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -179,6 +188,7 @@ def patch_update_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -187,7 +197,7 @@ def patch_update_by_id(id):
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_cancel_by_id(id):
+def post_cancel_by_id(id, payload: dict = None):
     """
     POST /ver1/smart_trades/{smart_trade_id}/cancel
     Cancel SmartTrade (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -197,6 +207,7 @@ def post_cancel_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -205,7 +216,7 @@ def post_cancel_by_id(id):
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_panic_sell_by_id(id):
+def post_panic_sell_by_id(id, payload: dict = None):
     """
     POST /ver1/smart_trades/{smart_trade_id}/panic_sell
     Sell currency immediately (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -215,6 +226,7 @@ def post_panic_sell_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -223,7 +235,7 @@ def post_panic_sell_by_id(id):
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_force_start_by_id(id):
+def post_force_start_by_id(id, payload: dict = None):
     """
     POST /ver1/smart_trades/{smart_trade_id}/force_start
     Process BuyStep immediately  (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -233,6 +245,7 @@ def post_force_start_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -241,7 +254,7 @@ def post_force_start_by_id(id):
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def post_force_process_by_id(id):
+def post_force_process_by_id(id, payload: dict = None):
     """
     POST /ver1/smart_trades/{smart_trade_id}/force_process
     Refresh SmartTrade state (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -251,6 +264,7 @@ def post_force_process_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''
@@ -259,7 +273,7 @@ def post_force_process_by_id(id):
 ''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
-def get_show_by_id(id):
+def get_show_by_id(id, payload: dict = None):
     """
     GET /ver1/smart_trades/{smart_trade_id}/show
     """
@@ -267,6 +281,7 @@ def get_show_by_id(id):
         entity='<py3cw_entity>',
         action='<py3cw_action>',
         action_id=str(id),
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 '''

@@ -12,7 +12,7 @@ wrapper: Py3cwClosure = None
 
 @logged
 @with_py3cw
-def get_current_mode():
+def get_current_mode(payload: dict = None):
     """
     GET /ver1/users/current_mode
     Current User Mode (Paper or Real) (Permission: ACCOUNTS_READ, Security: SIGNED)
@@ -21,13 +21,14 @@ def get_current_mode():
     error, data = wrapper.request(
         entity='users',
         action='current_mode',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 
 
 @logged
 @with_py3cw
-def post_change_mode():
+def post_change_mode(payload: dict = None):
     """
     POST /ver1/users/change_mode
     Change User Mode (Paper or Real) (Permission: ACCOUNTS_WRITE, Security: SIGNED)
@@ -36,6 +37,7 @@ def post_change_mode():
     error, data = wrapper.request(
         entity='users',
         action='change_mode',
+        payload=payload,
     )
     return ThreeCommasApiError(error), data
 

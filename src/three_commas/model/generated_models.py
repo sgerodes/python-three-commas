@@ -352,7 +352,7 @@ class DealEntity(ThreeCommasModel):
     tsl_max_price: str
     strategy: str
     reserved_quote_funds: Union[float, float]
-    reserved_base_funds: float
+    reserved_base_funds: Union[float, float]
 
     _parse_map = {
         'created_at': DatetimeParser,
@@ -386,6 +386,7 @@ class DealEntity(ThreeCommasModel):
         'trailing_deviation': FloatParser,
         'trailing_max_price': FloatParser,
         'reserved_quote_funds': FloatParser,
+        'reserved_base_funds': FloatParser,
     }
     _name_proxy = {
         'finished': 'finished?',
