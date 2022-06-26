@@ -60,7 +60,7 @@ def get_transfer_data(payload: dict = None):
 
 @logged
 @with_py3cw
-def post_new(payload: dict = None):
+def post_new(payload: dict = None) -> Tuple[ThreeCommasApiError, AccountEntity]:
     """
     POST /ver1/accounts/new
     Add exchange account  (Permission: ACCOUNTS_WRITE, Security: SIGNED)
@@ -71,7 +71,7 @@ def post_new(payload: dict = None):
         action='new',
         payload=payload,
     )
-    return ThreeCommasApiError(error), data
+    return ThreeCommasApiError(error), AccountEntity(data)
 
 
 @logged
@@ -399,7 +399,7 @@ def get_leverage_data_by_id(id, payload: dict = None):
 
 @logged
 @with_py3cw
-def get_by_id(id, payload: dict = None):
+def get_by_id(id, payload: dict = None) -> Tuple[ThreeCommasApiError, AccountEntity]:
     """
     GET /ver1/accounts/{account_id}
     Single Account Info (Permission: ACCOUNTS_READ, Security: SIGNED)
@@ -412,6 +412,6 @@ You can send 'summary' instead of {account_id} to get summary account info
         action_id=str(id),
         payload=payload,
     )
-    return ThreeCommasApiError(error), data
+    return ThreeCommasApiError(error), AccountEntity(data)
 
 
