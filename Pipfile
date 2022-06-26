@@ -10,7 +10,6 @@ py3cw = "*"
 python-dotenv = "*"
 aenum = "*"
 websockets = "*"
-twine = "*"
 
 [dev-packages]
 

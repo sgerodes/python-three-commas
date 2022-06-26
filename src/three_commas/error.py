@@ -14,7 +14,6 @@ class BaseOrderToSmallErrorElement:
 
 
 class ThreeCommasApiError(ThreeCommasDict):
-
     BO_TO_SMALL_ERROR_PATTERN = re.compile(r"Base order size is too small\. Min: ([0-9.]*),? ?([\w_]+)?", re.IGNORECASE)
     NO_MARKET_PAIR_ERROR_PATTERN = re.compile(r"No market data for this pair: ([^\']*)\'", re.IGNORECASE)
     EXTRACT_PY3CW_MESSAGE_PATTERN = re.compile(r"Other error occurred: record_invalid Invalid parameters (\{.*\})\.", re.IGNORECASE)
@@ -22,6 +21,14 @@ class ThreeCommasApiError(ThreeCommasDict):
     BOT_DID_NOT_EXISTED_OR_BELONGS_TO_OTHER_ACCOUNT_ERROR_PATTERN = re.compile(r"Other error occurred: not_found Not Found None", re.IGNORECASE)
     API_KEY_NOT_ENOUGH_PERMISSION_PATTERN = re.compile(r"access_denied Api key doesn't have enough permissions", re.IGNORECASE)
     API_KEY_INVALID_OR_EXPIRED_PATTERN = re.compile(r'api_key_invalid_or_expired Unauthorized. Invalid or expired api key', re.IGNORECASE)
+    API_KEY_NOT_AUTHORIZED_FOR_THIS_ACTION_PATTERN = re.compile(r'key not authorized for this action', re.IGNORECASE)
+    ACCOUNT_ALREADY_CONNECTED_PATTERN = re.compile(r'This account is already connected!', re.IGNORECASE)
+
+    def is_account_already_connected_error(self) -> bool:
+        return self._has_error_message() and self.ACCOUNT_ALREADY_CONNECTED_PATTERN.findall(self.get_msg())
+
+    def is_api_key_not_authorized_for_this_action_error(self) -> bool:
+        return self._has_error_message() and self.API_KEY_NOT_AUTHORIZED_FOR_THIS_ACTION_PATTERN.findall(self.get_msg())
 
     def is_api_key_has_no_permission_error(self) -> bool:
         return self._has_error_message() and self.API_KEY_NOT_ENOUGH_PERMISSION_PATTERN.findall(self.get_msg())
