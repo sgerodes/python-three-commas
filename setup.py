@@ -35,6 +35,7 @@ setup(
     install_requires=[
         'py3cw',
         'cachetools',
-        'aenum'
+        'aenum',
+        'websockets'
     ]
 )

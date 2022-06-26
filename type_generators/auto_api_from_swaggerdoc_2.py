@@ -23,3 +23,15 @@ class ThreeCommasApiFunction:
     action: str
     action_id_name: str
     sub_id_name: str
+
+
+# ideas
+# api.ver1.accounts.by_id.get(id=<id>)
+# api.ver1.accounts.get() # use __call__()
+# api.ver1.accounts.get.by_id_and_sub_id(id=<id>, sub_id=<sub_id>)
+# api.ver1.accounts.get.by_id(id=<id>, sub_id=<sub_id>)
+# api.get.ver1.accounts.by_id(id=<id>, sub_id=<sub_id>) # not preffered, better to have all account endpoint clustered in one file
+# api.get.ver1.accounts.remove.post(id=<id>)
+# api.get.ver1.accounts.get(id=<id>)
+# api.get.ver1.accounts.get()
+

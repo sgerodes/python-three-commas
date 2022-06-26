@@ -4,27 +4,35 @@ from typing import *
 
 # {endpoint_path : str_class_to_parse_to}
 ENDPOINT_PRODUCTION_MAP = {
-    'get /ver1/bots/{bot_id}/show': 'BotEntity',
-    'get /ver1/bots': 'List[BotEntity]',
-    'get /v2/smart_trades': 'List[SmartTradeV2Entity]',
-    'get /v2/smart_trades/{id}': 'SmartTradeV2Entity',
-    'get /ver1/accounts/market_pairs': 'List[str]',
+    'GET /ver1/bots/{bot_id}/show': 'BotEntity',
+    'GET /ver1/bots': 'List[BotEntity]',
+    'GET /v2/smart_trades': 'List[SmartTradeV2Entity]',
+    'GET /v2/smart_trades/{id}': 'SmartTradeV2Entity',
+    'GET /ver1/accounts/market_pairs': 'List[str]',
+    'GET /ver1/accounts/{account_id}': 'AccountEntity',
+    'POST /ver1/accounts/new': 'AccountEntity',
 }
 
 
-def endpoint_returns(verb, endpoint):
-    return ENDPOINT_PRODUCTION_MAP.get(f'{verb} {endpoint}')
+def endpoint_returns(verb: str, endpoint: str):
+    return ENDPOINT_PRODUCTION_MAP.get(f'{verb.upper()} {endpoint}')
 
 
 # {endpoint_path : str_class_to_consume}
 ENDPOINT_CONSUMPTION_MAP = {
-    'post /v2/smart_trades': 'SmartTradeV2Entity',
-    'get /ver1/accounts/market_pairs': 'dict',
+    'POST /v2/smart_trades': 'SmartTradeV2Entity',
+    'GET /ver1/accounts/market_pairs': 'dict',
 }
 
 
-def endpoint_consumes(verb, endpoint):
-    return ENDPOINT_CONSUMPTION_MAP.get(f'{verb} {endpoint}')
+def endpoint_consumes(verb: str, endpoint: str):
+    return ENDPOINT_CONSUMPTION_MAP.get(f'{verb.upper()} {endpoint}')
+
+FIELD_INITIAL_TYPE_MAPPINGS = {
+    'AccountEntity': {
+        'supported_market_types': List[str]  # swaggerdoc states "str"
+    }
+}
 
 
 # {name_of_model : {name_of_attr: parse_to}}
