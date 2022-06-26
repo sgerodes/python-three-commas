@@ -179,9 +179,13 @@ You can check what enums are available in the three_commas.model.generated_enums
 
 ### Set the api key and secret
 
-You can set key and secret as an environment variables. The preferred way is to use a .env file:
+Always make sure your api keys are stored securely and are not pushed into any public repositories
 
-create a file called .env with the following content:
+#### dotenv file and dotenv loader (preferred, more secure)
+
+You can set key and secret as an environment variables. The preferred more secure way is to use a .env file:
+
+create a file called ".env" with the following content:
 
     THREE_COMMAS_API_KEY=<your_api_key>
     THREE_COMMAS_API_SECRET=<your_api_secret>
@@ -195,6 +199,7 @@ Then in your code
 
 Now your variables are loaded. Enjoy using the library.
 
+#### setting the environment variable with the os module (less secure)
 
 You can also set the api key and secret directly in the code. This method is less secure and not recommended.
     
