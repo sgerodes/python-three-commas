@@ -161,7 +161,7 @@ def get_by_id(id, payload: dict = None):
 
 @logged
 @with_py3cw
-def delete_by_id(id, payload: dict = None, payload: dict = None):
+def delete_by_id(id, payload: dict = None):
     """
     DELETE /ver1/grid_bots/{id}
     Delete Grid Bot (Permission: BOTS_WRITE, Security: SIGNED)

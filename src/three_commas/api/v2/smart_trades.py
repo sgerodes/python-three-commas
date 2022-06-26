@@ -28,7 +28,7 @@ def get(payload: dict = None) -> Tuple[ThreeCommasApiError, List[SmartTradeV2Ent
 
 @logged
 @with_py3cw
-def post(payload: dict = None, payload: dict = None):
+def post(payload: dict = None):
     """
     POST /v2/smart_trades
     Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -61,7 +61,7 @@ def get_by_id(id, payload: dict = None) -> Tuple[ThreeCommasApiError, SmartTrade
 
 @logged
 @with_py3cw
-def delete_by_id(id, payload: dict = None, payload: dict = None):
+def delete_by_id(id, payload: dict = None):
     """
     DELETE /v2/smart_trades/{id}
     Cancel smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -78,7 +78,7 @@ def delete_by_id(id, payload: dict = None, payload: dict = None):
 
 @logged
 @with_py3cw
-def patch_by_id(id, payload: dict = None, payload: dict = None, payload: dict = None):
+def patch_by_id(id, payload: dict = None):
     """
     PATCH /v2/smart_trades/{id}
     Update smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -93,7 +93,6 @@ def patch_by_id(id, payload: dict = None, payload: dict = None, payload: dict = 
     return ThreeCommasApiError(error), data
 
 
-''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
 def post_reduce_funds_by_id(id, payload: dict = None):
@@ -104,12 +103,11 @@ def post_reduce_funds_by_id(id, payload: dict = None):
     """
     error, data = wrapper.request(
         entity='smart_trades_v2',
-        action='<py3cw_action>',
+        action='reduce_funds',
         action_id=str(id),
         payload=payload,
     )
     return ThreeCommasApiError(error), data
-'''
 
 
 @logged

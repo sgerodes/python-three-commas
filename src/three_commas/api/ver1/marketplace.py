@@ -10,7 +10,6 @@ logger = logging.getLogger(__name__)
 wrapper: Py3cwClosure = None
 
 
-''' This endpoint was not present in the py3cw module
 @logged
 @with_py3cw
 def get_presets(payload: dict = None):
@@ -21,11 +20,10 @@ def get_presets(payload: dict = None):
     """
     error, data = wrapper.request(
         entity='marketplace',
-        action='<py3cw_action>',
+        action='presets',
         payload=payload,
     )
     return ThreeCommasApiError(error), data
-'''
 
 
 @logged

@@ -251,7 +251,7 @@ def generate():
             for verb in http_verbs:
                 # function_has_payload = endpoint_consumes(verb, path)
                 function_has_payload = True
-                if function_has_payload:
+                if function_has_payload and "payload: dict" not in function_parameters:
                     function_parameters += f'{", " if function_parameters else ""}payload: dict = None'
 
                 description = definition.get(verb).get('description')
