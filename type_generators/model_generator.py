@@ -307,6 +307,14 @@ tc_generated_classes = [
                               ThreeCommasJsonProperty('cancelable', bool),
                               ThreeCommasJsonProperty('force_processable', bool),
                           ]),
+    ThreeCommasModelClass(name='BalanceChartDataElement',
+                          properties=[
+                              ThreeCommasJsonProperty('date', int),
+                              ThreeCommasJsonProperty('usd', float),
+                              ThreeCommasJsonProperty('btc', float),
+                              ThreeCommasJsonProperty('btc_deposit_amount', float),
+                              ThreeCommasJsonProperty('usd_deposit_amount', float),
+                          ]),
 ]
 
 

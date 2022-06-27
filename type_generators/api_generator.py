@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 from typing import List, Union, Dict, Iterable
 
-IN_PATH = './3commas_swaggerdoc.json'
+IN_PATH = '3commas_swaggerdoc_2022_01_24.json'
 OUT_FOLDER = './generated_api'
 INDENT = '    '
 

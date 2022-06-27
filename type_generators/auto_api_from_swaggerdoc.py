@@ -228,7 +228,7 @@ def create_models(swaggerdoc: Dict[str, dict]):
 
 
 def generate():
-    with open('./3commas_swaggerdoc.json', 'r') as f:
+    with open('3commas_swaggerdoc_2022_01_24.json', 'r') as f:
         swaggerdoc: Dict[str, dict] = json.loads(f.read())
         structured_code: Dict[str, list] = defaultdict(list)
 
