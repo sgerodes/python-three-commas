@@ -28,7 +28,7 @@ def get(payload: dict = None) -> Tuple[ThreeCommasApiError, List[SmartTradeV2Ent
 
 @logged
 @with_py3cw
-def post(payload: dict = None):
+def post(payload: dict = None) -> Tuple[ThreeCommasApiError, SmartTradeV2Entity]:
     """
     POST /v2/smart_trades
     Create smart trade v2 (Permission: SMART_TRADE_WRITE, Security: SIGNED)
@@ -39,7 +39,7 @@ def post(payload: dict = None):
         action='new',
         payload=payload,
     )
-    return ThreeCommasApiError(error), data
+    return ThreeCommasApiError(error), SmartTradeV2Entity(data)
 
 
 @logged

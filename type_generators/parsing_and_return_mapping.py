@@ -8,6 +8,7 @@ ENDPOINT_PRODUCTION_MAP = {
     'GET /ver1/bots': 'List[BotEntity]',
     'GET /v2/smart_trades': 'List[SmartTradeV2Entity]',
     'GET /v2/smart_trades/{id}': 'SmartTradeV2Entity',
+    'POST /v2/smart_trades': 'SmartTradeV2Entity',
     'GET /ver1/accounts/market_pairs': 'List[str]',
     'GET /ver1/accounts/{account_id}': 'AccountEntity',
     'POST /ver1/accounts/new': 'AccountEntity',
