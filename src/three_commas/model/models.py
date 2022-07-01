@@ -4,6 +4,7 @@ import datetime
 import functools
 import logging
 from .. import configuration
+import copy
 
 
 logger = logging.getLogger(__name__)
@@ -129,6 +130,10 @@ class ThreeCommasDict(dict):
         if not args and not kwargs or (args and args[0] is None):
             return
         super().__init__(*args, **kwargs)
+
+    @classmethod
+    def deepcopy(cls, copy_from: dict):
+        return cls(copy.deepcopy(copy_from))
 
     @classmethod
     def of_list(cls, list_of_d: List[dict]) -> List[cls]:
