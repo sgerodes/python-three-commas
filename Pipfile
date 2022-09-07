@@ -10,6 +10,7 @@ py3cw = "*"
 python-dotenv = "*"
 aenum = "*"
 websockets = "*"
+prodict = "*"
 
 [dev-packages]
 

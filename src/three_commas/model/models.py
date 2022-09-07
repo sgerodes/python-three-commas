@@ -5,6 +5,7 @@ import functools
 import logging
 from .. import configuration
 import copy
+from prodict import Prodict
 
 
 logger = logging.getLogger(__name__)
@@ -126,6 +127,7 @@ class ThreeCommasParser:
 
 
 class ThreeCommasDict(dict):
+    # TODO probably switch to prodict https://github.com/ramazanpolat/prodict
     def __init__(self, *args, **kwargs):
         if not args and not kwargs or (args and args[0] is None):
             return
@@ -133,7 +135,11 @@ class ThreeCommasDict(dict):
 
     @classmethod
     def deepcopy(cls, copy_from: dict):
-        return cls(copy.deepcopy(copy_from))
+        cp = copy.deepcopy(copy_from)
+        return cls(cp)
+
+    def __deepcopy__(self, memo=None):
+        return self.__class__(copy.deepcopy(dict(self), memo=memo))
 
     @classmethod
     def of_list(cls, list_of_d: List[dict]) -> List[cls]:
