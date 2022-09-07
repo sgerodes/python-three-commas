@@ -5,7 +5,6 @@ import functools
 import logging
 from .. import configuration
 import copy
-from prodict import Prodict
 
 
 logger = logging.getLogger(__name__)
